@@ -55,20 +55,59 @@ public class Cadastro extends HttpServlet {
     }
 
    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	  throws ServletException, IOException {
+    
+    String nome = request.getParameter("nome");
+    String email = request.getParameter("email");
+    String senha = request.getParameter("senha");
+    String dtNascStr = request.getParameter("dtnasc");
+    String sexoStr = request.getParameter("sexo");
+    String[] interesses = request.getParameterMap().get("interesses");
+    String opcaoStr = request.getParameter("opcao");
+    
+    DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+    Date dtNasc = null;
+    try {
+      dtNasc = formatador.parse(dtNascStr);
+    } catch (ParseException ex) {
+      //TODO: Fazer tratamento se data for invalida
     }
+    
+    int sexo = Integer.parseInt(sexoStr);
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    // PROCESSAMENTO DOS DADOS
+    
+    
+    // Seta os atributos para compartilhar os valores com o jsp
+    // Nao confundir get/setAttribute com getParameter!!!
+    request.setAttribute("id", request.getParameter("id"));
+    request.setAttribute("nome", nome);
+    request.setAttribute("email", email);
+    request.setAttribute("senha", senha);
+    request.setAttribute("dtnascimento", dtNasc);
+    request.setAttribute("salario", new BigDecimal(1000000));
+    request.setAttribute("sexo", sexo);
+    request.setAttribute("interesses", interesses);
+    request.setAttribute("opcao", opcaoStr);
+    
+    // Encaminhamento para o processamento continuar no jsp.
+    RequestDispatcher dispatcher =
+	    request.getRequestDispatcher("resposta.jsp");
+    dispatcher.forward(request, response);
+    
+  }
+
+  /**
+   * Returns a short description of the servlet.
+   *
+   * @return a String containing servlet description
+   */
+  @Override
+  public String getServletInfo() {
+    return "Short description";
+  }// </editor-fold>
 
 }
+
