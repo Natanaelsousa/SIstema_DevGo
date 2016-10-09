@@ -12,8 +12,8 @@
 	<head>
              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>Cadastro de Clientes</title>
-                 <c:url value="css/CadastroCliente.css" var="urlCadastroCliente" />
-                 <link rel="stylesheet" href="${urlCadastroCliente}" />
+                 <c:url value="css/CadastroCliente.css" var="urlEstilos" />
+                 <link rel="stylesheet" href="${urlEstilos}" />
 	</head>
     <body>
         <header>
@@ -43,10 +43,10 @@
                 <li><a href="editar.html">Editar Cliente</a></li>
             </ul>
         </aside>
-        <form>
+            <form action="${urlFormulario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="formulario">
                 <fieldset id="dados">
-                    <h4>Empresa</h4>
+                    <h4>Cadastro de Empresa</h4>
                     <label title="Letras de A a Z." for="Razao">Razao Social:</label>	
                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/>
                     <label title="Letras de A a Z." for="Nome">Nome Fantasia:</label>
@@ -55,14 +55,14 @@
                     <input required="required" type="text" name="CNPJ" maxlength="50" id="CNPJ" size="52"  pattern="[0-9]"/>
                     <label title="Endereco." for="Endereco">Endereco:</label>
                     <input required="required" type="text" name="Endereco" maxlength="15" id="Telefone" size="65" />
-                    <label title="Cidade." for="Telefone">Cidade:</label>
+                    <label title="Cidade." for="Cidade">Cidade:</label>
                     <input required="required" type="text" name="Cidade" maxlength="15" id="Cidade" size="66" />
                     <label title="Apenas numeros." for="CEP">CEP:</label>	
                     <input required="required"  pattern="[0-9]" type="text" name="CEP" maxlength="35" id="CEP" size="35"/>
                     <label title="Telefone 1." for="Telefone1">Telefone 1:</label>
-                    <input required="required"  pattern="[0-9]" type="text" name="Telefone 2" maxlength="35" id="Telefone1" size="35" />
+                    <input required="required"  pattern="[0-9]" type="text" name="Telefone1" maxlength="35" id="Telefone1" size="35" />
                     <label title="Telefone 2." for="Telefone2">Telefone 2:</label>
-                    <input required="required" pattern="[0-9]" type="text" name="Telefone 2" maxlength="15" id="Telefone2" size="52" />
+                    <input required="required" pattern="[0-9]" type="text" name="Telefone2" maxlength="15" id="Telefone2" size="52" />
                     <label title="E-mail completo." for="Email">E-mail:</label>
                     <input required="required" type="text" name="Email" maxlength="50" id="Endereco" size="65" />
                 </fieldset>

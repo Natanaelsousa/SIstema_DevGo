@@ -59,23 +59,28 @@ public class Cadastro extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
     
-    String nome = request.getParameter("nome");
-    String email = request.getParameter("email");
-    String senha = request.getParameter("senha");
-    String dtNascStr = request.getParameter("dtnasc");
-    String sexoStr = request.getParameter("sexo");
-    String[] interesses = request.getParameterMap().get("interesses");
-    String opcaoStr = request.getParameter("opcao");
+    String razao = request.getParameter("Razao");
+    String nome = request.getParameter("Nome");
+    String cnpj = request.getParameter("CNPJ");
+    String endereco = request.getParameter("Endereco");
+    String cidade = request.getParameter("Cidade");
+    String cep = request.getParameter("CEP");
+    String telefone1 = request.getParameter("Telefone1");
+    String telefone2 = request.getParameter("Telefone2");
+    String email = request.getParameter("Email");
     
-    DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-    Date dtNasc = null;
-    try {
-      dtNasc = formatador.parse(dtNascStr);
-    } catch (ParseException ex) {
-      //TODO: Fazer tratamento se data for invalida
-    }
+    //String[] interesses = request.getParameterMap().get("CEP");
+    //String opcaoStr = request.getParameter("opcao");
     
-    int sexo = Integer.parseInt(sexoStr);
+//    DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+//    Date dtNasc = null;
+//    try {
+//      dtNasc = formatador.parse(dtNascStr);
+//    } catch (ParseException ex) {
+//      //TODO: Fazer tratamento se data for invalida
+//    }
+//    
+//    int sexo = Integer.parseInt(sexoStr);
 
     // PROCESSAMENTO DOS DADOS
     
@@ -83,14 +88,15 @@ public class Cadastro extends HttpServlet {
     // Seta os atributos para compartilhar os valores com o jsp
     // Nao confundir get/setAttribute com getParameter!!!
     request.setAttribute("id", request.getParameter("id"));
-    request.setAttribute("nome", nome);
-    request.setAttribute("email", email);
-    request.setAttribute("senha", senha);
-    request.setAttribute("dtnascimento", dtNasc);
-    request.setAttribute("salario", new BigDecimal(1000000));
-    request.setAttribute("sexo", sexo);
-    request.setAttribute("interesses", interesses);
-    request.setAttribute("opcao", opcaoStr);
+    request.setAttribute("Razao", razao);
+    request.setAttribute("Nome", nome);
+    request.setAttribute("CNPJ", cnpj);
+    request.setAttribute("Endereco", endereco);
+    request.setAttribute("Cidade", cidade);
+    request.setAttribute("CEP", cep);
+    request.setAttribute("Telefone1", telefone1);
+    request.setAttribute("Telefone2", telefone2);
+    request.setAttribute("Email", email);
     
     // Encaminhamento para o processamento continuar no jsp.
     RequestDispatcher dispatcher =
