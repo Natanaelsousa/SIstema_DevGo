@@ -23,10 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author natan
+ * @author Natanael
  */
-@WebServlet(name = "Cadastro", urlPatterns = {"/cadastro"})
-public class Cadastro extends HttpServlet {
+@WebServlet(name = "CadastroCliente", urlPatterns = {"/cadastroCliente"})
+public class CadastroCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

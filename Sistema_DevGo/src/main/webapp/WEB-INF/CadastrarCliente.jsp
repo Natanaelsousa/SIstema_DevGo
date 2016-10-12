@@ -6,32 +6,34 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+
 <!doctype html>
-<html>	
-	<head>
-             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<title>Cadastro de Clientes</title>
-                 <c:url value="css/CadastroCliente.css" var="urlEstilos" />
-                 <link rel="stylesheet" href="${urlEstilos}" />
-	</head>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Cadastrar Cliente </title>
+    <c:url value="css/cadastrarCliente.css" var="urlCadCliente" />
+    <link rel="stylesheet" href="${urlCadCliente}" />
+    </head>
     <body>
+
         <header>
             <div class="logo">
                 <h1>Logo</h1>
             </div>
             <div class="logout">
-                <h3><a href="Login.html">Sair</a></h3>
+                <h3><a href="#">Sair</a></h3>
             </div>
             <div class="bar">
                 <ul>
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="cadastro.html">Cliente</a>
-                            <a href="#">Funcionario</a>
-                        </div></li>
-                    <li><a href="#">Produtos e Servicos</a></li>
+                            <a href="Cadastrar Cliente.html">Cliente</a>
+                            <a href="Cadastrar Funcionario.html">Funcionario</a>
+                        </div>
+                    </li>
+                    <li><a href="Produto.html">Produtos e Serviços</a><li>
                     <li><a href="#">Relatorios</a></li>
                     <li><a href="#">Vendas</a></li>
                 </ul>
@@ -39,37 +41,38 @@
         </header>
         <aside>
             <ul>
-                <li><a>Cadastrar Cliente</a></li>
-                <li><a href="editar.html">Editar Cliente</a></li>
-            </ul>
-        </aside>
-            <form action="${urlFormulario}" method="post" enctype="application/x-www-form-urlencoded">
-            <fieldset id="formulario">
-                <fieldset id="dados">
-                    <h4>Cadastro de Empresa</h4>
-                    <label title="Letras de A a Z." for="Razao">Razao Social:</label>	
-                    <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/>
-                    <label title="Letras de A a Z." for="Nome">Nome Fantasia:</label>
-                    <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35" />
-                    <label title="CNPJ completo." for="CNPJ">CNPJ:</label>
-                    <input required="required" type="text" name="CNPJ" maxlength="50" id="CNPJ" size="52"  pattern="[0-9]"/>
-                    <label title="Endereco." for="Endereco">Endereco:</label>
-                    <input required="required" type="text" name="Endereco" maxlength="15" id="Telefone" size="65" />
-                    <label title="Cidade." for="Cidade">Cidade:</label>
-                    <input required="required" type="text" name="Cidade" maxlength="15" id="Cidade" size="66" />
-                    <label title="Apenas numeros." for="CEP">CEP:</label>	
-                    <input required="required"  pattern="[0-9]" type="text" name="CEP" maxlength="35" id="CEP" size="35"/>
-                    <label title="Telefone 1." for="Telefone1">Telefone 1:</label>
-                    <input required="required"  pattern="[0-9]" type="text" name="Telefone1" maxlength="35" id="Telefone1" size="35" />
-                    <label title="Telefone 2." for="Telefone2">Telefone 2:</label>
-                    <input required="required" pattern="[0-9]" type="text" name="Telefone2" maxlength="15" id="Telefone2" size="52" />
-                    <label title="E-mail completo." for="Email">E-mail:</label>
-                    <input required="required" type="text" name="Email" maxlength="50" id="Endereco" size="65" />
-                </fieldset>
-                <div class = "botoes">
-                    <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
-                    <input id="Limpar" title="Limpar" value="Limpar" type="reset">
-                    </fieldset></div>
-        </form>
-    </body>
-</html>
+                <li><a href="Cadastrar Cliente.html">Cadastrar Cliente</a></li>
+                <li><a href="Editar Cliente.html">Editar Cliente</a></li>
+                <ul>
+                    </aside>
+                    <form action="Sistema_DevGo/cadastroCliente" method="post" enctype="multpart/form-data">
+                        <fieldset id="dados">
+                            <h4>Empresa</h4>
+                            <div id="topo">
+                                <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>
+                                <p><label title="Letras de A a Z." for="Nome">Nome Fantasia:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
+                                <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
+                                    <input required="required" pattern="[0-9]*" type="text" name="CNPJ" maxlength="50" id="CNPJ" size="52"/></p>
+                                <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Razao" size="65"/></p>
+                                <p><label title="Letras de A a Z." for="Cidade">Cidade:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Cidade" size="66"/></p>
+                                <p><label title="Letras de A a Z." for="CEP">CEP:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="35"/></p>
+                                <p><label title="Letras de A a Z." for="Telefone1">Telefone 1:</label>
+                                    <input required="required" pattern="[0-9]*" type="text" name="Telefone1" maxlength="35" id="Telefone1" size="35"/></p>
+                                <p><label title="Letras de A a Z." for="Telefone2">Telefone 2:</label>
+                                    <input required="required" pattern="[0-9]*" type="text" name="Telefone2" maxlength="35" id="Telefone2" size="52"/></p>
+                                <p><label title="Letras de A a Z." for="Email">E-mail:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="65"/></p>
+                            </div>
+                        </fieldset>
+                        <div class="botoes">
+                            <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
+                            <input id="Limpar" title="Limpar" value="Limpar" type="reset">
+                        </div>
+                    </form>
+                    </body>
+                    </html>
