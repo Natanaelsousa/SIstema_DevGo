@@ -100,7 +100,7 @@ public class CadastroCliente extends HttpServlet {
     
     // Encaminhamento para o processamento continuar no jsp.
     RequestDispatcher dispatcher =
-	    request.getRequestDispatcher("resposta.jsp");
+	    request.getRequestDispatcher("");
     dispatcher.forward(request, response);
     
   }

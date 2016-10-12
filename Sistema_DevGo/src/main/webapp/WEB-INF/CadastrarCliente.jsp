@@ -45,7 +45,8 @@
                 <li><a href="Editar Cliente.html">Editar Cliente</a></li>
                 <ul>
                     </aside>
-                    <form action="Sistema_DevGo/cadastroCliente" method="post" enctype="multpart/form-data">
+                    <c:url value="CadastroCliente" var="urlCadastroCliente" />
+                    <form action="${urlCadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
