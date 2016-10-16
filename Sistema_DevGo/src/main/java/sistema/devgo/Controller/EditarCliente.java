@@ -7,6 +7,7 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -72,7 +73,18 @@ public class EditarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+      String razao = request.getParameter("Razao");
+      String nome = request.getParameter("Nome");
+      String cnpj = request.getParameter("CNPJ");
+      String endereco = request.getParameter("Endereco");
+      String cidade = request.getParameter("Cidade");
+      String cep = request.getParameter("CEP");
+      String telefone1 = request.getParameter("Telefone1");
+      String telefone2 = request.getParameter("Telefone2");
+      String email = request.getParameter("Email");
+      
+      RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        dispatcher.forward(request, response);
     }
 
     /**

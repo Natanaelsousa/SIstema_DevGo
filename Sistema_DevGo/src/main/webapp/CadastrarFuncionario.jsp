@@ -9,11 +9,11 @@
 <!doctype html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         <title>Cadastro Funcionario</title>
         <link type="text/css" rel="stylesheet" href="cadastrarFuncionario.css" />
         <c:url value="css/cadastrarFuncionario.css" var="CadFuncionario"/>
-        <link rel="stylesheet" href="${CadFuncionario}"/>
+        <link type="text/css" rel="stylesheet" href="${CadFuncionario}"/>
     </head>
     <body>
         <header>
