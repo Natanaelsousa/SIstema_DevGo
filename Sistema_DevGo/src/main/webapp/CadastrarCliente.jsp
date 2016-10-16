@@ -12,8 +12,8 @@
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cadastrar Cliente </title>
-    <c:url value="css/cadastrarCliente.css" var="urlCadCliente" />
-    <link rel="stylesheet" href="${urlCadCliente}" />
+    <c:url value="css/cadastrarCliente.css" var="urlCadCliente"/>
+    <link rel="stylesheet" href="${urlCadCliente}"/>
     </head>
     <body>
 
@@ -29,11 +29,11 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="Cadastrar Cliente.html">Cliente</a>
-                            <a href="Cadastrar Funcionario.html">Funcionario</a>
+                            <a href="Cadastrar Cliente.jsp">Cliente</a>
+                            <a href="CadastrarFuncionario.jsp">Funcionario</a>
                         </div>
                     </li>
-                    <li><a href="Produto.html">Produtos e Serviços</a><li>
+                    <li><a href="CadastrarProdutos.jsp">Produtos e Serviços</a><li>
                     <li><a href="#">Relatorios</a></li>
                     <li><a href="#">Vendas</a></li>
                 </ul>
@@ -41,8 +41,8 @@
         </header>
         <aside>
             <ul>
-                <li><a href="Cadastrar Cliente.html">Cadastrar Cliente</a></li>
-                <li><a href="Editar Cliente.html">Editar Cliente</a></li>
+                <li><a href="CadastrarCliente.jsp">Cadastrar Cliente</a></li>
+                <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
                 <ul>
                     </aside>
                     <c:url value="CadastroCliente" var="urlCadastroCliente" />

@@ -69,22 +69,6 @@ public class CadastroCliente extends HttpServlet {
     String telefone2 = request.getParameter("Telefone2");
     String email = request.getParameter("Email");
     
-    //String[] interesses = request.getParameterMap().get("CEP");
-    //String opcaoStr = request.getParameter("opcao");
-    
-//    DateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-//    Date dtNasc = null;
-//    try {
-//      dtNasc = formatador.parse(dtNascStr);
-//    } catch (ParseException ex) {
-//      //TODO: Fazer tratamento se data for invalida
-//    }
-//    
-//    int sexo = Integer.parseInt(sexoStr);
-
-    // PROCESSAMENTO DOS DADOS
-    
-    
     // Seta os atributos para compartilhar os valores com o jsp
     // Nao confundir get/setAttribute com getParameter!!!
     request.setAttribute("id", request.getParameter("id"));
@@ -99,8 +83,8 @@ public class CadastroCliente extends HttpServlet {
     request.setAttribute("Email", email);
     
     // Encaminhamento para o processamento continuar no jsp.
-    RequestDispatcher dispatcher =
-	    request.getRequestDispatcher("");
+   RequestDispatcher dispatcher =
+	    request.getRequestDispatcher("EditarCliente.jsp");
     dispatcher.forward(request, response);
     
   }
