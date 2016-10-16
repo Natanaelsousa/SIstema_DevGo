@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cadastrar Cliente </title>
     <c:url value="css/cadastrarCliente.css" var="urlCadCliente"/>
-    <link rel="stylesheet" href="${urlCadCliente}"/>
+    <link type="text/css" rel="stylesheet" href="${urlCadCliente}"/>
     </head>
     <body>
 

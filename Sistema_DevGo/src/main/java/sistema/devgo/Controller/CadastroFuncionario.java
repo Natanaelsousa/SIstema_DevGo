@@ -7,11 +7,20 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
@@ -72,14 +81,24 @@ public class CadastroFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        // Guardando dados vindos da tela nas variaveis
+        String nome = request.getParameter("Nome");
+        String sobrenome = request.getParameter("Sobrenome");
+        String cpf = request.getParameter("CPF");
+        String telefone = request.getParameter("Telefone");
+        String dataNasc = request.getParameter("Datanasc");
+        String departamento = request.getParameter("Departamento");
+        String usuario = request.getParameter("Usuario");
+        String senha = request.getParameter("Senha");
+        String status = request.getParameter("Status");
+        
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        dispatcher.forward(request, response);
+       
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

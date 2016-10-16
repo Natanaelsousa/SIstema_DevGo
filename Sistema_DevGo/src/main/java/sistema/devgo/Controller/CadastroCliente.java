@@ -58,7 +58,8 @@ public class CadastroCliente extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
-    
+      
+     // Guardando dados vindos da tela nas variaveis
     String razao = request.getParameter("Razao");
     String nome = request.getParameter("Nome");
     String cnpj = request.getParameter("CNPJ");
