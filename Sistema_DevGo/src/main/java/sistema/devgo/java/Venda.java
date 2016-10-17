@@ -14,4 +14,8 @@ public class Venda extends Plano{
     public void Venda (String tipoContraro, String tipoCurso,String tipoPlano, float preço, Date dataVenda){
         
     }*/
+
+    public Venda(String descricao, String tipoCurso, String TipoMaterial, String TipoPlano, float preco) {
+        super(descricao, tipoCurso, TipoMaterial, TipoPlano, preco);
+    }
 }

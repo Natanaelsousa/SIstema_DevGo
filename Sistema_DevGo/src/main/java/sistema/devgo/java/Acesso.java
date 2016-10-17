@@ -1,4 +1,3 @@
-
 package sistema.devgo.java;
 
 /**
@@ -12,11 +11,11 @@ public class Acesso {
     private Funcionario Funcionario;
 
     
+    /*
+    public ? TipoPermissao( String usuario, String senha){
+      //VERIFICAR COMO FAZER   
+    }*/
     
-    public void TipoPermissao( String usuario, String senha){
-        this.usuario=usuario;
-        this.senha=senha;
-    }
     public Funcionario getFuncionario() {
         return Funcionario;
     }

@@ -10,13 +10,13 @@ public class Funcionario extends Pessoa {
     private int CPF;
     private String nome;
     private String sobrenome;
+    
     //ASSOCIAÇÕES
     private Permissao Permissao;
     private Acesso Acesso;
 
-   
-    
-    public Funcionario(String email, String telefone) {
+    //Construtor
+    public Funcionario(String email, String telefone,String departamento, int CPF, String nome, String sobrenome ) {
         super(email, telefone);
         this.departamento = departamento;
         this.CPF = CPF;
@@ -24,56 +24,56 @@ public class Funcionario extends Pessoa {
         this.sobrenome = sobrenome;
 
     }
-    //esperar resposta para arrumar
 
-    public void associarPermissao(Permissao tipoPermissao) {
-      /*if (departamento == "ti") {
-            tipoPermissao == ti;
-        }
-        else if (departamento == "financeiro"){
-            tipoPermissao == financeiro;
-        }
-        else if (departamento == "serviços"){
-            tipoPermissao == servicos;
-        }*/
+    //esperar resposta para arrumar
+   public void associarPermissao(Permissao tipoPermissao) {
+        /*if (departamento == "ti") {
+         tipoPermissao == ti;
+         }
+         else if (departamento == "financeiro"){
+         tipoPermissao == financeiro;
+         }
+         else if (departamento == "serviços"){
+         tipoPermissao == servicos;
+         }*/
     }
 
+    //Get e set de departamento
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-
-    public void setCPF(int CPF) {
-        this.CPF = CPF;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
     public String getDepartamento() {
         return departamento;
     }
 
+    //Get e set de CPF
+    public void setCPF(int CPF) {
+        this.CPF = CPF;
+    }
     public int getCPF() {
         return CPF;
     }
 
+    //Get e set de Nome
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
     public String getNome() {
         return nome;
     }
 
+    //Get e set de Sobrenome
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
     public String getSobrenome() {
         return sobrenome;
     }
-    //GETTERS DAS ASSOCIAÇÕES
-     public Permissao getPermissao() {
+
+    //Get de Permissao e Acesso(Associações)
+    public Permissao getPermissao() {
         return Permissao;
     }
-
     public Acesso getAcesso() {
         return Acesso;
     }
