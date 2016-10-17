@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Produtos</title>
-        <c:url value="css/cadastrarProduto.css" var="cadProduto"/>
+        <c:url value="CSS/cadastrarProduto.css" var="cadProduto"/>
         <link type="text/css" rel="stylesheet" href="${cadProduto}" />
     </head>
     <body>
@@ -51,11 +51,11 @@
                             <h4>Produto</h4>
                             <div id="topo">
                                 <p><label title="Idioma." for="Idioma">Idioma:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Idioma" size="52"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Idioma" size="80"/></p>
                                 <p><label title="Letras de A a Z." for="Preco">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="Number" name="Preco" maxlength="35" id="Preço" size="35"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="Number" name="Preco" maxlength="35" id="Preço" size="50"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>
-                                    <input required="required" pattern="[0-9]*" type="Number" name="Quantidade" maxlength="50" id="Quantidade" size="20"/></p>
+                                    <input required="required" pattern="[0-9]*" type="Number" name="Quantidade" maxlength="50" id="Quantidade" size="35"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

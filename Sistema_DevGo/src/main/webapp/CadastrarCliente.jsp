@@ -10,10 +10,11 @@
 <!doctype html>
 <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Cadastrar Cliente </title>
-    <c:url value="css/cadastrarCliente.css" var="urlCadCliente"/>
-    <link type="text/css" rel="stylesheet" href="${urlCadCliente}"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Cadastrar Cliente </title>
+        <c:url value="CSS/cadastrarCliente.css" var="urlCadCliente"/>
+        <link type="text/css" rel="stylesheet" href="${urlCadCliente}"/>
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
 
@@ -57,9 +58,9 @@
                                 <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
                                     <input required="required" pattern="[0-9]*" type="text" name="CNPJ" maxlength="50" id="CNPJ" size="52"/></p>
                                 <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Razao" size="65"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Razao" size="66"/></p>
                                 <p><label title="Letras de A a Z." for="Cidade">Cidade:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Cidade" size="66"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Cidade" size="68"/></p>
                                 <p><label title="Letras de A a Z." for="CEP">CEP:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="35"/></p>
                                 <p><label title="Letras de A a Z." for="Telefone1">Telefone 1:</label>

@@ -12,7 +12,7 @@
          <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
         <title>Cadastro Plano</title>
         <link type="text/css" rel="stylesheet" href="cadastrarPlano.css" />
-        <c:url value="css/cadastrarPlano.css" var="cadPlano"/>
+        <c:url value="CSS/cadastrarPlano.css" var="cadPlano"/>
         <link rel="stylesheet" href="${cadPlano}"/>
     </head>
     <body>
@@ -52,13 +52,13 @@
                             <h4>Serviço</h4>
                             <div id="topo">
                                 <p><label title="Plano." for="Plano">Plano:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="80"/></p>
                                 <p><label title="Período." for="Periodo">Período:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Período" maxlength="35" id="Período" size="52"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Período" maxlength="35" id="Período" size="80"/></p>
                                 <p><label title="Idioma." for="Livro">Livro:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Livro" maxlength="35" id="Livro" size="45"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="Number" name="Livro" maxlength="35" id="Livro" size="45"/></p>
                                 <p><label title="Preço." for="Preco">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*"  type="Number" name="Preco" maxlength="35" id="Preço" size="52"/></p>
+                                    <input required="required" pattern="[A-Za-z]*"  type="Number" name="Preco" maxlength="35" id="Preço" size="80"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

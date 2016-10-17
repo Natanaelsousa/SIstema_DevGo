@@ -12,8 +12,9 @@
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         <title>Cadastro Funcionario</title>
         <link type="text/css" rel="stylesheet" href="cadastrarFuncionario.css" />
-        <c:url value="css/cadastrarFuncionario.css" var="CadFuncionario"/>
+        <c:url value="CSS/cadastrarFuncionario.css" var="CadFuncionario"/>
         <link type="text/css" rel="stylesheet" href="${CadFuncionario}"/>
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
         <header>
