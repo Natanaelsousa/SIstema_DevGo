@@ -39,7 +39,7 @@ header ul li a:hover, .dropdown:hover .dropbtn{
 header ul li.dropdown{
     display: inline-block;
 }
-header ul li:nth-child(4) a{
+header ul li:nth-child(5) a{
     border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
 .logout a{
@@ -73,87 +73,4 @@ header ul li:nth-child(4) a{
 }
 .dropdown:hover .dropdown-content{
     display: block
-}
-form{
-    position: absolute;
-    display: inline-block;
-    top: 160px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    text-align: center;
-}
-#dados{
-    border: 1px solid black;
-    border-radius: 5px;
-    min-width: 400px;
-    margin-right: 40px;
-    margin-left: 20px;
-    border: 2px solid black;
-    box-shadow: 0 3px 5px black;
-    width: 300px;
-    text-align: left;
-}
-#tabela{
-    max-height: 450px;
-    margin-top: 10px;
-    box-shadow: 0 3px 5px back;
-    overflow: auto;
-    border: none;
-}
-#dados, #tabela{
-    display: inline;
-}
-table, th, td{
-    border: 2px solid black;
-    border-collapse: collapse;
-}
-th, td{
-    padding: 10px 85px;
-}
-input{
-    padding: 4px 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 14px;
-    margin: 0px 5px;
-}
-
-h4{
-    background: white;
-    width: 150px;
-    padding: 0px 15px;
-    margin: -15px 15px;
-    text-align: center;
-}
-label{
-    margin: 3px 8px;
-    display: block;
-    text-align: left;
-}
-p{
-    margin: 20px 15px;
-    display: inline-block;
-}
-p:first-child{
-    display: block;
-}
-#topo{
-    margin-top: 30px;
-}
-.botoes{
-    padding: 25px;
-    text-align: center;
-}
-input#Buscar, input#Exportar{
-    color: white;
-    background: hsl(200, 100%, 50%);
-    box-shadow: 0 2px 4px grey;
-    border: none;
-    width: 100px;
-    cursor: pointer;
-}
-#Buscar:active, #Exportar:active{
-    box-shadow: 0 5px 10px black;
-    border: none;
 }

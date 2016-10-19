@@ -34,9 +34,9 @@
                             <a href="CadastrarFuncionario.jsp">Funcionario</a>
                         </div>
                     </li>
-                    <li><a href="CadastrarProdutos.jsp">Produtos e Serviços</a><li>
-                    <li><a href="#">Relatorios</a></li>
-                    <li><a href="#">Vendas</a></li>
+                    <li><a href="CadastrarProduto.jsp">Produtos e Serviços</a><li>
+                    <li><a href="Relatorio.jsp">Relatorios</a></li>
+                    <li><a href="Vendas.jsp">Vendas</a></li>
                 </ul>
             </div>
         </header>
