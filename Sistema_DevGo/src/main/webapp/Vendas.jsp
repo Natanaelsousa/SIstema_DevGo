@@ -42,8 +42,8 @@
             <fieldset id="dados">
                 <h4>Dados</h4>
                 <div id="topo">
-                    <p><label title="Letras de A a Z." for="CNPJ:">CNPJ:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ:" maxlength="45" id="CNPJ:" size="55"/>
+                    <p><label for="CNPJ:">CNPJ:</label>
+                        <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ" maxlength="45" id="CNPJ" size="55"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                     <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="45"/></p>
@@ -53,10 +53,10 @@
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Período" maxlength="35" id="Período" size="45"/></p>
                     <p><label title="Letras de A a Z." for="Idioma:">Idioma:</label>
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Idioma" size="35"/></p>
-                    <p><label title="Letras de A a Z." for="Aluno">Quantidade de Alunos:</label>
-                        <input required="required" pattern="[0-9]*" type="text" name="Aluno" maxlength="35" id="Aluno" size="35"/></p>
-                    <p><label title="Letras de A a Z." for="Valor">Valor:</label>
-                        <input required="required" pattern="[0-9]*" type="text" name="Valor" maxlength="35" id="Valor" size="35"/></p>
+                    <p><label for="Aluno">Quantidade de Alunos:</label>
+                        <input required="required" type="number" name="Aluno" id="Aluno" /></p>
+                    <p><label for="Valor">Valor:</label>
+                        <input required="required" type="number" name="Valor" id="Valor" /></p>
                 </div>
             </fieldset>
             <div class="botoes">

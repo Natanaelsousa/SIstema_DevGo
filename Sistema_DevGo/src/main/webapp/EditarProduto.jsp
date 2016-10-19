@@ -55,7 +55,7 @@
                                 <p><label title="Preço." for="Preço">Preço:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="52"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="20"/></p>
+                                    <input required="required" type="number" name="Quantidade" maxlength="35" id="Quantidade" size="20"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

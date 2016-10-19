@@ -13,6 +13,7 @@
         <title>Editar Cliente</title>
         <c:url value="CSS/editarCliente.css" var="EditarCliente"/>
         <link type="text/css" rel="stylesheet" href="${EditarCliente}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
         <header>
@@ -49,23 +50,23 @@
                             <h4>Empresa</h4>
                             <div id="topo">
                                 <p><label title="Letras de A a Z." for="CNPJ:">CNPJ:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ:" maxlength="45" id="CNPJ:" size="55"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ" maxlength="25" id="CNPJ" size="55" onkeypress="return somenteNumero(event)"/></p>
                                     <input id="Buscar" title="Buscar" value="Buscar" type="submit">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="63"/></p>
-                                <p><label title="CNPJ Completo." for="Nome Fantasia">Nome:</label>
+                                <p><label title="Letras de A a Z." for="Nome Fantasia">Nome:</label>
                                     <input required="required" pattern="[0-9]*" type="text" name="Nome" maxlength="50" id="Nome" size="61"/></p>
                                 <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Endereco" maxlength="35" id="end" size="73"/></p>
                                 <p><label title="Letras de A a Z." for="Cidade">Cidade:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Cidade" maxlength="35" id="Cidade" size="83"/></p>
-                                <p><label title="Letras de A a Z." for="CEP">CEP:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="50"/></p>
-                                <p><label title="Letras de A a Z." for="Telefone1">Telefone 1:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="Telefone1" maxlength="35" id="Telefone1" size="35"/></p>
-                                <p><label title="Letras de A a Z." for="Telefone2">Telefone 2:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="Telefone2" maxlength="35" id="Telefone2" size="35"/></p>
-                                <p><label title="Letras de A a Z." for="Email">E-mail:</label>
+                                <p><label title="Números do CEP." for="CEP">CEP:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="50" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Números do telefone." for="Telefone1">Telefone 1:</label>
+                                    <input required="required" pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone1" maxlength="25" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Números do telefone." for="Telefone2">Telefone 2:</label>
+                                    <input required="required" pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone2" maxlength="25" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="E-mail completo." for="Email">E-mail:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="50"/></p>
                             </div>
                         </fieldset>

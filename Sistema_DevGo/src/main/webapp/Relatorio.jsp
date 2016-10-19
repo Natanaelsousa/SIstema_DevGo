@@ -38,38 +38,28 @@
             </div>
         </header>
 
-        <form>
-            <fieldset id="dados">
-                <h4>Critérios de busca</h4>
-                <div id="topo">
-                    <input placeholder="Tipo de relatório"required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>
-                    <p><label title="Data inicial." for="DataIni">Data Inicial:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="DataIni" maxlength="35" id="DataIni" size="15"/></p>
-                    <p><label title="Data final." for="DataFim">Data Final:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="DataFim" maxlength="35" id="DataFim" size="15"/></p>
-                </div>
-                <div class="botoes">
-                    <input id="Buscar" title="Buscar" value="Buscar" type="submit">
-                    <input id="Exportar" title="Exportar" value="Exportar" type="reset">
-                </div>
-            </fieldset>
-            <fieldset id="tabela">
-                <table  style="width:100%">
-                    <tr><th>Coluna 1</th><th>Coluna 2</th><th>Coluna 3</th></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                    <tr><td>a</td> <td>a</td> <td>a</td></tr>
-                </table>
-            </fieldset>
-        </form>
+        <div id="dados">
+            <h4>Critérios de busca</h4>
+            <div id="topo">
+                <p><select required="required" name="Razao" id="Razao"/>
+                <option value="Tipo de relatório">Tipo de relatório</option>
+                </select></p>
+                <p><label title="Data inicial." for="DataIni">Data Inicial:</label>
+                    <input required="required" type="date" name="dia" id="DataIni"/></p>
+                <p><label title="Data final." for="DataFim">Data Final:</label>
+                    <input required="required" type="date" name="ano" id="DataFim"/></p>
+            </div>
+            <div class="botoes">
+                <input id="Buscar" title="Buscar" value="Buscar" type="submit">
+                <input id="Exportar" title="Exportar" value="Exportar" type="reset">
+            </div>
+            <form>
+                </fieldset>
+                <fieldset id="tabela">
+                    <table  style="width:100%">
+                        <tr><th>Coluna 1</th><th>Coluna 2</th><th>Coluna 3</th></tr>
+                    </table>
+                </fieldset>
+            </form>
     </body>
 </html>

@@ -57,7 +57,7 @@
                                 <p><label title="Livro." for="Livro">Livro:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Livro" maxlength="35" id="Livro" size="52"/></p>
                                 <p><label title="Preço." for="Preço">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="40"/></p>
+                                    <input required="required" type="number" name="Preço" maxlength="35" id="Preço" size="40"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

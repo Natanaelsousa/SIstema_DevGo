@@ -14,7 +14,7 @@
         <title>Cadastrar Cliente </title>
         <c:url value="CSS/cadastrarCliente.css" var="urlCadCliente"/>
         <link type="text/css" rel="stylesheet" href="${urlCadCliente}"/>
-        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
 
@@ -56,18 +56,19 @@
                                 <p><label title="Letras de A a Z." for="Nome">Nome Fantasia:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
                                 <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="CNPJ" maxlength="50" id="CNPJ" size="52"/></p>
+                                    <input title="Digite seu cpf no formato ###.###.###-##" placeholder="###.###.###-##" required="required" 
+                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="52" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Razao" size="66"/></p>
                                 <p><label title="Letras de A a Z." for="Cidade">Cidade:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Cidade" size="68"/></p>
-                                <p><label title="Letras de A a Z." for="CEP">CEP:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="35"/></p>
-                                <p><label title="Letras de A a Z." for="Telefone1">Telefone 1:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="Telefone1" maxlength="35" id="Telefone1" size="35"/></p>
-                                <p><label title="Letras de A a Z." for="Telefone2">Telefone 2:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="Telefone2" maxlength="35" id="Telefone2" size="52"/></p>
-                                <p><label title="Letras de A a Z." for="Email">E-mail:</label>
+                                <p><label title="Apenas numeros." for="CEP">CEP:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="35"  onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
+                                    <input required="required" pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone1" maxlength="35" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
+                                    <input pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone2" maxlength="35" id="Telefone2" size="52" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="E-mail completo." for="Email">E-mail:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="65"/></p>
                             </div>
                         </fieldset>
