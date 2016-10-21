@@ -4,15 +4,15 @@ package sistema.devgo.java;
  *
  * @author Sibele
  */
-public class Cliente extends Pessoa {
+public class Cliente  {
 
     private String CNPJ;
     private String razaoSocial;
     private String endereco;
 
     //Construtor
-    public Cliente(String email, String telefone) {
-        super(email, telefone);
+    public Cliente(String CNPJ, String razaoSocial, String endereco) {
+        
         this.CNPJ=CNPJ;
         this.razaoSocial=razaoSocial;
         this.endereco=endereco;

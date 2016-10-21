@@ -4,20 +4,20 @@ package sistema.devgo.java;
  *
  * @author Sibele
  */
-public class Funcionario extends Pessoa {
+public class Funcionario {
 
     private String departamento;
     private int CPF;
     private String nome;
     private String sobrenome;
-    
+
     //ASSOCIAÇÕES
     private Permissao Permissao;
     private Acesso Acesso;
 
     //Construtor
-    public Funcionario(String email, String telefone,String departamento, int CPF, String nome, String sobrenome ) {
-        super(email, telefone);
+    public Funcionario(String departamento, int CPF, String nome, String sobrenome) {
+
         this.departamento = departamento;
         this.CPF = CPF;
         this.nome = nome;
@@ -26,7 +26,7 @@ public class Funcionario extends Pessoa {
     }
 
     //esperar resposta para arrumar
-   public void associarPermissao(Permissao tipoPermissao) {
+    public void associarPermissao(Permissao tipoPermissao) {
         /*if (departamento == "ti") {
          tipoPermissao == ti;
          }
@@ -42,6 +42,7 @@ public class Funcionario extends Pessoa {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
+
     public String getDepartamento() {
         return departamento;
     }
@@ -50,6 +51,7 @@ public class Funcionario extends Pessoa {
     public void setCPF(int CPF) {
         this.CPF = CPF;
     }
+
     public int getCPF() {
         return CPF;
     }
@@ -58,6 +60,7 @@ public class Funcionario extends Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getNome() {
         return nome;
     }
@@ -66,6 +69,7 @@ public class Funcionario extends Pessoa {
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
+
     public String getSobrenome() {
         return sobrenome;
     }
@@ -74,6 +78,7 @@ public class Funcionario extends Pessoa {
     public Permissao getPermissao() {
         return Permissao;
     }
+
     public Acesso getAcesso() {
         return Acesso;
     }
