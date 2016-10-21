@@ -25,19 +25,6 @@ public class Funcionario {
 
     }
 
-    //esperar resposta para arrumar
-    public void associarPermissao(Permissao tipoPermissao) {
-        /*if (departamento == "ti") {
-         tipoPermissao == ti;
-         }
-         else if (departamento == "financeiro"){
-         tipoPermissao == financeiro;
-         }
-         else if (departamento == "serviços"){
-         tipoPermissao == servicos;
-         }*/
-    }
-
     //Get e set de departamento
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
