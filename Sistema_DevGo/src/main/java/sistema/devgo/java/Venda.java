@@ -7,15 +7,53 @@ import java.util.Date;
  *
  * @author Sibele
  */
-public class Venda extends Plano{
-    private Date dataVenda;
-    
-    /*verificar metodo de venda
-    public void Venda (String tipoContraro, String tipoCurso,String tipoPlano, float preço, Date dataVenda){
-        
-    }*/
+public class Venda {
 
-    public Venda(String descricao, String tipoCurso, String TipoMaterial, String TipoPlano, float preco) {
-        super(descricao, tipoCurso, TipoMaterial, TipoPlano, preco);
+ 
+    private Date dataVenda;
+    private int quantidadeAluno;
+    private String idioma;
+    private Plano plano;
+    
+    
+      public Venda(Date dataVenda, int quantidadeAluno, String idioma, Plano plano) {
+        this.dataVenda = dataVenda;
+        this.quantidadeAluno = quantidadeAluno;
+        this.idioma = idioma;
+        this.plano=plano;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
+    }
+
+
+
+    public void setDataVenda(Date dataVenda) {
+        this.dataVenda = dataVenda;
+    }
+
+    public void setQuantidadeAluno(int quantidadeAluno) {
+        this.quantidadeAluno = quantidadeAluno;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public Date getDataVenda() {
+        return dataVenda;
+    }
+
+    public int getQuantidadeAluno() {
+        return quantidadeAluno;
+    }
+
+    public String getIdioma() {
+        return idioma;
     }
 }
