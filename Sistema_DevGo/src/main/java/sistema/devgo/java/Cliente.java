@@ -18,13 +18,6 @@ public class Cliente  {
         this.endereco=endereco;
     }
    
-    
-    public void Cliente( String CNPJ, String razaoSocial, String endereco) {
-        this.CNPJ = CNPJ;
-        this.endereco = endereco;
-        this.razaoSocial = razaoSocial;
-    }
-
     //Get e Set de CNPJ
     public String getCNPJ() {
         return CNPJ;

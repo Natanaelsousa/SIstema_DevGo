@@ -6,27 +6,28 @@ package sistema.devgo.java;
  */
 public class Plano {
 
-    private float preco;
-    private String tipoPlano;
-    private Livro Livro[];
+    private String idioma;
+    private Venda venda; //Associação com Vendas
 
-    public Plano(String descricao, String tipoCurso, String TipoMaterial, String TipoPlano, float preco) {
-
+    public Plano(String idioma, Venda venda) {
+        this.idioma = idioma;
+        this.venda = venda;
     }
 
-    public float getPreco() {
-        return preco;
+    public String getIdioma() {
+        return idioma;
     }
 
-    public void setPreco(float preco) {
-        this.preco = preco;
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
     }
 
-    public String getTipoPlano() {
-        return tipoPlano;
+    public Venda getVenda() {
+        return venda;
     }
 
-    public void setTipoPlano(String tipoPlano) {
-        this.tipoPlano = tipoPlano;
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
+
 }
