@@ -15,11 +15,14 @@ public class Cliente  {
     private String email;
 
     //Construtor
-    public Cliente(String CNPJ, String razaoSocial, String endereco) {
+    public Cliente(String CNPJ, String razaoSocial, String endereco, String telefone1,String telefone2,String email) {
         
         this.CNPJ=CNPJ;
         this.razaoSocial=razaoSocial;
         this.endereco=endereco;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
+        this.email = email;
     }
    
     //Get e Set de CNPJ
