@@ -9,7 +9,7 @@ package sistema.devgo.java;
  *
  * @author Sibele
  */
-public class Livro extends Idioma {
+public class Livro{
 
     private String tipoDeLivro;
     private Estoque Estoque;
