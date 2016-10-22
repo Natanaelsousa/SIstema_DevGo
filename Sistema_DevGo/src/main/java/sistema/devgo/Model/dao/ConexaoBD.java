@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class ConexaoBD {
     
         private static final String SERVIDOR = "localhost";//caminho do servidor do BD
-        private static final String BANCO ="dbcurso"; //nome do banco de dados
+        private static final String BANCO ="db_curso"; //nome do banco de dados
         private static final String URL = "jdbc:mysql://" + SERVIDOR + "/" + BANCO; //url de conexao
 	private static final String DRIVER = "com.mysql.jdbc.Driver"; //driver mysql
 	private static final String USUARIO = "root"; //nome do usuário do banco de dados
