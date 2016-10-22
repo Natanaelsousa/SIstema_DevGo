@@ -7,13 +7,6 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,16 +34,7 @@ public class CadastroCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Cadastro</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Cadastro at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+         
         }
     }
 
@@ -64,7 +48,6 @@ public class CadastroCliente extends HttpServlet {
     String nome = request.getParameter("Nome");
     String cnpj = request.getParameter("CNPJ");
     String endereco = request.getParameter("Endereco");
-    String cidade = request.getParameter("Cidade");
     String cep = request.getParameter("CEP");
     String telefone1 = request.getParameter("Telefone1");
     String telefone2 = request.getParameter("Telefone2");
@@ -77,7 +60,6 @@ public class CadastroCliente extends HttpServlet {
     request.setAttribute("Nome", nome);
     request.setAttribute("CNPJ", cnpj);
     request.setAttribute("Endereco", endereco);
-    request.setAttribute("Cidade", cidade);
     request.setAttribute("CEP", cep);
     request.setAttribute("Telefone1", telefone1);
     request.setAttribute("Telefone2", telefone2);

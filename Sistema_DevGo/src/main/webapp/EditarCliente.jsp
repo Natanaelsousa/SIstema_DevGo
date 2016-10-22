@@ -54,12 +54,8 @@
                                     <input id="Buscar" title="Buscar" value="Buscar" type="submit">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="63"/></p>
-                                <p><label title="Letras de A a Z." for="Nome Fantasia">Nome:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="Nome" maxlength="50" id="Nome" size="61"/></p>
                                 <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Endereco" maxlength="35" id="end" size="73"/></p>
-                                <p><label title="Letras de A a Z." for="Cidade">Cidade:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Cidade" maxlength="35" id="Cidade" size="83"/></p>
                                 <p><label title="Números do CEP." for="CEP">CEP:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="50" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Números do telefone." for="Telefone1">Telefone 1:</label>
@@ -70,7 +66,7 @@
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="50"/></p>
                             </div>
                         </fieldset>
-                        <div class="botoes">
+                        <div class="botoes">z
                             <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
                             <input id="Limpar" title="Limpar" value="Limpar" type="reset">
                         </div>

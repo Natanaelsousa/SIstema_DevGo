@@ -52,16 +52,12 @@
                             <h4>Empresa</h4>
                             <div id="topo">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>
-                                <p><label title="Letras de A a Z." for="Nome">Nome Fantasia:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                                 <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
-                                    <input title="Digite seu cpf no formato ###.###.###-##" placeholder="###.###.###-##" required="required" 
+                                    <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
                                            type="text" name="CNPJ" maxlength="14" id="CNPJ" size="52" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Razao" size="66"/></p>
-                                <p><label title="Letras de A a Z." for="Cidade">Cidade:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereço" maxlength="35" id="Cidade" size="68"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereco" maxlength="35" id="Razao" size="66"/></p>
                                 <p><label title="Apenas numeros." for="CEP">CEP:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="35"  onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
