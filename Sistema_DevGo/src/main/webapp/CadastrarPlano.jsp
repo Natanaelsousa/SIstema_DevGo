@@ -59,8 +59,8 @@
                                         <option value="2" >Trimestral</option>
                                         <option value="3" >Mensal</option>
                                     </select></p>
-                                <p><label title="Idioma." for="Livro">Livro:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="Number" name="Livro" maxlength="35" id="Livro" size="45"/></p>
+                                <p><label title="Idioma." for="Livro">Idioma:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="Number" name="Idioma" maxlength="35" id="Livro" size="45"/></p>
                                 <p><label title="Preço." for="Preco">Preço:</label>
                                     <input required="required" pattern="[A-Za-z]*"  type="Number" name="Preco" maxlength="35" id="Preço" size="80"/></p>
                             </div>

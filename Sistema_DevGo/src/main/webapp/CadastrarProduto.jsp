@@ -50,8 +50,8 @@
                         <fieldset id="dados">
                             <h4>Produto</h4>
                             <div id="topo">
-                                <p><label title="Idioma." for="Idioma">Idioma:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Idioma" size="80"/></p>
+                                <p><label title="Idioma." for="Idioma">Livro idioma:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="LivroIdioma" maxlength="35" id="Idioma" size="80"/></p>
                                 <p><label title="Letras de A a Z." for="Preco">Preço:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="Number" name="Preco" maxlength="35" id="Preço" size="50"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>
