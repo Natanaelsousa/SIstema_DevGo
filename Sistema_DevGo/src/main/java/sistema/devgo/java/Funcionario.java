@@ -7,7 +7,7 @@ package sistema.devgo.java;
 public class Funcionario {
 
     private String departamento;
-    private int CPF;
+    private int cpf;
     private String nome;
     private String sobrenome;
 
@@ -16,10 +16,10 @@ public class Funcionario {
     private Acesso Acesso;
 
     //Construtor
-    public Funcionario(String departamento, int CPF, String nome, String sobrenome) {
+    public Funcionario(String departamento, int cpf, String nome, String sobrenome) {
 
         this.departamento = departamento;
-        this.CPF = CPF;
+        this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
 
@@ -29,25 +29,22 @@ public class Funcionario {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-
     public String getDepartamento() {
         return departamento;
     }
 
     //Get e set de CPF
-    public void setCPF(int CPF) {
-        this.CPF = CPF;
+    public void setCPF(int cpf) {
+        this.cpf = cpf;
     }
-
     public int getCPF() {
-        return CPF;
+        return cpf;
     }
 
     //Get e set de Nome
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public String getNome() {
         return nome;
     }
@@ -56,18 +53,27 @@ public class Funcionario {
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
-
     public String getSobrenome() {
         return sobrenome;
     }
 
-    //Get de Permissao e Acesso(Associações)
-    public Permissao getPermissao() {
+    //Get e Set de Permissao e Acesso(Associações)
+   public Permissao getPermissao() {
         return Permissao;
     }
-
-    public Acesso getAcesso() {
+   public void setPermissao(Permissao Permissao) {
+        this.Permissao = Permissao;
+    }
+   public Acesso getAcesso() {
         return Acesso;
     }
+   public void setAcesso(Acesso Acesso) {
+        this.Acesso = Acesso;
+    }
+   
+   public void associarPermissao( Permissao tipoPermissao){
+       // METODO PARA PERMISSAO DO FUNCIONARIO
+       //VERIFICAR COMO FAZER
+   }
 
 }
