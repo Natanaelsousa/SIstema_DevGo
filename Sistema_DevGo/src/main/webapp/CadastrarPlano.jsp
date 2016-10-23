@@ -9,7 +9,7 @@
 <!doctype html>
 <html>
     <head>
-         <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
         <title>Cadastro Plano</title>
         <link type="text/css" rel="stylesheet" href="cadastrarPlano.css" />
         <c:url value="CSS/cadastrarPlano.css" var="cadPlano"/>
@@ -46,15 +46,19 @@
                 <li><a href="EditarPlano.jsp">Editar Plano</a></li>
                 <ul>
                     </aside>
-        <c:url value="CadastroPlano" var="CadastroPlano"/>
-        <form action="${CadastroPlano}" method="post" enctype="application/x-www-form-urlencoded">
+                    <c:url value="CadastroPlano" var="CadastroPlano"/>
+                    <form action="${CadastroPlano}" method="post" enctype="application/x-www-form-urlencoded">
                         <fieldset id="dados">
                             <h4>Serviço</h4>
                             <div id="topo">
                                 <p><label title="Plano." for="Plano">Plano:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="80"/></p>
-                                <p><label title="Período." for="Periodo">Período:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Período" maxlength="35" id="Período" size="80"/></p>
+                                <p><label  for="Período">Período:</label>
+                                    <select  name="Periodo">
+                                        <option value="1" selected>Semestral</option>
+                                        <option value="2" >Trimestral</option>
+                                        <option value="3" >Mensal</option>
+                                    </select></p>
                                 <p><label title="Idioma." for="Livro">Livro:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="Number" name="Livro" maxlength="35" id="Livro" size="45"/></p>
                                 <p><label title="Preço." for="Preco">Preço:</label>

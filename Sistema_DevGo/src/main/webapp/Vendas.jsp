@@ -38,7 +38,8 @@
                 </ul>
             </div>
         </header>
-        <form>
+        <c:url value="Venda" var="urlVenda" />
+        <form action="${urlVenda}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Dados</h4>
                 <div id="topo">
@@ -49,12 +50,16 @@
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="45"/></p>
                     <p><label title="Letras de A a Z." for="Plano">Plano:</label>
                         <input required="required" pattern="[0-9]*" type="text" name="Plano" maxlength="50" id="Plano" size="45"/></p>
-                    <p><label title="Letras de A a Z." for="Período">Período:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="Período" maxlength="35" id="Período" size="45"/></p>
+                    <p><label  for="Período">Período:</label>
+                        <select  name="Periodo">
+                            <option value="1" selected>Semestral</option>
+                            <option value="2" >Trimestral</option>
+                            <option value="3" >Mensal</option>
+                        </select></p>
                     <p><label title="Letras de A a Z." for="Idioma:">Idioma:</label>
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Idioma" size="35"/></p>
                     <p><label for="Aluno">Quantidade de Alunos:</label>
-                        <input required="required" type="number" name="Aluno" id="Aluno" /></p>
+                        <input required="required" type="number" name="QtdeAluno" id="Aluno" /></p>
                     <p><label for="Valor">Valor:</label>
                         <input required="required" type="number" name="Valor" id="Valor" /></p>
                 </div>

@@ -23,7 +23,7 @@ public abstract class GenericaDao {
         return connection;
     }
 
-    protected void save(String insertSql, Object... parametros) throws SQLException {
+    protected void insert(String insertSql, Object... parametros) throws SQLException {
         PreparedStatement pstmt = 
 			getConnection().prepareStatement(insertSql);
 

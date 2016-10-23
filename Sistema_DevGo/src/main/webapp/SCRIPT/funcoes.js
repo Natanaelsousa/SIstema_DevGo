@@ -12,3 +12,4 @@ function somenteNumero(e) {
     else
         return false;
 }
+
