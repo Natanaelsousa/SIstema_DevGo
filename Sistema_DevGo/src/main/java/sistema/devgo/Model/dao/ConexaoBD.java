@@ -8,6 +8,7 @@ import java.sql.SQLException;
  *
  * @author Erik
  * 
+ *  A classe teve como base o site http://www.mballem.com/
  * 
  */
  

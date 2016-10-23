@@ -1,24 +1,24 @@
 package sistema.devgo.Model.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- *
- * @author Erik
- */
-public class ExemploDAO {
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+///**
+// *
+// * @author Erik
+// */
+//public class ExemploDAO {
     
 
 
 //public class exemploDAO extends GenericaDao {
 //
 //    public void salvar(Contato contato) throws SQLException {
-//        String insert = "INSERT INTO CONTATOS(nome, apelido, data_nascimento) VALUES(?,?,?)";
-//        save(insert, contato.getNome(), contato.getApelido(), contato.getDtNascimento());
+//        String sql = "INSERT INTO CONTATOS(nome, apelido, data_nascimento) VALUES(?,?,?)";
+//        insert(insert, contato.getNome(), contato.getApelido(), contato.getDtNascimento());
 //    }
 //
 //    public void alterar(Contato contato) throws SQLException {
@@ -81,4 +81,4 @@ public class ExemploDAO {
 //    }
 //}
     
-}
+//}
