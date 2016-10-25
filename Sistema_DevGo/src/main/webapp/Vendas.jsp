@@ -49,9 +49,13 @@
                     <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="45"/></p>
                     <p><label title="Letras de A a Z." for="Plano">Plano:</label>
-                        <input required="required" pattern="[0-9]*" type="text" name="Plano" maxlength="50" id="Plano" size="45"/></p>
-                    <p><label  for="Período">Período:</label>
-                        <select  name="Periodo">
+                        <select name="Periodo">
+                            <option value="1" selected>Gold</option>
+                            <option value="2" >Silver</option>
+                            <option value="3" >Bronze</option>
+                        </select></p>
+                            <p><label  for="Período">Período:</label>
+                                <select  name="Periodo">
                             <option value="1" selected>Semestral</option>
                             <option value="2" >Trimestral</option>
                             <option value="3" >Mensal</option>

@@ -55,17 +55,29 @@
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                                 <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
                                     <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
-                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="52" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Letras de A a Z." for="Endereço">Endereço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Endereco" maxlength="35" id="Razao" size="66"/></p>
-                                <p><label title="Apenas numeros." for="CEP">CEP:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CEP" maxlength="35" id="CEP" size="35"  onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
-                                    <input required="required" pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone1" maxlength="35" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
-                                    <input pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone2" maxlength="35" id="Telefone2" size="52" onkeypress="return somenteNumero(event)"/></p>
+                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
+                                    <input required="required" pattern="^\d{2}-\d{8}$" type="tel" name="Telefone1" maxlength="35" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
+                                    <input pattern="^\d{4}-\d{10}$" type="tel" name="Telefone2" maxlength="35" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="65"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
+                                <p><label>Cep:</label>
+                                    <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
+                                           onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
+
+                                <p><label>Rua:</label>
+                                    <input name="rua" type="text" id="rua" size="65" disabled/></p>
+                                <p><label>Número:</label>
+                                    <input required="required" name="numero" type="text" id="numero" value="" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label>Bairro:</label>
+                                    <input name="bairro" type="text" id="bairro" size="40" disabled/><br />
+                                <p><label>Cidade:</label>
+                                    <input name="cidade" type="text" id="cidade" size="40" disabled/></p>
+                                <p><label>Estado:</label>
+                                    <input name="uf" type="text" id="uf" size="20" disabled/></p>
+                                <p><label>IBGE:</label>
+                                    <input name="ibge" type="text" id="ibge" size="10" disabled/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

@@ -56,7 +56,7 @@
                             <p><label title="Sobrenome." for="Sobrenome">Sobrenome:</label>
                                 <input required="required" pattern="[0-9]*" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
                             <p><label title="Letras de A a Z." for="Telefone">Telefone:</label>
-                                <input required="required" pattern="[A-Za-z]*" type="text" name="Telefone" maxlength="35" id="Telefone" size="35"/></p>
+                                <input required="required" pattern="^\d{2}-\d{8}$" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
                             <p><label title="Letras de A a Z." for="Datanasc">Data de nascimento:</label>
                                 <input required="required" pattern="[A-Za-z]*" type="text" name="Datanasc" maxlength="30" id="Datanasc" size="25"/></p>
                             <p><label title="Letras de A a Z." for="Departamento">Departamento:</label>

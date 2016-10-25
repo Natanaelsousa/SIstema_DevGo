@@ -53,19 +53,19 @@
                                 <p><label title="Letras de A a Z." for="Nome">Nome:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
                                 <p><label title="Letras de A a Z." for="Nome">Sobrenome:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Sobrenome" maxlength="35" id="Sobrenome" size="83"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Sobrenome" maxlength="35" id="Sobrenome" size="85"/></p>
                                 <p><label title="CPF Completo." for="CPF">CPF:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="CPF" maxlength="50" id="CPF" size="35"/></p>
+                                    <input required="required" pattern="[0-9]*" type="text" name="CPF" maxlength="50" id="CPF" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Telefone Completo." for="Telefone">Telefone:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Telefone" maxlength="35" id="Telefone" size="35"/></p>
+                                    <input required="required" pattern="^\d{2}-\d{8}$" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title=" " for="Datanasc">Data de Nascimento:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Datanasc" maxlength="35" id="Datanasc" size="35"/></p>
+                                    <input required="required" type="date" name="Datanasc" id="Datanasc" size="35"/></p>
                                 <p><label title="Letras de A a Z." for="Departamento">Departamento:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Departamento" maxlength="35" id="Departamento" size="35"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Departamento" maxlength="35" id="Departamento" size="36"/></p>
                                 <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
                                     <input required="required" pattern="[0-9]*" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
                                 <p><label title=" " for="Senha">Senha:</label>
-                                    <input required="required" pattern="[0-9]*" type="text" name="Senha" maxlength="35" id="Senha" size="37"/></p>
+                                    <input required="required" type="password" name="Senha" minlength="5" maxlength="15" id="Senha" size="37"/></p>
                                 <p><label title="Letras de A a Z." for="Status">Status:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Status" maxlength="35" id="Status" size="30"/></p>
                             </div>

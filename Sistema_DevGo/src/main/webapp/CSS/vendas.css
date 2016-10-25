@@ -92,12 +92,15 @@ form{
     min-height: 365px;
     margin-top: 30px;
 }
-input{
+input, select{
     padding: 4px 10px;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 14px;
     margin: 0 5px;
+}
+select{
+    padding: 4px 70px;
 }
 h4{
     background: white;

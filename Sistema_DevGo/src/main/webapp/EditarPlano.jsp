@@ -52,7 +52,6 @@
                             <div id="topo">
                                 <p><label title="Plano." for="Plano">Plano:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
-                                <p><label for="Período">Período:</label>
                                     <p><label  for="Período">Período:</label>
                                     <select  name="Periodo">
                                         <option value="1" selected>Semestral</option>
