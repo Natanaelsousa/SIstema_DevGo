@@ -49,21 +49,20 @@
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
-                                <p><label title="Letras de A a Z." for="CNPJ:">CNPJ:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ" maxlength="25" id="CNPJ" size="55" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="CNPJ Completo." for="CNPJ:">CNPJ:</label>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)"/></p>
                                     <input id="Buscar" title="Buscar" value="Buscar" type="submit">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="64"/></p>
-                                <p><label title="Números do telefone." for="Telefone1">Telefone Residencial:</label>
-                                    <input required="required" pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone1" maxlength="25" id="Telefone1" size="33" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Números do telefone." for="Telefone2">Celular:</label>
-                                    <input required="required" pattern="^\d{4}-\d{3}-\d{4}$" type="tel" name="Telefone2" maxlength="25" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
+                                    <input required="required" pattern="^\d{10}$" type="tel" name="Telefone1" maxlength="10" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
+                                    <input pattern="^\d{11}$" type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="55"/></p>
                                 <p><label>Cep:</label>
                                     <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
                                            onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)"/></p>
-
                                 <p><label>Rua:</label>
                                     <input name="rua" type="text" id="rua" size="65" disabled/></p>
                                 <p><label>Número:</label>

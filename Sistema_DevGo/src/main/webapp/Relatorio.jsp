@@ -13,6 +13,7 @@
         <link type="text/css" rel="stylesheet" href="relatorio.css" />
         <c:url value="CSS/relatorio.css" var="Relatorio"/>
         <link type="text/css" rel="stylesheet" href="${Relatorio}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
         <header>

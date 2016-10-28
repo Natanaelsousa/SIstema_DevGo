@@ -14,6 +14,7 @@
         <link type="text/css" rel="stylesheet" href="Editar Produto.css" />
         <c:url value="CSS/editarProduto.css" var="EditarProduto"/>
         <link type="text/css" rel="stylesheet" href="${EditarProduto}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
         <header>
@@ -53,9 +54,9 @@
                                 <p><label title="Idioma." for="Idioma">Livro idioma:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="LivroIdioma" maxlength="35" id="Plano" size="52"/></p>
                                 <p><label title="Preço." for="Preço">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="52"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>
-                                    <input required="required" type="number" name="Quantidade" maxlength="35" id="Quantidade" size="20"/></p>
+                                    <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

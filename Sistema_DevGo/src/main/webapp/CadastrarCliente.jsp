@@ -57,15 +57,14 @@
                                     <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
                                            type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
-                                    <input required="required" pattern="^\d{2}-\d{8}$" type="tel" name="Telefone1" maxlength="35" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                    <input required="required" pattern="^\d{10}$" type="tel" name="Telefone1" maxlength="10" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
-                                    <input pattern="^\d{4}-\d{10}$" type="tel" name="Telefone2" maxlength="35" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                    <input pattern="^\d{11}$" type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
+                                    <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
                                 <p><label>Cep:</label>
                                     <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
                                            onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
-
                                 <p><label>Rua:</label>
                                     <input name="rua" type="text" id="rua" size="65" disabled/></p>
                                 <p><label>Número:</label>

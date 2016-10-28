@@ -5,9 +5,7 @@
  */
 function somenteNumero(e) {
     var tecla = (window.event) ? event.keyCode : e.which;
-    if (tecla > 47 && tecla < 58)
-        return true;
-    else if (tecla === 8 || tecla === 0)
+    if (tecla > 47 && tecla < 58|| tecla === 34)
         return true;
     else
         return false;
@@ -36,7 +34,7 @@ function pesquisacep(valor) {
     var cep = valor.replace(/\D/g, '');
 
     //Verifica se campo cep possui valor informado.
-    if (cep != "") {
+    if (cep !== "") {
 
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;
@@ -73,4 +71,3 @@ function pesquisacep(valor) {
         limpa_formulário_cep();
     }
 }
-;

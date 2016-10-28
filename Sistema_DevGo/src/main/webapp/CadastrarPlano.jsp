@@ -14,6 +14,7 @@
         <link type="text/css" rel="stylesheet" href="cadastrarPlano.css" />
         <c:url value="CSS/cadastrarPlano.css" var="cadPlano"/>
         <link rel="stylesheet" href="${cadPlano}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
         <header>
@@ -52,7 +53,7 @@
                             <h4>Serviço</h4>
                             <div id="topo">
                                 <p><label title="Plano." for="Plano">Plano:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="80"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
                                 <p><label  for="Período">Período:</label>
                                     <select  name="Periodo">
                                         <option value="1" selected>Semestral</option>
@@ -60,9 +61,9 @@
                                         <option value="3" >Mensal</option>
                                     </select></p>
                                 <p><label title="Idioma." for="Livro">Idioma:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="Number" name="Idioma" maxlength="35" id="Livro" size="45"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Livro" size="40"/></p>
                                 <p><label title="Preço." for="Preco">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*"  type="Number" name="Preco" maxlength="35" id="Preço" size="80"/></p>
+                                    <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="40" onkeypress="return somenteNumero(event)"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

@@ -14,6 +14,7 @@
         <link type="text/css" rel="stylesheet" href="Editar Funcionario.css" />
         <c:url value="CSS/editarFuncionario.css" var="EditarFuncionario"/>
         <link type="text/css" rel="stylesheet" href="${EditarFuncionario}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
 </head>
 <body>
     <header>
@@ -49,7 +50,7 @@
                         <h4>Empresa</h4>
                         <div id="topo">
                             <p><label title="Numeros do CPF." for="CPF">CPF:</label>
-                                <input required="required" pattern="[A-Za-z]*" type="text" name="CPF" maxlength="35" id="CPF" size="35"/>
+                                <input required="required" pattern="[A-Za-z]*" type="text" name="CPF" maxlength="11" id="CPF" size="35"/>
                             <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                             <p><label title="Letras de A a Z." for="Nome">Nome:</label>
                                 <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
@@ -57,17 +58,19 @@
                                 <input required="required" pattern="[0-9]*" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
                             <p><label title="Letras de A a Z." for="Telefone">Telefone:</label>
                                 <input required="required" pattern="^\d{2}-\d{8}$" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
-                            <p><label title="Letras de A a Z." for="Datanasc">Data de nascimento:</label>
-                                <input required="required" pattern="[A-Za-z]*" type="text" name="Datanasc" maxlength="30" id="Datanasc" size="25"/></p>
+                            <p><label for="Datanasc">Data de nascimento:</label>
+                                <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
                             <p><label title="Letras de A a Z." for="Departamento">Departamento:</label>
-                                <input required="required" pattern="[A-Za-z]*" type="text" name="Departamento" maxlength="35" id="Departamento" size="54"/></p>
+                                <input required="required" pattern="[A-Za-z]*" type="text" name="Departamento" maxlength="35" id="Departamento" size="63"/></p>
                             <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
                                 <input required="required" pattern="[0-9]*" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
-                            <p><label title="Letras de A a Z." for="Senha">Senha:</label>
-                                <input required="required" pattern="[0-9]*" type="text" name="Senha" maxlength="35" id="Senha" size="35"/></p>
+                            <p><label title=" " for="Senha">Senha:</label>
+                                    <input required="required" type="password" name="Senha" minlength="5" maxlength="15" id="Senha" size="18" onchange="form.Senha2.pattern = this.value;"/></p>
+                                <p><label title="Confirmar senha." for="Senha2">Confirmar senha:</label>
+                                    <input required="required" type="password" name="Senha2" minlength="5" maxlength="15" id="Senha" size="18" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'As senhas não conferem' : '')"/></p>
                             <p><label title="Letras de A a Z." for="Status:">Status:</label>
-                                Ativo<input required="required" type="radio" name="Status" maxlength="35" id="Status" size="15"/></p>
-                                Inativo<input required="required" type="radio" name="Status" maxlength="35" id="Status" size="15"/></p>
+                                Ativo<input required="required" type="radio" name="Status" maxlength="35" id="Status"/>
+                                Inativo<input required="required" type="radio" name="Status" maxlength="35" id="Status" size="15"/></p>        
                         </div>
                     </fieldset>
                     <div class="botoes">

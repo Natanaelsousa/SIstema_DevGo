@@ -14,6 +14,7 @@
         <link type="text/css" rel="stylesheet" href="vendas.css" />
         <c:url value="CSS/vendas.css" var="Vendas"/>
         <link type="text/css" rel="stylesheet" href="${Vendas}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
         <header>
