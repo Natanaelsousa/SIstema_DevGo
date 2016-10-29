@@ -45,25 +45,31 @@ public class CadastroCliente extends HttpServlet {
       
      // Guardando dados vindos da tela nas variaveis
     String razao = request.getParameter("Razao");
-    String nome = request.getParameter("Nome");
     String cnpj = request.getParameter("CNPJ");
-    String endereco = request.getParameter("Endereco");
     String cep = request.getParameter("CEP");
     String telefone1 = request.getParameter("Telefone1");
     String telefone2 = request.getParameter("Telefone2");
     String email = request.getParameter("Email");
+    String rua = request.getParameter("Rua");
+    String numero = request.getParameter("Numero");
+    String bairro = request.getParameter("Bairro");
+    String cidade = request.getParameter("Cidade");
+    String uf = request.getParameter("Estado");
     
     // Seta os atributos para compartilhar os valores com o jsp
     // Nao confundir get/setAttribute com getParameter!!!
     request.setAttribute("id", request.getParameter("id"));
     request.setAttribute("Razao", razao);
-    request.setAttribute("Nome", nome);
     request.setAttribute("CNPJ", cnpj);
-    request.setAttribute("Endereco", endereco);
     request.setAttribute("CEP", cep);
     request.setAttribute("Telefone1", telefone1);
     request.setAttribute("Telefone2", telefone2);
     request.setAttribute("Email", email);
+    request.setAttribute("Rua", rua);
+    request.setAttribute("Cidade", cidade);
+    request.setAttribute("Numero", numero);
+    request.setAttribute("Bairro", bairro);
+    request.setAttribute("Estado", uf);
     
     // Encaminhamento para o processamento continuar no jsp.
    RequestDispatcher dispatcher =
