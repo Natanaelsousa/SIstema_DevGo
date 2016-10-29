@@ -13,6 +13,7 @@
         <title>Cadastro Produtos</title>
         <c:url value="CSS/cadastrarProduto.css" var="cadProduto"/>
         <link type="text/css" rel="stylesheet" href="${cadProduto}" />
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
         <header>

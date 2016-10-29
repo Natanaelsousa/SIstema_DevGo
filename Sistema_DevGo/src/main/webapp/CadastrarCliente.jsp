@@ -55,7 +55,7 @@
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                                 <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
                                     <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
-                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)"/></p>
+                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
                                     <input required="required" pattern="^\d{10}$" type="tel" name="Telefone1" maxlength="10" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
@@ -66,17 +66,15 @@
                                     <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
                                            onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label>Rua:</label>
-                                    <input name="rua" type="text" id="rua" size="65" disabled/></p>
+                                    <input name="rua" type="text" id="rua" size="65" /></p>
                                 <p><label>Número:</label>
                                     <input required="required" name="numero" type="text" id="numero" value="" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label>Bairro:</label>
-                                    <input name="bairro" type="text" id="bairro" size="40" disabled/><br />
+                                    <input name="bairro" type="text" id="bairro" size="40" /><br />
                                 <p><label>Cidade:</label>
-                                    <input name="cidade" type="text" id="cidade" size="40" disabled/></p>
+                                    <input name="cidade" type="text" id="cidade" size="40" /></p>
                                 <p><label>Estado:</label>
-                                    <input name="uf" type="text" id="uf" size="20" disabled/></p>
-                                <p><label>IBGE:</label>
-                                    <input name="ibge" type="text" id="ibge" size="10" disabled/></p>
+                                    <input name="uf" type="text" id="uf" size="20" /></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

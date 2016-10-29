@@ -29,7 +29,7 @@
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
                             <a href="CadastrarCliente.jsp">Cliente</a>
-                            <a href="#">Funcionario</a>
+                            <a href="CadastrarFuncionario.jsp">Funcionario</a>
                         </div>
                     </li>
                     <li><a href="CadastrarProduto.jsp">Produtos e Serviços</a><li>
@@ -59,22 +59,20 @@
                                 <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
                                     <input pattern="^\d{11}$" type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="55"/></p>
+                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Email" maxlength="35" id="Email" size="53"/></p>
                                 <p><label>Cep:</label>
                                     <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
                                            onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label>Rua:</label>
-                                    <input name="rua" type="text" id="rua" size="65" disabled/></p>
+                                    <input name="rua" type="text" id="rua" size="65" /></p>
                                 <p><label>Número:</label>
                                     <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label>Bairro:</label>
-                                    <input name="bairro" type="text" id="bairro" size="40" disabled/><br />
+                                    <input name="bairro" type="text" id="bairro" size="40" /><br />
                                 <p><label>Cidade:</label>
-                                    <input name="cidade" type="text" id="cidade" size="40" disabled/></p>
+                                    <input name="cidade" type="text" id="cidade" size="40" /></p>
                                 <p><label>Estado:</label>
-                                    <input name="uf" type="text" id="uf" size="20" disabled/></p>
-                                <p><label>IBGE:</label>
-                                    <input name="ibge" type="text" id="ibge" size="10" disabled/></p>
+                                    <input name="uf" type="text" id="uf" size="20" /></p>
                             </div>
                         </fieldset>
                         <div class="botoes">
