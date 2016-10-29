@@ -10,17 +10,17 @@ public class Cliente {
     private String razaoSocial;
     private String cep;
     private String rua;
-    private int numero;
+    private String numero;
     private String bairro;
     private String cidade;
     private String estado;
-    private String telefone;
-    private String celular;
+    private String telefone1;
+    private String telefone2;
     private String email;
 
     //Construtor
     public Cliente(String CNPJ, String razaoSocial, String cep,
-    String rua, int numero, String bairro, String cidade, String estado,String telefone, String celular, String email) {
+    String rua, String numero, String bairro, String cidade, String estado,String telefone1, String telefone2, String email) {
 
         this.CNPJ = CNPJ;
         this.razaoSocial = razaoSocial;
@@ -30,8 +30,8 @@ public class Cliente {
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
-        this.telefone = telefone;
-        this.celular = celular;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
         this.email = email; 
         
     }
@@ -95,14 +95,14 @@ public class Cliente {
     /**
      * @return the numero
      */
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
     /**
      * @param numero the numero to set
      */
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -148,32 +148,23 @@ public class Cliente {
         this.estado = estado;
     }
 
+    public String getTelefone1() {
+        return telefone1;
+    }
+
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
+    }
+
+    public String getTelefone2() {
+        return telefone2;
+    }
+
     /**
      * @return the telefone
      */
-    public String getTelefone() {
-        return telefone;
-    }
-
-    /**
-     * @param telefone the telefone to set
-     */
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    /**
-     * @return the celular
-     */
-    public String getCelular() {
-        return celular;
-    }
-
-    /**
-     * @param celular the celular to set
-     */
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setTelefone2(String telefone2) {    
+        this.telefone2 = telefone2;
     }
 
     /**
@@ -189,5 +180,7 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
+
+   
 }
 
