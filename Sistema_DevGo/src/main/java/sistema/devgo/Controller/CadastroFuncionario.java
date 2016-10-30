@@ -22,7 +22,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sistema.devgo.Model.dao.FuncionarioDao;
+import sistema.devgo.Model.dao.FuncionarioDAO;
 import sistema.devgo.java.Funcionario;
 
 
@@ -111,7 +111,7 @@ public class CadastroFuncionario extends HttpServlet {
          funcionario.setUsuario(usuario);
          funcionario.setSenha(senha);
          
-         FuncionarioDao dao = new FuncionarioDao ();
+         FuncionarioDAO dao = new FuncionarioDAO ();
         try {
             dao.insert(funcionario);
         } catch (SQLException ex) {
