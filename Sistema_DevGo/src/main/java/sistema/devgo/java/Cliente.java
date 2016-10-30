@@ -2,7 +2,7 @@ package sistema.devgo.java;
 
 /**
  *
- * @author Sibele
+ * @author Erik
  */
 public class Cliente {
     
@@ -58,7 +58,7 @@ public class Cliente {
          
      }
 
-   
+  
     /**
      * @return the CNPJ
      */
