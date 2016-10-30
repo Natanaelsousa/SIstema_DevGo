@@ -12,14 +12,13 @@ import java.sql.SQLException;
  * 
  * 
  */
-public class GenericaDAO {
-    
 
+   
 
-public abstract class GenericaDao {
+public abstract class GenericaDAO {
     private final Connection connection;
 
-    protected GenericaDao() {
+    protected GenericaDAO() {
         this.connection = ConexaoBD.getConnection();
     }
 
@@ -64,4 +63,3 @@ public abstract class GenericaDao {
     }
  }
     
-}

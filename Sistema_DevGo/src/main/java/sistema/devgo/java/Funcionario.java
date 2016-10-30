@@ -1,5 +1,7 @@
 package sistema.devgo.java;
 
+import java.util.Date;
+
 /**
  *
  * @author Sibele
@@ -7,73 +9,186 @@ package sistema.devgo.java;
 public class Funcionario {
 
     private String departamento;
-    private int cpf;
+    private String cpf;
     private String nome;
     private String sobrenome;
+    private String telefone;
+    private Date dtNascimento;
+    private String status;
+    private String usuario;
+    private String senha;
+    private Long id;
 
-    //ASSOCIAÇÕES
-    private Permissao Permissao;
-    private Acesso Acesso;
+    //Construtores
+    public Funcionario() {
 
-    //Construtor
-    public Funcionario(String departamento, int cpf, String nome, String sobrenome) {
+    }
+
+    public Funcionario(Date dataNasc,String departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
 
         this.departamento = departamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this.status = "ATIVO";
+        this.usuario = usuario;
+        this.senha = senha;
+        this.dtNascimento = dataNasc;
 
     }
 
-    //Get e set de departamento
-    public void setDepartamento(String departamento) {
+    public Funcionario(Long id, String departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
+
         this.departamento = departamento;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.status = "ATIVO";
+        this.usuario = usuario;
+        this.senha = senha;
+        this.id = id;
+
     }
+
+    /**
+     * @return the departamento
+     */
     public String getDepartamento() {
         return departamento;
     }
 
-    //Get e set de CPF
-    public void setCPF(int cpf) {
-        this.cpf = cpf;
+    /**
+     * @param departamento the departamento to set
+     */
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
-    public int getCPF() {
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
         return cpf;
     }
 
-    //Get e set de Nome
-    public void setNome(String nome) {
-        this.nome = nome;
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
+
+    /**
+     * @return the nome
+     */
     public String getNome() {
         return nome;
     }
 
-    //Get e set de Sobrenome
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    /**
+     * @return the sobrenome
+     */
     public String getSobrenome() {
         return sobrenome;
     }
 
-    //Get e Set de Permissao e Acesso(Associações)
-   public Permissao getPermissao() {
-        return Permissao;
+    /**
+     * @param sobrenome the sobrenome to set
+     */
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
-   public void setPermissao(Permissao Permissao) {
-        this.Permissao = Permissao;
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
     }
-   public Acesso getAcesso() {
-        return Acesso;
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
-   public void setAcesso(Acesso Acesso) {
-        this.Acesso = Acesso;
+
+    /**
+     * @return the dtNascimento
+     */
+    public Date getDtNascimento() {
+        return dtNascimento;
     }
-   
-   public void associarPermissao( Permissao tipoPermissao){
-       // METODO PARA PERMISSAO DO FUNCIONARIO
-       //VERIFICAR COMO FAZER
-   }
+
+    /**
+     * @param dtNascimento the dtNascimento to set
+     */
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the usuario
+     */
+    public String getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
 }
