@@ -5,7 +5,8 @@ package sistema.devgo.java;
  * @author Sibele
  */
 public class Cliente {
-
+    
+    private Long codCliente;
     private String CNPJ;
     private String razaoSocial;
     private String cep;
@@ -19,9 +20,8 @@ public class Cliente {
     private String email;
 
     //Construtor
-    public Cliente(String CNPJ, String razaoSocial, String cep,
-    String rua, String numero, String bairro, String cidade, String estado,String telefone1, String telefone2, String email) {
-
+    public Cliente(String CNPJ, String razaoSocial, String cep,String rua, String numero, String bairro, String cidade, String estado,String telefone1, String telefone2, String email) {
+        
         this.CNPJ = CNPJ;
         this.razaoSocial = razaoSocial;
         this.cep = cep;
@@ -36,6 +36,29 @@ public class Cliente {
         
     }
 
+     public Cliente(Long codCliente,String CNPJ, String razaoSocial, String cep,
+      String rua, String numero, String bairro, String cidade, String estado,String telefone1, String telefone2, String email){
+         
+        this.codCliente = codCliente;
+        this.CNPJ = CNPJ;
+        this.razaoSocial = razaoSocial;
+        this.cep = cep;
+        this.rua= rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
+        this.email = email; 
+              
+     }
+     
+     public Cliente(){
+         
+     }
+
+   
     /**
      * @return the CNPJ
      */
@@ -148,22 +171,31 @@ public class Cliente {
         this.estado = estado;
     }
 
+    /**
+     * @return the telefone1
+     */
     public String getTelefone1() {
         return telefone1;
     }
 
+    /**
+     * @param telefone1 the telefone1 to set
+     */
     public void setTelefone1(String telefone1) {
         this.telefone1 = telefone1;
     }
 
+    /**
+     * @return the telefone2
+     */
     public String getTelefone2() {
         return telefone2;
     }
 
     /**
-     * @return the telefone
+     * @param telefone2 the telefone2 to set
      */
-    public void setTelefone2(String telefone2) {    
+    public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
 
@@ -181,6 +213,19 @@ public class Cliente {
         this.email = email;
     }
 
-   
+    /**
+     * @return the codCliente
+     */
+    public Long getCodCliente() {
+        return codCliente;
+    }
+
+    /**
+     * @param codCliente the codCliente to set
+     */
+    public void setCodCliente(Long codCliente) {
+        this.codCliente = codCliente;
+    }
+    
 }
 
