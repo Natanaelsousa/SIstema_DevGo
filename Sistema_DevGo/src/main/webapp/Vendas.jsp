@@ -55,14 +55,17 @@
                             <option value="2" >Silver</option>
                             <option value="3" >Bronze</option>
                         </select></p>
-                            <p><label  for="Período">Período:</label>
-                                <select  name="Periodo">
+                    <p><label  for="Período">Período:</label>
+                        <select  name="Periodo">
                             <option value="1" selected>Semestral</option>
                             <option value="2" >Trimestral</option>
                             <option value="3" >Mensal</option>
                         </select></p>
-                    <p><label title="Letras de A a Z." for="Idioma:">Idioma:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Idioma" size="35"/></p>
+                    <p><label title="Livro." for="Livro">Idioma:</label>
+                                    <select name="Idioma">
+                                        <option value="1" >Ingles</option>
+                                        <option value="2" >Espanhol</option>
+                                    </select></p>
                     <p><label for="Aluno">Quantidade de Alunos:</label>
                         <input required="required" type="number" name="QtdeAluno" id="Aluno" /></p>
                     <p><label for="Valor">Valor:</label>
@@ -76,7 +79,5 @@
         </form>
     </body>
 </html>
-
-</form>
 </body>
 </html>

@@ -120,19 +120,20 @@ h4{
     text-align: center;
 }
 label{
-    margin: 3px 8px;
+    margin: 3px 5px;
     display: block;
     text-align: left;
 }
 p{
-    margin:25px;
+    margin: 25px;
     display: inline-block;
 }
 select{
     display: block;
-    margin:25px 0px;
+    margin: 10px 0px;
     width: 400px;
-    text-align: left;
+    text-align: center;
+    padding: 4px 150px;
 }
 #topo{
     margin-top: 20px;

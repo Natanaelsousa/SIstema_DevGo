@@ -44,7 +44,7 @@
             <ul>
                 <li><a href="CadastrarFuncionario.jsp">Cadastrar Funcionario</a></li>
                 <li><a href="EditarFuncionario.jsp">Editar Funcionario</a></li>
-                <ul>
+                </ul>
                     </aside>
                     <c:url value="CadastroFuncionario" var="CadastroFuncionario"/>
                     <form action="${CadastroFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
@@ -56,21 +56,19 @@
                                 <p><label title="Letras de A a Z." for="Nome">Sobrenome:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Sobrenome" maxlength="35" id="Sobrenome" size="85"/></p>
                                 <p><label title="CPF Completo." for="CPF">CPF:</label>
-                                    <input required="required" type="text" name="CPF" maxlength="12" id="CPF" size="35" onkeypress="return somenteNumero(event)" onblur="return verificarCPF(this.value)"/></p>
+                                    <input required="required" type="text" name="CPF" maxlength="12" id="CPF" size="35" onkeypress="return somenteNumero(event)" onblur="return TestaCPF(this.value)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone">Telefone:</label>
                                     <input required="required" pattern="^\d{11}$" type="text" name="Telefone" maxlength="11" id="Telefone" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label for="Datanasc">Data de Nascimento:</label>
-                                    <input required="required" type="date" name="Datanasc" id="Datanasc" size="35"/></p>
+                                    <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
                                 <p><label title="Letras de A a Z." for="Departamento">Departamento:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Departamento" maxlength="35" id="Departamento" size="36"/></p>
                                 <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
                                     <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
                                 <p><label title=" " for="Senha">Senha:</label>
-                                    <input required="required" type="password" name="Senha" minlength="5" maxlength="15" id="Senha" size="18" onchange="Senha2.pattern = this.value;"/></p>
+                                    <input required="required" type="password" name="Senha" maxlength="15" id="Senha" size="18" onchange="Senha2.pattern = this.value;"/></p>
                                 <p><label title="Confirmar senha." for="Senha2">Confirmar senha:</label>
-                                    <input required="required" type="password" name="Senha2" minlength="5" maxlength="15" id="Senha2" size="18" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'As senhas não conferem' : '')"/></p>
-                                <p><label title="Letras de A a Z." for="Status">Status:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Status" maxlength="35" id="Status" size="30"/></p>
+                                    <input required="required" type="password" name="Senha2" maxlength="15" id="Senha2" size="18" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'As senhas não conferem' : '')"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

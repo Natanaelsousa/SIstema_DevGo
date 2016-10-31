@@ -45,7 +45,7 @@
                 <li><a href="CadastarPlano.jsp">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto.jsp">Editar Produto</a></li>
                 <li><a href="EditarPlano.jsp">Editar Plano</a></li>
-                <ul>
+                </ul>
                     </aside>
                     <c:url value="CadastroPlano" var="CadastroPlano"/>
                     <form action="${CadastroPlano}" method="post" enctype="application/x-www-form-urlencoded">
@@ -60,8 +60,11 @@
                                         <option value="2" >Trimestral</option>
                                         <option value="3" >Mensal</option>
                                     </select></p>
-                                <p><label title="Idioma." for="Livro">Idioma:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Idioma" maxlength="35" id="Livro" size="40"/></p>
+                                <p><label title="Livro." for="Livro">Idioma:</label>
+                                    <select name="Idioma">
+                                        <option value="1" >Ingles</option>
+                                        <option value="2" >Espanhol</option>
+                                    </select></p>
                                 <p><label title="Preço." for="Preco">Preço:</label>
                                     <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="40" onkeypress="return somenteNumero(event)"/></p>
                             </div>

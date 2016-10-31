@@ -70,44 +70,49 @@ function pesquisacep(valor) {
         limpa_formulário_cep();
     }
 }
+function limpa_formulário_cpf() {
+    document.getElementById('CPF').value = ("");
 
-function verificarCPF(n) {
-    var i;
-    var s = n;
-    var c = s.substr(0, 9);
-    var dv = s.substr(9, 2);
-    var d1 = 0;
-    var v = false;
-    for (i = 0; i < 9; i++) {
-        d1 += c.charAt(i) * (10 - i);
-    }
-    if (d1 === 0) {
-        alert("CPF Inválido");
-        v = true;
+}
+function TestaCPF(n) {
+    var Soma;
+    var Resto;
+    Soma = 0;
+        if (n.length !== 11 ||
+            n === "00000000000" ||
+            n === "11111111111" ||
+            n === "22222222222" ||
+            n === "33333333333" ||
+            n === "44444444444" ||
+            n === "55555555555" ||
+            n === "66666666666" ||
+            n === "77777777777" ||
+            n === "88888888888" ||
+            n === "99999999999"){
+            alert("CPF Invalido!");  
+        limpa_formulário_cpf();    
+        return false;
+        }
+    
+	for (i=1; i<=9; i++) Soma = Soma + parseInt(n.substring(i-1, i)) * (11 - i);
+	Resto = (Soma * 10) % 11;
+	
+    if ((Resto === 10) || (Resto === 11))  Resto = 0;
+    if (Resto !== parseInt(n.substring(9, 10)) ){   
+        alert("CPF Invalido!");    
+        limpa_formulário_cpf();  
         return false;
     }
-    d1 = 11 - (d1 % 11);
-    if (d1 > 9)
-        d1 = 0;
-    if (dv.charAt(0) !== d1) {
-        alert("CPF Inválido");
-        v = true;
+	
+	Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(n.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+	
+    if ((Resto === 10) || (Resto === 11))  Resto = 0;
+    if (Resto !== parseInt(n.substring(10, 11) ) ){
+        alert("CPF Invalido!"); 
+        limpa_formulário_cpf();  
         return false;
     }
-
-    d1 *= 2;
-    for (i = 0; i < 9; i++) {
-        d1 += c.charAt(i) * (11 - i);
-    }
-    d1 = 11 - (d1 % 11);
-    if (d1 > 9)
-        d1 = 0;
-    if (dv.charAt(1) !== d1) {
-        alert("CPF Inválido");
-        v = true;
-        return false;
-    }
-    if (!v) {
-        alert(c + "nCPF Válido");
-    }
+    return true;
 }

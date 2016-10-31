@@ -45,7 +45,7 @@
                 <li><a href="CadastrarPlano.jsp">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto.jsp">Editar Produto</a></li>
                 <li><a href="EditarPlano.jsp">Editar Plano</a></li>
-                <ul>
+                </ul>
                     </aside>
                     <form>
                         <fieldset id="dados">

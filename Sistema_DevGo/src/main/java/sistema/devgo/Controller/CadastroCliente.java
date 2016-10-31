@@ -32,61 +32,52 @@ public class CadastroCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-         
-        }
+        // Guardando dados vindos da tela nas variaveis
+        String Razao = request.getParameter("Razao");
+        String cnpj = request.getParameter("CNPJ");
+        String cep = request.getParameter("CEP");
+        String telefone1 = request.getParameter("Telefone1");
+        String telefone2 = request.getParameter("Telefone2");
+        String email = request.getParameter("Email");
+        String rua = request.getParameter("Rua");
+        String numero = request.getParameter("Numero");
+        String bairro = request.getParameter("Bairro");
+        String cidade = request.getParameter("Cidade");
+        String uf = request.getParameter("Estado");
+
+    // Seta os atributos para compartilhar os valores com o jsp
+        // Nao confundir get/setAttribute com getParameter!!!
+        request.setAttribute("id", request.getParameter("id"));
+        request.setAttribute("Razao", Razao);
+        request.setAttribute("CNPJ", cnpj);
+        request.setAttribute("CEP", cep);
+        request.setAttribute("Telefone1", telefone1);
+        request.setAttribute("Telefone2", telefone2);
+        request.setAttribute("Email", email);
+        request.setAttribute("Rua", rua);
+        request.setAttribute("Cidade", cidade);
+        request.setAttribute("Numero", numero);
+        request.setAttribute("Bairro", bairro);
+        request.setAttribute("Estado", uf);
+
+        // Encaminhamento para o processamento continuar no jsp.
+        request.getRequestDispatcher("teste.jsp").forward(request, response);
     }
 
-   
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-	  throws ServletException, IOException {
-      
-     // Guardando dados vindos da tela nas variaveis
-    String razao = request.getParameter("Razao");
-    String cnpj = request.getParameter("CNPJ");
-    String cep = request.getParameter("CEP");
-    String telefone1 = request.getParameter("Telefone1");
-    String telefone2 = request.getParameter("Telefone2");
-    String email = request.getParameter("Email");
-    String rua = request.getParameter("Rua");
-    String numero = request.getParameter("Numero");
-    String bairro = request.getParameter("Bairro");
-    String cidade = request.getParameter("Cidade");
-    String uf = request.getParameter("Estado");
-    
-    // Seta os atributos para compartilhar os valores com o jsp
-    // Nao confundir get/setAttribute com getParameter!!!
-    request.setAttribute("id", request.getParameter("id"));
-    request.setAttribute("Razao", razao);
-    request.setAttribute("CNPJ", cnpj);
-    request.setAttribute("CEP", cep);
-    request.setAttribute("Telefone1", telefone1);
-    request.setAttribute("Telefone2", telefone2);
-    request.setAttribute("Email", email);
-    request.setAttribute("Rua", rua);
-    request.setAttribute("Cidade", cidade);
-    request.setAttribute("Numero", numero);
-    request.setAttribute("Bairro", bairro);
-    request.setAttribute("Estado", uf);
-    
-    // Encaminhamento para o processamento continuar no jsp.
-   RequestDispatcher dispatcher =
-	    request.getRequestDispatcher("EditarCliente.jsp");
-    dispatcher.forward(request, response);
-    
-  }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-  /**
-   * Returns a short description of the servlet.
-   *
-   * @return a String containing servlet description
-   */
-  @Override
-  public String getServletInfo() {
-    return "Short description";
-  }// </editor-fold>
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }
-

@@ -45,14 +45,17 @@
                 <li><a href="CadastrarPlano.jsp">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto.jsp">Editar Produto</a></li>
                 <li><a href="EditarPlano.jsp">Editar Plano</a></li>
-                <ul>
+                </ul>
                     </aside>
                     <form>
                         <fieldset id="dados">
                             <h4>Serviço</h4>
                             <div id="topo">
-                                <p><label title="Idioma." for="Idioma">Livro idioma:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="LivroIdioma" maxlength="35" id="Plano" size="52"/></p>
+                                <p><label title="Livro." for="Livro">Livro idioma:</label>
+                                    <select name="Idioma">
+                                        <option value="1" >Ingles</option>
+                                        <option value="2" >Espanhol</option>
+                                    </select></p>
                                 <p><label title="Preço." for="Preço">Preço:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>

@@ -30,7 +30,7 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="Cadastrar Cliente.jsp">Cliente</a>
+                            <a href="CadastrarCliente.jsp">Cliente</a>
                             <a href="CadastrarFuncionario.jsp">Funcionario</a>
                         </div>
                     </li>
@@ -44,16 +44,16 @@
             <ul>
                 <li><a href="CadastrarCliente.jsp">Cadastrar Cliente</a></li>
                 <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
-                <ul>
+                </ul>
                     </aside>
                     <c:url value="CadastroCliente" var="urlCadastroCliente" />
-                    <form action="${urlCadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
+                    <form action="${urlCadastroCliente}" method="get" enctype="application/x-www-form-urlencoded">
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
-                                <p><label title="CNPJ Completo." for="Nome">CNPJ:</label>
+                                <p><label title="CNPJ Completo." for="CNPJ">CNPJ:</label>
                                     <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
                                            type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
@@ -68,7 +68,7 @@
                                 <p><label>Rua:</label>
                                     <input name="rua" type="text" id="rua" size="65" /></p>
                                 <p><label>Número:</label>
-                                    <input required="required" name="numero" type="text" id="numero" value="" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
+                                    <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label>Bairro:</label>
                                     <input name="bairro" type="text" id="bairro" size="40" /><br />
                                 <p><label>Cidade:</label>

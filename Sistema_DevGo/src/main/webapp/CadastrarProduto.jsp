@@ -44,7 +44,7 @@
                 <li><a href="CadastrarPlano.jsp">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto.jsp">Editar Produto</a></li>
                 <li><a href="EditarPlano.jsp">Editar Plano</a></li>
-                <ul>
+                </ul>
                     </aside>
         <c:url value="CadastroProduto" var="CadastroProduto"/>
         <form action="${CadastroProduto}" method="post" enctype="application/x-www-form-urlencoded">

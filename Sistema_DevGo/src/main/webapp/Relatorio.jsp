@@ -42,9 +42,10 @@
         <div id="dados">
             <h4>Critérios de busca</h4>
             <div id="topo">
-                <p><select required="required" name="Razao" id="Razao"/>
-                <option value="Tipo de relatório">Tipo de relatório</option>
-                </select></p>
+                <p><label title="Relatorio." for="Relatorio">Tipo de relatório:</label>
+                    <select name="Relatorio">
+                        <option value="Vendas">Vendas</option>
+                    </select></p>
                 <p><label title="Data inicial." for="DataIni">Data Inicial:</label>
                     <input required="required" type="date" name="dia" id="DataIni"/></p>
                 <p><label title="Data final." for="DataFim">Data Final:</label>
@@ -55,12 +56,12 @@
                 <input id="Exportar" title="Exportar" value="Exportar" type="reset">
             </div>
             <form>
-                </fieldset>
                 <fieldset id="tabela">
                     <table  style="width:100%">
                         <tr><th>Coluna 1</th><th>Coluna 2</th><th>Coluna 3</th></tr>
                     </table>
                 </fieldset>
             </form>
+        </div>
     </body>
 </html>

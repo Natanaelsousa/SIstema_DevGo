@@ -49,7 +49,7 @@
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
-                                <p><label title="CNPJ Completo." for="CNPJ:">CNPJ:</label>
+                                <p><label title="CNPJ Completo." for="CNPJ">CNPJ:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)"/></p>
                                     <input id="Buscar" title="Buscar" value="Buscar" type="submit">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
