@@ -47,14 +47,14 @@
                 </ul>
                     </aside>
                     <c:url value="CadastroCliente" var="urlCadastroCliente" />
-                    <form action="${urlCadastroCliente}" method="get" enctype="application/x-www-form-urlencoded">
+                    <form action="${urlCadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
                                 <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                                 <p><label title="CNPJ Completo." for="CNPJ">CNPJ:</label>
-                                    <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
+                                    <input title="Digite seu cnpj no formato ##.###.###-####" required="required" 
                                            type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
                                     <input required="required" pattern="^\d{10}$" type="tel" name="Telefone1" maxlength="10" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
@@ -63,18 +63,18 @@
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
                                     <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
                                 <p><label>Cep:</label>
-                                    <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
+                                    <input name="CEP" type="text" id="cep" value="" size="35" maxlength="9"
                                            onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label>Rua:</label>
-                                    <input name="rua" type="text" id="rua" size="65" /></p>
+                                    <input name="Rua" type="text" id="rua" size="65" /></p>
                                 <p><label>Número:</label>
-                                    <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
+                                    <input required="required" name="Numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label>Bairro:</label>
-                                    <input name="bairro" type="text" id="bairro" size="40" /><br />
+                                    <input name="Bairro" type="text" id="bairro" size="40" /><br />
                                 <p><label>Cidade:</label>
-                                    <input name="cidade" type="text" id="cidade" size="40" /></p>
+                                    <input name="Cidade" type="text" id="cidade" size="40" /></p>
                                 <p><label>Estado:</label>
-                                    <input name="uf" type="text" id="uf" size="20" /></p>
+                                    <input name="UF" type="text" id="uf" size="20" /></p>
                             </div>
                         </fieldset>
                         <div class="botoes">
