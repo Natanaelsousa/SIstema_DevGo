@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Natanael
  */
-    @WebServlet(name = "CadastroCliente", urlPatterns = {"/CadastroCliente"})
+@WebServlet(name = "CadastroCliente", urlPatterns = {"/cadastroCliente"})
 public class CadastroCliente extends HttpServlet {
 
     /**
@@ -34,49 +34,39 @@ public class CadastroCliente extends HttpServlet {
             throws ServletException, IOException {
         // Guardando dados vindos da tela nas variaveis
         String Razao = request.getParameter("Razao");
-        String CNPJ = request.getParameter("CNPJ");
-        String CEP = request.getParameter("CEP");
-        String Telefone1 = request.getParameter("Telefone1");
-        String Telefone2 = request.getParameter("Telefone2");
-        String Email = request.getParameter("Email");
-        String Rua = request.getParameter("Rua");
-        String Numero = request.getParameter("Numero");
-        String Bairro = request.getParameter("Bairro");
-        String Cidade = request.getParameter("Cidade");
-        String UF = request.getParameter("UF");
+        String cnpj = request.getParameter("CNPJ");
+        String cep = request.getParameter("CEP");
+        String telefone1 = request.getParameter("Telefone1");
+        String telefone2 = request.getParameter("Telefone2");
+        String email = request.getParameter("Email");
+        String rua = request.getParameter("Rua");
+        String numero = request.getParameter("Numero");
+        String bairro = request.getParameter("Bairro");
+        String cidade = request.getParameter("Cidade");
+        String uf = request.getParameter("Estado");
 
     // Seta os atributos para compartilhar os valores com o jsp
         // Nao confundir get/setAttribute com getParameter!!!
         request.setAttribute("id", request.getParameter("id"));
-        request.setAttribute("Razao",Razao);
-        request.setAttribute("CNPJ", CNPJ);
-        request.setAttribute("CEP", CEP);
-        request.setAttribute("Telefone1", Telefone1);
-        request.setAttribute("Telefone2", Telefone2);
-        request.setAttribute("Email", Email);
-        request.setAttribute("Rua", Rua);
-        request.setAttribute("Cidade", Cidade);
-        request.setAttribute("Numero", Numero);
-        request.setAttribute("Bairro", Bairro);
-        request.setAttribute("Cidade", Cidade);
-        request.setAttribute("UF", UF);
+        request.setAttribute("Razao", Razao);
+        request.setAttribute("CNPJ", cnpj);
+        request.setAttribute("CEP", cep);
+        request.setAttribute("Telefone1", telefone1);
+        request.setAttribute("Telefone2", telefone2);
+        request.setAttribute("Email", email);
+        request.setAttribute("Rua", rua);
+        request.setAttribute("Cidade", cidade);
+        request.setAttribute("Numero", numero);
+        request.setAttribute("Bairro", bairro);
+        request.setAttribute("Estado", uf);
 
         // Encaminhamento para o processamento continuar no jsp.
         request.getRequestDispatcher("teste.jsp").forward(request, response);
     }
-    
-     
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-    
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
 
     }
 

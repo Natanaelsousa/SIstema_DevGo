@@ -56,7 +56,7 @@
                                 <p><label title="Letras de A a Z." for="Nome">Sobrenome:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Sobrenome" maxlength="35" id="Sobrenome" size="85"/></p>
                                 <p><label title="CPF Completo." for="CPF">CPF:</label>
-                                    <input required="required" type="text" name="CPF" maxlength="12" id="CPF" size="35" onkeypress="return somenteNumero(event)" onblur="return validarCPF(this.value)"/></p>
+                                    <input required="required" type="text" name="CPF" maxlength="12" id="CPF" size="35" onkeypress="return somenteNumero(event)" onblur="return TestaCPF(this.value)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone">Telefone:</label>
                                     <input required="required" pattern="^\d{11}$" type="text" name="Telefone" maxlength="11" id="Telefone" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label for="Datanasc">Data de Nascimento:</label>

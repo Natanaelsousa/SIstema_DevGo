@@ -95,7 +95,7 @@ public class CadastroFuncionario extends HttpServlet {
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
         String status = request.getParameter("Status");
-        Date dtNasc;
+         Date dtNasc;
          try {
              dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
          } catch (ParseException ex) {
@@ -119,7 +119,7 @@ public class CadastroFuncionario extends HttpServlet {
         }
         
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("teste.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);
        
     }
