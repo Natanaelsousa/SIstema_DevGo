@@ -20,7 +20,7 @@ public class FuncionarioDAO extends GenericaDAO {
 
     public void insert(Funcionario funcionario) throws SQLException {
         String insert = "INSERT INTO FUNCIONARIO(nome, sobrenome, telefone,usuario, cpf,"
-                + " senha, status, dt_nacimento) VALUES(?,?,?,?,?,?,?,?)";
+                + " senha, status, dt_nascimento) VALUES(?,?,?,?,?,?,?,?)";
         insert(insert, funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
                 funcionario.getUsuario(), funcionario.getCpf(), funcionario.getSenha(), funcionario.getStatus(),
                 funcionario.getDtNascimento());
