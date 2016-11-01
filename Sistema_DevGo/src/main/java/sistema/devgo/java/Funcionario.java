@@ -24,7 +24,6 @@ public class Funcionario {
 
     }
 
-    //PQ TEM DOIS CONSTRUTORES FUNCIONARIO? @sibele
     public Funcionario(Date dataNasc,String departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
 
         this.departamento = departamento;

@@ -21,7 +21,7 @@ public class PlanoDAO extends GenericaDAO {
 
     //Inserção de dados
     public void insert(Plano plano) throws SQLException {
-        String insert = "INSERT INTO PLANO(nm_plano, preco) VALUES(?,?,?,?,?,?,?,?)";
+        String insert = "INSERT INTO PLANO(nm_plano, preco) VALUES(?,?)";
         insert(insert, plano.getNomePlano(), plano.getPreco());
     }
 
@@ -45,7 +45,7 @@ public class PlanoDAO extends GenericaDAO {
 
         while (rs.next()) {
             Plano planos = new Plano();
-            planos.setId_plano(rs.getLong("id_plano"));
+            planos.setId_plano(rs.getLong("cod_plano"));
             planos.setNomePlano(rs.getString("nm_plano"));
             planos.setPreco(rs.getDouble("preco"));
             
