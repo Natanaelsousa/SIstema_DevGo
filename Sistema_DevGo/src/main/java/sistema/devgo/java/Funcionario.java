@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Funcionario {
 
-    private String departamento;
+    private long CodDepartamento;
     private String cpf;
     private String nome;
     private String sobrenome;
@@ -17,16 +17,16 @@ public class Funcionario {
     private String status;
     private String usuario;
     private String senha;
-    private Long id;
+    private long CodFuncionario;
 
     //Construtores
     public Funcionario() {
 
     }
 
-    public Funcionario(Date dataNasc,String departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
+    public Funcionario(Date dataNasc,Long departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
 
-        this.departamento = departamento;
+        this.CodDepartamento = departamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -37,32 +37,20 @@ public class Funcionario {
 
     }
 
-    public Funcionario(Long id, String departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
+    public Funcionario(Long idFuncionario, Long departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
 
-        this.departamento = departamento;
+        this.CodDepartamento = departamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.status = "ATIVO";
         this.usuario = usuario;
         this.senha = senha;
-        this.id = id;
+        this.CodFuncionario = idFuncionario;
 
     }
 
-    /**
-     * @return the departamento
-     */
-    public String getDepartamento() {
-        return departamento;
-    }
-
-    /**
-     * @param departamento the departamento to set
-     */
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
+  
 
     /**
      * @return the cpf
@@ -177,18 +165,33 @@ public class Funcionario {
     }
 
     /**
-     * @return the id
+     * @return the iddepartamento
      */
-    public Long getId() {
-        return id;
+    public Long getCodDepartamento() {
+        return CodDepartamento;
     }
 
     /**
-     * @param id the id to set
+     * @param iddepartamento the iddepartamento to set
      */
-    public void setId(Long id) {
-        this.id = id;
+    public void setCodDepartamento(Long iddepartamento) {
+        this.CodDepartamento = iddepartamento;
     }
+
+    /**
+     * @return the idFuncionario
+     */
+    public Long getCodFuncionario() {
+        return CodFuncionario;
+    }
+
+    /**
+     * @param idFuncionario the idFuncionario to set
+     */
+    public void setCodFuncionario(Long idFuncionario) {
+        this.CodFuncionario = idFuncionario;
+    }
+
 
 
 }

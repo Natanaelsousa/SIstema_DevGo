@@ -19,34 +19,35 @@ import sistema.devgo.java.Funcionario;
 public class FuncionarioDAO extends GenericaDAO {
 
     public void insert(Funcionario funcionario) throws SQLException {
-        String insert = "INSERT INTO FUNCIONARIO(nome, sobrenome, telefone,usuario, cpf,"
-                + " senha, status, dt_nascimento) VALUES(?,?,?,?,?,?,?,?)";
-        insert(insert, funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
+        String insert = "INSERT INTO FUNCIONARIO (cod_depto,nome,sobrenome,telefone,usuario,cpf,"
+                + "senha,status,dt_nascimento) VALUES(?,?,?,?,?,?,?,?,?)";
+        insert(insert, funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
                 funcionario.getUsuario(), funcionario.getCpf(), funcionario.getSenha(), funcionario.getStatus(),
                 funcionario.getDtNascimento());
     }
 
     public void update(Funcionario funcionario) throws SQLException {
-        String update = "UPDATE CONTATOS "
-                + "SET nome = ?, sobrenome = ?, telefone = ?, usuario = ?, cpf = ?, senha = ?,"
-                + "status = ?, dt_nascimento= ? WHERE id = ?";
-        update(update, funcionario.getId(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
+        String update = "UPDATE FUNCIONARIO "
+                + "SET cod_depto = ?, nome = ?, sobrenome = ?, telefone = ?, usuario = ?, cpf = ?, senha = ?,"
+                + "status = ?, dt_nascimento= ? WHERE cod_funcionario = ?";
+        update(update, funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
                 funcionario.getUsuario(), funcionario.getCpf(), funcionario.getSenha(), funcionario.getStatus(),
-                funcionario.getDtNascimento());
+                funcionario.getDtNascimento(), funcionario.getCodFuncionario());
     }
-        public List<Funcionario> findFuncionario() throws SQLException {
-        List<Funcionario> funcionarios = new ArrayList <Funcionario>();
+
+    public List<Funcionario> findFuncionario() throws SQLException {
+        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
         String select = "SELECT * FROM FUNCIONARIO";
 
-        PreparedStatement stmt = 
-			getConnection().prepareStatement(select);
-			
+        PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
             Funcionario funcionario = new Funcionario();
-            funcionario.setId(rs.getLong("id"));
+            funcionario.setCodDepartamento(rs.getLong("cod_departamento"));
             funcionario.setNome(rs.getString("nome"));
             funcionario.setSobrenome(rs.getString("sobrenome"));
             funcionario.setTelefone(rs.getString("telefone"));
@@ -55,6 +56,7 @@ public class FuncionarioDAO extends GenericaDAO {
             funcionario.setSenha(rs.getString("senha"));
             funcionario.setStatus(rs.getString("status"));
             funcionario.setDtNascimento(rs.getDate("dt_nascimento"));
+            funcionario.setCodFuncionario(rs.getLong("cod_funcionario"));
             funcionarios.add(funcionario);
         }
 
@@ -64,17 +66,18 @@ public class FuncionarioDAO extends GenericaDAO {
         return funcionarios;
     }
 
-    public Funcionario findByName(String nome) throws SQLException {
-        String select = "SELECT * FROM CONTATOS WHERE cpf = ?";
+    public Funcionario findByName(String cpf) throws SQLException {
+        String select = "SELECT * FROM FUNCIONARIO WHERE cpf = ?";
         Funcionario funcionario = null;
-        PreparedStatement stmt = 
-			getConnection().prepareStatement(select);
-			
-        stmt.setString(1, nome);
+        PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+
+        stmt.setString(1, cpf);
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-          funcionario.setId(rs.getLong("id"));
+            funcionario.setCodFuncionario(rs.getLong("cod_funcionario"));
+            funcionario.setCodDepartamento(rs.getLong("cod_departamento"));
             funcionario.setNome(rs.getString("nome"));
             funcionario.setSobrenome(rs.getString("sobrenome"));
             funcionario.setTelefone(rs.getString("telefone"));

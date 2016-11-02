@@ -1,4 +1,3 @@
-
 package sistema.devgo.Controller;
 
 import java.io.IOException;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sistema.devgo.Model.dao.FuncionarioDAO;
 import sistema.devgo.java.Funcionario;
-
 
 /**
  *
@@ -46,7 +44,7 @@ public class CadastroFuncionario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroFuncionario</title>");            
+            out.println("<title>Servlet CadastroFuncionario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CadastroFuncionario at " + request.getContextPath() + "</h1>");
@@ -85,42 +83,41 @@ public class CadastroFuncionario extends HttpServlet {
         String nome = request.getParameter("Nome");
         String sobrenome = request.getParameter("Sobrenome");
         String cpf = request.getParameter("CPF");
+        long departamento = Long.parseLong(request.getParameter("opcao"));
         String telefone = request.getParameter("Telefone");
         String dataNasc = request.getParameter("Datanasc");
-        String departamento = request.getParameter("Departamento");
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
-        String status = request.getParameter("Status");
-         Date dtNasc;
-         try {
-             dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
-         } catch (ParseException ex) {
-             out.println("Erro de conversão de data");
-             return;
-         }
-         Funcionario funcionario = new Funcionario ();
-         funcionario.setNome(nome);
-         funcionario.setSobrenome(sobrenome);
-         funcionario.setTelefone(telefone);
-         funcionario.setCpf(cpf);
-         funcionario.setDepartamento(departamento);
-         funcionario.setUsuario(usuario);
-         funcionario.setSenha(senha);
-         
-         FuncionarioDAO dao = new FuncionarioDAO ();
+
+       
+        Date dtNasc;
+        try {
+            dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
+        } catch (ParseException ex) {
+            out.println("Erro de conversão de data");
+            return;
+        }
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome(nome);
+        funcionario.setSobrenome(sobrenome);
+        funcionario.setTelefone(telefone);
+        funcionario.setCpf(cpf);
+        funcionario.setCodDepartamento(departamento);
+        funcionario.setUsuario(usuario);
+        funcionario.setSenha(senha);
+
+        FuncionarioDAO dao = new FuncionarioDAO();
         try {
             dao.insert(funcionario);
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);
-       
+
     }
 
-    
     @Override
     public String getServletInfo() {
         return "Short description";
