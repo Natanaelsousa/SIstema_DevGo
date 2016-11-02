@@ -105,6 +105,8 @@ public class CadastroFuncionario extends HttpServlet {
         funcionario.setCodDepartamento(departamento);
         funcionario.setUsuario(usuario);
         funcionario.setSenha(senha);
+        funcionario.setDtNascimento(dtNasc);
+        funcionario.setStatus("Ativo");
 
         FuncionarioDAO dao = new FuncionarioDAO();
         try {
