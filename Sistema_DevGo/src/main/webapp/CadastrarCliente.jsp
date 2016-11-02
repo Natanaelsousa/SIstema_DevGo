@@ -51,8 +51,8 @@
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
-                                <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
+                                <p><label for="Razao">Razao Social:</label>
+                                    <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                                 <p><label title="CNPJ Completo." for="CNPJ">CNPJ:</label>
                                     <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
                                            type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
