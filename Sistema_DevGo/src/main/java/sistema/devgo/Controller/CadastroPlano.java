@@ -8,6 +8,7 @@ package sistema.devgo.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +21,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sistema.devgo.Model.dao.FuncionarioDAO;
+import sistema.devgo.Model.dao.PlanoDAO;
+import sistema.devgo.java.Plano;
 
 /**
  *
@@ -81,11 +85,19 @@ public class CadastroPlano extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Guardando dados vindos da tela nas variaveis
-        String plano = request.getParameter("Plano");
-        String periodo = request.getParameter("Periodo");
-        String livro = request.getParameter("Livro");
+        String nm_plano = request.getParameter("Plano");
         String preco = request.getParameter("Preco");
         
+        Plano plano= new Plano();
+        plano.setNomePlano(nm_plano);
+        //plano.setPreco(preco);// O que colocar?  
+        
+         PlanoDAO dao = new PlanoDAO ();
+        try {
+            dao.insert(plano);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);
     }
