@@ -51,13 +51,13 @@
                         <fieldset id="dados">
                             <h4>Serviço</h4>
                             <div id="topo">
-                                <p><label title="Livro." for="Livro">Livro idioma:</label>
+                                <p><label for="Livro">Livro idioma:</label>
                                     <select name="Idioma">
                                         <option value="1" >Ingles</option>
                                         <option value="2" >Espanhol</option>
                                     </select></p>
-                                <p><label title="Preço." for="Preço">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)"/></p>
+                                <p><label for="Preço">Preço:</label>
+                                    <input required="required" type="text" name="Preço" maxlength="35" id="Preço" size="52" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>
                                     <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)"/></p>
                             </div>

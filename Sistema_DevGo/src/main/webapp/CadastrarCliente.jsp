@@ -51,11 +51,10 @@
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
-                                <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
-                                <p><label title="CNPJ Completo." for="CNPJ">CNPJ:</label>
-                                    <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
-                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
+                                <p><label for="Razao">Razao Social:</label>
+                                    <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35" /></p>  
+                                <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
+                                    <input title="Apenas numeros." required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
                                     <input required="required" pattern="^\d{10}$" type="tel" name="Telefone1" maxlength="10" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
@@ -68,7 +67,7 @@
                                 <p><label>Rua:</label>
                                     <input name="rua" type="text" id="rua" size="65" /></p>
                                 <p><label>Número:</label>
-                                    <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
+                                    <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" /></p>
                                 <p><label>Bairro:</label>
                                     <input name="bairro" type="text" id="bairro" size="40" /><br />
                                 <p><label>Cidade:</label>
