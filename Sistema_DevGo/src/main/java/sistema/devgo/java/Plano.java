@@ -9,9 +9,7 @@ import java.util.List;
 public class Plano {
     //Verificar necessidade desses atributos.
     private String idioma;
-    private Venda venda; //Associação com Vendas
-    
-    
+    private String periodo; 
     private double preco;
     private String nomePlano;
     private long id_plano; 
@@ -20,9 +18,9 @@ public class Plano {
     }
     
     
-    public Plano(double preco, String nomePlano/*,String idioma, Venda venda*/) {
-       /* this.idioma = idioma;
-        this.venda = venda;*/
+    public Plano(double preco, String nomePlano,String periodo/*,String idioma*/) {
+       /* this.idioma = idioma;*/
+       this.periodo=periodo;
         this.preco=preco;
         this.nomePlano=nomePlano;
     }
@@ -35,13 +33,7 @@ public class Plano {
         this.idioma = idioma;
     }
 
-    public Venda getVenda() {
-        return venda;
-    }
-
-    public void setVenda(Venda venda) {
-        this.venda = venda;
-    }
+  
 
     public double getPreco() {
         return preco;
@@ -65,6 +57,14 @@ public class Plano {
 
     public void setId_plano(long id_plano) {
         this.id_plano = id_plano;
+    }
+
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
     }
 
     

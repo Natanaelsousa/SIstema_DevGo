@@ -25,22 +25,10 @@ import sistema.devgo.Model.dao.FuncionarioDAO;
 import sistema.devgo.Model.dao.PlanoDAO;
 import sistema.devgo.java.Plano;
 
-/**
- *
- * @author Natanael
- */
 @WebServlet(name = "CadastroPlano", urlPatterns = {"/CadastroPlano"})
 public class CadastroPlano extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -58,45 +46,38 @@ public class CadastroPlano extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Guardando dados vindos da tela nas variaveis
         String nm_plano = request.getParameter("Plano");
-        String preco = request.getParameter("Preco");
+        String periodo= request.getParameter("Periodo");
+        Double preco = null;
+        try {
+           
+             String precos = Double.toString(preco);
+         } catch (NumberFormatException ex) {
+             ex.printStackTrace();
+             return;
+         }
         
         Plano plano= new Plano();
         plano.setNomePlano(nm_plano);
-        //plano.setPreco(preco);// O que colocar?  
+        plano.setPeriodo(periodo);
+        plano.setPreco(preco);
         
          PlanoDAO dao = new PlanoDAO ();
         try {
             dao.insert(plano);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroPlano.class.getName()).log(Level.SEVERE, null, ex);
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);
