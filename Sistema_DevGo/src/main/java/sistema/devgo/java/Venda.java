@@ -9,96 +9,144 @@ import java.util.Date;
  */
 public class Venda {
 
-/*CNPJ
-Razao
-Plano
-Periodo
-Idioma
-Aluno
-Valor */
+//    private Date dataVenda;
+//    private int qtdeAluno;
+//    private String idioma;
+//    private Plano plano;
+//    private double valor;
+//    private String cliente;
+    
+    private Long codVenda;
+    private Long codPlano;
+    private Long codCliente;
+    private Long codFuncionario;
+    private int quantidadeAluno;
+    private double valorVenda;
     private Date dataVenda;
-    private int qtdeAluno;
-    private String idioma;
-    private Plano plano;
-    private double valor;
-    private String cliente; //Nessa variavel seta a razao do cliente que vai vir da venda
+
     
+    public Venda(Long codVenda, Long codPlano,Long codCliente,Long codFuncionario,int quantidadeAluno,double valorVenda,Date dataVenda ){
+        this.codCliente = codCliente;
+        this.codPlano = codPlano;
+        this.codCliente = codCliente;
+        this.codFuncionario = codFuncionario;
+        this.quantidadeAluno = quantidadeAluno;
+        this.valorVenda = valorVenda;
+        this.dataVenda = dataVenda;
+          
+    }
     
-      public Venda(Date dataVenda, int qtdeAluno, String idioma, Plano plano,double valor,String cliente) {
+     public Venda(Long codPlano,Long codCliente,Long codFuncionario,int quantidadeAluno,double valorVenda,Date dataVenda ){
+        this.codPlano = codPlano;
+        this.codCliente = codCliente;
+        this.codFuncionario = codFuncionario;
+        this.quantidadeAluno = quantidadeAluno;
+        this.valorVenda = valorVenda;
         this.dataVenda = dataVenda;
-        this.qtdeAluno = qtdeAluno;
-        this.idioma = idioma;
-        this.plano=plano;
-        this.valor = valor;
-        this.cliente = cliente;
+          
+    }
+    
+    public Venda(){
+                 
+    }
+    
+    /**
+     * @return the codVenda
+     */
+    public Long getCodVenda() {
+        return codVenda;
     }
 
-    public Plano getPlano() {
-        return plano;
+    /**
+     * @param codVenda the codVenda to set
+     */
+    public void setCodVenda(Long codVenda) {
+        this.codVenda = codVenda;
     }
 
-    public void setPlano(Plano plano) {
-        this.plano = plano;
+    /**
+     * @return the codPlano
+     */
+    public Long getCodPlano() {
+        return codPlano;
     }
 
-
-
-    public void setDataVenda(Date dataVenda) {
-        this.dataVenda = dataVenda;
+    /**
+     * @param codPlano the codPlano to set
+     */
+    public void setCodPlano(Long codPlano) {
+        this.codPlano = codPlano;
     }
 
-    public void setQtdadeAluno(int qtdeAluno) {
-        this.setQtdeAluno(qtdeAluno);
+    /**
+     * @return the codCliente
+     */
+    public Long getCodCliente() {
+        return codCliente;
     }
 
-    public void setIdioma(String idioma) {
-        this.idioma = idioma;
+    /**
+     * @param codCliente the codCliente to set
+     */
+    public void setCodCliente(Long codCliente) {
+        this.codCliente = codCliente;
     }
 
+    /**
+     * @return the codFuncionario
+     */
+    public Long getCodFuncionario() {
+        return codFuncionario;
+    }
+
+    /**
+     * @param codFuncionario the codFuncionario to set
+     */
+    public void setCodFuncionario(Long codFuncionario) {
+        this.codFuncionario = codFuncionario;
+    }
+
+    /**
+     * @return the quantidadeAluno
+     */
+    public int getQuantidadeAluno() {
+        return quantidadeAluno;
+    }
+
+    /**
+     * @param quantidadeAluno the quantidadeAluno to set
+     */
+    public void setQuantidadeAluno(int quantidadeAluno) {
+        this.quantidadeAluno = quantidadeAluno;
+    }
+
+    /**
+     * @return the valorVenda
+     */
+    public double getValorVenda() {
+        return valorVenda;
+    }
+
+    /**
+     * @param valorVenda the valorVenda to set
+     */
+    public void setValorVenda(double valorVenda) {
+        this.valorVenda = valorVenda;
+    }
+
+    /**
+     * @return the dataVenda
+     */
     public Date getDataVenda() {
         return dataVenda;
     }
 
-    public int getQtdeAluno() {
-        return qtdeAluno;
-    }
-
-    public String getIdioma() {
-        return idioma;
-    }
-
     /**
-     * @param qtdeAluno the qtdeAluno to set
+     * @param dataVenda the dataVenda to set
      */
-    public void setQtdeAluno(int qtdeAluno) {
-        this.qtdeAluno = qtdeAluno;
+    public void setDataVenda(Date dataVenda) {
+        this.dataVenda = dataVenda;
     }
-
-    /**
-     * @return the valor
-     */
-    public double getValor() {
-        return valor;
-    }
-
-    /**
-     * @param valor the valor to set
-     */
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    /**
-     * @return the cliente
-     */
-    public String getCliente() {
-        return cliente;
-    }
-
-    /**
-     * @param cliente the cliente to set
-     */
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
+    
+     
 }

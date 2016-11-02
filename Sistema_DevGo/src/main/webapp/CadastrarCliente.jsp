@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Cliente </title>
+        <title>Cadastrar Cliente</title>
         <c:url value="CSS/cadastrarCliente.css" var="urlCadCliente"/>
         <link type="text/css" rel="stylesheet" href="${urlCadCliente}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
@@ -46,8 +46,8 @@
                 <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
                 </ul>
                     </aside>
-                    <c:url value="CadastroCliente" var="urlCadastroCliente" />
-                    <form action="${urlCadastroCliente}" method="get" enctype="application/x-www-form-urlencoded">
+                    <c:url value="CadastroCliente" var="CadastroCliente" />
+                    <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
                         <fieldset id="dados">
                             <h4>Empresa</h4>
                             <div id="topo">
@@ -63,7 +63,7 @@
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
                                     <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
                                 <p><label>Cep:</label>
-                                    <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
+                                    <input name="CEP" type="text" id="cep" value="" size="35" maxlength="9"
                                            onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
                                 <p><label>Rua:</label>
                                     <input name="rua" type="text" id="rua" size="65" /></p>
