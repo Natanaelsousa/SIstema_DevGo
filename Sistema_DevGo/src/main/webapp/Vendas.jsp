@@ -44,8 +44,8 @@
             <fieldset id="dados">
                 <h4>Dados</h4>
                 <div id="topo">
-                    <p><label title="Apenas Numeros" for="CNPJ">CNPJ:</label>
-                        <input title="Apenas numeros." required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" />
+                    <p><label for="CNPJ:">CNPJ:</label>
+                        <input required="required" pattern="[A-Za-z]*" type="text" name="CNPJ" maxlength="45" id="CNPJ" size="55"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                     <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Razao" maxlength="35" id="Razao" size="45"/></p>
@@ -55,21 +55,21 @@
                             <option value="2" >Silver</option>
                             <option value="3" >Bronze</option>
                         </select></p>
-                    <p><label for="Periodo">Período:</label>
+                    <p><label  for="Período">Período:</label>
                         <select  name="Periodo">
                             <option value="1" selected>Semestral</option>
                             <option value="2" >Trimestral</option>
                             <option value="3" >Mensal</option>
                         </select></p>
-                    <p><label for="Livro">Idioma:</label>
+                    <p><label title="Livro." for="Livro">Idioma:</label>
                                     <select name="Idioma">
                                         <option value="1" >Ingles</option>
                                         <option value="2" >Espanhol</option>
                                     </select></p>
                     <p><label for="Aluno">Quantidade de Alunos:</label>
-                        <input required="required" type="text" name="QtdeAluno" id="Aluno" onkeypress="return somenteNumero(event)" /></p>
+                        <input required="required" type="number" name="QtdeAluno" id="Aluno" /></p>
                     <p><label for="Valor">Valor:</label>
-                        <input required="required" type="text" name="Valor" id="Valor" onkeypress="return somenteNumero(event)" /></p>
+                        <input required="required" type="number" name="Valor" id="Valor" /></p>
                 </div>
             </fieldset>
             <div class="botoes">

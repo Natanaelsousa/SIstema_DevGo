@@ -11,14 +11,6 @@ function somenteNumero(e) {
         return false;
 }
 
-function somenteLetras(e) {
-    var tecla = (window.event) ? event.keyCode : e.which;
-    if (tecla > 47 && tecla < 58 || tecla === 48)
-        return false;
-    else
-        return true;
-}
-
 function limpa_formulário_cep() {
 //Limpa valores do formulário de cep.
     document.getElementById('rua').value = ("");
