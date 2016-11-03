@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sistema.devgo.Controller;
 
 import java.io.IOException;
@@ -59,6 +55,9 @@ public class CadastroPlano extends HttpServlet {
         // Guardando dados vindos da tela nas variaveis
         String nm_plano = request.getParameter("Plano");
         String periodo= request.getParameter("Periodo");
+        long idioma = Long.parseLong(request.getParameter("Idioma"));
+        String preco_plano= request.getParameter("Preço");
+        
         Double preco = null;
         try {
            
@@ -72,6 +71,7 @@ public class CadastroPlano extends HttpServlet {
         plano.setNomePlano(nm_plano);
         plano.setPeriodo(periodo);
         plano.setPreco(preco);
+        plano.setCod_idioma(idioma);
         
          PlanoDAO dao = new PlanoDAO ();
         try {
@@ -83,11 +83,7 @@ public class CadastroPlano extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";
