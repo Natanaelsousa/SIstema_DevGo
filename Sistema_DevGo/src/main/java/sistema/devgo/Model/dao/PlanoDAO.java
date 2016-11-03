@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sistema.devgo.Model.dao;
 
 import java.sql.PreparedStatement;
@@ -21,15 +17,15 @@ public class PlanoDAO extends GenericaDAO {
 
     //Inserção de dados
     public void insert(Plano plano) throws SQLException {
-        String insert = "INSERT INTO PLANO(nm_plano, preco,periodo) VALUES(?,?,?)";
-        insert(insert, plano.getNomePlano(), plano.getPreco(),plano.getPeriodo());
+        String insert = "INSERT INTO PLANO(nm_plano, preco,periodo,cod_idioma) VALUES(?,?,?)";
+        insert(insert, plano.getNomePlano(), plano.getPreco(),plano.getPeriodo(),plano.getCod_idioma());
     }
 
     //Atualização de dados
     public void update(Plano plano) throws SQLException {
         String update = "UPDATE CONTATOS "
-                + "SET nm_plano = ?, preco = ?, periodo = ?";
-        update(update, plano.getNomePlano(), plano.getPreco(),plano.getPeriodo());
+                + "SET nm_plano = ?, preco = ?, periodo = ?, cod_idioma = ?";
+        update(update, plano.getNomePlano(), plano.getPreco(),plano.getPeriodo(),plano.getCod_idioma());
     }
 
     //Lista de planos cadastrados
@@ -45,7 +41,9 @@ public class PlanoDAO extends GenericaDAO {
 
         while (rs.next()) {
             Plano planos = new Plano();
+            
             planos.setId_plano(rs.getLong("cod_plano"));
+            planos.setCod_idioma(rs.getLong("cod_idioma"));
             planos.setNomePlano(rs.getString("nm_plano"));
             planos.setPreco(rs.getDouble("preco"));
             planos.setPeriodo(rs.getString("periodo"));
@@ -59,20 +57,22 @@ public class PlanoDAO extends GenericaDAO {
 
         return plano;
     }
-    public Plano findByName(String nome) throws SQLException {
-        String select = "SELECT * FROM PLANO WHERE cpf = ?";
+    public Plano findByName(String nomePlano) throws SQLException {
+        String select = "SELECT * FROM PLANO WHERE nm_plano = ?";
         Plano plano = null;
         PreparedStatement stmt = 
 			getConnection().prepareStatement(select);
+   
 			
-        stmt.setString(1, nome);
+        stmt.setString(1,nomePlano );
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
           plano.setId_plano(rs.getLong("cod_plano"));
-            plano.setNomePlano(rs.getString("nm_plano"));
-            plano.setPreco(rs.getDouble("preco"));
-            plano.setPeriodo(rs.getString("periodo"));
+          plano.setCod_idioma(rs.getLong("cod_idioma"));
+          plano.setNomePlano(rs.getString("nm_plano"));
+          plano.setPreco(rs.getDouble("preco"));
+          plano.setPeriodo(rs.getString("periodo"));
         }
 
         rs.close();
