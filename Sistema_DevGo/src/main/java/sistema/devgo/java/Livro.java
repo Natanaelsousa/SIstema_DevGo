@@ -15,16 +15,26 @@ public class Livro {
     private String idioma;
     private double preco;
     private int quantidade;
+    private int cod_idioma;
 
     public Livro(){
         
     }
     
-    public Livro(Estoque Estoque, String idioma, double preco, int quantidade) {
+    public Livro(Estoque Estoque, String idioma, double preco, int quantidade, int cod_idioma) {
         this.Estoque = Estoque;
         this.idioma = idioma;
         this.preco = preco;
         this.quantidade = quantidade;
+        this.cod_idioma = cod_idioma;
+    }
+
+    public int getCod_idioma() {
+        return cod_idioma;
+    }
+
+    public void setCod_idioma(int cod_idioma) {
+        this.cod_idioma = cod_idioma;
     }
 
     public String getIdioma() {

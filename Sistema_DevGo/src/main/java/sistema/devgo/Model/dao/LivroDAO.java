@@ -45,7 +45,7 @@ public class LivroDAO extends GenericaDAO {
 
         while (rs.next()) {
             Livro livro = new Livro();
-            livro.setIdioma(rs.getString("COD_IDIOMA"));
+            livro.setCod_idioma(rs.getInt("COD_IDIOMA"));
             livro.setIdioma(rs.getString("TIPO_IDIOMA"));
             livro.setPreco(rs.getDouble("PRECO"));
             livro.setQuantidade(rs.getInt("QTDE_ATUAL"));
@@ -69,7 +69,7 @@ public class LivroDAO extends GenericaDAO {
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-            livro.setIdioma(rs.getString("COD_IDIOMA"));
+            livro.setCod_idioma(rs.getInt("COD_IDIOMA"));
             livro.setIdioma(rs.getString("TIPO_IDIOMA"));
             livro.setPreco(rs.getDouble("PRECO"));
             livro.setQuantidade(rs.getInt("QTDE_ATUAL"));

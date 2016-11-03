@@ -1,14 +1,18 @@
-
 package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sistema.devgo.Model.dao.LivroDAO;
+import sistema.devgo.java.Livro;
 
 /**
  *
@@ -34,7 +38,7 @@ public class CadastroProduto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroProduto</title>");            
+            out.println("<title>Servlet CadastroProduto</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet CadastroProduto at " + request.getContextPath() + "</h1>");
@@ -70,12 +74,31 @@ public class CadastroProduto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Guardando dados vindos da tela nas variaveis
-        String idioma = request.getParameter("Idioma");
+        String idioma = request.getParameter("LivroIdioma");
         String preco = request.getParameter("Preco");
         String quantidade = request.getParameter("Quantidade");
+
+        double preco1 = Double.parseDouble(request.getParameter("Preco"));
+        int quantidade1 = Integer.parseInt(request.getParameter("Quantidade"));
+        Livro livro = new Livro();
+
+                
+        livro.setIdioma(idioma);
+        livro.setPreco(preco1);
+        livro.setQuantidade(quantidade1);
+
+        LivroDAO dao = new LivroDAO();
         
+        try {
+            dao.salvar(livro);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);
+
+   
     }
 
     /**
