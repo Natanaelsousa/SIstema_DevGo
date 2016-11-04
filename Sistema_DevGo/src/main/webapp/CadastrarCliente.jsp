@@ -53,13 +53,12 @@
                             <div id="topo">
                                 <p><label for="Razao">Razao Social:</label>
                                     <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
-                                <p><label title="CNPJ Completo." for="CNPJ">CNPJ:</label>
-                                    <input title="Digite seu cnpj no formato ##.###.###-####" placeholder="##.###.###-####" required="required" 
-                                           type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
-                                <p><label title="Apenas numeros." for="Telefone1">Telefone Residencial:</label>
-                                    <input required="required" pattern="^\d{10}$" type="tel" name="Telefone1" maxlength="10" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Apenas numeros." for="Telefone2">Celular:</label>
-                                    <input pattern="^\d{11}$" type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
+                                    <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
+                                <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
+                                    <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
+                                    <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="E-mail completo." for="Email">E-mail:</label>
                                     <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
                                 <p><label>Cep:</label>

@@ -57,7 +57,7 @@
                         <fieldset id="dados">
                             <h4>Serviço</h4>
                             <div id="topo">
-                                <p><label title="Plano." for="Plano">Plano:</label>
+                                <p><label for="Plano">Plano:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
                                 <p><select name="opcao">
                         <option>Selecione o Periodo...</option>
@@ -79,8 +79,8 @@
                         <option value="<%=liv.getCod_idioma()%>"><%=liv.getIdioma()%></option>
                         <%}%>
                         </select></p> 
-                        <p><label title="Preço." for="Preco">Preço:</label>
-                            <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="40" onkeypress="return somenteNumero(event)"/></p>
+                        <p><label for="Preco">Preço:</label>
+                            <input required="required" type="text" name="Preco" maxlength="35" id="Preco" size="40" onkeypress="return somenteNumero(event)"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

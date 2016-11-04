@@ -53,15 +53,15 @@
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
-                    <p><label title="Numeros do CPF." for="CPF">CPF:</label>
+                    <p><label title="Apmnas numeros." for="CPF">CPF:</label>
                         <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                     <p><label title="Letras de A a Z." for="Nome">Nome:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
+                        <input required="required" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
                     <p><label title="Sobrenome." for="Sobrenome">Sobrenome:</label>
-                        <input required="required"  pattern="[A-Za-z]*" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
+                        <input required="required" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
                     <p><label title="Letras de A a Z." for="Telefone">Telefone:</label>
-                        <input required="required" pattern="^\d{2}-\d{8}$" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
+                        <input required="required" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
                     <p><label for="Datanasc">Data de nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
                     <p><select name="opcao">
@@ -74,13 +74,13 @@
                         <option value="<%=departamentos.getCodDepartamento()%>"><%=departamentos.getSetor()%></option>
                         <%}%>
                         </select></p>      
-                    <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
-                        <input required="required" pattern="[0-9]*" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
+                    <p><label for="Usuario">Usuario:</label>
+                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
                     <p><label for="Senha">Senha:</label>
-                        <input required="required" type="password" name="Senha" maxlength="15" id="Senha" size="18" onchange="form.Senha2.pattern = this.value;"/></p>
+                        <input required="required" type="password" name="Senha" maxlength="15" id="Senha" size="18" onchange="Senha2.pattern = this.value;"/></p>
                     <p><label for="Senha2">Confirmar senha:</label>
                         <input required="required" type="password" name="Senha2" maxlength="15" id="Senha2" size="18" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'As senhas não conferem' : '')"/></p>
-                    <p><label title="Letras de A a Z." for="Status">Status:</label>
+                    <p><label for="Status">Status:</label>
                         Ativo<input required="required" type="radio" name="Status" id="Status"/>
                         Inativo<input required="required" type="radio" name="Status" id="Status"/></p>        
                 </div>

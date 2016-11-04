@@ -42,7 +42,7 @@
         <div id="dados">
             <h4>Critérios de busca</h4>
             <div id="topo">
-                <p><label title="Relatorio." for="Relatorio">Tipo de relatório:</label>
+                <p><label for="Relatorio">Tipo de relatório:</label>
                     <select name="Relatorio">
                         <option value="Vendas">Vendas</option>
                     </select></p>

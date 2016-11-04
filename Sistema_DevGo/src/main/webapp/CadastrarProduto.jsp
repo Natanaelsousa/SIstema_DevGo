@@ -52,9 +52,9 @@
                             <h4>Produto</h4>
                             <div id="topo">
                                 <p><label title="Nome do idioma." for="Idioma">Livro idioma:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="LivroIdioma" maxlength="35" id="Idioma" size="80"/></p>
+                                    <input required="required" type="text" name="LivroIdioma" maxlength="35" id="Idioma" size="80"/></p>
                                 <p><label title="Preço dos produtos." for="Preco">Preço:</label>
-                                    <input required="required" type="text" name="Preco" maxlength="10" id="Preço" size="35" onkeypress="return somenteNumero(event)"/></p>
+                                    <input required="required" type="text" name="Preco" maxlength="10" id="Preco" size="35" onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Quantidade de produtos." for="Quantidade">Quantidade:</label>
                                     <input required="required" type="text" name="Quantidade" maxlength="10" id="Quantidade" size="35" onkeypress="return somenteNumero(event)"/></p>
                             </div>
