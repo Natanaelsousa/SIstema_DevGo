@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -22,13 +23,13 @@ public class UsuarioSistema {
 
     private char[] hashSenha;
 
-    private String[] departamentos; //ROLES
+    private long  departamentos; //ROLES
 
     public UsuarioSistema() {
 
     }
 
-    public UsuarioSistema(String nome, String senha, String[] departamentos) {
+    public UsuarioSistema(String nome, String senha, long departamentos) {
         this.nome = nome;
         try {
             this.hashSenha = gerarHashSenhaPBKDF2(senha);
@@ -50,11 +51,11 @@ public class UsuarioSistema {
         return hashSenha;
     }
 
-    public String[] getDepartamentos() {
+    public long getDepartamentos() {
         return departamentos;
     }
 
-    public void setDepartamentos(String[] departamentos) {
+    public void setDepartamentos(long departamentos) {
         this.departamentos = departamentos;
     }
 
@@ -164,8 +165,12 @@ public class UsuarioSistema {
      * @param papelNecessario
      * @return
      */
-    public boolean autorizado(String papelNecessario) {
-        List<String> papeisUsuario = Arrays.asList(this.departamentos);
-        return papeisUsuario.contains(papelNecessario);
+    public List<Long> autorizado(long papelNecessario) {
+        List <Long> UsuarioAutorizado = new ArrayList<>();
+        
+            UsuarioAutorizado.add(papelNecessario);
+        
+        
+        return UsuarioAutorizado;
     }
 }
