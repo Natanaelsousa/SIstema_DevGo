@@ -6,11 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import sistema.devgo.java.Funcionario;
 import sistema.devgo.java.Plano;
 
 /**
- * @author Natanael */
+ * @author Sibele */
 public class PlanoDAO extends GenericaDAO {
 
     //Inserção de dados
@@ -22,8 +21,8 @@ public class PlanoDAO extends GenericaDAO {
     //Atualização de dados
     public void update(Plano plano) throws SQLException {
         String update = "UPDATE plano "
-                + "SET nm_plano = ?, preco = ?, cod_periodo = ?, cod_idioma = ?";
-        update(update, plano.getNomePlano(), plano.getPreco(),plano.getCod_periodo(),plano.getCod_idioma());
+                + "SET nm_plano = ?, preco = ?, cod_idioma = ?, cod_periodo = ?";
+        update(update, plano.getNomePlano(), plano.getPreco(),plano.getCod_idioma(),plano.getCod_periodo());
     }
 
     //Lista de planos cadastrados
@@ -58,11 +57,10 @@ public class PlanoDAO extends GenericaDAO {
     public Plano findByName(String nomePlano) throws SQLException {
         String select = "SELECT * FROM PLANO WHERE nm_plano = ?";
         Plano plano = null;
-        PreparedStatement stmt = 
-			getConnection().prepareStatement(select);
+        PreparedStatement stmt = getConnection().prepareStatement(select);
    
 			
-        stmt.setString(1,nomePlano );
+        stmt.setString(1, nomePlano );
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {

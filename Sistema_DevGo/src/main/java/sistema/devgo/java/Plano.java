@@ -1,16 +1,15 @@
 package sistema.devgo.java;
 
-/**
- *
- * @author Sibele
- */
+/* @author Sibele */
 public class Plano {
 
+    private long cod_plano;
     private String nomePlano;
+    private double preco;
     private long cod_periodo;
     private long cod_idioma;
-    private double preco;
-    private long cod_plano;
+    
+    
 
     //Construtores
     public Plano() {
@@ -67,7 +66,7 @@ public class Plano {
     public long getCod_periodo() {
         return cod_periodo;
     }
-    public void setCod_Periodo(long periodo) {
+    public void setCod_Periodo(long cod_periodo) {
         this.cod_periodo = cod_periodo;
     }
 

@@ -49,18 +49,15 @@ public class CadastroPlano extends HttpServlet {
             throws ServletException, IOException {
         // Guardando dados vindos da tela nas variaveis
         String nome = request.getParameter("Plano");
-        String idioma = request.getParameter("opcaoIdioma");
-        String preco = request.getParameter("Preco");
-        String periodo = request.getParameter("opcao");
-        long periodo2 = Long.parseLong(request.getParameter("opcao"));
-        long idioma2 = Long.parseLong(request.getParameter("opcaoIdioma"));
-        double preco2 = Double.parseDouble(request.getParameter("Preco")); 
+        long periodo = Long.parseLong(request.getParameter("opcao"));
+        long idioma = Long.parseLong(request.getParameter("opcaoIdioma"));
+        double preco = Double.parseDouble(request.getParameter("Preco")); 
         
         Plano plano= new Plano();
         plano.setNomePlano(nome);
-        plano.setCod_Periodo(periodo2);
-        plano.setCod_idioma(idioma2);
-        plano.setPreco(preco2);
+        plano.setCod_Periodo(periodo);
+        plano.setCod_idioma(idioma);
+        plano.setPreco(preco);
        
         
          PlanoDAO dao = new PlanoDAO ();
