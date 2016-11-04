@@ -3,9 +3,7 @@ package sistema.devgo.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
-import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sistema.devgo.Model.dao.FuncionarioDAO;
 import sistema.devgo.java.Funcionario;
+import sistema.devgo.java.UsuarioSistema;
 
 /**
  *
@@ -88,8 +87,10 @@ public class CadastroFuncionario extends HttpServlet {
         String dataNasc = request.getParameter("Datanasc");
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
-
-       
+        
+        UsuarioSistema user = new UsuarioSistema (nome,senha,departamento);
+        String senhagerada = String.valueOf(user.getHashSenha());
+        
         Date dtNasc;
         try {
             dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
@@ -104,7 +105,7 @@ public class CadastroFuncionario extends HttpServlet {
         funcionario.setCpf(cpf);
         funcionario.setCodDepartamento(departamento);
         funcionario.setUsuario(usuario);
-        funcionario.setSenha(senha);
+        funcionario.setSenha(senhagerada);
         funcionario.setDtNascimento(dtNasc);
         funcionario.setStatus("Ativo");
 
