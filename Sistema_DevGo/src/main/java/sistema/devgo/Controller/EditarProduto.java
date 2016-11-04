@@ -78,33 +78,31 @@ public class EditarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-        String idioma = request.getParameter("opcaoIdioma");
+       
+        String cod_idioma = request.getParameter("opcaoLivro");
         String preco = request.getParameter("Preco");
         String quantidade = request.getParameter("Quantidade");
 
-        double preco1 = Double.parseDouble(request.getParameter("Preco"));
-        int quantidade1 = Integer.parseInt(request.getParameter("Quantidade"));
+        double preco1 = Double.parseDouble(preco);
+        int quantidade1 = Integer.parseInt(quantidade);
+        int cod_idioma1 = Integer.parseInt(cod_idioma);
+        
         Livro livro = new Livro();
 
-                
-        livro.setIdioma(idioma);
+        livro.setCod_idioma(cod_idioma1);
         livro.setPreco(preco1);
         livro.setQuantidade(quantidade1);
 
         LivroDAO dao = new LivroDAO();
         
+  
         try {
             dao.editar(livro);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request, response);
-
+    
     }
-
     /**
      * Returns a short description of the servlet.
      *
