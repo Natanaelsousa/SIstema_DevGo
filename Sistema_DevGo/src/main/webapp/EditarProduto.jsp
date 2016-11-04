@@ -4,6 +4,9 @@
     Author     : natan
 --%>
 
+<%@page import="sistema.devgo.java.Livro"%>
+<%@page import="java.util.List"%>
+<%@page import="sistema.devgo.Model.dao.LivroDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -51,13 +54,18 @@
                         <fieldset id="dados">
                             <h4>Serviço</h4>
                             <div id="topo">
-                                <p><label title="Livro." for="Livro">Livro idioma:</label>
-                                    <select name="Idioma">
-                                        <option value="1" >Ingles</option>
-                                        <option value="2" >Espanhol</option>
-                                    </select></p>
+                                <p><select name="opcaoLivro">
+                        <option>Selecione o Livro...</option>
+                        <%
+                            LivroDAO dao = new LivroDAO();
+                            List<Livro> livros = dao.findLivro();
+                            for (Livro livro: livros) {
+                        %>
+                        <option value="<%=livro.getCod_idioma()%>"><%=livro.getIdioma()%></option>
+                        <%}%>
+                        </select></p> 
                                 <p><label title="Preço." for="Preço">Preço:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Preço" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)"/></p>
+                                    <input required="required" type="text" name="Preço" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)"/></p>
                                 <p><label title="Quantidade." for="Quantidade">Quantidade:</label>
                                     <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)"/></p>
                             </div>

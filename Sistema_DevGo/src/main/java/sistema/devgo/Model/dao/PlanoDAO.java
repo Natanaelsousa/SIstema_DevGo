@@ -10,27 +10,25 @@ import sistema.devgo.java.Funcionario;
 import sistema.devgo.java.Plano;
 
 /**
- *
- * @author Natanael
- */
+ * @author Natanael */
 public class PlanoDAO extends GenericaDAO {
 
     //Inserção de dados
     public void insert(Plano plano) throws SQLException {
-        String insert = "INSERT INTO PLANO(nm_plano, preco,periodo,cod_idioma) VALUES(?,?,?)";
-        insert(insert, plano.getNomePlano(), plano.getPreco(),plano.getPeriodo(),plano.getCod_idioma());
+        String insert = "INSERT INTO PLANO(nm_plano, preco, cod_idioma, cod_periodo) VALUES(?,?,?,?)";
+        insert(insert, plano.getNomePlano(), plano.getPreco(),plano.getCod_idioma(),plano.getCod_periodo());
     }
 
     //Atualização de dados
     public void update(Plano plano) throws SQLException {
-        String update = "UPDATE CONTATOS "
-                + "SET nm_plano = ?, preco = ?, periodo = ?, cod_idioma = ?";
-        update(update, plano.getNomePlano(), plano.getPreco(),plano.getPeriodo(),plano.getCod_idioma());
+        String update = "UPDATE plano "
+                + "SET nm_plano = ?, preco = ?, cod_periodo = ?, cod_idioma = ?";
+        update(update, plano.getNomePlano(), plano.getPreco(),plano.getCod_periodo(),plano.getCod_idioma());
     }
 
     //Lista de planos cadastrados
     public List<Plano> findPlano() throws SQLException {
-        List<Plano> plano = new ArrayList<Plano>();
+        List<Plano> planos = new ArrayList<Plano>();
 
         String select = "SELECT * FROM PLANO";
 
@@ -40,22 +38,22 @@ public class PlanoDAO extends GenericaDAO {
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-            Plano planos = new Plano();
+            Plano plano = new Plano();
             
-            planos.setId_plano(rs.getLong("cod_plano"));
-            planos.setCod_idioma(rs.getLong("cod_idioma"));
-            planos.setNomePlano(rs.getString("nm_plano"));
-            planos.setPreco(rs.getDouble("preco"));
-            planos.setPeriodo(rs.getString("periodo"));
+            plano.setCod_plano(rs.getLong("cod_plano"));
+            plano.setCod_idioma(rs.getLong("cod_idioma"));
+            plano.setNomePlano(rs.getString("nm_plano"));
+            plano.setPreco(rs.getDouble("preco"));
+            plano.setCod_Periodo(rs.getLong("cod_periodo"));
             
             
-            plano.add(planos);
+            planos.add(plano);
         }
 
         rs.close();
         stmt.close();
 
-        return plano;
+        return planos;
     }
     public Plano findByName(String nomePlano) throws SQLException {
         String select = "SELECT * FROM PLANO WHERE nm_plano = ?";
@@ -68,11 +66,11 @@ public class PlanoDAO extends GenericaDAO {
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-          plano.setId_plano(rs.getLong("cod_plano"));
+          plano.setCod_plano(rs.getLong("cod_plano"));
           plano.setCod_idioma(rs.getLong("cod_idioma"));
           plano.setNomePlano(rs.getString("nm_plano"));
           plano.setPreco(rs.getDouble("preco"));
-          plano.setPeriodo(rs.getString("periodo"));
+          plano.setCod_Periodo(rs.getLong("cod_periodo"));
         }
 
         rs.close();

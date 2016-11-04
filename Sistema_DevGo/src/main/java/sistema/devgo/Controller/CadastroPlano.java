@@ -3,12 +3,7 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -17,9 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sistema.devgo.Model.dao.FuncionarioDAO;
 import sistema.devgo.Model.dao.PlanoDAO;
 import sistema.devgo.java.Plano;
+
 
 @WebServlet(name = "CadastroPlano", urlPatterns = {"/CadastroPlano"})
 public class CadastroPlano extends HttpServlet {
@@ -53,25 +48,20 @@ public class CadastroPlano extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Guardando dados vindos da tela nas variaveis
-        String nm_plano = request.getParameter("Plano");
-        String periodo= request.getParameter("Periodo");
-        long idioma = Long.parseLong(request.getParameter("Idioma"));
-        String preco_plano= request.getParameter("Preço");
-        
-        Double preco = null;
-        try {
-           
-             String precos = Double.toString(preco);
-         } catch (NumberFormatException ex) {
-             ex.printStackTrace();
-             return;
-         }
+        String nome = request.getParameter("Plano");
+        String idioma = request.getParameter("opcaoIdioma");
+        String preco = request.getParameter("Preco");
+        String periodo = request.getParameter("opcao");
+        long periodo2 = Long.parseLong(request.getParameter("opcao"));
+        long idioma2 = Long.parseLong(request.getParameter("opcaoIdioma"));
+        double preco2 = Double.parseDouble(request.getParameter("Preco")); 
         
         Plano plano= new Plano();
-        plano.setNomePlano(nm_plano);
-        plano.setPeriodo(periodo);
-        plano.setPreco(preco);
-        plano.setCod_idioma(idioma);
+        plano.setNomePlano(nome);
+        plano.setCod_Periodo(periodo2);
+        plano.setCod_idioma(idioma2);
+        plano.setPreco(preco2);
+       
         
          PlanoDAO dao = new PlanoDAO ();
         try {

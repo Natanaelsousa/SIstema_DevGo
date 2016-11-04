@@ -4,6 +4,11 @@
     Author     : Natanael Santos
 --%>
 
+<%@page import="sistema.devgo.java.Livro"%>
+<%@page import="sistema.devgo.Model.dao.LivroDAO"%>
+<%@page import="sistema.devgo.java.Periodo"%>
+<%@page import="java.util.List"%>
+<%@page import="sistema.devgo.Model.dao.PeriodoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
@@ -54,19 +59,28 @@
                             <div id="topo">
                                 <p><label title="Plano." for="Plano">Plano:</label>
                                     <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
-                                <p><label  for="Período">Período:</label>
-                                    <select  name="Periodo">
-                                        <option value="1" selected>Semestral</option>
-                                        <option value="2" >Trimestral</option>
-                                        <option value="3" >Mensal</option>
-                                    </select></p>
-                                <p><label title="Livro." for="Livro">Idioma:</label>
-                                    <select name="Idioma">
-                                        <option value="1" >Ingles</option>
-                                        <option value="2" >Espanhol</option>
-                                    </select></p>
-                                <p><label title="Preço." for="Preco">Preço:</label>
-                                    <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="40" onkeypress="return somenteNumero(event)"/></p>
+                                <p><select name="opcao">
+                        <option>Selecione o Periodo...</option>
+                        <%
+                            PeriodoDAO dao = new PeriodoDAO();
+                            List<Periodo> period = dao.findPeriodo();
+                            for (Periodo periodos : period) {
+                        %>
+                        <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
+                        <%}%>
+                        </select></p> 
+                        <p><select name="opcaoIdioma">
+                          <option>Selecione o Idioma...</option>
+                          <%
+                            LivroDAO daolivro = new LivroDAO();
+                            List<Livro> livros = daolivro.findLivro();
+                            for (Livro liv : livros) {
+                        %>
+                        <option value="<%=liv.getCod_idioma()%>"><%=liv.getIdioma()%></option>
+                        <%}%>
+                        </select></p> 
+                        <p><label title="Preço." for="Preco">Preço:</label>
+                            <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="40" onkeypress="return somenteNumero(event)"/></p>
                             </div>
                         </fieldset>
                         <div class="botoes">

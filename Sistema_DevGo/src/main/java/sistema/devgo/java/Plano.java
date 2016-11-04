@@ -1,7 +1,5 @@
 package sistema.devgo.java;
 
-import java.util.List;
-
 /**
  *
  * @author Sibele
@@ -9,20 +7,28 @@ import java.util.List;
 public class Plano {
 
     private String nomePlano;
-    private String periodo;
+    private long cod_periodo;
     private long cod_idioma;
     private double preco;
-    private long id_plano;
+    private long cod_plano;
 
     //Construtores
     public Plano() {
     }
-    public Plano(long id_plano,double preco, String nomePlano, String periodo,long cod_idioma) {
+
+    public Plano(String nomePlano, long cod_periodo, long cod_idioma, double preco) {
+        this.nomePlano = nomePlano;
+        this.cod_periodo = cod_periodo;
         this.cod_idioma = cod_idioma;
-        this.periodo = periodo;
+        this.preco = preco;
+    }
+    
+    public Plano(long cod_plano,double preco, String nomePlano, long cod_periodo,long cod_idioma) {
+        this.cod_idioma = cod_idioma;
+        this.cod_periodo = cod_periodo;
         this.preco = preco;
         this.nomePlano = nomePlano;
-        this.id_plano=id_plano;
+        this.cod_plano=cod_plano;
     }
    
     //Get e Set de Idioma
@@ -50,19 +56,19 @@ public class Plano {
     }
 
     //Get e Set do Identificador do plano
-    public long getId_plano() {
-        return id_plano;
+    public long getCod_plano() {
+        return cod_plano;
     }
-    public void setId_plano(long id_plano) {
-        this.id_plano = id_plano;
+    public void setCod_plano(long cod_plano) {
+        this.cod_plano = cod_plano;
     }
 
     //Get e Set do periodo
-    public String getPeriodo() {
-        return periodo;
+    public long getCod_periodo() {
+        return cod_periodo;
     }
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
+    public void setCod_Periodo(long periodo) {
+        this.cod_periodo = cod_periodo;
     }
 
 }

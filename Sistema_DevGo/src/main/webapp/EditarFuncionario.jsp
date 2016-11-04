@@ -4,6 +4,10 @@
     Author     : natan
 --%>
 
+<%@page import="sistema.devgo.java.Departamento"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="sistema.devgo.Model.dao.DepartamentoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -50,18 +54,26 @@
                 <h4>Empresa</h4>
                 <div id="topo">
                     <p><label title="Numeros do CPF." for="CPF">CPF:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="CPF" maxlength="11" id="CPF" size="35"/>
+                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                     <p><label title="Letras de A a Z." for="Nome">Nome:</label>
                         <input required="required" pattern="[A-Za-z]*" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
                     <p><label title="Sobrenome." for="Sobrenome">Sobrenome:</label>
-                        <input required="required" pattern="[0-9]*" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
+                        <input required="required"  pattern="[A-Za-z]*" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
                     <p><label title="Letras de A a Z." for="Telefone">Telefone:</label>
                         <input required="required" pattern="^\d{2}-\d{8}$" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
                     <p><label for="Datanasc">Data de nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
-                    <p><label title="Letras de A a Z." for="Departamento">Departamento:</label>
-                        <input required="required" pattern="[A-Za-z]*" type="text" name="Departamento" maxlength="35" id="Departamento" size="63"/></p>
+                    <p><select name="opcao">
+                        <option>Selecione o Departamento...</option>
+                        <%
+                            DepartamentoDAO dao = new DepartamentoDAO();
+                            List<Departamento> deptos = dao.findDeptos();
+                            for (Departamento departamentos : deptos) {
+                        %>
+                        <option value="<%=departamentos.getCodDepartamento()%>"><%=departamentos.getSetor()%></option>
+                        <%}%>
+                        </select></p>      
                     <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
                         <input required="required" pattern="[0-9]*" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
                     <p><label for="Senha">Senha:</label>
