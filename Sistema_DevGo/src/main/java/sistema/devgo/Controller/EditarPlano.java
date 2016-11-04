@@ -7,11 +7,17 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sistema.devgo.Model.dao.PlanoDAO;
+import sistema.devgo.java.Plano;
 
 /**
  *
@@ -72,14 +78,29 @@ public class EditarPlano extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+// Guardando dados vindos da tela nas variaveis
+        String nome = request.getParameter("opcaoPlano");
+        long periodo = Long.parseLong(request.getParameter("opcaoPeriodo"));
+        long idioma = Long.parseLong(request.getParameter("opcaoIdioma"));
+        double preco = Double.parseDouble(request.getParameter("Preco")); 
+        
+        Plano plano= new Plano();
+        plano.setNomePlano(nome);
+        plano.setCod_Periodo(periodo);
+        plano.setCod_idioma(idioma);
+        plano.setPreco(preco);
+       
+        
+         PlanoDAO dao = new PlanoDAO ();
+        try {
+            dao.update(plano);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroPlano.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        dispatcher.forward(request, response);    }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";
