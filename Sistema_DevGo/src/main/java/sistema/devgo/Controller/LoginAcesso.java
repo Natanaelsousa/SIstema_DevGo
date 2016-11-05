@@ -7,17 +7,20 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sistema.devgo.java.UsuarioSistema;
 
 /**
  *
  * @author natan
  */
-@WebServlet(name = "LoginAcesso", urlPatterns = {"/LoginAcesso"})
+@WebServlet(name = "LoginAcesso", urlPatterns = {"/login"})
 public class LoginAcesso extends HttpServlet {
 
     /**
@@ -37,7 +40,7 @@ public class LoginAcesso extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginAcesso</title>");            
+            out.println("<title>Servlet LoginAcesso</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginAcesso at " + request.getContextPath() + "</h1>");
@@ -58,7 +61,17 @@ public class LoginAcesso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        HttpSession sessao = request.getSession(false);
+
+        if (sessao == null || sessao.getAttribute("usuario") == null) {
+            RequestDispatcher dispatcher
+                    = request.getRequestDispatcher("/WEB-INF/Login.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
+        //Redireciona para uma pagina mas não consegui encontrar ela no projeto / teste-servlet ???
+        response.sendRedirect(request.getContextPath() + "/teste-servlet");
     }
 
     /**
@@ -72,7 +85,32 @@ public class LoginAcesso extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String login = request.getParameter("login");
+        String senha = request.getParameter("senha");
+
+        // Validar nome de usuario e senha
+        UsuarioSistema usuario = validar(login, senha);
+        if (usuario != null) {
+            HttpSession sessao = request.getSession(true);
+            sessao.setAttribute("usuario", usuario);
+            response.sendRedirect(request.getContextPath() + "/teste-servlet"); //???
+        } else {
+            response.sendRedirect(request.getContextPath() + "/ErroLogin.jsp");
+        }
+
+    }
+
+    private UsuarioSistema validar(String login, String senha) {
+        UsuarioSistema usuarioCadastrado = new UsuarioSistema("financeiro",
+                "financeiro123", new String[]{"", ""});
+
+        boolean valido = usuarioCadastrado.autenticar(login, senha);
+        if (valido) {
+            return usuarioCadastrado;
+        }
+        return null;
+
     }
 
     /**

@@ -9,9 +9,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Escola de Idioma</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+         <h1>Acesso.</h1>
+    <div>
+      <form action="login" method="post">
+	<div>
+	  <label for="txtnome">Login:</label>
+	  <input type="text" name="login" id="txtnome" maxlength="100"
+		 placeholder="Digite o Login" />
+	</div>
+	<div>
+	  <label for="txtsenha">Senha:</label>
+	  <input type="password" name="senha" id="txtsenha"
+		 placeholder="Digite a senha" />
+	</div>
+	<div><input type="submit" value="Entrar" /></div>
+      </form>
     </body>
 </html>
