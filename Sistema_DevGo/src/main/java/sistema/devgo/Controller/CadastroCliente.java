@@ -107,13 +107,10 @@ public class CadastroCliente extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        response.setContentType("text/html;charset=UTF-8");
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);
-        
-         
-       
-       
     }
     
       @Override
