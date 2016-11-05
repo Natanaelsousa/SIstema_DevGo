@@ -92,8 +92,7 @@ public class CadastroProduto extends HttpServlet {
         
         try {
             dao.salvar(livro);
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("");

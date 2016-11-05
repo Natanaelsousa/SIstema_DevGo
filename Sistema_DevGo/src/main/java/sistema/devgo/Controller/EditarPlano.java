@@ -80,15 +80,19 @@ public class EditarPlano extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 // Guardando dados vindos da tela nas variaveis
-        String nome = request.getParameter("opcaoPlano");
+        
+        String nomePlano = request.getParameter("opcaoPlano");
         long periodo = Long.parseLong(request.getParameter("opcaoPeriodo"));
         long idioma = Long.parseLong(request.getParameter("opcaoIdioma"));
         double preco = Double.parseDouble(request.getParameter("Preco")); 
+        String codigoPlano = request.getParameter("opcaoPlano");
+        long codPlano = Long.parseLong(codigoPlano);
         
         Plano plano= new Plano();
-        plano.setNomePlano(nome);
+        plano.setNomePlano(nomePlano);
         plano.setCod_Periodo(periodo);
         plano.setCod_idioma(idioma);
+        plano.setCod_plano(codPlano);
         plano.setPreco(preco);
        
         
