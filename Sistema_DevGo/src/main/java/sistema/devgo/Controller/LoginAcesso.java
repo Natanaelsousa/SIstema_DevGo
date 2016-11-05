@@ -102,13 +102,8 @@ public class LoginAcesso extends HttpServlet {
     }
 
     private UsuarioSistema validar(String login, String senha) {
-        UsuarioSistema usuarioCadastrado = new UsuarioSistema("financeiro",
-                "financeiro123", new String[]{"", ""});
-
-        boolean valido = usuarioCadastrado.autenticar(login, senha);
-        if (valido) {
-            return usuarioCadastrado;
-        }
+       
+       
         return null;
 
     }
