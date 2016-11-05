@@ -15,7 +15,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <title>Cadastros</title>
-        <link type="text/css" rel="stylesheet" href="Editar Funcionario.css" />
         <c:url value="CSS/editarFuncionario.css" var="EditarFuncionario"/>
         <link type="text/css" rel="stylesheet" href="${EditarFuncionario}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>

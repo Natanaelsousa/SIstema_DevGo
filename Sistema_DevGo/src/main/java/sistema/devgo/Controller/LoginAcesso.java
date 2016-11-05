@@ -62,16 +62,10 @@ public class LoginAcesso extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession sessao = request.getSession(false);
-
-        if (sessao == null || sessao.getAttribute("usuario") == null) {
             RequestDispatcher dispatcher
                     = request.getRequestDispatcher("/WEB-INF/Login.jsp");
             dispatcher.forward(request, response);
-            return;
-        }
         //Redireciona para uma pagina mas não consegui encontrar ela no projeto / teste-servlet ???
-        response.sendRedirect(request.getContextPath() + "/teste-servlet");
     }
 
     /**
@@ -86,15 +80,15 @@ public class LoginAcesso extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
+        String login = request.getParameter("Login");
+        String senha = request.getParameter("Senha");
 
         // Validar nome de usuario e senha
         UsuarioSistema usuario = validar(login, senha);
         if (usuario != null) {
             HttpSession sessao = request.getSession(true);
             sessao.setAttribute("usuario", usuario);
-            response.sendRedirect(request.getContextPath() + "/teste-servlet"); //???
+            response.sendRedirect(request.getContextPath() + "/Acesso.jsp"); //???
         } else {
             response.sendRedirect(request.getContextPath() + "/ErroLogin.jsp");
         }
@@ -102,10 +96,7 @@ public class LoginAcesso extends HttpServlet {
     }
 
     private UsuarioSistema validar(String login, String senha) {
-       
-       
         return null;
-
     }
 
     /**
