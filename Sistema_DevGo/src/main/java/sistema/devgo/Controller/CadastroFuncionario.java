@@ -64,7 +64,9 @@ public class CadastroFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
+        dispatcher.forward(request, response);
     }
 
     /**
@@ -115,9 +117,8 @@ public class CadastroFuncionario extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request, response);
+         RequestDispatcher dispatcher = request.getRequestDispatcher("");
+      dispatcher.forward(request, response);
 
     }
 
