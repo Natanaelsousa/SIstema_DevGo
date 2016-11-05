@@ -27,9 +27,9 @@ public class LivroDAO extends GenericaDAO {
     public void editar(Livro livro) throws SQLException {
 
         String sql = "UPDATE LV_IDIOMA "
-                + "SET TIPO_IDIOMA = ?, PRECO = ?, QTDE_ATUAL = ?  WHERE COD_IDIOMA = ?";
+                + "SET PRECO = ?, QTDE_ATUAL = ?  WHERE COD_IDIOMA = ?";
 
-        update(sql ,livro.getCod_idioma(), livro.getIdioma(), livro.getPreco(), livro.getQuantidade());
+        update(sql ,livro.getCod_idioma(),livro.getPreco(), livro.getQuantidade());
 
     }
 

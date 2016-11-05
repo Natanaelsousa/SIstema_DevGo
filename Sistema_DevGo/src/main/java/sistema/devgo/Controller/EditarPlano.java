@@ -98,8 +98,9 @@ public class EditarPlano extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroPlano.class.getName()).log(Level.SEVERE, null, ex);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request, response);    }
+          
+    }
+    
 
    
     @Override

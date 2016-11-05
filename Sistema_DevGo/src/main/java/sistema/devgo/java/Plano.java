@@ -15,12 +15,6 @@ public class Plano {
     public Plano() {
     }
 
-    public Plano(String nomePlano, long cod_periodo, long cod_idioma, double preco) {
-        this.nomePlano = nomePlano;
-        this.cod_periodo = cod_periodo;
-        this.cod_idioma = cod_idioma;
-        this.preco = preco;
-    }
     
     public Plano(long cod_plano,double preco, String nomePlano, long cod_periodo,long cod_idioma) {
         this.cod_idioma = cod_idioma;

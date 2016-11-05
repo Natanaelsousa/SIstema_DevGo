@@ -20,9 +20,9 @@ public class PlanoDAO extends GenericaDAO {
 
     //Atualização de dados
     public void update(Plano plano) throws SQLException {
-        String update = "UPDATE plano "
-                + "SET nm_plano = ?, preco = ?, cod_idioma = ?, cod_periodo = ? ";
-        update(update, plano.getNomePlano(), plano.getPreco(),plano.getCod_idioma(),plano.getCod_periodo());
+        String sql = "UPDATE plano "
+                + "SET nm_plano = ?, preco = ?, cod_idioma = ?, cod_periodo = ? where cod_plano =? ";
+        update(sql,plano.getCod_plano(),plano.getNomePlano(), plano.getPreco(),plano.getCod_idioma(),plano.getCod_periodo());
     }
 
     //Lista de planos cadastrados

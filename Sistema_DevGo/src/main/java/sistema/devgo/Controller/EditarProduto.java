@@ -83,7 +83,7 @@ public class EditarProduto extends HttpServlet {
         String cod_idioma = request.getParameter("opcaoLivro");
         String preco = request.getParameter("Preco");
         String quantidade = request.getParameter("Quantidade");
-
+        String nome=request.getParameter("opcaoLivro");
         double preco1 = Double.parseDouble(preco);
         int quantidade1 = Integer.parseInt(quantidade);
         int cod_idioma1 = Integer.parseInt(cod_idioma);
@@ -93,7 +93,7 @@ public class EditarProduto extends HttpServlet {
         livro.setCod_idioma(cod_idioma1);
         livro.setPreco(preco1);
         livro.setQuantidade(quantidade1);
-
+        livro.setIdioma(nome);
         LivroDAO dao = new LivroDAO();
         
   
