@@ -24,7 +24,8 @@
                 <div id="topo">
                     <h2>Login</h2>
                 </div>
-                <div id="form">
+                <c:url value="LoginAcesso" var="Login"/>
+             <form action="${Login}" method="post" enctype="application/x-www-form-urlencoded">
                     <p><label title="Nome do usuario." for="Login"><i class="material-icons">person</i>Usuario:</label>
                         <input required="required" type="text" name="Login" maxlength="35" id="Login" size="44" /></p>
                     <p><label title="Senha de acesso." for="Senha"><i class="material-icons">lock_outline</i>Senha:</label>

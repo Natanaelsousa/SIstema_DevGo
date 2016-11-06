@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sistema.devgo.Model.dao.FuncionarioDAO;
+import sistema.devgo.Model.dao.PermissaoDAO;
 import sistema.devgo.java.Funcionario;
+import sistema.devgo.java.Permissao;
 import sistema.devgo.java.UsuarioSistema;
 
 /**
@@ -100,20 +102,27 @@ public class CadastroFuncionario extends HttpServlet {
             out.println("Erro de conversão de data");
             return;
         }
+        Permissao permissao = new Permissao ();
         Funcionario funcionario = new Funcionario();
         funcionario.setNome(nome);
         funcionario.setSobrenome(sobrenome);
         funcionario.setTelefone(telefone);
         funcionario.setCpf(cpf);
         funcionario.setCodDepartamento(departamento);
-        funcionario.setUsuario(usuario);
-        funcionario.setSenha(senhagerada);
+        permissao.setUsuario(usuario);
+        permissao.setSenha(senhagerada);
         funcionario.setDtNascimento(dtNasc);
         funcionario.setStatus("Ativo");
 
         FuncionarioDAO dao = new FuncionarioDAO();
         try {
             dao.insert(funcionario);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PermissaoDAO dao2 = new PermissaoDAO();
+        try{
+            dao2.insert(permissao);
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }

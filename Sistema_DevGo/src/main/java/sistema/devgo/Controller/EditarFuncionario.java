@@ -107,8 +107,6 @@ public class EditarFuncionario extends HttpServlet {
         funcionario.setTelefone(telefone);
         funcionario.setCpf(cpf);
         funcionario.setCodDepartamento(departamento);
-        funcionario.setUsuario(usuario);
-        funcionario.setSenha(senha);
         funcionario.setDtNascimento(dtNasc);
         funcionario.setStatus("Ativo");
 

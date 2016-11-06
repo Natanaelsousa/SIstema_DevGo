@@ -15,8 +15,6 @@ public class Funcionario {
     private String telefone;
     private Date dtNascimento;
     private String status;
-    private String usuario;
-    private String senha;
     private long CodFuncionario;
 
     //Construtores
@@ -24,33 +22,27 @@ public class Funcionario {
 
     }
 
-    public Funcionario(Date dataNasc,Long departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
+    public Funcionario(Date dataNasc, Long departamento, String cpf, String nome, String sobrenome) {
 
         this.CodDepartamento = departamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.status = "ATIVO";
-        this.usuario = usuario;
-        this.senha = senha;
         this.dtNascimento = dataNasc;
 
     }
 
-    public Funcionario(Long idFuncionario, Long departamento, String cpf, String nome, String sobrenome, String usuario, String senha) {
+    public Funcionario(Long idFuncionario, Long departamento, String cpf, String nome, String sobrenome) {
 
         this.CodDepartamento = departamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.status = "ATIVO";
-        this.usuario = usuario;
-        this.senha = senha;
         this.CodFuncionario = idFuncionario;
 
     }
-
-  
 
     /**
      * @return the cpf
@@ -137,34 +129,6 @@ public class Funcionario {
     }
 
     /**
-     * @return the usuario
-     */
-    public String getUsuario() {
-        return usuario;
-    }
-
-    /**
-     * @param usuario the usuario to set
-     */
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    /**
-     * @return the senha
-     */
-    public String getSenha() {
-        return senha;
-    }
-
-    /**
-     * @param senha the senha to set
-     */
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    /**
      * @return the iddepartamento
      */
     public Long getCodDepartamento() {
@@ -191,7 +155,5 @@ public class Funcionario {
     public void setCodFuncionario(Long idFuncionario) {
         this.CodFuncionario = idFuncionario;
     }
-
-
 
 }

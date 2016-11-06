@@ -2,39 +2,83 @@ package sistema.devgo.java;
 
 /**
  *
- * @author Sibele
+ * @author Natanael 
  */
 public class Permissao {
 
-    private String departamento;
+    private String usuario;
+    private String senha;
+    private long cod_permissao;
+    private long cod_funcionario;
 
-    public void nivelPermissao(String departamento) {
-        // 
+    public Permissao (){
+        
     }
-//
-    public int validaPermissao(Permissao tipoPermissao) {
-
-        if ("ti".equals(tipoPermissao.getDepartamento())) {
-            return 1;
-        } else if ("financeiro".equals(tipoPermissao)) {
-            return 2;
-        } else if ("serviços".equals(tipoPermissao)) {
-            return 3;
-        }
-        return 0;
+    
+    public Permissao (String usuario, String senha, long cod_funcionario){
+        this.usuario = usuario;
+        this.senha = senha;
+        this.cod_funcionario = cod_funcionario;
+    }
+    
+    /**
+     * @return the usuario
+     */
+    public String getUsuario() {
+        return usuario;
     }
 
     /**
-     * @return the departamento
+     * @param usuario the usuario to set
      */
-    public String getDepartamento() {
-        return departamento;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     /**
-     * @param departamento the departamento to set
+     * @return the senha
      */
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+    public String getSenha() {
+        return senha;
     }
-}
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    /**
+     * @return the cod_permissao
+     */
+    public long getCod_permissao() {
+        return cod_permissao;
+    }
+
+    /**
+     * @param cod_permissao the cod_permissao to set
+     */
+    public void setCod_permissao(long cod_permissao) {
+        this.cod_permissao = cod_permissao;
+    }
+
+    /**
+     * @return the cod_funcionario
+     */
+    public long getCod_funcionario() {
+        return cod_funcionario;
+    }
+
+    /**
+     * @param cod_funcionario the cod_funcionario to set
+     */
+    public void setCod_funcionario(long cod_funcionario) {
+        this.cod_funcionario = cod_funcionario;
+    }
+
+  
+
+    }
+
+

@@ -1,4 +1,3 @@
-
 package sistema.devgo.Model.dao;
 
 import java.sql.PreparedStatement;
@@ -15,10 +14,10 @@ import sistema.devgo.java.Funcionario;
 public class FuncionarioDAO extends GenericaDAO {
 
     public void insert(Funcionario funcionario) throws SQLException {
-        String insert = "INSERT INTO FUNCIONARIO (cod_depto,nome,sobrenome,telefone,usuario,cpf,"
-                + "senha,status,dt_nascimento) VALUES(?,?,?,?,?,?,?,?,?)";
-        insert(insert, funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
-                funcionario.getUsuario(), funcionario.getCpf(), funcionario.getSenha(), funcionario.getStatus(),
+        String insert = "INSERT INTO FUNCIONARIO (cod_depto,nome,sobrenome,telefone,cpf,"
+                + "status,dt_nascimento) VALUES(?,?,?,?,?,?,?)";
+        insert(insert, funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(),
+                funcionario.getTelefone(), funcionario.getCpf(), funcionario.getStatus(),
                 funcionario.getDtNascimento());
     }
 
@@ -27,7 +26,7 @@ public class FuncionarioDAO extends GenericaDAO {
                 + "SET cod_depto = ?, nome = ?, sobrenome = ?, telefone = ?, usuario = ?, cpf = ?, senha = ?,"
                 + "status = ?, dt_nascimento= ? WHERE cod_funcionario = ?";
         update(update, funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(), funcionario.getTelefone(),
-                funcionario.getUsuario(), funcionario.getCpf(), funcionario.getSenha(), funcionario.getStatus(),
+                funcionario.getCpf(), funcionario.getStatus(),
                 funcionario.getDtNascimento(), funcionario.getCodFuncionario());
     }
 
@@ -47,9 +46,7 @@ public class FuncionarioDAO extends GenericaDAO {
             funcionario.setNome(rs.getString("nome"));
             funcionario.setSobrenome(rs.getString("sobrenome"));
             funcionario.setTelefone(rs.getString("telefone"));
-            funcionario.setUsuario(rs.getString("usuario"));
             funcionario.setCpf(rs.getString("cpf"));
-            funcionario.setSenha(rs.getString("senha"));
             funcionario.setStatus(rs.getString("status"));
             funcionario.setDtNascimento(rs.getDate("dt_nascimento"));
             funcionario.setCodFuncionario(rs.getLong("cod_funcionario"));
@@ -77,9 +74,7 @@ public class FuncionarioDAO extends GenericaDAO {
             funcionario.setNome(rs.getString("nome"));
             funcionario.setSobrenome(rs.getString("sobrenome"));
             funcionario.setTelefone(rs.getString("telefone"));
-            funcionario.setUsuario(rs.getString("usuario"));
             funcionario.setCpf(rs.getString("cpf"));
-            funcionario.setSenha(rs.getString("senha"));
             funcionario.setStatus(rs.getString("status"));
             funcionario.setDtNascimento(rs.getDate("dt_nascimento"));
         }
