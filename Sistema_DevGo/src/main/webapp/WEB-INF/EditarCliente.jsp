@@ -56,8 +56,8 @@
                         %>
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
                         <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" disabled=""/></p>
-                    <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
-                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64"/></p>
+                    <p><label for="Razao">Razao Social:</label>
+                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<c:out value="${CNPJ}"/>" </p>
                     <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
                         <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
                     <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
