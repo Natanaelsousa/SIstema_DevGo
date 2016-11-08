@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sistema.devgo.Model.dao.ClienteDAO;
+import sistema.devgo.java.Cliente;
 
 /**
  *
@@ -81,15 +82,23 @@ public class BuscarCliente extends HttpServlet {
             throws ServletException, IOException {
         ClienteDAO dao = new ClienteDAO();
         
+        
         String CNPJ = request.getParameter("CNPJ");
+        
         try {
-            dao.findByName(CNPJ);
+            Cliente cliente = dao.findByName(CNPJ);
+            
+            String Razao = cliente.getRazaoSocial();
+            request.setAttribute("Razao", Razao);
+            
         } catch (SQLException ex) {
-            Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
         dispatcher.forward(request, response);
     }
+    
 
     /**
      * Returns a short description of the servlet.

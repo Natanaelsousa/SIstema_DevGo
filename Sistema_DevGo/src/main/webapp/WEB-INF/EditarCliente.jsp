@@ -4,6 +4,7 @@
     Author     :Natanael Santos
 --%>
 
+<%@page import="sistema.devgo.Model.dao.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -49,6 +50,10 @@
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
+                    
+                    <%
+                        ClienteDAO dao = new ClienteDAO();
+                        %>
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
                         <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" disabled=""/></p>
                     <p><label title="Letras de A a Z." for="Razao">Razao Social:</label>
