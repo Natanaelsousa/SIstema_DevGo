@@ -20,10 +20,10 @@ import sistema.devgo.Model.dao.ClienteDAO;
 
 /**
  *
- * @author natan
+ * @author roberto.slinhares
  */
-@WebServlet(name = "EditarCliente", urlPatterns = {"/EditarCliente"})
-public class EditarCliente extends HttpServlet {
+@WebServlet(name = "BuscarCliente", urlPatterns = {"/BuscarCliente"})
+public class BuscarCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +38,16 @@ public class EditarCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet BuscarCliente</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet BuscarCliente at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -55,7 +64,7 @@ public class EditarCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarCliente.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -70,17 +79,16 @@ public class EditarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      String razao = request.getParameter("Razao");
-      String nome = request.getParameter("Nome");
-      String cnpj = request.getParameter("CNPJ");
-      String endereco = request.getParameter("Endereco");
-      String cep = request.getParameter("CEP");
-      String telefone1 = request.getParameter("Telefone1");
-      String telefone2 = request.getParameter("Telefone2");
-      String email = request.getParameter("Email");
-      
-      RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request, response);      
+        ClienteDAO dao = new ClienteDAO();
+        
+        String CNPJ = request.getParameter("CNPJ");
+        try {
+            dao.findByName(CNPJ);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
+        dispatcher.forward(request, response);
     }
 
     /**

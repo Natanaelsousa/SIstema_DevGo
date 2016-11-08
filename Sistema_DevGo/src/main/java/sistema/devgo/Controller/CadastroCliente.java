@@ -82,7 +82,7 @@ public class CadastroCliente extends HttpServlet {
         String numero = request.getParameter("numero"); 
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
-        String estado = request.getParameter("uf");
+        String estado = request.getParameter("uf"); 
         
         System.out.println(cidade);
 

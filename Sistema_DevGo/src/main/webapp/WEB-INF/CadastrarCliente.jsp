@@ -44,42 +44,42 @@
             <ul>
                 <li><a href="CadastrarCliente.jsp">Cadastrar Cliente</a></li>
                 <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
-                </ul>
-                    </aside>
-                    <c:url value="CadastroCliente" var="CadastroCliente" />
-                    <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
-                        <fieldset id="dados">
-                            <h4>Empresa</h4>
-                            <div id="topo">
-                                <p><label for="Razao">Razao Social:</label>
-                                    <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
-                                <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                                    <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)" /></p>
-                                <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
-                                    <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
-                                    <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="E-mail completo." for="Email">E-mail:</label>
-                                    <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
-                                <p><label>Cep:</label>
-                                    <input name="CEP" type="text" id="cep" value="" size="35" maxlength="9"
-                                           onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
-                                <p><label>Rua:</label>
-                                    <input name="rua" type="text" id="rua" size="65" /></p>
-                                <p><label>Número:</label>
-                                    <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label>Bairro:</label>
-                                    <input name="bairro" type="text" id="bairro" size="40" /><br />
-                                <p><label>Cidade:</label>
-                                    <input name="cidade" type="text" id="cidade" size="40" /></p>
-                                <p><label>Estado:</label>
-                                    <input name="uf" type="text" id="uf" size="20" /></p>
-                            </div>
-                        </fieldset>
-                        <div class="botoes">
-                            <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
-                            <input id="Limpar" title="Limpar" value="Limpar" type="reset">
-                        </div>
-                    </form>
-                    </body>
-                    </html>
+            </ul>
+        </aside>
+        <c:url value="CadastroCliente" var="CadastroCliente" />
+        <form action="${CadastroCliente}" method="get" enctype="application/x-www-form-urlencoded">
+            <fieldset id="dados">
+                <h4>Empresa</h4>
+                <div id="topo">
+                    <p><label for="Razao">Razao Social:</label>
+                        <input  value="<c:out value="${Razao}"/>" required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
+                        <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
+                            <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onblur="return validarCNPJ(this.value)" onkeypress="return somenteNumero(event)"/></p>
+                        <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
+                            <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                        <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
+                            <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
+                        <p><label title="E-mail completo." for="Email">E-mail:</label>
+                            <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
+                        <p><label>Cep:</label>
+                            <input name="CEP" type="text" id="cep" value="" size="35" maxlength="9"
+                                   onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
+                        <p><label>Rua:</label>
+                            <input name="rua" type="text" id="rua" size="65" /></p>
+                        <p><label>Número:</label>
+                            <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
+                        <p><label>Bairro:</label>
+                            <input name="bairro" type="text" id="bairro" size="40" /><br />
+                        <p><label>Cidade:</label>
+                            <input name="cidade" type="text" id="cidade" size="40" /></p>
+                        <p><label>Estado:</label>
+                            <input name="uf" type="text" id="uf" size="20" /></p>
+                    </div>
+                </fieldset>
+                <div class="botoes">
+                    <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
+                    <input id="Limpar" title="Limpar" value="Limpar" type="reset">
+                </div>
+            </form>
+        </body>
+    </html>
