@@ -90,7 +90,7 @@
                         <option value="<%=livro.getCod_idioma()%>"><%=livro.getIdioma()%></option>
                         <%}%>
                         </select></p> 
-                                <p><label title="Preço" for="Preço">Preço:</label>
+                                <p><label for="Preço">Preço:</label>
                                     <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="52" onkeypress="return somenteNumero(event)"/></p>
                             </div>
                         </fieldset>

@@ -29,8 +29,8 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="CadastroCliente.jsp">Cliente</a>
-                            <a href="CadastroFuncionario.jsp">Funcionario</a>
+                            <a href="CadastroCliente">Cliente</a>
+                            <a href="CadastroFuncionario">Funcionario</a>
                         </div>
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
