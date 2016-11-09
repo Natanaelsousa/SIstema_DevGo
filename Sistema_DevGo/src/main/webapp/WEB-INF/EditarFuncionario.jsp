@@ -52,14 +52,14 @@
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
-                    <p><label title="Apmnas numeros." for="CPF">CPF:</label>
+                    <p><label title="Apenas numeros." for="CPF">CPF:</label>
                         <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                     <p><label title="Letras de A a Z." for="Nome">Nome:</label>
                         <input required="required" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
-                    <p><label title="Sobrenome." for="Sobrenome">Sobrenome:</label>
+                    <p><label title="Letras de A a Z." for="Sobrenome">Sobrenome:</label>
                         <input required="required" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
-                    <p><label title="Letras de A a Z." for="Telefone">Telefone:</label>
+                    <p><label title="Apenas numeros." for="Telefone">Telefone:</label>
                         <input required="required" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
                     <p><label for="Datanasc">Data de nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
