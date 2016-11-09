@@ -26,11 +26,13 @@
                 </div>
                 <c:url value="LoginAcesso" var="Login"/>
                 <form action="${Login}" method="post" enctype="application/x-www-form-urlencoded">
+                    <div id="form">
                     <p><label title="Nome do usuario." for="Login"><i class="material-icons">person</i>Usuario:</label>
                         <input required="required" type="text" name="Login" maxlength="35" id="Login" size="44" /></p>
                     <p><label title="Senha de acesso." for="Senha"><i class="material-icons">lock_outline</i>Senha:</label>
-                        <input value="<c:out value="${asd}">"  required="required" type="password" name="Senha" maxlength="35" id="Senha" size="44" /></p>
+                        <input  required="required" type="password" name="Senha" maxlength="35" id="Senha" size="44" /></p>
                     <p><input id="Entrar" title="Entrar" value="Entrar" type="submit"></p>
+                    </div>
             </div>
         </form>
         <footer>2016</footer>
