@@ -82,20 +82,19 @@ public class BuscarCliente extends HttpServlet {
             throws ServletException, IOException {
         ClienteDAO dao = new ClienteDAO();
         
-        
         String CNPJ = request.getParameter("CNPJ");
         
         try {
-            Cliente cliente = dao.findByName(CNPJ);
+            Cliente cliente = (Cliente)dao.findByName(CNPJ);
             
-            String Razao = cliente.getRazaoSocial();
+            String Razao = "a";
             request.setAttribute("Razao", Razao);
             
         } catch (SQLException ex) {
             Logger.getLogger(BuscarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarCliente.jsp");
         dispatcher.forward(request, response);
     }
     

@@ -47,12 +47,12 @@
             </ul>
         </aside>
         <c:url value="CadastroCliente" var="CadastroCliente" />
-        <form action="${CadastroCliente}" method="get" enctype="application/x-www-form-urlencoded">
+        <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
                     <p><label for="Razao">Razao Social:</label>
-                        <input  value="<c:out value="${Razao}"/>" required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
+                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                         <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
                             <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onblur="return validarCNPJ(this.value)" onkeypress="return somenteNumero(event)"/></p>
                         <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>

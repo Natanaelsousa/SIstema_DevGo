@@ -44,8 +44,8 @@
                 <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
             </ul>
         </aside>
-        <c:url value="CadastroFuncionario" var="CadastroCliente"/>
-        <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
+        <c:url value="BuscarCliente" var="BuscarCliente"/>
+        <form action="${BuscarCliente}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">

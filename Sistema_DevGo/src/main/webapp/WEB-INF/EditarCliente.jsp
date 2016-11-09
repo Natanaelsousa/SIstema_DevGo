@@ -51,9 +51,6 @@
                 <h4>Empresa</h4>
                 <div id="topo">
                     
-                    <%
-                        ClienteDAO dao = new ClienteDAO();
-                        %>
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
                         <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" disabled=""/></p>
                     <p><label for="Razao">Razao Social:</label>
