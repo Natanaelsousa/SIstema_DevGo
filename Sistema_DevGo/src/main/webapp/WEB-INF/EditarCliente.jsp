@@ -4,6 +4,7 @@
     Author     :Natanael Santos
 --%>
 
+<%@page import="sistema.devgo.java.Cliente"%>
 <%@page import="sistema.devgo.Model.dao.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,6 +17,16 @@
         <link type="text/css" rel="stylesheet" href="${EditarCliente}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
+         <%
+            ClienteDAO dao = new ClienteDAO();
+            
+            String cnpj = (String) request.getAttribute("CNPJ");
+            
+           
+            Cliente cliente = dao.findByName(cnpj);
+            
+                   
+        %>
     <body>
         <header>
             <div class="logo">
@@ -52,28 +63,28 @@
                 <div id="topo">
                     
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" disabled="" value="<c:out value="${CNPJ}"/>" /></p>
+                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" value="<%= cliente.getCNPJ()%>" /></p>
                     <p><label for="Razao">Razao Social:</label>
-                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<c:out value="${Razao}"/>" </p>
+                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" </p>
                     <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
-                        <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
+                        <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)" value="<%= cliente.getTelefone1()%>"  /></p>
                     <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>
-                        <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
+                        <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)" value="<%= cliente.getTelefone2()%>"/></p>
                     <p><label title="E-mail completo." for="Email">E-mail:</label>
-                        <input required="required" type="text" name="Email" maxlength="35" id="Email" size="53"/></p>
+                        <input required="required" type="text" name="Email" maxlength="35" id="Email" size="53" value="<%= cliente.getEmail()%>" /></p>
                     <p><label>Cep:</label>
-                        <input name="cep" type="text" id="cep" value="" size="35" maxlength="9"
-                               onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)"/></p>
+                        <input name="cep" type="text" id="cep" size="35" maxlength="9"
+                               onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" value="<%= cliente.getCep()%>"/></p>
                     <p><label>Rua:</label>
-                        <input name="rua" type="text" id="rua" size="65" /></p>
+                        <input name="rua" type="text" id="rua" size="65" value="<%= cliente.getRua()%>" /></p>
                     <p><label>Número:</label>
-                        <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)"/></p>
+                        <input required="required" name="numero" type="text" id="numero" size="22" maxlength="9" onkeypress="return somenteNumero(event)" value="<%= cliente.getNumero()%>"/></p>
                     <p><label>Bairro:</label>
-                        <input name="bairro" type="text" id="bairro" size="40" /><br />
+                        <input name="bairro" type="text" id="bairro" size="40" value="<%= cliente.getBairro()%>" /><br />
                     <p><label>Cidade:</label>
-                        <input name="cidade" type="text" id="cidade" size="40" /></p>
+                        <input name="cidade" type="text" id="cidade" size="40" value="<%= cliente.getCidade()%>" /></p>
                     <p><label>Estado:</label>
-                        <input name="uf" type="text" id="uf" size="20" /></p>
+                        <input name="uf" type="text" id="uf" size="20" value="<%= cliente.getEstado()%>"  /></p>
                 </div>
             </fieldset>
             <div class="botoes">

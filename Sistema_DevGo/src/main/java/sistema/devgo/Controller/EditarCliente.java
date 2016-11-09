@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sistema.devgo.Model.dao.ClienteDAO;
+import sistema.devgo.java.Cliente;
 
 /**
  *
@@ -70,14 +71,42 @@ public class EditarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      String razao = request.getParameter("Razao");
-      String nome = request.getParameter("Nome");
-      String cnpj = request.getParameter("CNPJ");
-      String endereco = request.getParameter("Endereco");
-      String cep = request.getParameter("CEP");
-      String telefone1 = request.getParameter("Telefone1");
-      String telefone2 = request.getParameter("Telefone2");
-      String email = request.getParameter("Email");
+      
+         // Guardando dados vindos da tela nas variaveis
+        String cnpj = request.getParameter("CNPJ");
+        String Razao = request.getParameter("Razao");
+        String cep = request.getParameter("cep");
+        String telefone1 = request.getParameter("Telefone1");
+        String telefone2 = request.getParameter("Telefone2");
+        String email = request.getParameter("Email");
+        String rua = request.getParameter("rua");
+        String numero = request.getParameter("numero"); 
+        String bairro = request.getParameter("bairro");
+        String cidade = request.getParameter("cidade");
+        String estado = request.getParameter("uf"); 
+        
+        
+        Cliente cliente = new Cliente();
+        
+        cliente.setRazaoSocial(Razao);
+        cliente.setCNPJ(cnpj);
+        cliente.setCep(cep);
+        cliente.setTelefone1(telefone1);
+        cliente.setTelefone2(telefone2);
+        cliente.setEmail(email);
+        cliente.setRua(rua);
+        cliente.setNumero(numero); /* o nomero pode possuir letras */
+        cliente.setBairro(bairro);
+        cliente.setCidade(cidade);
+        cliente.setEstado(estado);
+        
+        ClienteDAO dao = new ClienteDAO ();
+        
+        try {
+            dao.editar(cliente);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
       
       RequestDispatcher dispatcher = request.getRequestDispatcher("");
         dispatcher.forward(request, response);      

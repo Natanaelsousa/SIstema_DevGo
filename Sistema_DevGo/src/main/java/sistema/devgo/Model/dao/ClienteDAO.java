@@ -70,8 +70,11 @@ public class ClienteDAO extends GenericaDAO {
     }
     
       public Cliente findByName(String cnpj) throws SQLException {
+        
         String sql = "SELECT * FROM cliente WHERE CNPJ = ?";
-        Cliente cliente = null;
+        
+        Cliente cliente = new Cliente();
+       
         PreparedStatement stmt = 
 			getConnection().prepareStatement(sql);
 			
