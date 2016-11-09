@@ -56,7 +56,29 @@ public class PermissaoDAO extends GenericaDAO {
 
         return permissoes;
     }
+    
+    public long buscarId() throws SQLException {
+        
+        long cod = 0;
+    
+        
+        String select = "SELECT LAST_INSERT_ID() FROM FUNCIONARIO";
+        
+        PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+         if (rs.next()) {
 
+         cod = rs.getLong("LAST_INSERT_ID()");
+       }
+
+         
+         rs.close();
+        stmt.close();
+
+        return cod;
  
-  
+    }
 }
