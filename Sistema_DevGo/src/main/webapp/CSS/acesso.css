@@ -20,23 +20,21 @@ h2{
     width: 135px;
 }
 ul{
-    position: absolute;
-    top: 80px;
-    width: 650px;
-    right: 90px;
+    margin: 150px;
 }
 ul li{
     list-style-type: none;
-    margin: 10px;
     padding: 25px 15px;
     border-radius: 5px;
     font-size: 0;
     width: 300px;
-    transition: 1s cubic-bezier(.25 , 1, .25, 1);
     background-color: #920909;
     border: 1px solid red;
     cursor: pointer;
     color: white;
+    margin: auto;
+    margin-top: 10px;
+    transition: 1s cubic-bezier(.25 , 1, .1, 1);
 }
 i{
     margin: 0 10px;
@@ -59,4 +57,5 @@ ul li a{
     color: white;
     font-size: 25px;
     display: inline;
+    margin-top: 100px;
 }

@@ -19,15 +19,15 @@
         <div class="bar">
             <h1>Astec</h1>
         </div>
+        <h2>Bem-Vindo!</h2>
         <ul>
-            <h2>Bem-Vindo!</h2>
-            <li><a ref="#"><i class="material-icons">person</i><i class="material-icons">work</i>Cadastros</a> 
+            <li><a href="CadastroCliente"><i class="material-icons">person</i><i class="material-icons">work</i>Cadastros</a> 
                 - Cadastros e edições de Clientes e Funcionários.</li>
-            <li><a ref="#"><i class="material-icons">shop</i><i class="material-icons">poll</i>Produtos e Serviços</a> 
+            <li><a href="CadastroProduto"><i class="material-icons">shop</i><i class="material-icons">poll</i>Produtos e Serviços</a> 
                 - Cadastros e edições de Produtos e Serviços.</li>
-            <li><a ref="#"><i class="material-icons">description</i>Relatório</a> 
+            <li><a href="Relatorio"><i class="material-icons">description</i>Relatório</a> 
                 - Exportar e gerar relatórios.</li>
-            <li><a ref="#"><i class="material-icons">shopping_cart</i>Vendas</a> 
+            <li><a href="Venda"><i class="material-icons">shopping_cart</i>Vendas</a> 
                 - Realizar nova venda.</li>
         </ul>
     </body>
