@@ -45,16 +45,16 @@
                 <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
             </ul>
         </aside>
-        <c:url value="CadastroFuncionario" var="CadastroCliente"/>
-        <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
+        <c:url value="EditarCliente" var="EditarCliente"/>
+        <form action="${EditarCliente}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
                     
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" disabled=""/></p>
+                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" disabled="" value="<c:out value="${CNPJ}"/>" /></p>
                     <p><label for="Razao">Razao Social:</label>
-                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<c:out value="${CNPJ}"/>" </p>
+                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<c:out value="${Razao}"/>" </p>
                     <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
                         <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
                     <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>

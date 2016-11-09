@@ -80,21 +80,11 @@ public class BuscarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ClienteDAO dao = new ClienteDAO();
-        
         String CNPJ = request.getParameter("CNPJ");
         
-        try {
-            Cliente cliente = (Cliente)dao.findByName(CNPJ);
-            
-            String Razao = "a";
-            request.setAttribute("Razao", Razao);
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(BuscarCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            request.setAttribute("CNPJ", CNPJ);
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarCliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
         dispatcher.forward(request, response);
     }
     

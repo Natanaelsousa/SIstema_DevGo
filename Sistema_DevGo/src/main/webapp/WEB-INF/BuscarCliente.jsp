@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-        <title>Editar Cliente</title>
+        <title>Buscar Cliente</title>
         <c:url value="CSS/buscarCliente.css" var="BuscarCliente"/>
         <link type="text/css" rel="stylesheet" href="${BuscarCliente}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
