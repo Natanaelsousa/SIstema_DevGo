@@ -22,7 +22,7 @@ import sistema.devgo.java.Permissao;
 public class PermissaoDAO extends GenericaDAO {
    public void insert(Permissao permissao) throws SQLException {
         String insert = "INSERT INTO PERMISSAO (USUARIO,SENHA,COD_FUNCIONARIO) VALUES(?,?,?)";
-        insert(insert, permissao.getUsuario(),permissao.getSenha(),Statement.RETURN_GENERATED_KEYS);
+        insert(insert, permissao.getUsuario(),permissao.getSenha(),permissao.getCod_funcionario());
         
     }
 
@@ -62,7 +62,7 @@ public class PermissaoDAO extends GenericaDAO {
         long cod = 0;
     
         
-        String select = "SELECT LAST_INSERT_ID() FROM FUNCIONARIO";
+        String select = "select max(COD_FUNCIONARIO) from funcionario";
         
         PreparedStatement stmt
                 = getConnection().prepareStatement(select);
@@ -71,7 +71,7 @@ public class PermissaoDAO extends GenericaDAO {
         
          if (rs.next()) {
 
-         cod = rs.getLong("LAST_INSERT_ID()");
+         cod = rs.getLong("COD_FUNCIONARIO");
        }
 
          
