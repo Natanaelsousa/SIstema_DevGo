@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Acesso
-    Created on : 05/11/2016, 13:15:33
-    Author     : roberto.slinhares
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
