@@ -30,20 +30,20 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="CadastrarCliente.jsp">Cliente</a>
-                            <a href="CadastrarFuncionario.jsp">Funcionario</a>
+                            <a href="CadastroCliente">Cliente</a>
+                            <a href="CadastroFuncionario">Funcionario</a>
                         </div>
                     </li>
-                    <li><a href="CadastrarProduto.jsp">Produtos e Serviços</a><li>
-                    <li><a href="Relatorio.jsp">Relatorios</a></li>
-                    <li><a href="Vendas.jsp">Vendas</a></li>
+                    <li><a href="CadastroProduto">Produtos e Serviços</a><li>
+                    <li><a href="Relatorio">Relatorios</a></li>
+                    <li><a href="Venda">Vendas</a></li>
                 </ul>
             </div>
         </header>
         <aside>
             <ul>
-                <li><a href="CadastrarCliente.jsp">Cadastrar Cliente</a></li>
-                <li><a href="EditarCliente.jsp">Editar Cliente</a></li>
+                <li><a href="CadastroCliente">Cadastrar Cliente</a></li>
+                <li><a href="BuscarCliente">Editar Cliente</a></li>
             </ul>
         </aside>
         <c:url value="CadastroCliente" var="CadastroCliente" />

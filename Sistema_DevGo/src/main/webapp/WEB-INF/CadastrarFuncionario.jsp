@@ -33,20 +33,20 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="CadastrarCliente.jsp">Cliente</a>
-                            <a href="CadastrarFuncionario.jsp">Funcionario</a>
+                            <a href="CadastroCliente">Cliente</a>
+                            <a href="CadastroFuncionario">Funcionario</a>
                         </div>
                     </li>
-                    <li><a href="CadastrarProduto.jsp">Produtos e Serviços</a><li>
-                    <li><a href="Relatorio.jsp">Relatorios</a></li>
-                    <li><a href="Vendas.jsp">Vendas</a></li>
+                    <li><a href="CadastroProduto">Produtos e Serviços</a><li>
+                    <li><a href="Relatorio">Relatorios</a></li>
+                    <li><a href="Venda">Vendas</a></li>
                 </ul>
             </div>
         </header>
         <aside>
             <ul>
-                <li><a href="CadastrarFuncionario.jsp">Cadastrar Funcionario</a></li>
-                <li><a href="EditarFuncionario.jsp">Editar Funcionario</a></li>
+                <li><a href="#">Cadastrar Funcionario</a></li>
+                <li><a href="EditarFuncionario">Editar Funcionario</a></li>
             </ul>
         </aside>
         <c:url value="CadastroFuncionario" var="CadastroFuncionario"/>
@@ -65,14 +65,14 @@
                     <p><label for="Datanasc">Data de Nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
                     <p><select name="opcao">
-                        <option>Selecione o Departamento...</option>
-                        <%
-                            DepartamentoDAO dao = new DepartamentoDAO();
-                            List<Departamento> deptos = dao.findDeptos();
-                            for (Departamento departamentos : deptos) {
-                        %>
-                        <option value="<%=departamentos.getCodDepartamento()%>"><%=departamentos.getSetor()%></option>
-                        <%}%>
+                            <option>Selecione o Departamento...</option>
+                            <%
+                                DepartamentoDAO dao = new DepartamentoDAO();
+                                List<Departamento> deptos = dao.findDeptos();
+                                for (Departamento departamentos : deptos) {
+                            %>
+                            <option value="<%=departamentos.getCodDepartamento()%>"><%=departamentos.getSetor()%></option>
+                            <%}%>
                         </select></p>      
                     <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
                         <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>

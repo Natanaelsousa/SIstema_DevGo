@@ -28,22 +28,22 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="CadastrarCliente.jsp">Cliente</a>
-                            <a href="CadastrarFuncionario.jsp">Funcionario</a>
+                            <a href="CadastroCliente">Cliente</a>
+                            <a href="CadastroFuncionario">Funcionario</a>
                         </div>
                     </li>
-                    <li><a href="CadastrarProduto.jsp">Produtos e Serviços</a><li>
-                    <li><a href="Relatorio.jsp">Relatorios</a></li>
-                    <li><a href="Vendas.jsp">Vendas</a></li>
+                    <li><a href="CadastroProduto">Produtos e Serviços</a><li>
+                    <li><a href="Relatorio">Relatorios</a></li>
+                    <li><a href="Venda">Vendas</a></li>
                 </ul>
             </div>
         </header>
         <aside>
             <ul>
-                <li><a href="CadastrarProduto.jsp">Cadastrar Produto</a></li>
-                <li><a href="CadastrarPlano.jsp">Cadastrar Plano</a></li>
-                <li><a href="EditarProduto.jsp">Editar Produto</a></li>
-                <li><a href="EditarPlano.jsp">Editar Plano</a></li>
+                <li><a href="CadastroProduto">Cadastrar Produto</a></li>
+                <li><a href="CadastroPlano">Cadastrar Plano</a></li>
+                <li><a href="EditarProduto">Editar Produto</a></li>
+                <li><a href="EditarPlano">Editar Plano</a></li>
                 </ul>
                     </aside>
         <c:url value="CadastroProduto" var="CadastroProduto"/>

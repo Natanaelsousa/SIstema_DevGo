@@ -58,7 +58,7 @@
                             <h4>Serviço</h4>
                             <div id="topo">
                                 <p><label for="Plano">Plano:</label>
-                                    <input required="required" pattern="[A-Za-z]*" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
+                                    <input required="required" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
                                 <p><select name="opcao">
                         <option>Selecione o Periodo...</option>
                         <%
