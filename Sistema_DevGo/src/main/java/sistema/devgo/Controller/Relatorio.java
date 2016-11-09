@@ -59,6 +59,8 @@ public class Relatorio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Relatorio.jsp");
+        dispatcher.forward(request, response);
         processRequest(request, response);
     }
 
@@ -73,8 +75,7 @@ public class Relatorio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Relatorio.jsp");
-        dispatcher.forward(request, response);
+        processRequest(request, response);
     }
 
     /**
