@@ -133,12 +133,12 @@ public class CadastroFuncionario extends HttpServlet {
             
             long id = dao2.buscarId();
             
-              p.setCod_funcionario(id);
+          
               p.setUsuario(usuario);
               p.setSenha(senha);
            
             
-            dao2.insert(permissao);
+            dao2.insert(permissao,id);
             
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
