@@ -43,6 +43,8 @@
                 <li><a href="#">Editar Funcionario</a></li>
             </ul>
         </aside>
+        <c:url value="BuscarFuncionario" var="BuscarFuncionario"/>
+        <form action="${BuscarFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
         <form>
             <fieldset id="dados">
                 <h4>Empresa</h4>
