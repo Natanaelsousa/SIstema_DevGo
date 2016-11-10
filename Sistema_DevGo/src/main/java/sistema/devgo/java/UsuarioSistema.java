@@ -22,14 +22,29 @@ public class UsuarioSistema {
     private String nome;
 
     private char[] hashSenha;
+    
+    private String senhaCripto;
 
-    private long  departamentos; //ROLES
-
-    public UsuarioSistema() {
-
+    public void setSenhaCripto(String senhaCripto) {
+        this.senhaCripto = senhaCripto;
     }
 
-    public UsuarioSistema(String nome, String senha, long departamentos) {
+    private long  departamentos; //ROLES
+    
+    public UsuarioSistema() {
+        
+    }
+    public UsuarioSistema(String nome, String senha) {
+        this.nome = nome;
+        try {
+            this.hashSenha = gerarHashSenhaPBKDF2(senha);
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
+            Logger.getLogger(UsuarioSistema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }
+//Lembrar de colocar o departamento como parametro para fazer  o filtro 
+    public UsuarioSistema(String nome, String senha, long departamento) {
         this.nome = nome;
         try {
             this.hashSenha = gerarHashSenhaPBKDF2(senha);
@@ -172,5 +187,12 @@ public class UsuarioSistema {
         
         
         return UsuarioAutorizado;
+    }
+
+    /**
+     * @return the senhaCripto
+     */
+    public String getSenhaCripto() {
+        return senhaCripto;
     }
 }
