@@ -4,6 +4,8 @@
     Author     : natan
 --%>
 
+<%@page import="sistema.devgo.java.Funcionario"%>
+<%@page import="sistema.devgo.Model.dao.FuncionarioDAO"%>
 <%@page import="sistema.devgo.java.Departamento"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
@@ -42,6 +44,16 @@
                 </ul>
             </div>
         </header>
+         <%
+            FuncionarioDAO fdao = new FuncionarioDAO();
+            
+            String cpf = (String) request.getAttribute("CPF");
+            
+           
+            Funcionario funcionario = fdao.findByName(cpf);
+            
+                   
+        %>
         <aside>
             <ul>
                 <li><a href="CadastroFuncionario">Cadastrar Funcionario</a></li>
@@ -53,14 +65,14 @@
                 <h4>Empresa</h4>
                 <div id="topo">
                     <p><label title="Apenas numeros." for="CPF">CPF:</label>
-                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"/>
+                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35" value="<%= funcionario.getCpf()%>"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                     <p><label title="Letras de A a Z." for="Nome">Nome:</label>
-                        <input required="required" type="text" name="Nome" maxlength="35" id="Nome" size="35"/></p>
+                        <input required="required" type="text" name="Nome" maxlength="35" id="Nome" size="35" value="<%= funcionario.getNome()%>"/></p>
                     <p><label title="Letras de A a Z." for="Sobrenome">Sobrenome:</label>
-                        <input required="required" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92"/></p>
+                        <input required="required" type="text" name="Sobrenome" maxlength="50" id="Sobrenome" size="92" value="<%= funcionario.getSobrenome()%>"/></p>
                     <p><label title="Apenas numeros." for="Telefone">Telefone:</label>
-                        <input required="required" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" /></p>
+                        <input required="required" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" value="<%= funcionario.getTelefone()%>"/></p>
                     <p><label for="Datanasc">Data de nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
                     <p><select name="opcao">
@@ -74,7 +86,7 @@
                         <%}%>
                         </select></p>      
                     <p><label for="Usuario">Usuario:</label>
-                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
+                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"  /></p>
                     <p><label for="Senha">Senha:</label>
                         <input required="required" type="password" name="Senha" maxlength="15" id="Senha" size="18" onchange="Senha2.pattern = this.value;"/></p>
                     <p><label for="Senha2">Confirmar senha:</label>

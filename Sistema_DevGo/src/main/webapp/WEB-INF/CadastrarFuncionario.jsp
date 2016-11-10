@@ -46,7 +46,7 @@
         <aside>
             <ul>
                 <li><a href="#">Cadastrar Funcionario</a></li>
-                <li><a href="EditarFuncionario">Editar Funcionario</a></li>
+                <li><a href="BuscarFuncionario">Editar Funcionario</a></li>
             </ul>
         </aside>
         <c:url value="CadastroFuncionario" var="CadastroFuncionario"/>
