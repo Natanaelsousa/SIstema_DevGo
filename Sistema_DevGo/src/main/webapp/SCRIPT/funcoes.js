@@ -85,7 +85,7 @@ function TestaCPF(n) {
     var Soma;
     var Resto;
     Soma = 0;
-        if (n.length !== 11 ||
+    if (n.length !== 11 ||
             n === "00000000000" ||
             n === "11111111111" ||
             n === "22222222222" ||
@@ -95,73 +95,75 @@ function TestaCPF(n) {
             n === "66666666666" ||
             n === "77777777777" ||
             n === "88888888888" ||
-            n === "99999999999"){
-            alert("CPF Invalido!");  
-        limpa_formulário_cpf();    
-        return false;
-        }
-    
-	for (i=1; i<=9; i++) Soma = Soma + parseInt(n.substring(i-1, i)) * (11 - i);
-	Resto = (Soma * 10) % 11;
-	
-    if ((Resto === 10) || (Resto === 11))  Resto = 0;
-    if (Resto !== parseInt(n.substring(9, 10)) ){   
-        alert("CPF Invalido!");    
-        limpa_formulário_cpf();  
+            n === "99999999999") {
+        alert("CPF Invalido!");
+        limpa_formulário_cpf();
         return false;
     }
-	
-	Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(n.substring(i-1, i)) * (12 - i);
+
+    for (i = 1; i <= 9; i++)
+        Soma = Soma + parseInt(n.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
-	
-    if ((Resto === 10) || (Resto === 11))  Resto = 0;
-    if (Resto !== parseInt(n.substring(10, 11) ) ){
-        alert("CPF Invalido!"); 
-        limpa_formulário_cpf();  
+
+    if ((Resto === 10) || (Resto === 11))
+        Resto = 0;
+    if (Resto !== parseInt(n.substring(9, 10))) {
+        alert("CPF Invalido!");
+        limpa_formulário_cpf();
+        return false;
+    }
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++)
+        Soma = Soma + parseInt(n.substring(i - 1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto === 10) || (Resto === 11))
+        Resto = 0;
+    if (Resto !== parseInt(n.substring(10, 11))) {
+        alert("CPF Invalido!");
+        limpa_formulário_cpf();
         return false;
     }
     return true;
 }
-
 function validarCNPJ(cnpj) {
-                if (cnpj === ''){
-                    alert("CNPJ Invalido.");
-                    return false;
-                }
 
-                // Valida DVs
-                tamanho = cnpj.length - 2
-                numeros = cnpj.substring(0, tamanho);
-                digitos = cnpj.substring(tamanho);
-                soma = 0;
-                pos = tamanho - 7;
-                for (i = tamanho; i >= 1; i--) {
-                    soma += numeros.charAt(tamanho - i) * pos--;
-                    if (pos < 2)
-                        pos = 9;
-                }
-                resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-                if (resultado !== digitos.charAt(0)){
-                    alert("CNPJ Invalido.");
-                    return false;
-                }
+    cnpj = cnpj.replace(/[^\d]+/g, '');
 
-                tamanho = tamanho + 1;
-                numeros = cnpj.substring(0, tamanho);
-                soma = 0;
-                pos = tamanho - 7;
-                for (i = tamanho; i >= 1; i--) {
-                    soma += numeros.charAt(tamanho - i) * pos--;
-                    if (pos < 2)
-                        pos = 9;
-                }
-                resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-                if (resultado !== digitos.charAt(1)){
-                    alert("CNPJ Invalido.");
-                    return false;
-                }
+    if (cnpj == '' || cnpj.length != 14)
+        return false;
 
-                return true;
+    // Valida DVs
+    tamanho = cnpj.length - 2;
+    numeros = cnpj.substring(0, tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado !== digitos.charAt(0)){
+        alert("CNPJ Invalido!");
+        return false;
+    }
 
-            }
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0, tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado !== digitos.charAt(1))
+        return false;
+
+    return true;
+
+}

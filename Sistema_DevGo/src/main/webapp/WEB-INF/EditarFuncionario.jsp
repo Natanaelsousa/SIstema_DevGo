@@ -74,7 +74,7 @@
                     <p><label title="Apenas numeros." for="Telefone">Telefone:</label>
                         <input required="required" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" value="<%= funcionario.getTelefone()%>"/></p>
                     <p><label for="Datanasc">Data de nascimento:</label>
-                        <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
+                        <input required="required" type="date" name="Datanasc" id="Datanasc" value="<%= funcionario.getDtNascimento()%>"/></p>
                     <p><select name="opcao">
                         <option>Selecione o Departamento...</option>
                         <%
@@ -86,7 +86,7 @@
                         <%}%>
                         </select></p>      
                     <p><label for="Usuario">Usuario:</label>
-                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"  /></p>
+                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35" value="<%= funcionario.getTelefone()%>"/></p>
                     <p><label for="Senha">Senha:</label>
                         <input required="required" type="password" name="Senha" maxlength="15" id="Senha" size="18" onchange="Senha2.pattern = this.value;"/></p>
                     <p><label for="Senha2">Confirmar senha:</label>

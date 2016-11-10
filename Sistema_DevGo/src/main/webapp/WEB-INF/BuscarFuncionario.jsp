@@ -48,7 +48,7 @@
                 <h4>Empresa</h4>
                 <div id="topo">
                     <p><label title="Apenas numeros." for="CPF">CPF:</label>
-                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="55" onkeypress="return somenteNumero(event)"/>
+                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="55" onblur="return TestaCPF(this.value)" onkeypress="return somenteNumero(event)"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                 </div>
             </fieldset>
