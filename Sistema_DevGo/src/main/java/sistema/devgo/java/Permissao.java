@@ -9,7 +9,7 @@ public class Permissao {
     private String usuario;
     private String senha;
     private long cod_permissao;
-    private long cod_funcionario;
+    //private long cod_funcionario;
 
     public Permissao (){
         
@@ -18,7 +18,7 @@ public class Permissao {
     public Permissao (String usuario, String senha, long cod_funcionario){
         this.usuario = usuario;
         this.senha = senha;
-        this.cod_funcionario = cod_funcionario;
+       // this.cod_funcionario = cod_funcionario;
     }
     
     /**
@@ -66,16 +66,16 @@ public class Permissao {
     /**
      * @return the cod_funcionario
      */
-    public long getCod_funcionario() {
-        return cod_funcionario;
-    }
+   // public long getCod_funcionario() {
+      //  return cod_funcionario;
+    //}
 
     /**
      * @param cod_funcionario the cod_funcionario to set
      */
-    public void setCod_funcionario(long cod_funcionario) {
-        this.cod_funcionario = cod_funcionario;
-    }
+  //  public void setCod_funcionario(long cod_funcionario) {
+       // this.cod_funcionario = cod_funcionario;
+   // }
 
   
 
