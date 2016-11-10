@@ -120,9 +120,26 @@ public class CadastroFuncionario extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        Permissao p = new Permissao();
+        
+                
         PermissaoDAO dao2 = new PermissaoDAO();
+        
+        
         try{
+            
+          
+            
+            long id = dao2.buscarId();
+            
+              p.setCod_funcionario(id);
+              p.setUsuario(usuario);
+              p.setSenha(senha);
+           
+            
             dao2.insert(permissao);
+            
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -62,7 +62,7 @@ public class PermissaoDAO extends GenericaDAO {
         long cod = 0;
     
         
-        String select = "select max(COD_FUNCIONARIO) from funcionario";
+        String select = "SELECT MAX(COD_FUNCIONARIO) AS COD FROM funcionario";
         
         PreparedStatement stmt
                 = getConnection().prepareStatement(select);
@@ -71,11 +71,11 @@ public class PermissaoDAO extends GenericaDAO {
         
          if (rs.next()) {
 
-         cod = rs.getLong("COD_FUNCIONARIO");
+         cod = rs.getLong("COD");
        }
 
          
-         rs.close();
+        rs.close();
         stmt.close();
 
         return cod;
