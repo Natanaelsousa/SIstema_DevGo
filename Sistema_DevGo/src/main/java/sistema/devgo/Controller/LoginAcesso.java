@@ -14,13 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import sistema.devgo.Model.dao.PermissaoDAO;
 import sistema.devgo.java.UsuarioSistema;
 
 /**
  *
  * @author natan
  */
-@WebServlet(name = "LoginAcesso", urlPatterns = {"/login"})
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class LoginAcesso extends HttpServlet {
 
     /**
@@ -80,23 +81,25 @@ public class LoginAcesso extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String login = request.getParameter("Login");
-        String senha = request.getParameter("Senha");
-
-        // Validar nome de usuario e senha
-        UsuarioSistema usuario = validar(login, senha);
-        if (usuario != null) {
-            HttpSession sessao = request.getSession(true);
-            sessao.setAttribute("usuario", usuario);
-            response.sendRedirect(request.getContextPath() + "/Acesso.jsp"); //???
-        } else {
-            response.sendRedirect(request.getContextPath() + "/ErroLogin.jsp");
-        }
-
-    }
-
-    private UsuarioSistema validar(String login, String senha) {
-        return null;
+      String login = request.getParameter("login");
+		String ssenha = request.getParameter("senha");
+                
+                UsuarioSistema user = new UsuarioSistema (login,ssenha);
+             String senhagerada = String.valueOf(user.getHashSenha());
+		
+		
+		PermissaoDAO usuDAO = new PermissaoDAO();
+		UsuarioSistema usuAutenticado = usuDAO.autenticacao(user);
+		
+		if(usuAutenticado != null){
+			//HttpSession sessao = request.getSession();
+			//sessao.setAttribute("usuAutenticado", usuAutenticado);
+			//sessao.setMaxInactiveInterval(3000);
+			
+				request.getRequestDispatcher("Acesso.jsp").forward(request, response);
+		}else {
+			response.sendRedirect("erroLogin.jsp");
+		}
     }
 
     /**
