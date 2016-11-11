@@ -9,11 +9,10 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Cliente não possui cadastro</title>
+    <title>Cliente Editado</title>
   </head>
   <body>
-    <h1>O CNPJ informado não possui cadastro</h1>
-    <a href="CadastroCliente">Cadastrar o cliente</a>
-    <a href="BuscarCliente">Tentar novamente</a>
-  </body>
+    <h1>O cliente foi editado com sucesso</h1>
+    <a href="BuscarCliente">Editar um novo cliente</a>
+   </body>
 </html>

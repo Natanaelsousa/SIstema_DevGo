@@ -71,11 +71,9 @@ public class CadastroCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String serv = "/WEB-INF/CadastrarCliente.jsp";
-        
-       
-        
-        
+        String serv = "/WEB-INF/sucesso-cliente-cadastrado.jsp";
+      
+              
          // Guardando dados vindos da tela nas variaveis
         String Razao = request.getParameter("Razao");
         String cnpj = request.getParameter("CNPJ");
