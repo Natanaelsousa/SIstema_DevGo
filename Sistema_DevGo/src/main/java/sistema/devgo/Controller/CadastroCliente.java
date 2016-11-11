@@ -37,7 +37,7 @@ public class CadastroCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+          response.setContentType("text/html;charset=UTF-8");
         
           /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -71,6 +71,11 @@ public class CadastroCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        String serv = "/WEB-INF/CadastrarCliente.jsp";
+        
+       
+        
+        
          // Guardando dados vindos da tela nas variaveis
         String Razao = request.getParameter("Razao");
         String cnpj = request.getParameter("CNPJ");
@@ -84,8 +89,7 @@ public class CadastroCliente extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("uf"); 
         
-        System.out.println(cidade);
-
+       
         Cliente cliente = new Cliente();
         
         cliente.setRazaoSocial(Razao);
@@ -105,11 +109,11 @@ public class CadastroCliente extends HttpServlet {
         try {
             dao.salvar(cliente);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            serv = "/WEB-INF/erro-cliente-possui-cadastro.jsp";
         }
         response.setContentType("text/html;charset=UTF-8");
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
         dispatcher.forward(request, response);
     }
     
