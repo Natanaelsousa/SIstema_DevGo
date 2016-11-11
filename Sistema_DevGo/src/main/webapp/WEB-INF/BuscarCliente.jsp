@@ -44,7 +44,7 @@
                 <h4>Empresa</h4>
                 <div id="topo">
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                        <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onblur="return validarCNPJ(this.value)" onkeypress="return somenteNumero(event)"/>
+                        <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)"/>
                         <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
                 </div>
             </fieldset>

@@ -5,7 +5,7 @@
  */
 function somenteNumero(e) {
     var tecla = (window.event) ? event.keyCode : e.which;
-    if (tecla > 47 && tecla < 58 || tecla === 48)
+    if (tecla >= 33 && tecla <= 64 )
         return true;
     else
         return false;
