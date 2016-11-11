@@ -34,8 +34,8 @@
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
-                            <a href="CadastrarCliente.jsp">Cliente</a>
-                            <a href="CadastrarFuncionario.jsp">Funcionario</a>
+                            <a href="CadastroCliente">Cliente</a>
+                            <a href="CadastroFuncionario">Funcionario</a>
                         </div>
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
