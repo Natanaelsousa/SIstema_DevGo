@@ -74,6 +74,9 @@ public class CadastroProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+         String serv = "/WEB-INF/sucesso-produto-cadastrado.jsp";
+         
         // Guardando dados vindos da tela nas variaveis
         String idioma = request.getParameter("LivroIdioma");
         String preco = request.getParameter("Preco");
@@ -95,7 +98,7 @@ public class CadastroProduto extends HttpServlet {
         } catch (SQLException ex) {            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
         dispatcher.forward(request, response);
 
    

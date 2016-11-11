@@ -49,6 +49,9 @@ public class CadastroPlano extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+         String serv = "/WEB-INF/sucesso-plano-cadastrado.jsp";
+         
         // Guardando dados vindos da tela nas variaveis
         String nome = request.getParameter("Plano");
         long periodo = Long.parseLong(request.getParameter("opcao"));
@@ -68,7 +71,7 @@ public class CadastroPlano extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroPlano.class.getName()).log(Level.SEVERE, null, ex);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
         dispatcher.forward(request, response);
     }
 

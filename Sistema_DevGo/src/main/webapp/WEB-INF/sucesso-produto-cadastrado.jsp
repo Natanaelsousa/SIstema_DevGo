@@ -1,5 +1,5 @@
 <%-- 
-    Document   : sucesso-cliente-editado
+    Document   : sucesso-produto-cadastrado
     Created on : 10/11/2016, 21:23:48
     Author     : Erik
 --%>
@@ -9,10 +9,10 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Cliente Editado</title>
+    <title>Produto cadastrado</title>
   </head>
   <body>
-    <h1>O cliente foi editado com sucesso</h1>
-    <a href="BuscarCliente">Editar um novo cliente</a>
+    <h1>O produto foi cadastrado com sucesso</h1>
+    <a href="CadastroProduto">Voltar</a>
    </body>
 </html>

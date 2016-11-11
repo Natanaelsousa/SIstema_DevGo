@@ -79,6 +79,8 @@ public class EditarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String serv = "/WEB-INF/sucesso-produto-editado.jsp";
        
         String cod_idioma = request.getParameter("opcaoLivro");
         String preco = request.getParameter("Preco");
@@ -102,6 +104,9 @@ public class EditarProduto extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+         RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
+        dispatcher.forward(request, response);
     
     }
     /**
