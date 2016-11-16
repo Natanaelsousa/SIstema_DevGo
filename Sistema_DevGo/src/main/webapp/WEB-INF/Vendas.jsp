@@ -60,7 +60,7 @@
                             List<Cliente> cliente = daoCli.findCliente();
                             for (Cliente clientes : cliente) {
                         %>
-                        <option value="<%=clientes.getCodCliente()%>"><%=clientes.getCNPJ()%><%=clientes.getRazaoSocial()%></option>
+                        <option value="<%=clientes.getCodCliente()%>"><%=clientes.getCNPJ()%> - <%=clientes.getRazaoSocial()%></option>
                         <%}%>
                         </select></p>
            
@@ -92,7 +92,7 @@
                     <p><label for="Valor">Valor:</label>
                         <input required="required" type="number" name="Valor" id="Valor" /></p>
                 <p><label for="DataVenda">Data da venda:</label>
-                        <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
+                        <input required="required" type="date" name="DataVenda" id="Datanasc"/></p>
                 
                 </div>
             </fieldset>

@@ -77,7 +77,7 @@ public class Vendas extends HttpServlet {
         
       Date dtVenda;
         try {
-            dtVenda = new SimpleDateFormat("yyyy/MM/dd").parse(dataVenda);
+            dtVenda = new SimpleDateFormat("yyyy-MM-dd").parse(dataVenda);
         } catch (ParseException ex) {
             out.println("Erro de conversão de data");
             return;
