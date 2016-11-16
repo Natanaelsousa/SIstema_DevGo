@@ -1,6 +1,6 @@
-
 package sistema.devgo.java;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -9,23 +9,19 @@ import java.util.Date;
  */
 public class Venda {
 
-//    private Date dataVenda;
-//    private int qtdeAluno;
-//    private String idioma;
-//    private Plano plano;
-//    private double valor;
-//    private String cliente;
-    
-    private Long codVenda;
-    private Long codPlano;
-    private Long codCliente;
-    private Long codFuncionario;
+    private long codVenda;
+    private long codPlano;
+    private long codCliente;
+    private long codFuncionario;
     private int quantidadeAluno;
     private double valorVenda;
     private Date dataVenda;
 
-    
-    public Venda(Long codVenda, Long codPlano,Long codCliente,Long codFuncionario,int quantidadeAluno,double valorVenda,Date dataVenda ){
+    public Venda() {
+
+    }
+
+    public Venda(long codVenda, long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
         this.codCliente = codCliente;
         this.codPlano = codPlano;
         this.codCliente = codCliente;
@@ -33,76 +29,72 @@ public class Venda {
         this.quantidadeAluno = quantidadeAluno;
         this.valorVenda = valorVenda;
         this.dataVenda = dataVenda;
-          
+
     }
-    
-     public Venda(Long codPlano,Long codCliente,Long codFuncionario,int quantidadeAluno,double valorVenda,Date dataVenda ){
+
+    public Venda(long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
         this.codPlano = codPlano;
         this.codCliente = codCliente;
         this.codFuncionario = codFuncionario;
         this.quantidadeAluno = quantidadeAluno;
         this.valorVenda = valorVenda;
         this.dataVenda = dataVenda;
-          
+
     }
-    
-    public Venda(){
-                 
-    }
-    
+
     /**
      * @return the codVenda
      */
-    public Long getCodVenda() {
+    public long getCodVenda() {
         return codVenda;
     }
 
     /**
      * @param codVenda the codVenda to set
      */
-    public void setCodVenda(Long codVenda) {
+    public void setCodVenda(long codVenda) {
         this.codVenda = codVenda;
     }
 
     /**
      * @return the codPlano
      */
-    public Long getCodPlano() {
+    public long getCodPlano() {
         return codPlano;
     }
 
     /**
      * @param codPlano the codPlano to set
      */
-    public void setCodPlano(Long codPlano) {
+    public void setCodPlano(long codPlano) {
         this.codPlano = codPlano;
     }
 
     /**
      * @return the codCliente
      */
-    public Long getCodCliente() {
+    public long getCodCliente() {
         return codCliente;
     }
 
     /**
      * @param codCliente the codCliente to set
      */
-    public void setCodCliente(Long codCliente) {
+    public void setCodCliente(long codCliente) {
         this.codCliente = codCliente;
     }
 
     /**
      * @return the codFuncionario
      */
-    public Long getCodFuncionario() {
+    public long getCodFuncionario() {
         return codFuncionario;
     }
 
     /**
      * @param codFuncionario the codFuncionario to set
      */
-    public void setCodFuncionario(Long codFuncionario) {
+    public void setCodFuncionario(long codFuncionario) {
         this.codFuncionario = codFuncionario;
     }
 
@@ -134,19 +126,13 @@ public class Venda {
         this.valorVenda = valorVenda;
     }
 
-    /**
-     * @return the dataVenda
-     */
     public Date getDataVenda() {
         return dataVenda;
     }
 
-    /**
-     * @param dataVenda the dataVenda to set
-     */
     public void setDataVenda(Date dataVenda) {
         this.dataVenda = dataVenda;
     }
-    
-     
+
+
 }

@@ -69,16 +69,7 @@
                         <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
                         <%}%>
                         </select></p> 
-                        <p><select name="opcaoIdioma">
-                          <option>Selecione o Idioma...</option>
-                          <%
-                            LivroDAO daolivro = new LivroDAO();
-                            List<Livro> livros = daolivro.findLivro();
-                            for (Livro liv : livros) {
-                        %>
-                        <option value="<%=liv.getCod_idioma()%>"><%=liv.getIdioma()%></option>
-                        <%}%>
-                        </select></p> 
+                        
                         <p><label for="Preco">Preço:</label>
                             <input required="required" type="text" name="Preco" maxlength="35" id="Preco" size="40" onkeypress="return somenteNumero(event)"/></p>
                             </div>

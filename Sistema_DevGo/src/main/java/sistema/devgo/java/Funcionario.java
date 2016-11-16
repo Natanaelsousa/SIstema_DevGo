@@ -22,9 +22,9 @@ public class Funcionario {
 
     }
 
-    public Funcionario(Date dataNasc, Long departamento, String cpf, String nome, String sobrenome) {
+    public Funcionario(Date dataNasc, Long CodDepartamento, String cpf, String nome, String sobrenome) {
 
-        this.CodDepartamento = departamento;
+        this.CodDepartamento = CodDepartamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -33,9 +33,9 @@ public class Funcionario {
 
     }
 
-    public Funcionario(Long idFuncionario, Long departamento, String cpf, String nome, String sobrenome) {
+    public Funcionario(Long idFuncionario, Long CodDepartamento, String cpf, String nome, String sobrenome) {
 
-        this.CodDepartamento = departamento;
+        this.CodDepartamento = CodDepartamento;
         this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -138,8 +138,8 @@ public class Funcionario {
     /**
      * @param iddepartamento the iddepartamento to set
      */
-    public void setCodDepartamento(Long iddepartamento) {
-        this.CodDepartamento = iddepartamento;
+    public void setCodDepartamento(Long CodDepartamento) {
+        this.CodDepartamento = CodDepartamento;
     }
 
     /**

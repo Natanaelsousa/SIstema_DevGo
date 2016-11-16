@@ -4,6 +4,15 @@
     Author     : roberto.slinhares
 --%>
 
+<%@page import="sistema.devgo.java.Cliente"%>
+<%@page import="sistema.devgo.Model.dao.ClienteDAO"%>
+<%@page import="sistema.devgo.Model.dao.FuncionarioDAO"%>
+<%@page import="sistema.devgo.java.Livro"%>
+<%@page import="sistema.devgo.java.Funcionario"%>
+<%@page import="sistema.devgo.Model.dao.LivroDAO"%>
+<%@page import="sistema.devgo.java.Plano"%>
+<%@page import="java.util.List"%>
+<%@page import="sistema.devgo.Model.dao.PlanoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -39,37 +48,52 @@
                 </ul>
             </div>
         </header>
-        <c:url value="Venda" var="urlVenda" />
+        <c:url value="Vendas" var="urlVenda" />
         <form action="${urlVenda}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Dados</h4>
                 <div id="topo">
-                    <p><label for="CNPJ">CNPJ:</label>
-                        <input required="required" type="text" name="CNPJ" maxlength="45" id="CNPJ" size="55"/>
-                        <input id="Buscar" title="Buscar" value="Buscar" type="submit"></p>
-                    <p><label for="Razao">Razao Social:</label>
-                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="45"/></p>
-                    <p><label for="Plano">Plano:</label>
-                        <select name="Periodo">
-                            <option value="1" selected>Gold</option>
-                            <option value="2" >Silver</option>
-                            <option value="3" >Bronze</option>
+                    <p><select name="opcaoCliente">
+                        <option>Selecione o Cliente...</option>
+                        <%
+                            ClienteDAO daoCli = new ClienteDAO();
+                            List<Cliente> cliente = daoCli.findCliente();
+                            for (Cliente clientes : cliente) {
+                        %>
+                        <option value="<%=clientes.getCodCliente()%>"><%=clientes.getCNPJ()%><%=clientes.getRazaoSocial()%></option>
+                        <%}%>
                         </select></p>
-                    <p><label for="Período">Período:</label>
-                        <select  name="Periodo">
-                            <option value="1" selected>Semestral</option>
-                            <option value="2" >Trimestral</option>
-                            <option value="3" >Mensal</option>
+           
+                    <p><select name="opcaoPlano">
+                        <option>Selecione o Plano...</option>
+                        <%
+                            PlanoDAO dao = new PlanoDAO();
+                            List<Plano> planos = dao.findPlano();
+                            for (Plano plano : planos) {
+                        %>
+                        <option value="<%=plano.getCod_plano()%>"><%=plano.getNomePlano()%></option>
+                        <%}%>
                         </select></p>
-                    <p><label for="Livro">Idioma:</label>
-                                    <select name="Idioma">
-                                        <option value="1" >Ingles</option>
-                                        <option value="2" >Espanhol</option>
-                                    </select></p>
+                        
+                        
+                    <p><select name="opcaoIdioma">
+                        <option>Selecione o Idioma...</option>
+                        <%
+                            LivroDAO daoLivro = new LivroDAO();
+                            List<Livro> livros = daoLivro.findLivro();
+                            for (Livro livro : livros) {
+                        %>
+                        <option value="<%=livro.getCod_idioma()%>"><%=livro.getIdioma()%></option>
+                        <%}%>
+                        </select></p>
+                        
                     <p><label for="Aluno">Quantidade de Alunos:</label>
-                        <input required="required" type="number" name="QtdeAluno" id="Aluno" /></p>
+                        <input required="required" type="number" name="QTDE_ALUNO" id="Aluno" /></p>
                     <p><label for="Valor">Valor:</label>
                         <input required="required" type="number" name="Valor" id="Valor" /></p>
+                <p><label for="DataVenda">Data da venda:</label>
+                        <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
+                
                 </div>
             </fieldset>
             <div class="botoes">

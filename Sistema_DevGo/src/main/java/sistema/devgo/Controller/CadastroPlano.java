@@ -55,13 +55,13 @@ public class CadastroPlano extends HttpServlet {
         // Guardando dados vindos da tela nas variaveis
         String nome = request.getParameter("Plano");
         long periodo = Long.parseLong(request.getParameter("opcao"));
-        long idioma = Long.parseLong(request.getParameter("opcaoIdioma"));
+        
         double preco = Double.parseDouble(request.getParameter("Preco")); 
         
         Plano plano= new Plano();
         plano.setNomePlano(nome);
         plano.setCod_Periodo(periodo);
-        plano.setCod_idioma(idioma);
+       
         plano.setPreco(preco);
        
         

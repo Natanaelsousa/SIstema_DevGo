@@ -7,7 +7,12 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -16,15 +21,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import sistema.devgo.Model.dao.PlanoDAO;
-import sistema.devgo.java.Plano;
+import sistema.devgo.Model.dao.VendaDAO;
+import sistema.devgo.java.Venda;
 
 /**
  *
- * @author natan
+ * @author Sibele
  */
-@WebServlet(name = "EditarPlano", urlPatterns = {"/EditarPlano"})
-public class EditarPlano extends HttpServlet {
+@WebServlet(name = "Vendas", urlPatterns = {"/Vendas"})
+public class Vendas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,75 +48,58 @@ public class EditarPlano extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditarPlano</title>");            
+            out.println("<title>Servlet Vendas</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EditarPlano at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Vendas at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarPlano.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Vendas.jsp");
         dispatcher.forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String serv = "/WEB-INF/sucesso-plano-editado.jsp";
-        // Guardando dados vindos da tela nas variaveis
-        
-        String nomePlano = request.getParameter("opcaoPlano");
-        long periodo = Long.parseLong(request.getParameter("opcaoPeriodo"));
-        
-        double preco = Double.parseDouble(request.getParameter("Preco")); 
-        String codigoPlano = request.getParameter("opcaoPlano");
-        long codPlano = Long.parseLong(codigoPlano);
-        
-        Plano plano= new Plano();
-        plano.setNomePlano(nomePlano);
-        plano.setCod_Periodo(periodo);
-     
-        plano.setCod_plano(codPlano);
-        plano.setPreco(preco);
-       
-        
-         PlanoDAO dao = new PlanoDAO ();
-        try {
-            dao.update(plano);
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroPlano.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
-        dispatcher.forward(request, response);
-          
-    }
-    
 
-   
+        String dataVenda= request.getParameter("DataVenda");
+        long cliente = Long.parseLong(request.getParameter("opcaoCliente"));
+        long plano = Long.parseLong(request.getParameter("opcaoPlano"));
+        double valor_venda = Double.parseDouble(request.getParameter("Valor"));
+        int quantAluno = Integer.parseInt(request.getParameter("QTDE_ALUNO"));
+         
+        
+      Date dtVenda;
+        try {
+            dtVenda = new SimpleDateFormat("yyyy/MM/dd").parse(dataVenda);
+        } catch (ParseException ex) {
+            out.println("Erro de conversão de data");
+            return;
+        }
+
+        Venda venda = new Venda();
+        venda.setCodCliente(cliente);
+        venda.setCodPlano(plano);
+        venda.setQuantidadeAluno(quantAluno);
+        venda.setDataVenda(dtVenda);
+        venda.setValorVenda(valor_venda);
+
+        VendaDAO dao = new VendaDAO();
+        try {
+            dao.insert(venda);
+        } catch (SQLException ex) {
+            Logger.getLogger(Venda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("");
+        dispatcher.forward(request, response);
+    }
+
     @Override
     public String getServletInfo() {
         return "Short description";

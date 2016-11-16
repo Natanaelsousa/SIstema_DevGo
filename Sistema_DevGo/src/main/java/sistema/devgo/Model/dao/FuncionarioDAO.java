@@ -42,7 +42,7 @@ public class FuncionarioDAO extends GenericaDAO {
 
         while (rs.next()) {
             Funcionario funcionario = new Funcionario();
-            funcionario.setCodDepartamento(rs.getLong("cod_departamento"));
+            funcionario.setCodDepartamento(rs.getLong("cod_depto"));
             funcionario.setNome(rs.getString("nome"));
             funcionario.setSobrenome(rs.getString("sobrenome"));
             funcionario.setTelefone(rs.getString("telefone"));

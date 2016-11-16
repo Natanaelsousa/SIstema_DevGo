@@ -14,15 +14,15 @@ public class PlanoDAO extends GenericaDAO {
 
     //Inserção de dados
     public void insert(Plano plano) throws SQLException {
-        String insert = "INSERT INTO PLANO(nm_plano, preco, cod_idioma, cod_periodo) VALUES(?,?,?,?)";
-        insert(insert, plano.getNomePlano(), plano.getPreco(),plano.getCod_idioma(),plano.getCod_periodo());
+        String insert = "INSERT INTO PLANO(nm_plano, preco, cod_periodo) VALUES(?,?,?)";
+        insert(insert, plano.getNomePlano(), plano.getPreco(),plano.getCod_periodo());
     }
 
     //Atualização de dados
     public void update(Plano plano) throws SQLException {
         String sql = "UPDATE plano "
-                + "SET preco = ?, cod_idioma = ?, cod_periodo = ? where cod_plano =? ";
-        update(sql,plano.getCod_plano(), plano.getPreco(),plano.getCod_idioma(),plano.getCod_periodo());
+                + "SET preco = ?, cod_periodo = ? where cod_plano =? ";
+        update(sql,plano.getCod_plano(), plano.getPreco(),plano.getCod_periodo());
     }
 
     //Lista de planos cadastrados
@@ -40,7 +40,7 @@ public class PlanoDAO extends GenericaDAO {
             Plano plano = new Plano();
             
             plano.setCod_plano(rs.getLong("cod_plano"));
-            plano.setCod_idioma(rs.getLong("cod_idioma"));
+         
             plano.setNomePlano(rs.getString("nm_plano"));
             plano.setPreco(rs.getDouble("preco"));
             plano.setCod_Periodo(rs.getLong("cod_periodo"));
@@ -65,7 +65,7 @@ public class PlanoDAO extends GenericaDAO {
 
         while (rs.next()) {
           plano.setCod_plano(rs.getLong("cod_plano"));
-          plano.setCod_idioma(rs.getLong("cod_idioma"));
+          
           plano.setNomePlano(rs.getString("nm_plano"));
           plano.setPreco(rs.getDouble("preco"));
           plano.setCod_Periodo(rs.getLong("cod_periodo"));
