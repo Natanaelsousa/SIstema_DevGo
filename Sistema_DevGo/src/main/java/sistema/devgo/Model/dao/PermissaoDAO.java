@@ -26,9 +26,9 @@ import sistema.devgo.java.UsuarioSistema;
 public class PermissaoDAO extends GenericaDAO {
     
     private Connection con = ConexaoBD.getConnection();
-   public void insert(Permissao permissao,long codFuncionario) throws SQLException {
+   public void insert(Permissao permissao) throws SQLException {
         String insert = "INSERT INTO PERMISSAO (USUARIO,SENHA,COD_FUNCIONARIO) VALUES(?,?,?)";
-        insert(insert, permissao.getUsuario(),permissao.getSenha(),codFuncionario);
+        insert(insert, permissao.getUsuario(),permissao.getSenha(),permissao.getCod_funcionario());
         
     }
 
@@ -84,7 +84,7 @@ public class PermissaoDAO extends GenericaDAO {
         rs.close();
         stmt.close();
 
-        return cod+1;
+        return cod;
  
     }
      public UsuarioSistema autenticacao(UsuarioSistema usuario){
