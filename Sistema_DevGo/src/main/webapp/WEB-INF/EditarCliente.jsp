@@ -72,7 +72,7 @@
                         <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)" value="<%= cliente.getTelefone2()%>"/></p>
                     <p><label title="E-mail completo." for="Email">E-mail:</label>
                         <input required="required" type="text" name="Email" maxlength="35" id="Email" size="53" value="<%= cliente.getEmail()%>" /></p>
-                    <p><label>Cep:</label>
+                    <p><label>CEP:</label>
                         <input name="cep" type="text" id="cep" size="35" maxlength="9"
                                onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" value="<%= cliente.getCep()%>"/></p>
                     <p><label>Rua:</label>

@@ -61,7 +61,7 @@
                             <input type="tel" name="Telefone2" maxlength="11" id="Telefone2" size="35" onkeypress="return somenteNumero(event)"/></p>
                         <p><label title="E-mail completo." for="Email">E-mail:</label>
                             <input required="required" type="email" name="Email" maxlength="35" id="Email" size="52"/></p>
-                        <p><label>Cep:</label>
+                        <p><label>CEP:</label>
                             <input name="CEP" type="text" id="cep" value="" size="35" maxlength="9"
                                    onblur="pesquisacep(this.value);" onkeypress="return somenteNumero(event)" /></p>
                         <p><label>Rua:</label>

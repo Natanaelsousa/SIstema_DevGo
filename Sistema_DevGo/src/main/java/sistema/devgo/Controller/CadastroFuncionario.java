@@ -102,15 +102,13 @@ public class CadastroFuncionario extends HttpServlet {
             out.println("Erro de conversão de data");
             return;
         }
-        Permissao permissao = new Permissao ();
+     
         Funcionario funcionario = new Funcionario();
         funcionario.setNome(nome);
         funcionario.setSobrenome(sobrenome);
         funcionario.setTelefone(telefone);
         funcionario.setCpf(cpf);
         funcionario.setCodDepartamento(departamento);
-        permissao.setUsuario(usuario);
-        permissao.setSenha(senhagerada);
         funcionario.setDtNascimento(dtNasc);
         funcionario.setStatus("Ativo");
 
@@ -135,11 +133,11 @@ public class CadastroFuncionario extends HttpServlet {
             
           
               p.setUsuario(usuario);
-              p.setSenha(senha);
+              p.setSenha(senhagerada);
               p.setCod_funcionario(id);
            
             
-            dao2.insert(permissao);
+            dao2.insert(p);
             
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
