@@ -178,4 +178,9 @@ function calcular() {
     else { // IE
        elemResult.innerText = "O resultado é " + String(num1 + num2) + ".";
     }
+    /* Mudar no html para funcionar a função
+     * <input type="text" id="num1" onblur="calcular();" />
+<input type="text" id="num2" onblur="calcular();" />
+<span id="resultado"></span>
+     */
 }
