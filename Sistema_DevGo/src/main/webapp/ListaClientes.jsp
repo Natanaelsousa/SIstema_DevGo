@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="CSS/relatorio.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/listarCliente.css" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clientes Cadastrados</title>
     </head>
@@ -36,8 +36,8 @@
         </header>
         <aside>
             <ul>
-                <li><a href="CadastroCliente">Cadastrar Cliente</a></li>
-                <li><a href="BuscarCliente">Editar Cliente</a></li>
+                <li><a href="ListarClientes.jsp">Listar Clientes</a></li>
+                <li><a href="ListarFuncionarios.jsp">Listar Funcionários</a></li>
             </ul>
         </aside>
         <%
@@ -47,7 +47,6 @@
             Cliente utilisateur = null;
         %>
         <table class="table">
-            <caption>Clientes Cadastrados</caption>
             <tr>
                 <th>Id</th>
                 <th>CNPJ</th>
