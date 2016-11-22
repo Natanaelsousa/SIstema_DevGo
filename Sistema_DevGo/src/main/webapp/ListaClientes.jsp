@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="CSS/listarCliente.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/listaClientes.css" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Clientes Cadastrados</title>
     </head>
@@ -36,8 +36,8 @@
         </header>
         <aside>
             <ul>
-                <li><a href="ListarClientes.jsp">Listar Clientes</a></li>
-                <li><a href="ListarFuncionarios.jsp">Listar Funcionários</a></li>
+                <li><a href="ListaClientes.jsp">Listar Clientes</a></li>
+                <li><a href="ListaFuncionarios.jsp">Listar Funcionários</a></li>
             </ul>
         </aside>
         <%
@@ -52,6 +52,8 @@
                 <th>CNPJ</th>
                 <th>Razao Social</th>
                 <th>Cidade</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
                     <%-- <th>Remover</th> --%>
 
             </tr>
