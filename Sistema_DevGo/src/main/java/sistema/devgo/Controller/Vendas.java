@@ -32,7 +32,7 @@ import sistema.devgo.java.Venda;
  *
  * @author Sibele
  */
-@WebServlet(name = "Vendas", urlPatterns = {"/Vendas"})
+@WebServlet(name = "Vendas", urlPatterns = {"/Venda"})
 public class Vendas extends HttpServlet {
 
     /**
