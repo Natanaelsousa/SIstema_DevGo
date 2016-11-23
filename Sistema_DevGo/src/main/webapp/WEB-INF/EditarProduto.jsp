@@ -23,7 +23,7 @@
     <body>
         <header>
             <div class="logo">
-                <h1>Logo</h1>
+                 <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
                 <h3><a href="#">Sair</a></h3>

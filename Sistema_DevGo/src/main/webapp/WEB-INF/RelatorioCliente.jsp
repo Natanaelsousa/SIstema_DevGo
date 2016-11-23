@@ -4,6 +4,7 @@
 <%@ page import="sistema.devgo.java.Cliente" %>
 <%@ page import="sistema.devgo.Model.dao.ClienteDAO" %>
 <%@ page import="java.util.*" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -14,7 +15,7 @@
     <body>
         <header>
             <div class="logo">
-                <h1>Logo</h1>
+            <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
                 <h3><a href="#">Sair</a></h3>

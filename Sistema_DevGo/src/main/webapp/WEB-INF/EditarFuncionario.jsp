@@ -12,6 +12,7 @@
 <%@page import="sistema.devgo.Model.dao.DepartamentoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html>
     <head>
@@ -29,13 +30,12 @@
            
             Funcionario funcionario = fdao.findByName(cpf);
             
-        System.out.println("CPFFFFF: " +cpf);
-                   
+                           
         %>
     <body>
         <header>
             <div class="logo">
-                <h1>Logo</h1>
+                 <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
                 <h3><a href="#">Sair</a></h3>

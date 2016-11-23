@@ -40,7 +40,7 @@ header ul li.dropdown{
     display: inline-block;
     border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
-h1{
+.logo{
     text-align: center;
 }
 .logout a{

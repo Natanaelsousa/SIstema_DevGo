@@ -42,7 +42,7 @@ header ul li.dropdown{
 header ul li:nth-child(2) a{
 	border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
-h1{
+.logo{
     text-align: center;
 }
 .logout a{
