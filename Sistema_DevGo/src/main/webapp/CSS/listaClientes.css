@@ -113,9 +113,12 @@ aside ul li:nth-child(2) a:hover{
 }
 table{
     position: absolute;
-    top: 250px;
+    top: 200px;
     left: 280px;
+    max-height: 250px;
+    overflow: auto;
 }
+
 #dados{
     border: 1px solid black;
     border-radius: 5px;
@@ -126,12 +129,9 @@ table{
     width: 480px;
 }
 #tabela{
-    max-height: 450px;
-    max-width: 800px;
     margin-top: 40px;
     margin-right: 20px;
     box-shadow: 0 3px 5px back;
-    overflow: auto;
     border: none;
     text-align: center;
 }
@@ -140,7 +140,7 @@ table, th, td{
     border-collapse: collapse;
 }
 th, td{
-    padding: 10px 65px;
+    padding: 10px 45px;
 }
 input, select{
     padding: 4px 10px;

@@ -69,6 +69,8 @@
                 <td><%= utilisateur.getCNPJ()%></td>
                 <td><%= utilisateur.getRazaoSocial()%></td>
                 <td><%= utilisateur.getCidade()%></td>
+                <td><%= utilisateur.getTelefone1()%></td>
+                <td><%= utilisateur.getEmail()%></td>
 
 
                 <%-- <td>
