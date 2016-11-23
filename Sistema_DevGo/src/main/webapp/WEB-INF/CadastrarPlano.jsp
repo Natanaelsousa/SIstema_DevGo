@@ -39,7 +39,7 @@
                         </div>
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
-                    <li><a href="Relatorio">Relatorios</a></li>
+                    <li><a href="RelatorioCliente">Relatorios</a></li>
                     <li><a href="Venda">Vendas</a></li>
                 </ul>
             </div>
@@ -47,7 +47,7 @@
         <aside>
             <ul>
                 <li><a href="CadastroProduto">Cadastrar Produto</a></li>
-                <li><a href="CadastoPlano">Cadastrar Plano</a></li>
+                <li><a href="#">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto">Editar Produto</a></li>
                 <li><a href="EditarPlano">Editar Plano</a></li>
                 </ul>

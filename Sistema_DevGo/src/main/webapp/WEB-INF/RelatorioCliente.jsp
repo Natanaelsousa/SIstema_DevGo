@@ -36,8 +36,8 @@
         </header>
         <aside>
             <ul>
-                <li><a href="ListaClientes.jsp">Listar Clientes</a></li>
-                <li><a href="ListaFuncionarios.jsp">Listar Funcionários</a></li>
+                <li><a href="#">Listar Clientes</a></li>
+                <li><a href="RelatorioFuncionario">Listar Funcionários</a></li>
             </ul>
         </aside>
         <%

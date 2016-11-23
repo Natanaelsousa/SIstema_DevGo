@@ -45,7 +45,7 @@
                         </div>
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
-                    <li><a href="Relatorio">Relatorios</a></li>
+                    <li><a href="RelatorioCliente">Relatorios</a></li>
                     <li><a href="Venda">Vendas</a></li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
         <aside>
             <ul>
                 <li><a href="CadastroCliente">Cadastrar Cliente</a></li>
-                <li><a href="EditarCliente">Editar Cliente</a></li>
+                <li><a href="#">Editar Cliente</a></li>
             </ul>
         </aside>
         <c:url value="EditarCliente" var="EditarCliente"/>
