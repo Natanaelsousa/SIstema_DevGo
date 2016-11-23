@@ -96,7 +96,7 @@ public class LoginAcesso extends HttpServlet {
 			//sessao.setAttribute("usuAutenticado", usuAutenticado);
 			//sessao.setMaxInactiveInterval(3000);
 			
-				request.getRequestDispatcher("Acesso.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/Acesso.jsp").forward(request, response);
 		}else {
 			response.sendRedirect("erroLogin.jsp");
 		}
