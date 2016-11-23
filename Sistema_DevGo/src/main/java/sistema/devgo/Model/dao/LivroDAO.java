@@ -33,7 +33,33 @@ public class LivroDAO extends GenericaDAO {
 
     }
 
-    public List<Livro> findLivro() throws SQLException {
+    public Livro trasLivro(Long codLivro) throws SQLException {
+       Livro livros =null;
+
+        String sql = "SELECT * FROM LV_IDIOMA where cod_idioma ="+codLivro;
+
+        PreparedStatement stmt
+                = getConnection().prepareStatement(sql);
+
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            livros=new Livro();            
+            livros.setCod_idioma(rs.getInt("COD_IDIOMA"));
+            
+            livros.setIdioma(rs.getString("TIPO_IDIOMA"));
+            livros.setPreco(rs.getDouble("PRECO"));
+            livros.setQuantidade(rs.getInt("QTDE_ATUAL"));
+
+        }
+
+        rs.close();
+        stmt.close();
+
+        return livros;
+    }
+    
+     public List<Livro> findLivro() throws SQLException {
         List<Livro> livros = new ArrayList<Livro>();
 
         String sql = "SELECT * FROM LV_IDIOMA";

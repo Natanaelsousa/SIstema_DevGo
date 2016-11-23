@@ -89,17 +89,17 @@
                         
                     <p><label for="Aluno">Quantidade de Alunos:</label>
                         <input required="required" type="number" name="QTDE_ALUNO" id="Aluno" /></p>
-                    <p><label for="Valor">Valor:</label>
-                        <input required="required" type="number" name="Valor" id="Valor" /></p>
-                <p><label for="DataVenda">Data da venda:</label>
-                        <input required="required" type="date" name="DataVenda" id="Datanasc"/></p>
-                
+                    <%  
+             String resultadoFinal = request.getParameter("resultadoFinal");  
+        %> 
+                Preço: <% out.println(resultadoFinal); %> 
                 </div>
             </fieldset>
             <div class="botoes">
                 <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
                 <input id="Limpar" title="Limpar" value="Limpar" type="reset">
             </div>
+                 <p>${mensagem}</p>  
         </form>
     </body>
 </html>

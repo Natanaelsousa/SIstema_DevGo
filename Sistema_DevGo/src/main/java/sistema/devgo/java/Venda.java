@@ -12,33 +12,36 @@ public class Venda {
     private long codVenda;
     private long codPlano;
     private long codCliente;
+    private long codIdioma;
     private long codFuncionario;
     private int quantidadeAluno;
     private double valorVenda;
-    private Date dataVenda;
+  
 
     public Venda() {
 
     }
 
-    public Venda(long codVenda, long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
+    public Venda(long codVenda, long codIdioma,long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
         this.codCliente = codCliente;
+        this.codIdioma=codIdioma;
         this.codPlano = codPlano;
         this.codCliente = codCliente;
         this.codFuncionario = codFuncionario;
         this.quantidadeAluno = quantidadeAluno;
         this.valorVenda = valorVenda;
-        this.dataVenda = dataVenda;
+     
 
     }
 
-    public Venda(long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
+    public Venda(long codPlano,long codIdioma, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
         this.codPlano = codPlano;
+         this.codIdioma=codIdioma;
         this.codCliente = codCliente;
         this.codFuncionario = codFuncionario;
         this.quantidadeAluno = quantidadeAluno;
         this.valorVenda = valorVenda;
-        this.dataVenda = dataVenda;
+       
 
     }
 
@@ -126,13 +129,13 @@ public class Venda {
         this.valorVenda = valorVenda;
     }
 
-    public Date getDataVenda() {
-        return dataVenda;
+    public long getCodIdioma() {
+        return codIdioma;
     }
 
-    public void setDataVenda(Date dataVenda) {
-        this.dataVenda = dataVenda;
+    public void setCodIdioma(long codIdioma) {
+        this.codIdioma = codIdioma;
     }
-
+    
 
 }

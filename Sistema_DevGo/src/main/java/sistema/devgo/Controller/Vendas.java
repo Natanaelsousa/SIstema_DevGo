@@ -21,7 +21,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sistema.devgo.Model.dao.LivroDAO;
+import sistema.devgo.Model.dao.PlanoDAO;
 import sistema.devgo.Model.dao.VendaDAO;
+import sistema.devgo.java.Livro;
+import sistema.devgo.java.Plano;
 import sistema.devgo.java.Venda;
 
 /**
@@ -67,27 +71,49 @@ public class Vendas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        PlanoDAO planodao= new PlanoDAO();
+        LivroDAO livrodao= new LivroDAO();
+                
         String dataVenda= request.getParameter("DataVenda");
-        long cliente = Long.parseLong(request.getParameter("opcaoCliente"));
-        long plano = Long.parseLong(request.getParameter("opcaoPlano"));
-        double valor_venda = Double.parseDouble(request.getParameter("Valor"));
+        long cliente = Long.parseLong(request.getParameter("opcaoCliente")); // pega ID
+        long idiomaLivro=Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
+        long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
+       
         int quantAluno = Integer.parseInt(request.getParameter("QTDE_ALUNO"));
          
+        Plano modeloPlano= null;
+        try {
+            modeloPlano=planodao.trasPlano(codplano);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-      Date dtVenda;
+        Livro modelolivro=null;
+        try {
+            modelolivro=livrodao.trasLivro(idiomaLivro);
+        } catch (SQLException ex) {
+            Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        double resultado1 = quantAluno * modelolivro.getPreco();
+        double resultado2 = resultado1 + modeloPlano.getPreco();
+        double valor_venda = resultado2;
+        
+        
+     /* Date dtVenda;
         try {
             dtVenda = new SimpleDateFormat("yyyy-MM-dd").parse(dataVenda);
         } catch (ParseException ex) {
             out.println("Erro de conversão de data");
             return;
-        }
+        }*/
 
         Venda venda = new Venda();
         venda.setCodCliente(cliente);
-        venda.setCodPlano(plano);
+        venda.setCodPlano(codplano);
+        venda.setCodIdioma(idiomaLivro);
         venda.setQuantidadeAluno(quantAluno);
-        venda.setDataVenda(dtVenda);
+       /* venda.setDataVenda(dtVenda);*/
         venda.setValorVenda(valor_venda);
 
         VendaDAO dao = new VendaDAO();
@@ -96,8 +122,11 @@ public class Vendas extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Venda.class.getName()).log(Level.SEVERE, null, ex);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
-        dispatcher.forward(request, response);
+       String resultadoFinal=String.valueOf(valor_venda);
+        request.setAttribute("resultadoFinal",resultadoFinal);
+     response.sendRedirect("/WEB-INF/Vendas.jsp");  
+       // request.getRequestDispatcher("/WEB-INF/Vendas.jsp").forward(request, response);
+        
     }
 
     @Override

@@ -99,14 +99,18 @@ public class EditarPlano extends HttpServlet {
        
         
          PlanoDAO dao = new PlanoDAO ();
-        try {
-            dao.update(plano);
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroPlano.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         try {
+            dao.insert(plano);
+        } catch (SQLException ex) {            
+            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         
+        }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
         dispatcher.forward(request, response);
+
+   
+        
           
     }
     
