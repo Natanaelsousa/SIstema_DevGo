@@ -1,3 +1,5 @@
+<%@page import="sistema.devgo.java.Funcionario"%>
+<%@page import="sistema.devgo.Model.dao.FuncionarioDAO"%>
 <!DOCTYPE html> 
 <%@ page import="sistema.devgo.java.Cliente" %>
 <%@ page import="sistema.devgo.Model.dao.ClienteDAO" %>
@@ -40,18 +42,40 @@
                 <li><a href="#">Listar Funcionários</a></li>
             </ul>
         </aside>
+        <%
+            FuncionarioDAO dao = new FuncionarioDAO();
+            List<Funcionario> userList = dao.findFuncionario();
+            Iterator<Funcionario> itr = userList.iterator();
+            Funcionario utilisateur = null;
+        %>
         <table class="table">
             <tr>
                 <th>CPF</th>
                 <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>Telefone</th>
-                <th>E-mail</th>
+                <th>Status</th>
                 <th>Departamento</th>
                     <%-- <th>Remover</th> --%>
             </tr>
             <tr>
-        
+                <% //avec la boucle while
+                    //	while(itr.hasNext()){
+                    //		userBean user = new userBean();
+                    //		System.out.println(user.getID());
+                    while (itr.hasNext()) {
+                        utilisateur = itr.next();
+                %>
+                <td><%= utilisateur.getCpf()%></td>
+                <td><%= utilisateur.getNome()%></td>
+                <td><%= utilisateur.getSobrenome()%></td>
+                <td><%= utilisateur.getTelefone()%></td>
+                <td><%= utilisateur.getStatus()%></td>
+                <td><%= utilisateur.getCodDepartamento()%></td>
+            </tr>
+            <%
+                }
+            %>	
         </table>
     </body>
 </html>
