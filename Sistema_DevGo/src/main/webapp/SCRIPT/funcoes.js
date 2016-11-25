@@ -3,6 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+window.onload = function(){
+    
+    var msg = document.getElementById("mens").value;
+    var elm = document.getElementById("mensagem");
+    var inp = document.createElement("input");
+    if(msg === "erro"){
+        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
+        inp.setAttribute("id", "erro");
+        inp.setAttribute("readonly", "readonly");
+        elm.appendChild(inp);
+    }
+    else if(msg === "sucesso"){
+        inp.setAttribute("value", req.value+" cadastrado com sucesso!");
+        inp.setAttribute("id", "sucesso");
+        inp.setAttribute("readonly", "readonly");
+        elm.appendChild(inp);
+    }
+    msg.value = "";
+}
 function somenteNumero(e) {
     var tecla = (window.event) ? event.keyCode : e.which;
     if (tecla >= 33 && tecla <= 64 )

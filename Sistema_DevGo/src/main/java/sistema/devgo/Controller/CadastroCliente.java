@@ -71,9 +71,6 @@ public class CadastroCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String serv = "/WEB-INF/sucesso-cliente-cadastrado.jsp";
-      
-              
          // Guardando dados vindos da tela nas variaveis
         String Razao = request.getParameter("Razao");
         String cnpj = request.getParameter("CNPJ");
@@ -103,15 +100,16 @@ public class CadastroCliente extends HttpServlet {
         cliente.setEstado(estado);
         
         ClienteDAO dao = new ClienteDAO ();
-        
         try {
             dao.salvar(cliente);
+            request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
-            serv = "/WEB-INF/erro-cliente-possui-cadastro.jsp";
+            request.setAttribute("msgm", "erro");
         }
+        request.setAttribute("req", "Cliente");
         response.setContentType("text/html;charset=UTF-8");
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarCliente.jsp");
         dispatcher.forward(request, response);
     }
     

@@ -63,7 +63,7 @@
                 <div id="topo">
                     
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" value="<%= cliente.getCNPJ()%>" /></p>
+                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" value="<%= cliente.getCNPJ()%>" readonly="readonly" /></p>
                     <p><label for="Razao">Razao Social:</label>
                         <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" </p>
                     <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
