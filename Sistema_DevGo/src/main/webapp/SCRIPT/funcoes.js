@@ -15,9 +15,15 @@ window.onload = function(){
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);
     }
-    else if(msg === "sucesso"){
+    if(msg === "sucesso"){
         inp.setAttribute("value", req.value+" cadastrado com sucesso!");
         inp.setAttribute("id", "sucesso");
+        inp.setAttribute("readonly", "readonly");
+        elm.appendChild(inp);
+    }
+    else if(msg === "erro"){
+        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
+        inp.setAttribute("id", "erro");
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);
     }
