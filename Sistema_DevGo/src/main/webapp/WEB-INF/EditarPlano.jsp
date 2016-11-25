@@ -57,6 +57,7 @@
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
         <input type="hidden" id="act" value="editado" />
         <input type="hidden" id="req" value="Plano" />
+        <div id="mensagem"></div>
       <c:url value="EditarPlano" var="EditarPlano"/>
         <form action="${EditarPlano}" method="post" >
                        <fieldset id="dados">

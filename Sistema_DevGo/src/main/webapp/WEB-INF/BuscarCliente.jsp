@@ -38,6 +38,7 @@
                 <li><a href="#">Editar Cliente</a></li>
             </ul>
         </aside>
+        <div id="mensagem"></div>
         <c:url value="BuscarCliente" var="BuscarCliente"/>
         <form action="${BuscarCliente}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">

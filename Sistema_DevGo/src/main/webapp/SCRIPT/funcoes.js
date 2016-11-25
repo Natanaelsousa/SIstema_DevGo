@@ -10,7 +10,7 @@ window.onload = function(){
     var elm = document.getElementById("mensagem");
     var inp = document.createElement("input");
     if(msg === "erro"){
-        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
+        inp.setAttribute("value", "Não foi possível "+req.value+" o "+req.value+" !");
         inp.setAttribute("id", "erro");
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);

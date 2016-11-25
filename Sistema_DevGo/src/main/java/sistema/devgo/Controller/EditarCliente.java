@@ -106,10 +106,9 @@ public class EditarCliente extends HttpServlet {
             dao.editar(cliente);
             request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
-            request.setAttribute("msgm", "erro");
         }
       
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarCliente.jsp");
         dispatcher.forward(request, response);      
     }
 

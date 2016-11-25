@@ -49,6 +49,7 @@
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
         <input type="hidden" id="act" value="cadastrado" />
         <input type="hidden" id="req" value="Produto" />
+        <div id="mensagem"></div>
         <c:url value="CadastroProduto" var="CadastroProduto"/>
         <form action="${CadastroProduto}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
