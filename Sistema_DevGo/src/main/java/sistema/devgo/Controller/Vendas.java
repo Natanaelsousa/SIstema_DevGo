@@ -21,9 +21,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sistema.devgo.Model.dao.ClienteDAO;
 import sistema.devgo.Model.dao.LivroDAO;
 import sistema.devgo.Model.dao.PlanoDAO;
 import sistema.devgo.Model.dao.VendaDAO;
+import sistema.devgo.java.Cliente;
 import sistema.devgo.java.Livro;
 import sistema.devgo.java.Plano;
 import sistema.devgo.java.Venda;
@@ -32,7 +34,7 @@ import sistema.devgo.java.Venda;
  *
  * @author Sibele
  */
-@WebServlet(name = "Vendas", urlPatterns = {"/Venda"})
+@WebServlet(name = "Vendas", urlPatterns = {"/Vendas"})
 public class Vendas extends HttpServlet {
 
     /**
@@ -73,14 +75,14 @@ public class Vendas extends HttpServlet {
             throws ServletException, IOException {
         PlanoDAO planodao= new PlanoDAO();
         LivroDAO livrodao= new LivroDAO();
-                
+       
         String dataVenda= request.getParameter("DataVenda");
-        long cliente = Long.parseLong(request.getParameter("opcaoCliente")); // pega ID
+        long codCliente=Long.parseLong(request.getParameter("Id"));
         long idiomaLivro=Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
         long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
-       
         int quantAluno = Integer.parseInt(request.getParameter("QTDE_ALUNO"));
          
+       
         Plano modeloPlano= null;
         try {
             modeloPlano=planodao.trasPlano(codplano);
@@ -99,21 +101,13 @@ public class Vendas extends HttpServlet {
         double resultado2 = resultado1 + modeloPlano.getPreco();
         double valor_venda = resultado2;
         
-        
-     /* Date dtVenda;
-        try {
-            dtVenda = new SimpleDateFormat("yyyy-MM-dd").parse(dataVenda);
-        } catch (ParseException ex) {
-            out.println("Erro de conversão de data");
-            return;
-        }*/
+      
 
         Venda venda = new Venda();
-        venda.setCodCliente(cliente);
         venda.setCodPlano(codplano);
+        venda.setCodCliente(codCliente);
         venda.setCodIdioma(idiomaLivro);
         venda.setQuantidadeAluno(quantAluno);
-       /* venda.setDataVenda(dtVenda);*/
         venda.setValorVenda(valor_venda);
 
         VendaDAO dao = new VendaDAO();
@@ -126,7 +120,8 @@ public class Vendas extends HttpServlet {
         request.setAttribute("resultadoFinal",resultadoFinal);
      response.sendRedirect("/WEB-INF/Vendas.jsp");  
        // request.getRequestDispatcher("/WEB-INF/Vendas.jsp").forward(request, response);
-        
+   
+     
     }
 
     @Override

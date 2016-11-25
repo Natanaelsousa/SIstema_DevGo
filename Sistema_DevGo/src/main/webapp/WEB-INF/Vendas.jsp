@@ -25,6 +25,17 @@
         <link type="text/css" rel="stylesheet" href="${Vendas}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
+    <%
+        ClienteDAO daocli = new ClienteDAO();
+
+        String cnpj = (String) request.getAttribute("CNPJ");
+
+        Cliente cliente = daocli.findByName(cnpj);
+
+
+    %>
+
+
     <body>
         <header>
             <div class="logo">
@@ -43,8 +54,10 @@
                         </div>
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
+
                     <li><a href="RelatorioCliente">Relatorios</a></li>
                     <li><a href="Venda">Vendas</a></li>
+
                 </ul>
             </div>
         </header>
@@ -53,53 +66,64 @@
             <fieldset id="dados">
                 <h4>Dados</h4>
                 <div id="topo">
-                    <p><select name="opcaoCliente">
-                        <option>Selecione o Cliente...</option>
-                        <%
-                            ClienteDAO daoCli = new ClienteDAO();
-                            List<Cliente> cliente = daoCli.findCliente();
-                            for (Cliente clientes : cliente) {
-                        %>
-                        <option value="<%=clientes.getCodCliente()%>"><%=clientes.getCNPJ()%> - <%=clientes.getRazaoSocial()%></option>
-                        <%}%>
-                        </select></p>
-           
+                    <p><label for="id">Registro do cliente</label>
+                        <input required="required" type="text" name="Id" maxlength="35" id="id" size="10" value="<%= cliente.getCodCliente()%>" </p>    
+                    <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
+                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" value="<%= cliente.getCNPJ()%>" /></p>
+                    <p><label for="Razao">Razao Social:</label>
+                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" </p>    
+
                     <p><select name="opcaoPlano">
-                        <option>Selecione o Plano...</option>
-                        <%
-                            PlanoDAO dao = new PlanoDAO();
-                            List<Plano> planos = dao.findPlano();
-                            for (Plano plano : planos) {
-                        %>
-                        <option value="<%=plano.getCod_plano()%>"><%=plano.getNomePlano()%></option>
-                        <%}%>
+                            <option>Selecione o Plano...</option>
+                            <%
+                                PlanoDAO dao = new PlanoDAO();
+                                List<Plano> planos = dao.findPlano();
+                                for (Plano plano : planos) {
+                            %>
+                            <option value="<%=plano.getCod_plano()%>"><%=plano.getNomePlano()%></option>
+                            <%}%>
                         </select></p>
-                        
-                        
+
+
                     <p><select name="opcaoIdioma">
-                        <option>Selecione o Idioma...</option>
-                        <%
-                            LivroDAO daoLivro = new LivroDAO();
-                            List<Livro> livros = daoLivro.findLivro();
-                            for (Livro livro : livros) {
-                        %>
-                        <option value="<%=livro.getCod_idioma()%>"><%=livro.getIdioma()%></option>
-                        <%}%>
+                            <option>Selecione o Idioma...</option>
+                            <%
+                                LivroDAO daoLivro = new LivroDAO();
+                                List<Livro> livros = daoLivro.findLivro();
+                                for (Livro livro : livros) {
+                            %>
+                            <option value="<%=livro.getCod_idioma()%>"><%=livro.getIdioma()%></option>
+                            <%}%>
                         </select></p>
-                        
+
                     <p><label for="Aluno">Quantidade de Alunos:</label>
                         <input required="required" type="number" name="QTDE_ALUNO" id="Aluno" /></p>
-                    <%  
-             String resultadoFinal = request.getParameter("resultadoFinal");  
-        %> 
-                Preço: <% out.println(resultadoFinal); %> 
+
+
+                    <p><label for="Preco">Preço:</label>
+                        <%
+                            String resultadoFinal = request.getParameter("resultadoFinal");
+
+                        %>  <input type="number" name="Preco" id="Preco" /></p>
+                    <button onclick="myFunction()">Calcular preço</button>
+
+                    <script>
+                        function myFunction() {
+                            var str = document.getElementById("Preco").innerHTML;
+                            var res = str.replace(/blue/g, "resultadoFinal");
+                            document.getElementById("Preco").innerHTML = res;
+                        }
+                    </script>
+
+                    </p>
+
                 </div>
             </fieldset>
             <div class="botoes">
                 <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
                 <input id="Limpar" title="Limpar" value="Limpar" type="reset">
             </div>
-                 <p>${mensagem}</p>  
+            <p>${mensagem}</p>  
         </form>
     </body>
 </html>
