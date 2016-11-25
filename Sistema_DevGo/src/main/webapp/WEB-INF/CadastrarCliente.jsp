@@ -10,7 +10,8 @@
 <!doctype html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="UTF-8">
         <title>Cadastrar Cliente</title>
         <c:url value="CSS/cadastrarCliente.css" var="urlCadCliente"/>
         <link type="text/css" rel="stylesheet" href="${urlCadCliente}"/>
@@ -47,7 +48,7 @@
             </ul>
         </aside>
         <c:url value="CadastroCliente" var="CadastroCliente" />
-        <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
