@@ -47,7 +47,8 @@
             </ul>
         </aside>
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
-        <input type="hidden" id="req" value="<c:out value="${req}"/>" />
+        <input type="hidden" id="act" value="cadastrado" />
+        <input type="hidden" id="req" value="Cliente" />
         <div id="mensagem"></div>
         <c:url value="CadastroCliente" var="CadastroCliente" />
         <form action="${CadastroCliente}" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">

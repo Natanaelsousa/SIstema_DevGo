@@ -42,6 +42,27 @@ header ul li.dropdown{
 header ul li:nth-child(2) a{
     border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
+#mensagem {
+    position: absolute;
+    top: 210px;
+    left: 450px;
+}
+#mensagem #erro{
+    background: red;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
+#mensagem #sucesso{
+    background: green;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
 .logo{
     text-align: center;
 }

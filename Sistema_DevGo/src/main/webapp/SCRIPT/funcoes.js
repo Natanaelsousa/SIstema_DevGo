@@ -16,7 +16,7 @@ window.onload = function(){
         elm.appendChild(inp);
     }
     if(msg === "sucesso"){
-        inp.setAttribute("value", req.value+" cadastrado com sucesso!");
+        inp.setAttribute("value", req.value+" "+act.value+" com sucesso!");
         inp.setAttribute("id", "sucesso");
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);

@@ -18,7 +18,7 @@
     <body>
         <header>
             <div class="logo">
-               <img src="<c:url value="/IMG/DevGo.png"/>" />
+                <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
                 <h3><a href="#">Sair</a></h3>
@@ -44,26 +44,29 @@
                 <li><a href="CadastroPlano">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto">Editar Produto</a></li>
                 <li><a href="EditarPlano">Editar Plano</a></li>
-                </ul>
-                    </aside>
+            </ul>
+        </aside>
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="cadastrado" />
+        <input type="hidden" id="req" value="Produto" />
         <c:url value="CadastroProduto" var="CadastroProduto"/>
         <form action="${CadastroProduto}" method="post" enctype="application/x-www-form-urlencoded">
-                        <fieldset id="dados">
-                            <h4>Produto</h4>
-                            <div id="topo">
-                                <p><label title="Nome do idioma." for="Idioma">Livro idioma:</label>
-                                    <input required="required" type="text" name="LivroIdioma" maxlength="35" id="Idioma" size="80"/></p>
-                                <p><label title="Preço dos produtos." for="Preco">Preço:</label>
-                                    <input required="required" type="text" name="Preco" maxlength="10" id="Preco" size="35" onkeypress="return somenteNumero(event)"/></p>
-                                <p><label title="Quantidade de produtos." for="Quantidade">Quantidade:</label>
-                                    <input required="required" type="text" name="Quantidade" maxlength="10" id="Quantidade" size="35" onkeypress="return somenteNumero(event)"/></p>
-                            </div>
-                        </fieldset>
-                        <div class="botoes">
-                            <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
-                            <input id="Limpar" title="Limpar" value="Limpar" type="reset">
-                        </div>
-                        
-                    </form>
-                    </body>
-                    </html>
+            <fieldset id="dados">
+                <h4>Produto</h4>
+                <div id="topo">
+                    <p><label title="Nome do idioma." for="Idioma">Livro idioma:</label>
+                        <input required="required" type="text" name="LivroIdioma" maxlength="35" id="Idioma" size="80"/></p>
+                    <p><label title="Preço dos produtos." for="Preco">Preço:</label>
+                        <input required="required" type="text" name="Preco" maxlength="10" id="Preco" size="35" onkeypress="return somenteNumero(event)"/></p>
+                    <p><label title="Quantidade de produtos." for="Quantidade">Quantidade:</label>
+                        <input required="required" type="text" name="Quantidade" maxlength="10" id="Quantidade" size="35" onkeypress="return somenteNumero(event)"/></p>
+                </div>
+            </fieldset>
+            <div class="botoes">
+                <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
+                <input id="Limpar" title="Limpar" value="Limpar" type="reset">
+            </div>
+
+        </form>
+    </body>
+</html>

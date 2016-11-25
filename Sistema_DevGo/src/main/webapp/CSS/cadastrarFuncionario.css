@@ -75,6 +75,27 @@ header ul li.dropdown{
 .dropdown:hover .dropdown-content{
     display: block
 }
+#mensagem {
+    position: absolute;
+    top: 210px;
+    left: 450px;
+}
+#mensagem #erro{
+    background: red;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
+#mensagem #sucesso{
+    background: green;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
 aside{
     position: absolute;
     background: hsl(0, 100%, 25%);

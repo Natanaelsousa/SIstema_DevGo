@@ -68,12 +68,11 @@ public class CadastroPlano extends HttpServlet {
          PlanoDAO dao = new PlanoDAO ();
          try {
             dao.insert(plano);
+            request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {            
-            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-   
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarPlano.jsp");
         dispatcher.forward(request, response);
 
    

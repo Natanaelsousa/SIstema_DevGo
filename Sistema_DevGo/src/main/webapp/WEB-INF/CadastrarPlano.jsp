@@ -50,35 +50,38 @@
                 <li><a href="#">Cadastrar Plano</a></li>
                 <li><a href="EditarProduto">Editar Produto</a></li>
                 <li><a href="EditarPlano">Editar Plano</a></li>
-                </ul>
-                    </aside>
-                    <c:url value="CadastroPlano" var="CadastroPlano"/>
-                    <form action="${CadastroPlano}" method="post" enctype="application/x-www-form-urlencoded">
-                        <fieldset id="dados">
-                            <h4>Serviço</h4>
-                            <div id="topo">
-                                <p><label for="Plano">Plano:</label>
-                                    <input required="required" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
-                                <p><select name="opcao">
-                        <option>Selecione o Periodo...</option>
-                        <%
-                            PeriodoDAO dao = new PeriodoDAO();
-                            List<Periodo> period = dao.findPeriodo();
-                            for (Periodo periodos : period) {
-                        %>
-                        <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
-                        <%}%>
+            </ul>
+        </aside>
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="cadastrado" />
+        <input type="hidden" id="req" value="Plano" />
+        <c:url value="CadastroPlano" var="CadastroPlano"/>
+        <form action="${CadastroPlano}" method="post" enctype="application/x-www-form-urlencoded">
+            <fieldset id="dados">
+                <h4>Serviço</h4>
+                <div id="topo">
+                    <p><label for="Plano">Plano:</label>
+                        <input required="required" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
+                    <p><select name="opcao">
+                            <option>Selecione o Periodo...</option>
+                            <%
+                                PeriodoDAO dao = new PeriodoDAO();
+                                List<Periodo> period = dao.findPeriodo();
+                                for (Periodo periodos : period) {
+                            %>
+                            <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
+                            <%}%>
                         </select></p> 
-                        
-                        <p><label for="Preco">Preço:</label>
-                            <input required="required" type="text" name="Preco" maxlength="35" id="Preco" size="40" onkeypress="return somenteNumero(event)"/></p>
-                            </div>
-                        </fieldset>
-                        <div class="botoes">
-                            <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
-                            <input id="Limpar" title="Limpar" value="Limpar" type="reset">
-                        </div>
-                        
-                    </form>
-                    </body>
-                    </html>
+
+                    <p><label for="Preco">Preço:</label>
+                        <input required="required" type="text" name="Preco" maxlength="35" id="Preco" size="40" onkeypress="return somenteNumero(event)"/></p>
+                </div>
+            </fieldset>
+            <div class="botoes">
+                <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
+                <input id="Limpar" title="Limpar" value="Limpar" type="reset">
+            </div>
+
+        </form>
+    </body>
+</html>

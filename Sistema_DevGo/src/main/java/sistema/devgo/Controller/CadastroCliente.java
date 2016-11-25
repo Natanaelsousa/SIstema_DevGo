@@ -106,7 +106,6 @@ public class CadastroCliente extends HttpServlet {
         } catch (SQLException ex) {
             request.setAttribute("msgm", "erro");
         }
-        request.setAttribute("req", "Cliente");
         response.setContentType("text/html;charset=UTF-8");
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarCliente.jsp");

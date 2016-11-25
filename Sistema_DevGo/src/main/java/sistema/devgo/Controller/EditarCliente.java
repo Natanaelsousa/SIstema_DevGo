@@ -71,8 +71,6 @@ public class EditarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-             String serv = "/WEB-INF/sucesso-cliente-editado.jsp";
       
          // Guardando dados vindos da tela nas variaveis
         String cnpj = request.getParameter("CNPJ");
@@ -106,11 +104,12 @@ public class EditarCliente extends HttpServlet {
         
         try {
             dao.editar(cliente);
+            request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
-            Logger.getLogger(EditarCliente.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("msgm", "erro");
         }
       
-      RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarCliente.jsp");
         dispatcher.forward(request, response);      
     }
 

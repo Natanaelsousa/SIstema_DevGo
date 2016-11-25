@@ -101,11 +101,11 @@ public class EditarProduto extends HttpServlet {
   
         try {
             dao.editar(livro);
+            request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
-            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-         RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarProduto.jsp");
         dispatcher.forward(request, response);
     
     }

@@ -80,7 +80,6 @@ public class EditarPlano extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String serv = "/WEB-INF/sucesso-plano-editado.jsp";
         // Guardando dados vindos da tela nas variaveis
         
         String nomePlano = request.getParameter("opcaoPlano");
@@ -101,12 +100,11 @@ public class EditarPlano extends HttpServlet {
          PlanoDAO dao = new PlanoDAO ();
          try {
             dao.insert(plano);
-        } catch (SQLException ex) {            
-            Logger.getLogger(CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        
+            request.setAttribute("msgm", "sucesso");
+        } catch (SQLException ex) {      
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarPlano.jsp");
         dispatcher.forward(request, response);
 
    

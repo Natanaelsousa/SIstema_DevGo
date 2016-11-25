@@ -87,6 +87,27 @@ aside{
     text-align: center;
     z-index: 9;
 }
+#mensagem {
+    position: absolute;
+    top: 210px;
+    left: 450px;
+}
+#mensagem #erro{
+    background: red;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
+#mensagem #sucesso{
+    background: green;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
 aside ul{
     list-style-type: none;
     font-size: 18px;
