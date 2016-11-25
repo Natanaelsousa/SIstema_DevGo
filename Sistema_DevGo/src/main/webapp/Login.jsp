@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="dados">
-            <h1>Login</h1>
+             <img src="<c:url value="/IMG/DevGo.png"/>" />
         </div>
         <form>
             <div id="formulario">

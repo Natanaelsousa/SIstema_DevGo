@@ -10,6 +10,11 @@ html{
 	box-shadow: 0 20px 55px black;
 	background: hsl(0, 4%, 11%);
 }
+
+.dados{
+    text-align: center;
+}
+
 #topo{
 	position: absolute;
 	height: 370px;
