@@ -44,7 +44,7 @@ header ul li:nth-child(2) a{
 }
 #mensagem {
     position: absolute;
-    top: 210px;
+    top: 205px;
     left: 450px;
 }
 #mensagem #erro{

@@ -16,9 +16,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
         <title>Cadastro Plano</title>
-        <link type="text/css" rel="stylesheet" href="cadastrarPlano.css" />
-        <c:url value="CSS/cadastrarPlano.css" var="cadPlano"/>
-        <link rel="stylesheet" href="${cadPlano}"/>
+        <c:url value="CSS/cadastrarPlano.css" var="cadPlano" />
+        <link type="text/css" rel="stylesheet" href="${cadPlano}" />
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
     <body>
