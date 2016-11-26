@@ -91,10 +91,18 @@ public class CadastroFuncionario extends HttpServlet {
         String dataNasc = request.getParameter("Datanasc");
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
-        
-        UsuarioSistema user = new UsuarioSistema (nome,senha,departamento);
+        PermissaoDAO dao2 = new PermissaoDAO();
+        UsuarioSistema user = new UsuarioSistema (usuario,senha,departamento);
         String senhagerada = String.valueOf(user.getHashSenha());
-        
+        long cod = 0;
+        try {
+            cod = dao2.verificaUser(usuario);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+       
+        if(cod == 0){
         Date dtNasc;
         try {
             dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
@@ -115,36 +123,32 @@ public class CadastroFuncionario extends HttpServlet {
         FuncionarioDAO dao = new FuncionarioDAO();
         try {
             dao.insert(funcionario);
-        } catch (SQLException ex) {
-            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        Permissao p = new Permissao();
-        
-                
-        PermissaoDAO dao2 = new PermissaoDAO();
-        
-        
+                    
+            Permissao p = new Permissao();
         try{
-            
-          
-            
+      
             long id = dao2.buscarId();
             
-          
               p.setUsuario(usuario);
               p.setSenha(senhagerada);
               p.setCod_funcionario(id);
            
-            
             dao2.insert(p);
             
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
          RequestDispatcher dispatcher = request.getRequestDispatcher("");
       dispatcher.forward(request, response);
-
+      
+    }else{
+          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Erro-cadastro-funcionario.jsp");
+      dispatcher.forward(request, response);    
+        }
     }
 
     @Override

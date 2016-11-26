@@ -145,13 +145,11 @@ public class PermissaoDAO extends GenericaDAO {
 
         return depto;
     }
-          public long verificaUser (UsuarioSistema usuario) throws SQLException{
+          public long verificaUser (String nome) throws SQLException{
         
      long codFuncionario=0;  
         
-     String select = "SELECT * FROM PERMISSAO WHERE USUARIO = "+usuario.getNome();
-     
-       PreparedStatement preparador = con.prepareStatement(select);
+     String select = "SELECT * FROM PERMISSAO WHERE USUARIO = '"+nome+"'";
          PreparedStatement stmt
                 = getConnection().prepareStatement(select);
         
