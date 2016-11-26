@@ -27,6 +27,8 @@ window.onload = function(){
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);
     }
+    req.value = "";
+    act.value = "";
     msg.value = "";
 }
 function somenteNumero(e) {

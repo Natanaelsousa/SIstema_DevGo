@@ -108,7 +108,7 @@ public class CadastroCliente extends HttpServlet {
         }
         response.setContentType("text/html;charset=UTF-8");
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarCliente.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarCliente.jsp");
         dispatcher.forward(request, response);
     }
     

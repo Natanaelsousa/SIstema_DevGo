@@ -65,6 +65,7 @@ public class BuscarCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String msgm = request.getParameter("msgm"); 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarCliente.jsp");
         dispatcher.forward(request, response);
     }
@@ -93,7 +94,7 @@ public class BuscarCliente extends HttpServlet {
         try {
             
             cliente = dao.findByName(CNPJ);
-             request.setAttribute("CNPJ", CNPJ);
+            request.setAttribute("CNPJ", CNPJ);
                
         } catch (SQLException ex) {
            
@@ -104,8 +105,6 @@ public class BuscarCliente extends HttpServlet {
             serv = "/WEB-INF/erro-cliente-nao-encontrado.jsp";
                 
             }
-      
-       
         
         RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
         dispatcher.forward(request, response);
