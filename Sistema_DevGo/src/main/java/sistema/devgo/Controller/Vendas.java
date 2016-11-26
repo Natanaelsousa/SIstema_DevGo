@@ -73,35 +73,32 @@ public class Vendas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PlanoDAO planodao= new PlanoDAO();
-        LivroDAO livrodao= new LivroDAO();
-       
-        String dataVenda= request.getParameter("DataVenda");
-        long codCliente=Long.parseLong(request.getParameter("Id"));
-        long idiomaLivro=Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
+        PlanoDAO planodao = new PlanoDAO();
+        LivroDAO livrodao = new LivroDAO();
+
+        String dataVenda = request.getParameter("DataVenda");
+        long codCliente = Long.parseLong(request.getParameter("Id"));
+        long idiomaLivro = Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
         long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
         int quantAluno = Integer.parseInt(request.getParameter("QTDE_ALUNO"));
-         
-       
-        Plano modeloPlano= null;
+
+        Plano modeloPlano = null;
         try {
-            modeloPlano=planodao.trasPlano(codplano);
+            modeloPlano = planodao.trasPlano(codplano);
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        Livro modelolivro=null;
+
+        Livro modelolivro = null;
         try {
-            modelolivro=livrodao.trasLivro(idiomaLivro);
+            modelolivro = livrodao.trasLivro(idiomaLivro);
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         double resultado1 = quantAluno * modelolivro.getPreco();
         double resultado2 = resultado1 + modeloPlano.getPreco();
         double valor_venda = resultado2;
-        
-      
 
         Venda venda = new Venda();
         venda.setCodPlano(codplano);
@@ -111,17 +108,17 @@ public class Vendas extends HttpServlet {
         venda.setValorVenda(valor_venda);
 
         VendaDAO dao = new VendaDAO();
-        try {
+       
+try {
             dao.insert(venda);
+            request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
-            Logger.getLogger(Venda.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("msgm", "erro");
         }
-       String resultadoFinal=String.valueOf(valor_venda);
-        request.setAttribute("resultadoFinal",resultadoFinal);
-     response.sendRedirect("/WEB-INF/Vendas.jsp");  
-       // request.getRequestDispatcher("/WEB-INF/Vendas.jsp").forward(request, response);
-   
-     
+        response.setContentType("text/html;charset=UTF-8");
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/buscaCNPJvenda.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
