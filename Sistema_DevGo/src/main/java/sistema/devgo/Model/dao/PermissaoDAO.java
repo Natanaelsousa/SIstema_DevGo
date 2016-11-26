@@ -121,4 +121,51 @@ public class PermissaoDAO extends GenericaDAO {
         
     return usuRetorno;
 }
+     
+      public String findDepartamento(UsuarioSistema user) throws SQLException {
+        String depto = null;
+
+        String select = "SELECT b.SETOR FROM funcionario AS a INNER JOIN "
+                + "DEPARTAMENTO AS b ON (a.cod_depto = b.cod_depto) where COD_FUNCIONARIO="+user.getDepartamento();
+
+       PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+         if (rs.next()) {
+
+         depto = rs.getString("SETOR");
+       }
+
+         
+     
+        rs.close();
+        stmt.close();
+
+        return depto;
+    }
+          public long verificaUser (UsuarioSistema usuario) throws SQLException{
+        
+     long codFuncionario=0;  
+        
+     String select = "SELECT * FROM PERMISSAO WHERE USUARIO = "+usuario.getNome();
+     
+       PreparedStatement preparador = con.prepareStatement(select);
+         PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+         if (rs.next()) {
+
+         codFuncionario = rs.getLong("COD_FUNCIONARIO");
+       }
+        rs.close();
+        stmt.close();
+
+ 
+    return codFuncionario ;
 }
+}
+
