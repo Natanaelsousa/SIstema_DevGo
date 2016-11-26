@@ -29,7 +29,7 @@ public class UsuarioSistema {
         this.senhaCripto = senhaCripto;
     }
 
-    private long  departamentos; //ROLES
+    private long  departamento; //ROLES
     
     public UsuarioSistema() {
         
@@ -43,7 +43,7 @@ public class UsuarioSistema {
     public UsuarioSistema(String nome, String senha, long departamento) {
         this.nome = nome;
         this.hashSenha = gerarHashSenhaMD5(senha);
-        this.departamentos = departamentos;
+        this.departamento = departamento;
     }
 
     public String getNome() {
@@ -58,12 +58,12 @@ public class UsuarioSistema {
         return hashSenha;
     }
 
-    public long getDepartamentos() {
-        return departamentos;
+    public long getDepartamento() {
+        return departamento;
     }
 
-    public void setDepartamentos(long departamentos) {
-        this.departamentos = departamentos;
+    public void setDepartamento(long departamento) {
+        this.departamento = departamento;
     }
 
     /**
@@ -156,10 +156,10 @@ public class UsuarioSistema {
      * @param papelNecessario
      * @return
      */
-    public List<Long> autorizado(long papelNecessario) {
+    public List<Long> autorizado(long departamento) {
         List <Long> UsuarioAutorizado = new ArrayList<>();
         
-            UsuarioAutorizado.add(papelNecessario);
+            UsuarioAutorizado.add(departamento);
         
         
         return UsuarioAutorizado;
