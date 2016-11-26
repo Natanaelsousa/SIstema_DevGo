@@ -100,30 +100,22 @@
                         <input required="required" type="number" name="QTDE_ALUNO" id="Aluno" /></p>
 
 
-                    <p><label for="Preco">Preço:</label>
+                    <p><label for="Preco" name="Preco"> </label>
                         <%
                             String resultadoFinal = request.getParameter("resultadoFinal");
-
-                        %>  <input type="number" name="Preco" id="Preco" /></p>
-                    <button onclick="myFunction()">Calcular preço</button>
-
-                    <script>
-                        function myFunction() {
-                            var str = document.getElementById("Preco").innerHTML;
-                            var res = str.replace(/blue/g, "resultadoFinal");
-                            document.getElementById("Preco").innerHTML = res;
-                        }
-                    </script>
-
+                        %> 
+                       
                     </p>
 
+                    
                 </div>
             </fieldset>
+
             <div class="botoes">
                 <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
                 <input id="Limpar" title="Limpar" value="Limpar" type="reset">
             </div>
-            <p>${mensagem}</p>  
+
         </form>
     </body>
 </html>

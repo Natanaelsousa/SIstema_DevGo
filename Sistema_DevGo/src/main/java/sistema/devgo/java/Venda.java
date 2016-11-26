@@ -1,5 +1,6 @@
 package sistema.devgo.java;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,13 +17,13 @@ public class Venda {
     private long codFuncionario;
     private int quantidadeAluno;
     private double valorVenda;
-  
+    private Timestamp data_venda;
 
     public Venda() {
 
     }
 
-    public Venda(long codVenda, long codIdioma,long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
+    public Venda(Timestamp data_venda,long codVenda, long codIdioma,long codPlano, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
         this.codCliente = codCliente;
         this.codIdioma=codIdioma;
         this.codPlano = codPlano;
@@ -30,7 +31,7 @@ public class Venda {
         this.codFuncionario = codFuncionario;
         this.quantidadeAluno = quantidadeAluno;
         this.valorVenda = valorVenda;
-     
+        this.data_venda=data_venda;
 
     }
 
@@ -135,6 +136,14 @@ public class Venda {
 
     public void setCodIdioma(long codIdioma) {
         this.codIdioma = codIdioma;
+    }
+
+    public Timestamp getData_venda() {
+        return data_venda;
+    }
+
+    public void setData_venda(Timestamp data_venda) {
+        this.data_venda = data_venda;
     }
     
 

@@ -1,7 +1,13 @@
-/* 
-    Created on : 12/10/2016, 14:06:31
-    Author     : Natanael Santos
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
 */
+/* 
+    Created on : 26/11/2016, 14:40:47
+    Author     : Sibele
+*/
+
 html{
     font-family: helvetica;
 }
@@ -39,7 +45,7 @@ header ul li a:hover, .dropdown:hover .dropbtn{
 header ul li.dropdown{
     display: inline-block;
 }
-header ul li:nth-child(5) a{
+header ul li:nth-child(4) a{
     border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
 .logout a{
@@ -74,68 +80,127 @@ header ul li:nth-child(5) a{
 .dropdown:hover .dropdown-content{
     display: block
 }
-form{
+aside{
+	position: absolute;
+	background: hsl(0, 100%, 25%);
+	width: 200px;
+	top: 111px;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	z-index: 9;
+}
+aside ul{
+	list-style-type: none;
+	font-size: 18px;
+	margin-top: 135px;
+	margin-left: -131px;
+	text-align: center;
+	width: 400px;
+}
+aside ul li{
+	margin: 15px;
+}
+aside ul li a{
+	color: white;
+	text-decoration: none;
+}
+aside ul li:first-child a{
+	background: white;
+	padding: 8px 13px;
+	color: black;
+	border: 1px solid black;
+	border-right: none;
+	z-index: 10;
+}
+aside ul li:nth-child(2) a{
+	padding: 7px 37px;
+	cursor: pointer;
+	overflow: hidden;
+}
+aside ul li:nth-child(2) a:hover{
+	text-decoration: underline;
+}
+table{
     position: absolute;
-    top: 162px;
-    left: 100px;
+    top: 160px;
     right: 100px;
-    border: 2px solid black;
-    border-radius: 5px;
-    min-width: 1100px;
-    min-height: 395px;
 }
 #dados{
     border: 1px solid black;
     border-radius: 5px;
+    margin-top: 250px;
+    margin-left: 100px;
+    border: 2px solid black;
+    box-shadow: 0 3px 5px black;
+    width: 480px;
+}
+#tabela{
+    max-height: 450px;
+    max-width: 800px;
+    margin-top: 40px;
     margin-right: 20px;
-    margin-left: 20px;
-    min-height: 365px;
-    margin-top: 30px;
+    box-shadow: 0 3px 5px back;
+    overflow: auto;
+    border: none;
+    text-align: center;
+}
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 10px 85px;
 }
 input, select{
     padding: 4px 10px;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 14px;
-    margin: 0 5px;
 }
-select{
-    padding: 4px 125px;
-}
+
 h4{
     background: white;
-    width: 70px;
-    padding: 0 15px;
+    width: 150px;
+    padding: 0px 15px;
     margin: -15px 15px;
     text-align: center;
 }
 label{
-    margin: 3px 8px;
+    margin: 3px 5px;
     display: block;
     text-align: left;
 }
 p{
-    margin: 35px 10px;
+    margin: 25px;
     display: inline-block;
 }
-p:first-child{
+select{
     display: block;
-}
-#Buscar{
-    color: white;
-    background: blue;
-    box-shadow: 0 2px 4px grey;
-    border: none;
-    width: 100px;
-    cursor: pointer;
+    margin: 10px 0px;
+    width: 400px;
+    text-align: center;
+    padding: 4px 150px;
 }
 #topo{
-    width: 1200px;
-    right: 350px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    margin-left: 50px;
+    margin-top: 20px;
 }
+
+input#Buscar, input#Exportar{
+    color: white;
+    background: hsl(200, 100%, 50%);
+    box-shadow: 0 2px 4px grey;
+    border: none;
+    width: 120px;
+    cursor: pointer;
+    margin: 5px 30px;
+}
+#Buscar:active, #Exportar:active{
+    box-shadow: 0 5px 10px black;
+    border: none;
+}
+
+
 .botoes{
     padding: 25px;
     bottom: 0px;
@@ -144,38 +209,11 @@ p:first-child{
 }
 
 
-input#Finalizar{
+input#Voltar{
     color: white;
     background: hsl(133, 79%, 35%);
     box-shadow: 0 2px 4px grey;
     border: none;
-    width: 200px;
+    width: 100px;
     cursor: pointer;
-}.botoes{
-    padding: 25px;
-    bottom: 0px;
-    left: 350px;
-    text-align: center;
-}
-
-
-input#Finalizar{
-    color: white;
-    background: hsl(133, 79%, 35%);
-    box-shadow: 0 2px 4px grey;
-    border: none;
-    width: 200px;
-    cursor: pointer;
-}
-input#Limpar{
-    border: none;
-    color: white;
-    background: red;
-    box-shadow: 0 2px 4px grey;
-    width: 200px;
-    cursor: pointer;
-}
-#Finalizar:active, #Limpar:active{
-    box-shadow: 0 5px 10px black;
-    border: none;
 }

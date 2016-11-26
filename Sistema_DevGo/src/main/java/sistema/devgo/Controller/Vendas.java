@@ -108,16 +108,16 @@ public class Vendas extends HttpServlet {
         venda.setValorVenda(valor_venda);
 
         VendaDAO dao = new VendaDAO();
-       
-try {
+
+        try {
             dao.insert(venda);
             request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
             request.setAttribute("msgm", "erro");
         }
         response.setContentType("text/html;charset=UTF-8");
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/buscaCNPJvenda.jsp");
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
         dispatcher.forward(request, response);
     }
 
