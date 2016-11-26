@@ -18,6 +18,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <title>Cadastros</title>
+        <link type="text/css" rel="stylesheet" href="EditarPlano.css" />
         <c:url value="CSS/editarPlano.css" var="EditarPlano"/>
         <link type="text/css" rel="stylesheet" href="${EditarPlano}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>

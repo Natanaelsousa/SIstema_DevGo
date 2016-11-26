@@ -22,14 +22,12 @@ window.onload = function(){
         elm.appendChild(inp);
     }
     else if(msg === "erro"){
-        inp.setAttribute("value", "Não foi possível "+act.value+" o "+req.value+" !");
+        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
         inp.setAttribute("id", "erro");
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);
     }
     msg.value = "";
-    act.value = "";
-    req.value = "";
 }
 function somenteNumero(e) {
     var tecla = (window.event) ? event.keyCode : e.which;

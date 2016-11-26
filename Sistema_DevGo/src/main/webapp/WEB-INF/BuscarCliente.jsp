@@ -38,9 +38,6 @@
                 <li><a href="#">Editar Cliente</a></li>
             </ul>
         </aside>
-        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
-        <input type="hidden" id="act" value="editado" />
-        <input type="hidden" id="req" value="Cliente" />
         <div id="mensagem"></div>
         <c:url value="BuscarCliente" var="BuscarCliente"/>
         <form action="${BuscarCliente}" method="post" enctype="application/x-www-form-urlencoded">
