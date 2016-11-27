@@ -38,7 +38,7 @@ import sistema.devgo.java.UsuarioSistema;
 @WebFilter(filterName = "filtro",
         servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente","CadastroFuncionario",
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "EditarProduto",
-            "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas"},
+            "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas","ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
 public class Filtro implements Filter {
 
@@ -68,11 +68,11 @@ public class Filtro implements Filter {
             if (objSessao != null) {
                 usuario = (UsuarioSistema) objSessao;
             } else {
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/Login");
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "");
                 return;
             }
         } else {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/Login");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "Login");
             return;
         }
 
@@ -84,7 +84,7 @@ public class Filtro implements Filter {
             } else {
                 // NÃO PODE ACESSAR. APRESENTA TELA DE ERRO
                 httpResponse.sendRedirect(httpRequest.getContextPath()
-                        + "/AcessoTI.jsp");
+                        + "Login");
             }
 
         } catch (Throwable t) {
@@ -153,6 +153,11 @@ public class Filtro implements Filter {
             return true;
 
         } else if (pagina.endsWith("RelatorioFuncionario")&& 
+                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+            return true;
+       
+        }else if (pagina.endsWith("ApresentacaoVenda")&& 
                 ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
                 || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
             return true;
