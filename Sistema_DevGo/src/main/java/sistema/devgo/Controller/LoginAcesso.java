@@ -119,10 +119,10 @@ public class LoginAcesso extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/AcessoFinanceiro.jsp").forward(request, response);
             } else if ("SERVICO".equalsIgnoreCase(user.getDepartamento())) {
                 request.getRequestDispatcher("/WEB-INF/AcessoProdServ.jsp").forward(request, response);
-            } else {
-                response.sendRedirect("erroLogin.jsp");
+            } 
+        }else {
+                request.getRequestDispatcher("/WEB-INF/ErroLogin.jsp").forward(request, response);
             }
-        }
     }
 
     /**
