@@ -122,11 +122,11 @@ public class PermissaoDAO extends GenericaDAO {
     return usuRetorno;
 }
      
-      public String findDepartamento(UsuarioSistema user) throws SQLException {
+      public String findDepartamento(Long user) throws SQLException {
         String depto = null;
 
         String select = "SELECT b.SETOR FROM funcionario AS a INNER JOIN "
-                + "DEPARTAMENTO AS b ON (a.cod_depto = b.cod_depto) where COD_FUNCIONARIO="+user.getDepartamento();
+                + "DEPARTAMENTO AS b ON (a.cod_depto = b.cod_depto) where COD_FUNCIONARIO="+user;
 
        PreparedStatement stmt
                 = getConnection().prepareStatement(select);

@@ -65,10 +65,14 @@ public class LoginAcesso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       HttpSession sessao = request.getSession(false);
 
-        RequestDispatcher dispatcher
+    if (sessao == null || sessao.getAttribute("usuario") == null) {
+     RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/Login.jsp");
         dispatcher.forward(request, response);
+    }
+       
         //Redireciona para uma pagina mas não consegui encontrar ela no projeto / teste-servlet ???
     }
 
@@ -83,32 +87,37 @@ public class LoginAcesso extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        PermissaoDAO usuDAO = new PermissaoDAO();
         String login = request.getParameter("login");
         String ssenha = request.getParameter("senha");
-        
-
-        UsuarioSistema user = new UsuarioSistema(login, ssenha);
-
-        String senhagerada = String.valueOf(user.getHashSenha());
-        PermissaoDAO usuDAO = new PermissaoDAO();
-        String departamento = null;
+        long codFuncionario=0;
         try {
-            departamento = usuDAO.findDepartamento(user);
+            codFuncionario= usuDAO.verificaUser(login);
         } catch (SQLException ex) {
             Logger.getLogger(LoginAcesso.class.getName()).log(Level.SEVERE, null, ex);
         }
+         String departamento = null;
+        try {
+            departamento = usuDAO.findDepartamento(codFuncionario);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginAcesso.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        UsuarioSistema user = new UsuarioSistema(login, ssenha,codFuncionario,departamento);
+
+        String senhagerada = String.valueOf(user.getHashSenha());
+        
+       
         UsuarioSistema usuAutenticado = usuDAO.autenticacao(user);
 
         if (usuAutenticado != null) {
             HttpSession sessao = request.getSession(true);
-            sessao.setAttribute("usuario", user);
+            sessao.setAttribute("user", user);
 
-            if (departamento == "TECNOLOGIA DA INFORMACAO") {
+            if ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(user.getDepartamento())) {
                 request.getRequestDispatcher("/WEB-INF/AcessoTI.jsp").forward(request, response);
-            } else if (departamento == "FINANCEIRO") {
+            } else if ("FINANCEIRO".equalsIgnoreCase(user.getDepartamento())) {
                 request.getRequestDispatcher("/WEB-INF/AcessoFinanceiro.jsp").forward(request, response);
-            } else if (departamento == "SERVICO") {
+            } else if ("SERVICO".equalsIgnoreCase(user.getDepartamento())) {
                 request.getRequestDispatcher("/WEB-INF/AcessoProdServ.jsp").forward(request, response);
             } else {
                 response.sendRedirect("erroLogin.jsp");

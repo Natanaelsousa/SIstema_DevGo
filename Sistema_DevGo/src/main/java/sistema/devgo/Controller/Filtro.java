@@ -36,7 +36,7 @@ import sistema.devgo.java.UsuarioSistema;
  * @author natanael.ssousa
  */
 @WebFilter(filterName = "filtro",
-        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente", 
+        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente","CadastroFuncionario",
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "EditarProduto",
             "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas"},
         urlPatterns = {"/protegido/*"})
@@ -64,7 +64,7 @@ public class Filtro implements Filter {
         HttpSession sessao = httpRequest.getSession(false);
         UsuarioSistema usuario = null;
         if (sessao != null) {
-            Object objSessao = sessao.getAttribute("login");
+            Object objSessao = sessao.getAttribute("user");
             if (objSessao != null) {
                 usuario = (UsuarioSistema) objSessao;
             } else {
@@ -103,53 +103,58 @@ public class Filtro implements Filter {
 
         String paginaCompleta = request.getRequestURI();
         String pagina = paginaCompleta.replace(request.getContextPath(), "");
-        PermissaoDAO dao = new PermissaoDAO();
-        String setor = dao.findDepartamento(usuario);
 
-        if (pagina.endsWith("/BuscarCliente")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        if (pagina.endsWith("/BuscarCliente") && 
+                "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
-        } else if (pagina.endsWith("/BuscarFuncionario")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("/BuscarFuncionario")&& 
+                "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
         } else if (pagina.endsWith("CadastroCliente")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+                && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
         } else if (pagina.endsWith("CadastroFuncionario")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+                && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
-        } else if (pagina.endsWith("CadastroPlano")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("CadastroPlano") && 
+                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()) )){
             return true;
-        } else if (pagina.endsWith("CadastroProduto")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("CadastroProduto")&&
+                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()) )){
             return true;
         } else if (pagina.endsWith("EditarCliente")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+                && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
 
         } else if (pagina.endsWith("EditarFuncionario")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+                && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
 
-        } else if (pagina.endsWith("EditarPlano")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("EditarPlano") && 
+                 ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()) )){
             return true;
 
-        } else if (pagina.endsWith("EditarProduto")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("EditarProduto")&& 
+                 ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))){
             return true;
 
-        } else if (pagina.endsWith("Relatorio")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("Relatorio") && 
+                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
             return true;
 
-        } else if (pagina.endsWith("RelatorioCliente")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("RelatorioCliente")&&
+                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
             return true;
 
-        } else if (pagina.endsWith("RelatorioFuncionario")
-                && "TECNOLOGIA DA INFORMACAO".equals(setor)) {
+        } else if (pagina.endsWith("RelatorioFuncionario")&& 
+                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
             return true;
        
         }

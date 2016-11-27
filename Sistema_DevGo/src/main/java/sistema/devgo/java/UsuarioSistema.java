@@ -29,7 +29,8 @@ public class UsuarioSistema {
         this.senhaCripto = senhaCripto;
     }
 
-    private long  departamento; //ROLES
+    private long  codFuncionario; //ROLES
+    private String  departamento; //ROLES
     
     public UsuarioSistema() {
         
@@ -39,10 +40,17 @@ public class UsuarioSistema {
         this.hashSenha = gerarHashSenhaMD5(senha);
       
     }
-//Lembrar de colocar o departamento como parametro para fazer  o filtro 
-    public UsuarioSistema(String nome, String senha, long departamento) {
+      public UsuarioSistema(String nome, String senha, long codFuncionario) {
         this.nome = nome;
         this.hashSenha = gerarHashSenhaMD5(senha);
+        this.codFuncionario = codFuncionario;
+        this.departamento = departamento;
+    }
+//Lembrar de colocar o departamento como parametro para fazer  o filtro 
+    public UsuarioSistema(String nome, String senha, long codFuncionario,String departamento) {
+        this.nome = nome;
+        this.hashSenha = gerarHashSenhaMD5(senha);
+        this.codFuncionario = codFuncionario;
         this.departamento = departamento;
     }
 
@@ -58,12 +66,12 @@ public class UsuarioSistema {
         return hashSenha;
     }
 
-    public long getDepartamento() {
-        return departamento;
+    public long getCodFuncionario() {
+        return codFuncionario;
     }
 
-    public void setDepartamento(long departamento) {
-        this.departamento = departamento;
+    public void setCodFuncionario(long codFuncionario) {
+        this.codFuncionario = codFuncionario;
     }
 
     /**
@@ -170,5 +178,19 @@ public class UsuarioSistema {
      */
     public String getSenhaCripto() {
         return senhaCripto;
+    }
+
+    /**
+     * @return the departamento
+     */
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    /**
+     * @param departamento the departamento to set
+     */
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 }
