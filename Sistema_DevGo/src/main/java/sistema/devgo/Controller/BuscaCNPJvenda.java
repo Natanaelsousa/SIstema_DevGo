@@ -21,7 +21,7 @@ import sistema.devgo.java.Cliente;
  *
  * @author Sibele
  */
-@WebServlet(name = "BuscaCNPJvenda", urlPatterns = {"/Venda"})
+@WebServlet(name = "BuscaCNPJvenda", urlPatterns = {"/BuscaCNPJvenda"})
 public class BuscaCNPJvenda extends HttpServlet {
 
     /**

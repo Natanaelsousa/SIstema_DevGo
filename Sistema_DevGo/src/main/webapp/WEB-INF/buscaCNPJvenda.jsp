@@ -44,7 +44,7 @@
                 <li><a href="#">Buscar Cliente</a></li>
             </ul>
         </aside>
-        <c:url value="Venda" var="Venda"/>
+        <c:url value="BuscaCNPJvenda" var="Venda"/>
         <form action="${Venda}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Localizar empresa</h4>

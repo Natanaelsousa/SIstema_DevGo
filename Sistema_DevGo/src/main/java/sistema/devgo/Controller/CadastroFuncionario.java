@@ -123,7 +123,7 @@ public class CadastroFuncionario extends HttpServlet {
         FuncionarioDAO dao = new FuncionarioDAO();
         try {
             dao.insert(funcionario);
-                    
+            request.setAttribute("msgm", "sucesso");        
             Permissao p = new Permissao();
         try{
       
@@ -134,11 +134,14 @@ public class CadastroFuncionario extends HttpServlet {
               p.setCod_funcionario(id);
            
             dao2.insert(p);
+              request.setAttribute("msgm", "sucesso"); 
             
         } catch (SQLException ex) {
+            request.setAttribute("msgm", "erro");
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
         } catch (SQLException ex) {
+            request.setAttribute("msgm", "erro");
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 

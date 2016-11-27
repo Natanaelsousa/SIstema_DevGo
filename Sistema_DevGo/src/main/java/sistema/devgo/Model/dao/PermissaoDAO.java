@@ -32,35 +32,34 @@ public class PermissaoDAO extends GenericaDAO {
         
     }
 
-    public void update(Permissao permissao,long codFuncionario) throws SQLException {
+    public void update(Permissao permissao) throws SQLException {
         String update = "UPDATE FUNCIONARIO "
                 + "SET COD_FUNCIONARIO = ?, USUARIO = ?,SENHA = ? WHERE COD_PERMISSAO = ?";
-        update(update, permissao.getUsuario(),permissao.getSenha(),codFuncionario);
+        update(update, permissao.getUsuario(),permissao.getSenha(),permissao.getCod_permissao());
     }
 
-    public List<Permissao> findFuncionario() throws SQLException {
-        List<Permissao> permissoes = new ArrayList<Permissao>();
+    public Permissao find(long funcionario) throws SQLException {
 
-        String select = "SELECT * FROM PERMISSAO";
-
+        String select = "SELECT * FROM PERMISSAO WHERE COD_FUNCIONARIO= "+funcionario+"";
+         Permissao permissao = null;
         PreparedStatement stmt
                 = getConnection().prepareStatement(select);
 
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-            Permissao permissao = new Permissao();
+            permissao = new Permissao();
            // permissao.setCod_funcionario(rs.getLong("cod_funcionario"));
             permissao.setUsuario(rs.getString("usuario"));
             permissao.setSenha(rs.getString("senha"));
             permissao.setCod_permissao(rs.getLong("cod_permissao"));
-            permissoes.add(permissao);
+         
         }
 
         rs.close();
         stmt.close();
 
-        return permissoes;
+        return permissao;
     }
     
     public long buscarId() throws SQLException {

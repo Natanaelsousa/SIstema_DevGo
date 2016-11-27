@@ -76,7 +76,7 @@ public class Vendas extends HttpServlet {
         PlanoDAO planodao = new PlanoDAO();
         LivroDAO livrodao = new LivroDAO();
 
-        String dataVenda = request.getParameter("DataVenda");
+       // String dataVenda = request.getParameter("DataVenda");
         long codCliente = Long.parseLong(request.getParameter("Id"));
         long idiomaLivro = Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
         long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
@@ -112,13 +112,14 @@ public class Vendas extends HttpServlet {
         try {
             dao.insert(venda);
             request.setAttribute("msgm", "sucesso");
+             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
+        dispatcher.forward(request, response);
         } catch (SQLException ex) {
             request.setAttribute("msgm", "erro");
         }
         response.setContentType("text/html;charset=UTF-8");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
-        dispatcher.forward(request, response);
+       
     }
 
     @Override

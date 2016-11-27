@@ -21,7 +21,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import sistema.devgo.Model.dao.FuncionarioDAO;
+import sistema.devgo.Model.dao.PermissaoDAO;
 import sistema.devgo.java.Funcionario;
+import sistema.devgo.java.Permissao;
+import sistema.devgo.java.UsuarioSistema;
 
 /**
  *
@@ -47,7 +50,7 @@ public class EditarFuncionario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditarFuncionario</title>");            
+            out.println("<title>Servlet EditarFuncionario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet EditarFuncionario at " + request.getContextPath() + "</h1>");
@@ -92,8 +95,11 @@ public class EditarFuncionario extends HttpServlet {
         String dataNasc = request.getParameter("Datanasc");
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
+        String status = request.getParameter("status");
+        PermissaoDAO dao2 = new PermissaoDAO();
+        UsuarioSistema user = new UsuarioSistema(usuario, senha, departamento);
+        String senhagerada = String.valueOf(user.getHashSenha());
 
-       
         Date dtNasc;
         try {
             dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
@@ -108,23 +114,33 @@ public class EditarFuncionario extends HttpServlet {
         funcionario.setCpf(cpf);
         funcionario.setCodDepartamento(departamento);
         funcionario.setDtNascimento(dtNasc);
-        funcionario.setStatus("Ativo");
+        funcionario.setStatus(status);
 
         FuncionarioDAO dao = new FuncionarioDAO();
+
         try {
             dao.update(funcionario);
-            request.setAttribute("msgm", "sucesso");
+            
+            Permissao p = new Permissao();
+            try {
+
+                long id = dao2.buscarId();
+
+                p.setUsuario(usuario);
+                p.setSenha(senhagerada);
+                p.setCod_funcionario(id);
+
+                dao2.update(p);
+                request.setAttribute("msgm", "sucesso");
+            } catch (SQLException ex) {
+            }
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarFuncionario.jsp");
+            dispatcher.forward(request, response);
+
         } catch (SQLException ex) {
+            Logger.getLogger(EditarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarFuncionario.jsp");
-        dispatcher.forward(request, response);
-
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }
-
 }

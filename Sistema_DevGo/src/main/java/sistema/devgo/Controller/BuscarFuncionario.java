@@ -7,12 +7,19 @@ package sistema.devgo.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sistema.devgo.Model.dao.ClienteDAO;
+import sistema.devgo.Model.dao.FuncionarioDAO;
+import sistema.devgo.Model.dao.PermissaoDAO;
+import sistema.devgo.java.Cliente;
+import sistema.devgo.java.Funcionario;
+import sistema.devgo.java.Permissao;
 
 /**
  *
@@ -59,6 +66,7 @@ public class BuscarFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         String msgm = request.getParameter("msgm"); 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarFuncionario.jsp");
         dispatcher.forward(request, response);
     }
@@ -74,11 +82,33 @@ public class BuscarFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          
+        String serv = "/WEB-INF/EditarFuncionario.jsp";
+          
+        Funcionario funcionario = new Funcionario();
+        Permissao permissao = new Permissao();
+        FuncionarioDAO dao = new FuncionarioDAO ();
+        PermissaoDAO dao2 = new PermissaoDAO ();
+
         String CPF = request.getParameter("CPF");
         
-        request.setAttribute("CPF", CPF);
+        try {
+            
+            funcionario = dao.findByCPF(CPF);
+            request.setAttribute("CPF", CPF);
+            request.setAttribute("", CPF);
+               
+        } catch (SQLException ex) {
+           serv = "/WEB-INF/Erro-funcionario-nao-encontrado.jsp";
+        }
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarFuncionario.jsp");
+        if(funcionario.getCpf() == null){
+            
+            serv = "/WEB-INF/Erro-funcionario-nao-encontrado.jsp";
+                
+            }
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher(serv);
         dispatcher.forward(request, response);
     }
 

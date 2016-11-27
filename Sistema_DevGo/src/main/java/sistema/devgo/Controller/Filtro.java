@@ -36,7 +36,7 @@ import sistema.devgo.java.UsuarioSistema;
  * @author natanael.ssousa
  */
 @WebFilter(filterName = "filtro",
-        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente","CadastroFuncionario",
+        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente",
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "EditarProduto",
             "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas","ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
@@ -105,11 +105,20 @@ public class Filtro implements Filter {
         String pagina = paginaCompleta.replace(request.getContextPath(), "");
 
         if (pagina.endsWith("/BuscarCliente") && 
-                "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
-            return true;
+             ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+            return true;   
         } else if (pagina.endsWith("/BuscarFuncionario")&& 
-                "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
+               "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())){
             return true;
+         } else if (pagina.endsWith("/BuscaCNPJvenda")&& 
+               ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+            return true;    
+        } else if (pagina.endsWith("/Vendas")&& 
+               ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+            return true;   
         } else if (pagina.endsWith("CadastroCliente")
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;

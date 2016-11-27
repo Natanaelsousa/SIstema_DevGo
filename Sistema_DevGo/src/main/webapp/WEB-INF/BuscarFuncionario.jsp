@@ -33,7 +33,7 @@
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
                     <li><a href="RelatorioCliente">Relatorios</a></li>
-                    <li><a href="Venda">Vendas</a></li>
+                    <li><a href="BuscaCNPJvenda">Vendas</a></li>
                 </ul>
             </div>
         </header>
@@ -45,7 +45,6 @@
         </aside>
         <c:url value="BuscarFuncionario" var="BuscarFuncionario"/>
         <form action="${BuscarFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
-        <form>
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">

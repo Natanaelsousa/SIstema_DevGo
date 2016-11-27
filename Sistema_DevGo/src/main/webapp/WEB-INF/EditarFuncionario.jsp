@@ -4,6 +4,8 @@
     Author     : natan
 --%>
 
+<%@page import="sistema.devgo.java.Permissao"%>
+<%@page import="sistema.devgo.Model.dao.PermissaoDAO"%>
 <%@page import="sistema.devgo.java.Funcionario"%>
 <%@page import="sistema.devgo.Model.dao.FuncionarioDAO"%>
 <%@page import="sistema.devgo.java.Departamento"%>
@@ -24,12 +26,10 @@
     </head>
          <%
             FuncionarioDAO fdao = new FuncionarioDAO();
-            
             String cpf = (String) request.getAttribute("CPF");
-            
-           
-            Funcionario funcionario = fdao.findByName(cpf);
-            
+            Funcionario funcionario = fdao.findByCPF(cpf);
+            PermissaoDAO pDao = new PermissaoDAO();
+            Permissao permissao = pDao.find(funcionario.getCodFuncionario());
                            
         %>
     <body>
@@ -51,7 +51,7 @@
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
                     <li><a href="RelatorioCliente">Relatorios</a></li>
-                    <li><a href="Venda">Vendas</a></li>
+                    <li><a href="BuscaCNPJvenda">Vendas</a></li>
                 </ul>
             </div>
         </header>
@@ -60,13 +60,18 @@
                 <li><a href="CadastroFuncionario">Cadastrar Funcionario</a></li>
                 <li><a href="BuscarCliente">Editar Funcionario</a></li>
             </ul>
-        </aside>
-        <form>
+    </aside>
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="editado" />
+        <input type="hidden" id="req" value="Funcionario" />
+        <div id="mensagem"></div>
+        <c:url value="EditarFuncionario" var="EditarFuncionario"/>
+        <form action="${EditarFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
                     <p><label title="Apenas numeros." for="CPF">CPF:</label>
-                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"  value="<%= funcionario.getCpf()%>"/>
+                        <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"  onkeypress="return somenteNumero(event)" value="<%= funcionario.getCpf()%>" readonly="readonly"/>
                     <p><label title="Letras de A a Z." for="Nome">Nome:</label>
                         <input required="required" type="text" name="Nome" maxlength="35" id="Nome" size="35" value="<%= funcionario.getNome()%>"/></p>
                     <p><label title="Letras de A a Z." for="Sobrenome">Sobrenome:</label>
@@ -86,14 +91,14 @@
                         <%}%>
                         </select></p>      
                     <p><label for="Usuario">Usuario:</label>
-                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35" value="<%= funcionario.getCpf()%>"/></p>
+                        <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35" value="<%=permissao.getUsuario()%>"/></p>
                     <p><label for="Senha">Senha:</label>
                         <input required="required" type="password" name="Senha" maxlength="15" id="Senha" size="18" onchange="Senha2.pattern = this.value;"/></p>
                     <p><label for="Senha2">Confirmar senha:</label>
                         <input required="required" type="password" name="Senha2" maxlength="15" id="Senha2" size="18" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'As senhas não conferem' : '')"/></p>
                     <p><label for="Status">Status:</label>
-                        Ativo<input required="required" type="radio" name="Status" id="Status"/>
-                        Inativo<input required="required" type="radio" name="Status" id="Status"/></p>        
+                        Ativo<input  type="radio" name="status" id="Status" value="Ativo"/>
+                        Inativo<input type="radio" name="status" id="Status" value="Inativo"/></p>        
                 </div>
             </fieldset>
             <div class="botoes">

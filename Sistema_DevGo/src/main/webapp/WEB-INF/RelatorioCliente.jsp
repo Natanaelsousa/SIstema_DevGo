@@ -31,7 +31,7 @@
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
                     <li><a href="Relatorio">Relatorios</a></li>
-                    <li><a href="Venda">Vendas</a></li>
+                    <li><a href="BuscaCNPJvenda">Vendas</a></li>
                 </ul>
             </div>
         </header>

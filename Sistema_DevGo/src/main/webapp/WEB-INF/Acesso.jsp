@@ -27,7 +27,7 @@
                 - Cadastros e edições de Produtos e Serviços.</li>
             <li><a href="RelatorioCliente"><i class="material-icons">description</i>Relatório</a> 
                 - Exportar e gerar relatórios.</li>
-            <li><a href="Venda"><i class="material-icons">shopping_cart</i>Vendas</a> 
+            <li><a href="Vendas"><i class="material-icons">shopping_cart</i>Vendas</a> 
                 - Realizar nova venda.</li>
         </ul>
     </body>
