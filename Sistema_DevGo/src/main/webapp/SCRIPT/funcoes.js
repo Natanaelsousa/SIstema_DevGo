@@ -5,31 +5,12 @@
  */
 
 window.onload = function(){
-    
-    var msg = document.getElementById("mens").value;
-    var elm = document.getElementById("mensagem");
-    var inp = document.createElement("input");
-    if(msg === "erro"){
-        inp.setAttribute("value", "Não foi possível "+req.value+" o "+req.value+" !");
-        inp.setAttribute("id", "erro");
-        inp.setAttribute("readonly", "readonly");
-        elm.appendChild(inp);
+    var departamento = document.getElementById("departamento").value;
+    var menu = document.getElementById("menu");
+    if(departamento === "FINANCEIRO"){
+        menu.removeChild(menu.childNodes[1]);
+        menu.removeChild(menu.childNodes[2]);
     }
-    if(msg === "sucesso"){
-        inp.setAttribute("value", req.value+" "+act.value+" com sucesso!");
-        inp.setAttribute("id", "sucesso");
-        inp.setAttribute("readonly", "readonly");
-        elm.appendChild(inp);
-    }
-    else if(msg === "erro"){
-        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
-        inp.setAttribute("id", "erro");
-        inp.setAttribute("readonly", "readonly");
-        elm.appendChild(inp);
-    }
-    req.value = "";
-    act.value = "";
-    msg.value = "";
 }
 function somenteNumero(e) {
     var tecla = (window.event) ? event.keyCode : e.which;
@@ -155,9 +136,12 @@ function TestaCPF(n) {
     }
     return true;
 }
-function validarCNPJ(cnpj) {
 
-    cnpj = cnpj.replace(/[^\d]+/g, '');
+
+function validarCNPJ(cnpj) {
+    
+    cnpj = cnpj.value;
+    alert(cnpj);    
 
     if (cnpj == '' || cnpj.length != 14)
         return false;

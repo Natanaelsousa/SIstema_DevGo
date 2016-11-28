@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </head>
     <body>
+        <input type="hidden" id="departmento" value="<c:out value="${dep}"/>" />
         <div class="bar">
             <h1>Astec</h1>
         </div>

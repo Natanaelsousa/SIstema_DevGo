@@ -14,6 +14,9 @@
       
         <title>Clientes Cadastrados</title>
     </head>
+    <%
+        
+    %>
     <body>
         <header>
             <div class="logo">
@@ -23,7 +26,7 @@
                 <h3><a href="#">Sair</a></h3>
             </div>
             <div class="bar">
-                <ul>
+                <ul id="menu">
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
@@ -43,6 +46,7 @@
                 <li><a href="RelatorioFuncionario">Listar Funcionários</a></li>
             </ul>
         </aside>
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <%
             ClienteDAO dao = new ClienteDAO();
             List<Cliente> userList = dao.findCliente();

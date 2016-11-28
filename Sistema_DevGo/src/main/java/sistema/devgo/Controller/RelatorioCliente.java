@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sistema.devgo.java.UsuarioSistema;
 
 /**
  *
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "RelatorioCliente", urlPatterns = {"/RelatorioCliente"})
 public class RelatorioCliente extends HttpServlet {
+    private Object httpRequest;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -59,6 +62,16 @@ public class RelatorioCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        
+        HttpSession sessao = httpRequest.getSession(false);
+        
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
+        System.out.println("USuario121312321: "+usuario.getDepartamento());
+        request.setAttribute("departamento", usuario.getDepartamento());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/RelatorioCliente.jsp");
         dispatcher.forward(request, response);
     }
