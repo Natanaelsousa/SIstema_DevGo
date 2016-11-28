@@ -114,85 +114,48 @@ aside ul li:first-child a{
 aside ul li:first-child a:hover{
     text-decoration: underline;
 }
-table{
+form{
     position: absolute;
     top: 200px;
     left: 280px;
-}
-#dados{
-    border: 1px solid black;
+    max-height: 540px;
     border-radius: 5px;
-    margin-top: 250px;
-    margin-left: 100px;
+    overflow-y: scroll;
     border: 2px solid black;
-    box-shadow: 0 3px 5px black;
-    width: 480px;
+    max-width: 1560px;
 }
-#tabela{
-    max-height: 450px;
-    max-width: 800px;
-    margin-top: 40px;
-    margin-right: 20px;
-    box-shadow: 0 3px 5px back;
-    overflow: auto;
+#exportar{
+    position: absolute;
+    top: 155px;
+    right: 100px;
+    background: red;
+    color: white;
+    width: 210px;
+    height: 35px;
     border: none;
-    text-align: center;
 }
 table, th, td{
-    border: 2px solid black;
-    border-collapse: collapse;
-}
-th, td{
-    padding: 10px 50px;
-    text-align: center;
-}
-input, select{
-    padding: 4px 10px;
     border: 1px solid black;
-    border-radius: 5px;
-    font-size: 14px;
+    border-collapse: collapse;
+    width: 250px;
 }
 
-h4{
-    background: white;
-    width: 150px;
-    padding: 0px 15px;
-    margin: -15px 15px;
+th{
+    background: #171F17;
+    color: white;
+}
+th, td{
+    padding: 10px 60px;
     text-align: center;
 }
-label{
-    margin: 3px 5px;
-    display: block;
-    text-align: left;
-}
-p{
-    margin: 25px;
-    display: inline-block;
-}
-select{
-    display: block;
-    margin: 10px 0px;
-    width: 400px;
-    text-align: center;
-    padding: 4px 150px;
-}
-#topo{
-    margin-top: 20px;
-}
-.botoes{
-    padding: 25px;
-    text-align: center;
-}
-input#Buscar, input#Exportar{
+input#exportar{
     color: white;
     background: hsl(200, 100%, 50%);
     box-shadow: 0 2px 4px grey;
     border: none;
-    width: 120px;
     cursor: pointer;
-    margin: 5px 30px;
 }
-#Buscar:active, #Exportar:active{
+#exportar:active{
     box-shadow: 0 5px 10px black;
     border: none;
 }

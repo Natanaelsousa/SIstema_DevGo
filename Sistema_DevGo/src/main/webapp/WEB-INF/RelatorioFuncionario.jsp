@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="CSS/listaFuncionarios.css" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
         <title>Clientes Cadastrados</title>
     </head>
     <body>
@@ -49,36 +49,34 @@
             Iterator<Funcionario> itr = userList.iterator();
             Funcionario utilisateur = null;
         %>
-        
-        <table id="exTable" class="table">
-            <tr>
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-                <th>Telefone</th>
-                <th>Status</th>
-                <th>Departamento</th>
-                <th>Exportar</th>
-            </tr>
-            <tr>
-                <% 
-                    while (itr.hasNext()) {
-                        utilisateur = itr.next();
-                %>
-                <td><%= utilisateur.getCpf()%></td>
-                <td><%= utilisateur.getNome()%></td>
-                <td><%= utilisateur.getSobrenome()%></td>
-                <td><%= utilisateur.getTelefone()%></td>
-                <td><%= utilisateur.getStatus()%></td>
-                <td><%= utilisateur.getCodDepartamento()%></td>
-                 <td><input type="button" value="Excel" onclick="exportToExcel('exTable')"/></td>
+        <form>
+            <table id="exTable" class="table">
+                <tr>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Telefone</th>
+                    <th>Status</th>
+                    <th>Departamento</th>
+                </tr>
+                <tr>
+                    <%
+                        while (itr.hasNext()) {
+                            utilisateur = itr.next();
+                    %>
+                    <td><%= utilisateur.getCpf()%></td>
+                    <td><%= utilisateur.getNome()%></td>
+                    <td><%= utilisateur.getSobrenome()%></td>
+                    <td><%= utilisateur.getTelefone()%></td>
+                    <td><%= utilisateur.getStatus()%></td>
+                    <td><%= utilisateur.getCodDepartamento()%></td>
 
-                
-                
-            </tr>
-            <%
-                }
-            %>	
-        </table>
+                </tr>
+                <%
+                    }
+                %>	
+            </table>
+        </form>
+        <input type="button" value="Gerar Relatório" id="exportar" onclick="exportToExcel('exTable')"/>
     </body>
 </html>

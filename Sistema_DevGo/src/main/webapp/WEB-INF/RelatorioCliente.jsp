@@ -49,7 +49,7 @@
             Iterator<Cliente> itr = userList.iterator();
             Cliente utilisateur = null;
         %>
-
+        <form>
         <table id="exTable" class="table">
             <tr>
                 <th>Id</th>
@@ -58,7 +58,6 @@
                 <th>Cidade</th>
                 <th>Telefone</th>
                 <th>E-mail</th>
-                <th>Exportar</th>
 
             </tr>
             <tr>
@@ -72,12 +71,14 @@
                 <td><%= utilisateur.getCidade()%></td>
                 <td><%= utilisateur.getTelefone1()%></td>
                 <td><%= utilisateur.getEmail()%></td>
-                <td><input type="button" value="Excel" onclick="exportToExcel('exTable')"/></td>
                 
             </tr>
             <%
                 }
             %>	
+            
         </table>
+        </form>
+            <input type="button" value="Gerar Relatório" id="exportar" onclick="exportToExcel('exTable')"/>
     </body>
 </html>
