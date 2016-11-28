@@ -16,7 +16,7 @@
         </div>
         <h2>Bem-Vindo!</h2>
         <ul>
-            <li><a href="Relatorio"><i class="material-icons">description</i>Relatório</a> 
+            <li><a href="RelatorioCliente"><i class="material-icons">description</i>Relatório</a> 
                 - Exportar e gerar relatórios.</li>
             <li><a href="BuscaCNPJvenda"><i class="material-icons">shopping_cart</i>Vendas</a> 
                 - Realizar nova venda.</li>
