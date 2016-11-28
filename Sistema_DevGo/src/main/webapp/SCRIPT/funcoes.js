@@ -231,6 +231,7 @@ function exportToExcel(tableID){
     tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
     tab_text= tab_text.replace(/<img[^>]*>/gi,""); //remove if u want images in your table
     tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
+    tab_text= retira_acentos(tab_text);
 
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf("MSIE ");
@@ -251,4 +252,19 @@ function exportToExcel(tableID){
     }
     
     return (sa);
+}
+
+function retira_acentos(palavra) {
+    com_acento = 'áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ';
+    sem_acento = 'aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC';
+    nova='';
+    for(i=0;i<palavra.length;i++) {
+      if (com_acento.search(palavra.substr(i,1))>=0) {
+      nova+=sem_acento.substr(com_acento.search(palavra.substr(i,1)),1);
+      }
+      else {
+       nova+=palavra.substr(i,1);
+      }
+    }
+    return nova;
 }
