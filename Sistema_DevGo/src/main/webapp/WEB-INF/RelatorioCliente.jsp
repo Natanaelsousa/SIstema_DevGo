@@ -10,12 +10,14 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="CSS/listaClientes.css" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
+      
         <title>Clientes Cadastrados</title>
     </head>
     <body>
         <header>
             <div class="logo">
-            <img src="<c:url value="/IMG/DevGo.png"/>" />
+                <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
                 <h3><a href="#">Sair</a></h3>
@@ -47,7 +49,8 @@
             Iterator<Cliente> itr = userList.iterator();
             Cliente utilisateur = null;
         %>
-        <table class="table">
+
+        <table id="exTable" class="table">
             <tr>
                 <th>Id</th>
                 <th>CNPJ</th>
@@ -55,14 +58,11 @@
                 <th>Cidade</th>
                 <th>Telefone</th>
                 <th>E-mail</th>
-                    <%-- <th>Remover</th> --%>
+                <th>Exportar</th>
 
             </tr>
             <tr>
-                <% //avec la boucle while
-                    //	while(itr.hasNext()){
-                    //		userBean user = new userBean();
-                    //		System.out.println(user.getID());
+                <% 
                     while (itr.hasNext()) {
                         utilisateur = itr.next();
                 %>
@@ -72,16 +72,8 @@
                 <td><%= utilisateur.getCidade()%></td>
                 <td><%= utilisateur.getTelefone1()%></td>
                 <td><%= utilisateur.getEmail()%></td>
-
-
-                <%-- <td>
-                    <form method="POST" action="ClienteHandler">
-                        <button class="effacer" onclick="if(!confirm('Êtes-vous sur de bien vouloir supprimer ce utilisateur ?')) return false;"></button>
-                        <input type="hidden" name="action" value="delete" >
-                        <input type="hidden" name="ID" value="<%= utilisateur.getCodCliente() %>" >
-                    </form>
-                    
-                </td> --%>
+                <td><input type="button" value="Excel" onclick="exportToExcel('exTable')"/></td>
+                
             </tr>
             <%
                 }

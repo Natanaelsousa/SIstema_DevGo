@@ -11,6 +11,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="CSS/listaFuncionarios.css" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
         <title>Clientes Cadastrados</title>
     </head>
     <body>
@@ -48,7 +49,8 @@
             Iterator<Funcionario> itr = userList.iterator();
             Funcionario utilisateur = null;
         %>
-        <table class="table">
+        
+        <table id="exTable" class="table">
             <tr>
                 <th>CPF</th>
                 <th>Nome</th>
@@ -56,13 +58,10 @@
                 <th>Telefone</th>
                 <th>Status</th>
                 <th>Departamento</th>
-                    <%-- <th>Remover</th> --%>
+                <th>Exportar</th>
             </tr>
             <tr>
-                <% //avec la boucle while
-                    //	while(itr.hasNext()){
-                    //		userBean user = new userBean();
-                    //		System.out.println(user.getID());
+                <% 
                     while (itr.hasNext()) {
                         utilisateur = itr.next();
                 %>
@@ -72,6 +71,10 @@
                 <td><%= utilisateur.getTelefone()%></td>
                 <td><%= utilisateur.getStatus()%></td>
                 <td><%= utilisateur.getCodDepartamento()%></td>
+                 <td><input type="button" value="Excel" onclick="exportToExcel('exTable')"/></td>
+
+                
+                
             </tr>
             <%
                 }
