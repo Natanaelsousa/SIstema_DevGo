@@ -100,7 +100,7 @@
                         <input required="required" type="number" name="QTDE_ALUNO" id="Aluno" /></p>
 
 
-                    <p><label for="Preco" name="Preco"> </label>
+                    <p>
                         <%
                             String resultadoFinal = request.getParameter("resultadoFinal");
                         %> 

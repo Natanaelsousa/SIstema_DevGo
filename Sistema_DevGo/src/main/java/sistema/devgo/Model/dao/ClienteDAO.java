@@ -1,6 +1,5 @@
 package sistema.devgo.Model.dao;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,41 +7,38 @@ import java.util.ArrayList;
 import java.util.List;
 import sistema.devgo.java.Cliente;
 
-
 /**
  * @author Erik
  */
-
 public class ClienteDAO extends GenericaDAO {
-    
-      
+
     public void salvar(Cliente cliente) throws SQLException {
         String sql = "INSERT INTO cliente(CNPJ, RAZAO_SOCIAL,CIDADE,TELEFONE1,TELEFONE2,RUA,EMAIL,ESTADO,NUMERO,BAIRRO,CEP) "
                 + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
-        insert(sql, cliente.getCNPJ(),cliente.getRazaoSocial(),cliente.getCidade(),cliente.getTelefone1(),cliente.getTelefone2(),
-        cliente.getRua(),cliente.getEmail(),cliente.getEstado(),cliente.getNumero(),cliente.getBairro(),cliente.getCep());
+        insert(sql, cliente.getCNPJ(), cliente.getRazaoSocial(), cliente.getCidade(), cliente.getTelefone1(), cliente.getTelefone2(),
+                cliente.getRua(), cliente.getEmail(), cliente.getEstado(), cliente.getNumero(), cliente.getBairro(), cliente.getCep());
     }
-    
-    public void editar(Cliente cliente) throws SQLException{
-        
-           String sql = "UPDATE cliente " +
-                   "SET RAZAO_SOCIAL = ?, CIDADE = ?, TELEFONE1 = ?,  "
-                   + "TELEFONE2 = ?,RUA = ?,EMAIL = ?,ESTADO = ?, NUMERO = ?, BAIRRO = ?,CEP = ? "
-                   + "WHERE CNPJ = ?";
-           
-           update(sql, cliente.getCNPJ(),cliente.getRazaoSocial(),cliente.getCidade(),cliente.getTelefone1(),cliente.getTelefone2(),
-                   cliente.getRua(),cliente.getEmail(),cliente.getEstado(),cliente.getNumero(),cliente.getBairro(),cliente.getCep());
-        
+
+    public void editar(Cliente cliente) throws SQLException {
+
+        String sql = "UPDATE cliente "
+                + "SET RAZAO_SOCIAL = ?, CIDADE = ?, TELEFONE1 = ?,  "
+                + "TELEFONE2 = ?,RUA = ?,EMAIL = ?,ESTADO = ?, NUMERO = ?, BAIRRO = ?,CEP = ? "
+                + "WHERE CNPJ = ?";
+
+        update(sql, cliente.getCNPJ(), cliente.getRazaoSocial(), cliente.getCidade(), cliente.getTelefone1(), cliente.getTelefone2(),
+                cliente.getRua(), cliente.getEmail(), cliente.getEstado(), cliente.getNumero(), cliente.getBairro(), cliente.getCep());
+
     }
-    
+
     public List<Cliente> findCliente() throws SQLException {
-        List<Cliente> clientes = new ArrayList <Cliente>();
+        List<Cliente> clientes = new ArrayList<Cliente>();
 
         String sql = "SELECT * FROM cliente";
 
-        PreparedStatement stmt = 
-			getConnection().prepareStatement(sql);
-			
+        PreparedStatement stmt
+                = getConnection().prepareStatement(sql);
+
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
@@ -59,7 +55,7 @@ public class ClienteDAO extends GenericaDAO {
             cliente.setNumero(rs.getString("NUMERO"));
             cliente.setBairro(rs.getString("BAIRRO"));
             cliente.setCep(rs.getString("CEP"));
-                    
+
             clientes.add(cliente);
         }
 
@@ -68,16 +64,16 @@ public class ClienteDAO extends GenericaDAO {
 
         return clientes;
     }
-    
-      public Cliente findByName(String cnpj) throws SQLException {
-        
+
+    public Cliente findByName(String cnpj) throws SQLException {
+
         String sql = "SELECT * FROM cliente WHERE CNPJ = ?";
-        
+
         Cliente cliente = new Cliente();
-       
-        PreparedStatement stmt = 
-			getConnection().prepareStatement(sql);
-			
+
+        PreparedStatement stmt
+                = getConnection().prepareStatement(sql);
+
         stmt.setString(1, cnpj);
         ResultSet rs = stmt.executeQuery();
 
@@ -101,6 +97,4 @@ public class ClienteDAO extends GenericaDAO {
         return cliente;
     }
 
-    
-    
 }

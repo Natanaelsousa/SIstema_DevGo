@@ -65,14 +65,13 @@ public class PlanoDAO extends GenericaDAO {
 
         while (rs.next()) {
             Plano plano = new Plano();
-            
+
             plano.setCod_plano(rs.getLong("cod_plano"));
-         
+
             plano.setNomePlano(rs.getString("nm_plano"));
             plano.setPreco(rs.getDouble("preco"));
             plano.setCod_Periodo(rs.getLong("cod_periodo"));
-            
-            
+
             planos.add(plano);
         }
 
@@ -81,6 +80,7 @@ public class PlanoDAO extends GenericaDAO {
 
         return planos;
     }
+
     public Plano findByName(String nomePlano) throws SQLException {
         String select = "SELECT * FROM PLANO WHERE nm_plano = ?";
         Plano plano = null;
@@ -101,4 +101,6 @@ public class PlanoDAO extends GenericaDAO {
         stmt.close();
         return plano;
     }
+
+   
 }

@@ -1,3 +1,7 @@
+<%@page import="sistema.devgo.java.Livro"%>
+<%@page import="sistema.devgo.Model.dao.LivroDAO"%>
+<%@page import="sistema.devgo.java.Plano"%>
+<%@page import="sistema.devgo.Model.dao.PlanoDAO"%>
 <%@page import="sistema.devgo.java.Venda"%>
 <%@page import="sistema.devgo.Model.dao.VendaDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -45,9 +49,25 @@
             <div id="topo">
                 <%
                     VendaDAO dao = new VendaDAO();
-                    List<Venda> userList = dao.findVenda();
-                    Iterator<Venda> itr = userList.iterator();
-                    Venda utilisateur = null;
+                    List<Venda> venda = dao.findVenda();
+                    Iterator<Venda> itrVenda = venda.iterator();
+
+                    ClienteDAO daoCliente = new ClienteDAO();
+                    List<Cliente> cliente= daoCliente.findCliente();
+                    Iterator<Cliente> itrCliente = cliente.iterator();
+                    
+                    PlanoDAO daoPlano=new PlanoDAO();
+                    List<Plano> plano=daoPlano.findPlano();
+                    Iterator<Plano> itrPlano = plano.iterator();
+
+                    LivroDAO daoLivro=new LivroDAO();
+                    List<Livro> livro=daoLivro.findLivro();
+                    Iterator<Livro> itrLivro = livro.iterator();
+                    
+                    Venda vendas = null;
+                    Cliente clientes = null;
+                    Plano planos = null;
+                    Livro livros = null;
 
                 %>
                 <table class="table">
@@ -58,19 +78,22 @@
                         <th>Idioma</th>
                         <th>Quantidade de alunos</th>
                         <th>Valor total</th>
-                        
-                        
+
+
                     </tr>
                     <tr>
-                        <%while (itr.hasNext()) {
-                                utilisateur = itr.next();
+                        <%while (itrVenda.hasNext()) {
+                                vendas = itrVenda.next();
+                                clientes = itrCliente.next();
+                                planos = itrPlano.next();
+                                livros = itrLivro.next();
                         %>
-                        <td><%= utilisateur.getCodVenda()%></td>
-                        <td><%= utilisateur.getCodCliente()%></td>
-                        <td><%= utilisateur.getCodPlano()%></td>
-                        <td><%= utilisateur.getCodIdioma()%></td>
-                        <td><%= utilisateur.getQuantidadeAluno()%></td>
-                        <td><%= utilisateur.getValorVenda()%></td>
+                        <td><%= vendas.getCodVenda()%></td>
+                        <td><%= clientes.getRazaoSocial()%></td>
+                        <td><%= planos.getNomePlano()%></td>
+                        <td><%= livros.getIdioma()%></td>
+                        <td><%= vendas.getQuantidadeAluno()%></td>
+                        <td><%= vendas.getValorVenda()%></td>
                     </tr>
                     <%
                         }
