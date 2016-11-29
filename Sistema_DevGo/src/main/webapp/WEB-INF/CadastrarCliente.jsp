@@ -58,7 +58,7 @@
                     <p><label for="Razao">Razao Social:</label>
                         <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="35"/></p>  
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                        <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onkeypress="return somenteNumero(event)"/></p>
+                        <input required="required" type="text" name="CNPJ" maxlength="14" id="CNPJ" size="75" onblur="validarCNPJ(this)" onkeypress="return somenteNumero(event)"/></p>
                     <p><label title="Apenas numeros." for="Telefone1">Telefone 1:</label>
                         <input required="required" type="tel" name="Telefone1" maxlength="11" id="Telefone1" size="35" onkeypress="return somenteNumero(event)"/></p>
                     <p><label title="Apenas numeros." for="Telefone2">Telefone 2:</label>

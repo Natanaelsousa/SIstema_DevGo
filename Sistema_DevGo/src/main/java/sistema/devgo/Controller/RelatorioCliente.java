@@ -70,7 +70,7 @@ public class RelatorioCliente extends HttpServlet {
         Object objSessao = sessao.getAttribute("user");
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
-        System.out.println("USuario121312321: "+usuario.getDepartamento());
+        
         request.setAttribute("departamento", usuario.getDepartamento());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/RelatorioCliente.jsp");
         dispatcher.forward(request, response);

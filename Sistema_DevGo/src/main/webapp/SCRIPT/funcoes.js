@@ -7,9 +7,20 @@
 window.onload = function(){
     var departamento = document.getElementById("departamento").value;
     var menu = document.getElementById("menu");
+    alert(departamento);
     if(departamento === "FINANCEIRO"){
         menu.removeChild(menu.childNodes[1]);
         menu.removeChild(menu.childNodes[2]);
+    }
+    else if(departamento === "SERVICO"){
+        menu.removeChild(menu.childNodes[1]);
+        menu.removeChild(menu.childNodes[3]);
+        menu.removeChild(menu.childNodes[3]);
+        menu.removeChild(menu.childNodes[4]);
+    }
+    else if(departamento === "TECNOLOGIA DA INFORMACAO"){
+    }
+    else{
     }
 }
 function somenteNumero(e) {
@@ -90,6 +101,9 @@ function limpa_formulário_cpf() {
     document.getElementById('CPF').value = ("");
 
 }
+function limpa_formulário_cnpj() {
+    document.getElementById('CNPJ').value = ("");
+}
 function TestaCPF(n) {
     var Soma;
     var Resto;
@@ -141,10 +155,12 @@ function TestaCPF(n) {
 function validarCNPJ(cnpj) {
     
     cnpj = cnpj.value;
-    alert(cnpj);    
 
-    if (cnpj == '' || cnpj.length != 14)
+    if (cnpj === '' || cnpj.length !== 14){
+        alert("CNPJ Invalido!s");
+        limpa_formulário_cnpj();
         return false;
+    }
 
     // Valida DVs
     tamanho = cnpj.length - 2;
@@ -160,6 +176,7 @@ function validarCNPJ(cnpj) {
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
     if (resultado !== digitos.charAt(0)){
         alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
         return false;
     }
 
@@ -173,8 +190,11 @@ function validarCNPJ(cnpj) {
             pos = 9;
     }
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado !== digitos.charAt(1))
+    if (resultado !== digitos.charAt(1)){
+        alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
         return false;
+    }
 
     return true;
 

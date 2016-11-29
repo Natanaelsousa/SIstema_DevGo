@@ -21,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sistema.devgo.Model.dao.ClienteDAO;
 import sistema.devgo.Model.dao.LivroDAO;
 import sistema.devgo.Model.dao.PlanoDAO;
@@ -28,6 +29,7 @@ import sistema.devgo.Model.dao.VendaDAO;
 import sistema.devgo.java.Cliente;
 import sistema.devgo.java.Livro;
 import sistema.devgo.java.Plano;
+import sistema.devgo.java.UsuarioSistema;
 import sistema.devgo.java.Venda;
 
 /**
@@ -66,6 +68,16 @@ public class Vendas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        HttpSession sessao = httpRequest.getSession(false);
+
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
+
+        request.setAttribute("departamento", usuario.getDepartamento());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Vendas.jsp");
         dispatcher.forward(request, response);
     }
@@ -76,7 +88,7 @@ public class Vendas extends HttpServlet {
         PlanoDAO planodao = new PlanoDAO();
         LivroDAO livrodao = new LivroDAO();
 
-       // String dataVenda = request.getParameter("DataVenda");
+        // String dataVenda = request.getParameter("DataVenda");
         long codCliente = Long.parseLong(request.getParameter("Id"));
         long idiomaLivro = Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
         long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
@@ -112,14 +124,13 @@ public class Vendas extends HttpServlet {
         try {
             dao.insert(venda);
             request.setAttribute("msgm", "sucesso");
-             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
-        dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
+            dispatcher.forward(request, response);
         } catch (SQLException ex) {
             request.setAttribute("msgm", "erro");
         }
         response.setContentType("text/html;charset=UTF-8");
 
-       
     }
 
     @Override

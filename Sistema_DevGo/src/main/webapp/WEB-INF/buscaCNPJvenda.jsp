@@ -24,7 +24,7 @@
                 <h3><a href="#">Sair</a></h3>
             </div>
             <div class="bar">
-                <ul>
+                <ul id="menu">
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
@@ -38,6 +38,7 @@
                 </ul>
             </div>
         </header>
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <aside>
             <ul>
                 <li><a href="Vendas"></a></li>
