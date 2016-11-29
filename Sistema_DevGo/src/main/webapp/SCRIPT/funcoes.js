@@ -4,6 +4,35 @@
  * and open the template in the editor.
  */
 
+
+window.onload = function(){
+    
+    var msg = document.getElementById("mens").value;
+    var elm = document.getElementById("mensagem");
+    var inp = document.createElement("input");
+    if(msg === "erro"){
+        inp.setAttribute("value", "Não foi possível "+req.value+" o "+req.value+" !");
+        inp.setAttribute("id", "erro");
+        inp.setAttribute("readonly", "readonly");
+        elm.appendChild(inp);
+    }
+    if(msg === "sucesso"){
+        inp.setAttribute("value", req.value+" "+act.value+" com sucesso!");
+        inp.setAttribute("id", "sucesso");
+        inp.setAttribute("readonly", "readonly");
+        elm.appendChild(inp);
+    }
+    else if(msg === "erro"){
+        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
+        inp.setAttribute("id", "erro");
+        inp.setAttribute("readonly", "readonly");
+        elm.appendChild(inp);
+    }
+    req.value = "";
+    act.value = "";
+    msg.value = "";
+}
+
 window.onload = function(){
     var departamento = document.getElementById("departamento").value;
     var menu = document.getElementById("menu");
