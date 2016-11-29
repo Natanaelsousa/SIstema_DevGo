@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sistema.devgo.java.UsuarioSistema;
 
 /**
  *
@@ -59,6 +61,16 @@ public class RelatorioFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        
+        HttpSession sessao = httpRequest.getSession(false);
+        
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
+        
+        request.setAttribute("departamento", usuario.getDepartamento());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/RelatorioFuncionario.jsp");
         dispatcher.forward(request, response);
     }

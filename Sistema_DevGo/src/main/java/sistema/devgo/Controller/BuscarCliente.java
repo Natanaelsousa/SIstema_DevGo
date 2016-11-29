@@ -102,7 +102,8 @@ public class BuscarCliente extends HttpServlet {
         
         if(cliente.getBairro()== null){
             
-            serv = "/WEB-INF/erro-cliente-nao-encontrado.jsp";
+            request.setAttribute("msgm", "erro");
+            serv = "/WEB-INF/BuscarCliente.jsp";
                 
             }
         

@@ -49,6 +49,7 @@
                 <li><a href="BuscarFuncionario">Editar Funcionario</a></li>
             </ul>
         </aside>
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <c:url value="CadastroFuncionario" var="CadastroFuncionario"/>
         <form action="${CadastroFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">

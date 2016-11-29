@@ -29,7 +29,7 @@
                  <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
-                <h3><a href="#">Sair</a></h3>
+                <h3><a href="LoginAcesso">Sair</a></h3>
             </div>
             <div class="bar">
                 <ul id="menu">

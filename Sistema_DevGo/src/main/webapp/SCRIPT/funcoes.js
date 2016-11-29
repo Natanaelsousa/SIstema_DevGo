@@ -17,13 +17,13 @@ window.onload = function(){
         elm.appendChild(inp);
     }
     if(msg === "sucesso"){
-        inp.setAttribute("value", req.value+" "+act.value+" com sucesso!");
+        inp.setAttribute("value", req.value+" "+act.value+" com sucesso !");
         inp.setAttribute("id", "sucesso");
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);
     }
     else if(msg === "erro"){
-        inp.setAttribute("value", "Não foi possível cadastrar o "+req.value+" !");
+        inp.setAttribute("value", "Não foi possível ser "+act.value+" o "+req.value+" !");
         inp.setAttribute("id", "erro");
         inp.setAttribute("readonly", "readonly");
         elm.appendChild(inp);
@@ -31,12 +31,9 @@ window.onload = function(){
     req.value = "";
     act.value = "";
     msg.value = "";
-}
-
-window.onload = function(){
+    
     var departamento = document.getElementById("departamento").value;
     var menu = document.getElementById("menu");
-    alert(departamento);
     if(departamento === "FINANCEIRO"){
         menu.removeChild(menu.childNodes[1]);
         menu.removeChild(menu.childNodes[2]);
