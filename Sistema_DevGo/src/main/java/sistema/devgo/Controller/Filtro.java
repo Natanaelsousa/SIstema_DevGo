@@ -36,7 +36,7 @@ import sistema.devgo.java.UsuarioSistema;
  * @author natanael.ssousa
  */
 @WebFilter(filterName = "filtro",
-        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente",
+        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente", "CadastroFuncionario", 
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "EditarProduto",
             "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas","ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
