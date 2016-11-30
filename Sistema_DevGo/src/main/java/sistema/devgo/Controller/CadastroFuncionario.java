@@ -160,7 +160,8 @@ public class CadastroFuncionario extends HttpServlet {
       dispatcher.forward(request, response);
       
     }else{
-          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Erro-cadastro-funcionario.jsp");
+            request.setAttribute("msgm", "erro");
+          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
       dispatcher.forward(request, response);    
         }
     }

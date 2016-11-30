@@ -50,6 +50,9 @@
             </ul>
         </aside>
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="cadastrado" />
+        <input type="hidden" id="req" value="Funcionario" />
         <c:url value="CadastroFuncionario" var="CadastroFuncionario"/>
         <form action="${CadastroFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">

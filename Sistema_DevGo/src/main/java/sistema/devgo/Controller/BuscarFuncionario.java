@@ -111,12 +111,12 @@ public class BuscarFuncionario extends HttpServlet {
             request.setAttribute("", CPF);
                
         } catch (SQLException ex) {
-           serv = "/WEB-INF/Erro-funcionario-nao-encontrado.jsp";
         }
         
         if(funcionario.getCpf() == null){
             
-            serv = "/WEB-INF/Erro-funcionario-nao-encontrado.jsp";
+            request.setAttribute("msgm", "erro");
+            serv = "/WEB-INF/BuscarFuncionario.jsp";
                 
             }
         
