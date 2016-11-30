@@ -180,14 +180,19 @@ function TestaCPF(n) {
 
 function validarCNPJ(cnpj) {
 
-    cnpj = cnpj.replace(/[^\d]+/g,'');
     cnpj = cnpj.value;
-    alert(cnpj);
 
-    if(cnpj == '') return false;
-
-    if (cnpj.length != 14)
+    if(cnpj == ''){
+        alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
         return false;
+    }
+
+    if (cnpj.length != 14){
+        alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
+        return false;
+    }
 
     // LINHA 10 - Elimina CNPJs invalidos conhecidos
     if (cnpj == "00000000000000" || 
@@ -199,8 +204,11 @@ function validarCNPJ(cnpj) {
         cnpj == "66666666666666" || 
         cnpj == "77777777777777" || 
         cnpj == "88888888888888" || 
-        cnpj == "99999999999999")
+        cnpj == "99999999999999"){
+        alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
         return false; // LINHA 21
+    }
 
     // Valida DVs LINHA 23 -
     tamanho = cnpj.length - 2
@@ -214,8 +222,11 @@ function validarCNPJ(cnpj) {
             pos = 9;
     }
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(0))
+    if (resultado != digitos.charAt(0)){
+        alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
         return false;
+    }
 
     tamanho = tamanho + 1;
     numeros = cnpj.substring(0,tamanho);
@@ -227,10 +238,12 @@ function validarCNPJ(cnpj) {
             pos = 9;
     }
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(1))
-          return false; // LINHA 49
+    if (resultado != digitos.charAt(1)){
+        alert("CNPJ Invalido!");
+        limpa_formulário_cnpj();
+        return false;
+    }  // LINHA 49
 
-    alert("CNPJ Valido!");
     return true; // LINHA 51
 
 }
