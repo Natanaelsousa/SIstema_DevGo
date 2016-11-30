@@ -139,7 +139,6 @@ table, th, td{
     border-collapse: collapse;
     width: 250px;
 }
-
 th{
     background: #171F17;
     color: white;
@@ -147,6 +146,9 @@ th{
 th, td{
     padding: 10px 60px;
     text-align: center;
+}
+tr:nth-child(even){
+    background: #D8D8D8;
 }
 input#exportar{
     color: white;

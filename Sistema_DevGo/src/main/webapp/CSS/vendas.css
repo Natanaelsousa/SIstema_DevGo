@@ -39,7 +39,7 @@ header ul li a:hover, .dropdown:hover .dropbtn{
 header ul li.dropdown{
     display: inline-block;
 }
-header ul li:nth-child(5) a{
+vendas{
     border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
 .logout a{

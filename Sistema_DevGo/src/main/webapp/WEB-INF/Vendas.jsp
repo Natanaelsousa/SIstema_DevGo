@@ -36,6 +36,10 @@
     %>
 
 
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="" />
+        <input type="hidden" id="req" value="" />
     <body>
         <header>
             <div class="logo">
@@ -56,7 +60,7 @@
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
 
                     <li><a href="RelatorioCliente">Relatorios</a></li>
-                    <li><a href="Venda">Vendas</a></li>
+                    <li id="vendas"><a href="#">Vendas</a></li>
 
                 </ul>
             </div>

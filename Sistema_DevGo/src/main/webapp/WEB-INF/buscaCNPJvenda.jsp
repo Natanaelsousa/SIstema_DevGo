@@ -34,7 +34,7 @@
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
                     <li><a href="RelatorioCliente">Relatorios</a></li>
-                    <li><a href="Venda">Vendas</a></li>
+                    <li id="vendas"><a href="#">Vendas</a></li>
                 </ul>
             </div>
         </header>
@@ -45,6 +45,10 @@
                 <li><a href="#">Buscar Cliente</a></li>
             </ul>
         </aside>
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="" />
+        <input type="hidden" id="req" value="" />
         <c:url value="BuscaCNPJvenda" var="Venda"/>
         <form action="${Venda}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">

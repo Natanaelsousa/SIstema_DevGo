@@ -40,13 +40,16 @@
                 </ul>
             </div>
         </header>
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="" />
+        <input type="hidden" id="req" value="" />
         <aside>
             <ul>
                 <li><a href="#">Listar Clientes</a></li>
                 <li><a href="RelatorioFuncionario">Listar Funcionários</a></li>
             </ul>
         </aside>
-        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <%
             ClienteDAO dao = new ClienteDAO();
             List<Cliente> userList = dao.findCliente();

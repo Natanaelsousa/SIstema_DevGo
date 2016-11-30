@@ -144,6 +144,9 @@ th, td{
     padding: 10px 55px;
     text-align: center;
 }
+tr:nth-child(even){
+    background: #D8D8D8;
+}
 input#exportar{
     color: white;
     background: hsl(200, 100%, 50%);

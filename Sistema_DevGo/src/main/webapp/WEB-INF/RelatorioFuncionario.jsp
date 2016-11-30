@@ -37,6 +37,10 @@
                 </ul>
             </div>
         </header>
+        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
+        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+        <input type="hidden" id="act" value="" />
+        <input type="hidden" id="req" value="" />
         <aside>
             <ul>
                 <li><a href="RelatorioCliente">Listar Clientes</a></li>
