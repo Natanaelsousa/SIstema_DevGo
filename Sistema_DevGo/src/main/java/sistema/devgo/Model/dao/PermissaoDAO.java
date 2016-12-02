@@ -33,9 +33,9 @@ public class PermissaoDAO extends GenericaDAO {
     }
 
     public void update(Permissao permissao) throws SQLException {
-        String update = "UPDATE FUNCIONARIO "
+        String update = "UPDATE PERMISSAO "
                 + "SET COD_FUNCIONARIO = ?, USUARIO = ?,SENHA = ? WHERE COD_PERMISSAO = ?";
-        update(update, permissao.getUsuario(),permissao.getSenha(),permissao.getCod_permissao());
+        update(update,permissao.getCod_permissao(), permissao.getCod_funcionario(), permissao.getUsuario(),permissao.getSenha());
     }
 
     public Permissao find(long funcionario) throws SQLException {
@@ -86,6 +86,7 @@ public class PermissaoDAO extends GenericaDAO {
         return cod;
  
     }
+    
      public UsuarioSistema autenticacao(UsuarioSistema usuario){
         UsuarioSistema usuRetorno = null;
         
@@ -109,7 +110,7 @@ public class PermissaoDAO extends GenericaDAO {
             usuRetorno = new UsuarioSistema();
             
            
-            usuRetorno.setNome(resultado.getString("nome"));
+            usuRetorno.setNome(resultado.getString("usuario"));
             usuRetorno.setSenhaCripto(resultado.getString("senha"));
         //(resultado.getString("senha"));
             
@@ -164,5 +165,30 @@ public class PermissaoDAO extends GenericaDAO {
  
     return codFuncionario ;
 }
+          
+          public long buscarIdPermissao(Long cod_funcionario) throws SQLException {
+        
+        long cod = 0;
+    
+        
+        String select = "SELECT cod_permissao AS COD from permissao where cod_funcionario ='"+cod_funcionario+"'";
+        
+        PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+         if (rs.next()) {
+
+         cod = rs.getLong("COD");
+       }
+
+         
+        rs.close();
+        stmt.close();
+
+        return cod;
+ 
+    }
 }
 
