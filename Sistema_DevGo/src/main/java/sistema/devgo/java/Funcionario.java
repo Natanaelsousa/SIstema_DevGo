@@ -16,6 +16,7 @@ public class Funcionario {
     private Date dtNascimento;
     private String status;
     private long CodFuncionario;
+    private String departamento;
 
     //Construtores
     public Funcionario() {
@@ -43,6 +44,18 @@ public class Funcionario {
         this.CodFuncionario = idFuncionario;
 
     }
+    
+    public Funcionario(Long idFuncionario, Long CodDepartamento, String cpf, String nome, String sobrenome,String departamento) {
+
+        this.CodDepartamento = CodDepartamento;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.status = "ATIVO";
+        this.CodFuncionario = idFuncionario;
+        this.departamento = departamento;
+
+    }
 
     /**
      * @return the cpf
@@ -51,6 +64,10 @@ public class Funcionario {
         return cpf;
     }
 
+     public String getDepartamento() {
+        return departamento;
+    }
+     
     /**
      * @param cpf the cpf to set
      */
@@ -154,6 +171,10 @@ public class Funcionario {
      */
     public void setCodFuncionario(Long idFuncionario) {
         this.CodFuncionario = idFuncionario;
+    }
+    
+     public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
 }

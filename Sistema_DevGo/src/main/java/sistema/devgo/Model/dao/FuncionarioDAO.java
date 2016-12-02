@@ -85,5 +85,35 @@ public class FuncionarioDAO extends GenericaDAO {
         stmt.close();
         return funcionario;
     }
+    
+      public List<Funcionario> findFuncionarioDep() throws SQLException {
+        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+        String select = "SELECT a.*,b.SETOR FROM FUNCIONARIO a INNER JOIN departamento b ON (a.COD_DEPTO = b.COD_DEPTO)";
+
+        PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Funcionario funcionario = new Funcionario();
+            funcionario.setCodDepartamento(rs.getLong("cod_depto"));
+            funcionario.setNome(rs.getString("nome"));
+            funcionario.setSobrenome(rs.getString("sobrenome"));
+            funcionario.setTelefone(rs.getString("telefone"));
+            funcionario.setCpf(rs.getString("cpf"));
+            funcionario.setStatus(rs.getString("status"));
+            funcionario.setDtNascimento(rs.getDate("dt_nascimento"));
+            funcionario.setCodFuncionario(rs.getLong("cod_funcionario"));
+            funcionario.setDepartamento(rs.getString("SETOR"));
+            funcionarios.add(funcionario);
+        }
+
+        rs.close();
+        stmt.close();
+
+        return funcionarios;
+    }
 
 }

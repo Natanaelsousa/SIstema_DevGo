@@ -49,7 +49,7 @@
         </aside>
         <%
             FuncionarioDAO dao = new FuncionarioDAO();
-            List<Funcionario> userList = dao.findFuncionario();
+            List<Funcionario> userList = dao.findFuncionarioDep();
             Iterator<Funcionario> itr = userList.iterator();
             Funcionario utilisateur = null;
         %>
@@ -73,7 +73,7 @@
                     <td><%= utilisateur.getSobrenome()%></td>
                     <td><%= utilisateur.getTelefone()%></td>
                     <td><%= utilisateur.getStatus()%></td>
-                    <td><%= utilisateur.getCodDepartamento()%></td>
+                    <td><%= utilisateur.getDepartamento()%></td>
 
                 </tr>
                 <%
