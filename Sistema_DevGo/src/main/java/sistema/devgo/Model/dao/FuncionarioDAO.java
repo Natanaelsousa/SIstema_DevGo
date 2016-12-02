@@ -23,11 +23,11 @@ public class FuncionarioDAO extends GenericaDAO {
 
     public void update(Funcionario funcionario) throws SQLException {
         String update = "UPDATE FUNCIONARIO "
-                + "SET cod_depto = ?, nome = ?, sobrenome = ?, telefone = ?, cpf = ?,"
-                + "status = ?, dt_nascimento= ? WHERE cod_funcionario = ?";
-        update(update, funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(),
-                funcionario.getTelefone(),funcionario.getCpf(), funcionario.getStatus(),
-                funcionario.getDtNascimento(), funcionario.getCodFuncionario());
+                + "SET COD_DEPTO = ?, NOME = ?, SOBRENOME = ?, CPF = ?, STATUS = ?, TELEFONE = ?, "
+                + "DT_NASCIMENTO= ? WHERE COD_FUNCIONARIO = ?";
+        update(update,funcionario.getCodFuncionario(),funcionario.getCodDepartamento(), funcionario.getNome(), funcionario.getSobrenome(),
+                funcionario.getCpf(),funcionario.getStatus(), funcionario.getTelefone(), 
+                funcionario.getDtNascimento());
     }
 
     public List<Funcionario> findFuncionario() throws SQLException {
