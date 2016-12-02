@@ -74,13 +74,13 @@ public class EditarFuncionario extends HttpServlet {
             throws ServletException, IOException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        
+
         HttpSession sessao = httpRequest.getSession(false);
-        
+
         Object objSessao = sessao.getAttribute("user");
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
-        
+
         request.setAttribute("departamento", usuario.getDepartamento());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarFuncionario.jsp");
         dispatcher.forward(request, response);
@@ -97,7 +97,7 @@ public class EditarFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         // Guardando dados vindos da tela nas variaveis
+        // Guardando dados vindos da tela nas variaveis
         String nome = request.getParameter("Nome");
         String sobrenome = request.getParameter("Sobrenome");
         String cpf = request.getParameter("CPF");
@@ -107,9 +107,12 @@ public class EditarFuncionario extends HttpServlet {
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
         String status = request.getParameter("status");
+
         PermissaoDAO dao2 = new PermissaoDAO();
         UsuarioSistema user = new UsuarioSistema(usuario, senha, departamento);
         String senhagerada = String.valueOf(user.getHashSenha());
+
+        System.out.println("dddddddddd" + departamento);
 
         Date dtNasc;
         try {
@@ -130,20 +133,22 @@ public class EditarFuncionario extends HttpServlet {
         FuncionarioDAO dao = new FuncionarioDAO();
 
         try {
+            long id = dao.findByCPF(cpf).getCodFuncionario();
+            funcionario.setCodFuncionario(id);
             dao.update(funcionario);
-            
+
             Permissao p = new Permissao();
             try {
-
-                long id = dao2.buscarId();
 
                 p.setUsuario(usuario);
                 p.setSenha(senhagerada);
                 p.setCod_funcionario(id);
+                p.setCod_permissao(dao2.buscarIdPermissao(id));
 
                 dao2.update(p);
                 request.setAttribute("msgm", "sucesso");
             } catch (SQLException ex) {
+
             }
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarFuncionario.jsp");
