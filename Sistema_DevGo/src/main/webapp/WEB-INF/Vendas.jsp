@@ -102,7 +102,7 @@
                         </select></p>
 
                     <p><label for="Aluno">Quantidade de Alunos:</label>
-                        <input required="required" type="text" name="QTDE_ALUNO" id="Aluno" maxlength="2" onkeypress="return somenteNumero(event)"/></p>
+                        <input required="required" pattern="[0-9]+" type="text" name="QTDE_ALUNO" id="Aluno" maxlength="2" onkeypress="return somenteNumero(event)"/></p>
 
 
                     <p>
