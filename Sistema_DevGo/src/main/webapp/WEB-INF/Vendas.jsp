@@ -72,11 +72,11 @@
                 <h4>Dados</h4>
                 <div id="topo">
                     <p><label for="id">Registro do cliente</label>
-                        <input required="required" type="text" name="Id" maxlength="35" id="id" size="10" value="<%= cliente.getCodCliente()%>" </p>    
+                        <input required="required" type="text" name="Id" maxlength="35" id="id" size="10" value="<%= cliente.getCodCliente()%>" readonly="readonly" </p>    
                     <p><label title="Apenas numeros." for="CNPJ">CNPJ:</label>
-                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" value="<%= cliente.getCNPJ()%>" /></p>
+                        <input type="text" name="CNPJ" maxlength="14" id="CNPJ" size="55" onkeypress="return somenteNumero(event)" value="<%= cliente.getCNPJ()%>" readonly="readonly"/></p>
                     <p><label for="Razao">Razao Social:</label>
-                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" </p>    
+                        <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" readonly="readonly"</p>    
 
                     <p><select name="opcaoPlano">
                             <option>Selecione o Plano...</option>
@@ -102,7 +102,7 @@
                         </select></p>
 
                     <p><label for="Aluno">Quantidade de Alunos:</label>
-                        <input required="required" type="number" name="QTDE_ALUNO" id="Aluno" /></p>
+                        <input required="required" type="text" name="QTDE_ALUNO" id="Aluno" maxlength="2" onkeypress="return somenteNumero(event)"/></p>
 
 
                     <p>
