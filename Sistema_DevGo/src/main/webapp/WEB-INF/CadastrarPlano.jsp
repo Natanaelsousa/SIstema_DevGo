@@ -38,7 +38,7 @@
                             <a href="CadastroFuncionario">Funcionario</a>
                         </div>
                     </li>
-                    <li><a href="CadastroProduto">Produtos e Serviços</a><li>
+                    <li id="prod"><a href="CadastroProduto">Produtos e Serviços</a><li>
                     <li><a href="RelatorioCliente">Relatorios</a></li>
                     <li><a href="BuscaCNPJvenda">Vendas</a></li>
                 </ul>

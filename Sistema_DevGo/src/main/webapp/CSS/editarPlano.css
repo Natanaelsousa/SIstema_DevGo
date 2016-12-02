@@ -39,12 +39,12 @@ header ul li a:hover, .dropdown:hover .dropbtn{
 header ul li.dropdown{
     display: inline-block;
 }
-header ul li:nth-child(2) a{
+#prod a{
     border-bottom: 2px solid hsla(0, 100%, 50%, .9);
 }
 #mensagem {
     position: absolute;
-    top: 205px;
+    top: 198px;
     left: 450px;
 }
 #mensagem #erro{

@@ -47,8 +47,9 @@
         </aside>
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
-        <input type="hidden" id="act" value="" />
-        <input type="hidden" id="req" value="" />
+        <input type="hidden" id="act" value="encontrado" />
+        <input type="hidden" id="req" value="Cliente" />
+        <div id="mensagem"></div>
         <c:url value="BuscaCNPJvenda" var="Venda"/>
         <form action="${Venda}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">

@@ -91,6 +91,14 @@ public class EditarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        HttpSession sessao = httpRequest.getSession(false);
+
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
         
         String serv = "/WEB-INF/sucesso-produto-editado.jsp";
        
@@ -113,8 +121,11 @@ public class EditarProduto extends HttpServlet {
   
         try {
             dao.editar(livro);
+            request.setAttribute("departamento", usuario.getDepartamento());
             request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
+            request.setAttribute("departamento", usuario.getDepartamento());
+            request.setAttribute("msgm", "erro");
         }
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarProduto.jsp");

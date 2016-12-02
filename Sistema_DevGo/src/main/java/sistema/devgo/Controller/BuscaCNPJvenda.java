@@ -89,6 +89,15 @@ public class BuscaCNPJvenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        HttpSession sessao = httpRequest.getSession(false);
+
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
+        request.setAttribute("departamento", usuario.getDepartamento());
         String serv = "/WEB-INF/Vendas.jsp";
 
         Cliente cliente = new Cliente();
@@ -108,7 +117,9 @@ public class BuscaCNPJvenda extends HttpServlet {
 
         if (cliente.getBairro() == null) {
 
-            serv = "/WEB-INF/erro-cliente-nao-encontrado.jsp";
+            request.setAttribute("departamento", usuario.getDepartamento());
+            request.setAttribute("msgm", "erro");
+            serv = "/WEB-INF/buscaCNPJvenda.jsp";
 
         }
 

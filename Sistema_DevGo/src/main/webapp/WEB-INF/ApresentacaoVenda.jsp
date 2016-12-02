@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="CSS/ApresentacaoVenda.css" type="text/css" />
         <c:url value="CSS/ApresentacaoVenda.css" var="ApresentacaoVenda."/>
         <link type="text/css" rel="stylesheet" href="${Vendas}"/>
+        <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vendas efetudas</title>
     </head>

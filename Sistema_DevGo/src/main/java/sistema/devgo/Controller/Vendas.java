@@ -85,6 +85,16 @@ public class Vendas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        HttpSession sessao = httpRequest.getSession(false);
+
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
+
+        request.setAttribute("departamento", usuario.getDepartamento());
         PlanoDAO planodao = new PlanoDAO();
         LivroDAO livrodao = new LivroDAO();
 
@@ -123,12 +133,14 @@ public class Vendas extends HttpServlet {
 
         try {
             dao.insert(venda);
-            request.setAttribute("msgm", "sucesso");
             //RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
             //dispatcher.forward(request, response);
+            request.setAttribute("departamento", usuario.getDepartamento());
             response.sendRedirect("ApresentacaoVenda");
         } catch (SQLException ex) {
+            request.setAttribute("departamento", usuario.getDepartamento());
             request.setAttribute("msgm", "erro");
+            response.sendRedirect("ApresentacaoVenda");
         }
         response.setContentType("text/html;charset=UTF-8");
 

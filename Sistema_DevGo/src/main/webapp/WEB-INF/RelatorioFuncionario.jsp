@@ -23,7 +23,7 @@
                 <h3><a href="#">Sair</a></h3>
             </div>
             <div class="bar">
-                <ul>
+                <ul id="menu">
                     <li class="dropdown">
                         <a href="#" class="btn">Cadastros</a>
                         <div class="dropdown-content">
@@ -32,7 +32,7 @@
                         </div>
                     </li>
                     <li><a href="CadastroProduto">Produtos e Serviços</a><li>
-                    <li><a href="RelatorioCliente">Relatorios</a></li>
+                    <li id="relatorio"><a href="RelatorioCliente">Relatorios</a></li>
                     <li><a href="BuscaCNPJvenda">Vendas</a></li>
                 </ul>
             </div>

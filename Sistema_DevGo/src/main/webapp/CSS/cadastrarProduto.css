@@ -39,8 +39,29 @@ header ul li a:hover, .dropdown:hover .dropbtn{
 header ul li.dropdown{
 	display: inline-block;
 }
-header ul li:nth-child(2) a{
-	border-bottom: 2px solid hsla(0, 100%, 50%, .9);
+#prod a{
+    border-bottom: 2px solid hsla(0, 100%, 50%, .9);
+}
+#mensagem {
+    position: absolute;
+    top: 210px;
+    left: 450px;
+}
+#mensagem #erro{
+    background: red;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
+#mensagem #sucesso{
+    background: green;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
 }
 .logo{
     text-align: center;
@@ -76,27 +97,6 @@ header ul li:nth-child(2) a{
 }
 .dropdown:hover .dropdown-content{
 	display: block
-}
-#mensagem {
-    position: absolute;
-    top: 210px;
-    left: 450px;
-}
-#mensagem #erro{
-    background: red;
-    font-size: 18px;
-    color: white;
-    border: none;
-    width: 700px;
-    text-align: center;
-}
-#mensagem #sucesso{
-    background: green;
-    font-size: 18px;
-    color: white;
-    border: none;
-    width: 700px;
-    text-align: center;
 }
 aside{
 	position: absolute;

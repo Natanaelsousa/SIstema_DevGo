@@ -61,6 +61,14 @@ public class CadastroPlano extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        HttpSession sessao = httpRequest.getSession(false);
+
+        Object objSessao = sessao.getAttribute("user");
+        UsuarioSistema usuario = (UsuarioSistema) objSessao;
+        usuario.getDepartamento();
         
          String serv = "/WEB-INF/sucesso-plano-cadastrado.jsp";
          
@@ -80,10 +88,12 @@ public class CadastroPlano extends HttpServlet {
          PlanoDAO dao = new PlanoDAO ();
          try {
             dao.insert(plano);
+            request.setAttribute("departamento", usuario.getDepartamento());
             request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {            
+            request.setAttribute("departamento", usuario.getDepartamento());
+            request.setAttribute("msgm", "erro");
         }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarPlano.jsp");
         dispatcher.forward(request, response);
 
