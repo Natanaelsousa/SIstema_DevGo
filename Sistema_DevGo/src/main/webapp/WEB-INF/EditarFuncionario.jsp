@@ -71,6 +71,7 @@
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
+                    
                     <p><label title="Apenas numeros." for="CPF">CPF:</label>
                         <input required="required" type="text" name="CPF" maxlength="11" id="CPF" size="35"  onkeypress="return somenteNumero(event)" value="<%= funcionario.getCpf()%>" readonly="readonly"/>
                     <p><label title="Letras de A a Z." for="Nome">Nome:</label>
