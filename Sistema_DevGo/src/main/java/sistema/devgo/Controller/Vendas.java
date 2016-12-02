@@ -124,8 +124,9 @@ public class Vendas extends HttpServlet {
         try {
             dao.insert(venda);
             request.setAttribute("msgm", "sucesso");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
-            dispatcher.forward(request, response);
+            //RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
+            //dispatcher.forward(request, response);
+            response.sendRedirect("ApresentacaoVenda");
         } catch (SQLException ex) {
             request.setAttribute("msgm", "erro");
         }
