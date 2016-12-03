@@ -29,7 +29,7 @@
             String opcaoPlano = (String) request.getAttribute("opcaoPlano");
             long livroOpcao = Long.parseLong(opcaoPlano);
             Plano plano = dao.trasPlano(livroOpcao);
-   
+            String cod = plano.getNomePlano();
                    
         %>
     <body>
@@ -81,7 +81,7 @@
                         <option>Selecione o Periodo...</option>
                         <%
                             PeriodoDAO daoPeriodo = new PeriodoDAO();
-                            List<Periodo> period = daoPeriodo.findPeriodo();
+                            List<Periodo> period = daoPeriodo.buscaPeriodosDoPlanoCadastrado(plano.getNomePlano());
                             for (Periodo periodos : period) {
                         %>
                         <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
