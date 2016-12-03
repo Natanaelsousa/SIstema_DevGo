@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import sistema.devgo.java.Cliente;
 import sistema.devgo.java.Livro;
 
 /**
@@ -26,11 +25,11 @@ public class LivroDAO extends GenericaDAO {
     }
 
     public void editar(Livro livro) throws SQLException {
-
+     long teste = livro.getCod_idioma();
         String sql = "UPDATE LV_IDIOMA "
-                + "SET PRECO = ?, QTDE_ATUAL = ?  WHERE TIPO_IDIOMA = ?";
+                + "SET PRECO = ?, TIPO_IDIOMA = ?, QTDE_ATUAL = ?  WHERE COD_IDIOMA = ?";
 
-        update(sql ,livro.getIdioma(),livro.getPreco(), livro.getQuantidade());
+        update(sql , livro.getCod_idioma(), livro.getPreco(),livro.getIdioma(),livro.getQuantidade());
 
     }
 
@@ -47,7 +46,6 @@ public class LivroDAO extends GenericaDAO {
         while (rs.next()) {
             livros=new Livro();            
             livros.setCod_idioma(rs.getInt("COD_IDIOMA"));
-            
             livros.setIdioma(rs.getString("TIPO_IDIOMA"));
             livros.setPreco(rs.getDouble("PRECO"));
             livros.setQuantidade(rs.getInt("QTDE_ATUAL"));
