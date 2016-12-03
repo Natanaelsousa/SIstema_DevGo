@@ -18,6 +18,11 @@ public class Venda {
     private int quantidadeAluno;
     private double valorVenda;
     private Timestamp data_venda;
+    
+    private String plano;
+    private String razao;
+    private String idioma;
+
 
     public Venda() {
 
@@ -37,12 +42,24 @@ public class Venda {
 
     public Venda(long codPlano,long codIdioma, long codCliente, long codFuncionario, int quantidadeAluno, double valorVenda, Date dataVenda) {
         this.codPlano = codPlano;
-         this.codIdioma=codIdioma;
+        this.codIdioma=codIdioma;
         this.codCliente = codCliente;
         this.codFuncionario = codFuncionario;
         this.quantidadeAluno = quantidadeAluno;
         this.valorVenda = valorVenda;
        
+
+    }
+    
+    public Venda(int quantidadeAluno, double valorVenda, Date dataVenda,String plano, String razao,String idioma) {
+       
+        this.razao = razao;
+        this.plano = plano;
+        this.idioma = idioma;
+        this.quantidadeAluno = quantidadeAluno;
+        this.valorVenda = valorVenda;
+        this.data_venda = (Timestamp) dataVenda;
+   
 
     }
 
@@ -89,6 +106,20 @@ public class Venda {
     }
 
     /**
+     * @return the codIdioma
+     */
+    public long getCodIdioma() {
+        return codIdioma;
+    }
+
+    /**
+     * @param codIdioma the codIdioma to set
+     */
+    public void setCodIdioma(long codIdioma) {
+        this.codIdioma = codIdioma;
+    }
+
+    /**
      * @return the codFuncionario
      */
     public long getCodFuncionario() {
@@ -130,21 +161,62 @@ public class Venda {
         this.valorVenda = valorVenda;
     }
 
-    public long getCodIdioma() {
-        return codIdioma;
-    }
-
-    public void setCodIdioma(long codIdioma) {
-        this.codIdioma = codIdioma;
-    }
-
+    /**
+     * @return the data_venda
+     */
     public Timestamp getData_venda() {
         return data_venda;
     }
 
+    /**
+     * @param data_venda the data_venda to set
+     */
     public void setData_venda(Timestamp data_venda) {
         this.data_venda = data_venda;
     }
-    
+
+    /**
+     * @return the plano
+     */
+    public String getPlano() {
+        return plano;
+    }
+
+    /**
+     * @param plano the plano to set
+     */
+    public void setPlano(String plano) {
+        this.plano = plano;
+    }
+
+    /**
+     * @return the razao
+     */
+    public String getRazao() {
+        return razao;
+    }
+
+    /**
+     * @param razao the razao to set
+     */
+    public void setRazao(String razao) {
+        this.razao = razao;
+    }
+
+    /**
+     * @return the idioma
+     */
+    public String getIdioma() {
+        return idioma;
+    }
+
+    /**
+     * @param idioma the idioma to set
+     */
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+   
 
 }

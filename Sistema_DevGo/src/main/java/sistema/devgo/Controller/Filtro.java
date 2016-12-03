@@ -26,7 +26,7 @@ import sistema.devgo.java.UsuarioSistema;
 @WebFilter(filterName = "filtro",
         servletNames = {"BuscaPlano,BuscarCliente", "BuscarFuncionario", "CadastroCliente",/* "CadastroFuncionario",*/
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "BuscaProduto","EditaProduto",
-            "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas", "ApresentacaoVenda"},
+            "Relatorio", "RelatorioCliente", "RelatorioFuncionario","RelatorioVenda", "Vendas", "ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
 public class Filtro implements Filter {
 
@@ -162,6 +162,11 @@ public class Filtro implements Filter {
         } else if (pagina.endsWith("RelatorioFuncionario")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
                 || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+            return true;
+            
+            } else if (pagina.endsWith("RelatorioVenda")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))){
             return true;
 
         } else if (pagina.endsWith("ApresentacaoVenda")

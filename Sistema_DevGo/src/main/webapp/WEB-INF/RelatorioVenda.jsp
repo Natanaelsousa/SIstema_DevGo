@@ -1,18 +1,18 @@
-<%@page import="sistema.devgo.java.Funcionario"%>
-<%@page import="sistema.devgo.Model.dao.FuncionarioDAO"%>
+<%@page import="sistema.devgo.java.Venda"%>
+<%@page import="sistema.devgo.Model.dao.VendaDAO"%>
+
 <!DOCTYPE html> 
-<%@ page import="sistema.devgo.java.Cliente" %>
-<%@ page import="sistema.devgo.Model.dao.ClienteDAO" %>
+<a href="RelatorioVenda.jsp"></a>
 <%@ page import="java.util.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="CSS/listaFuncionarios.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/listaVendas.css" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
-        <title>Clientes Cadastrados</title>
+        <title>Vendas Realizadas</title>
     </head>
     <body>
         <header>
@@ -44,37 +44,37 @@
         <aside>
             <ul>
                 <li><a href="RelatorioCliente">Listar Clientes</a></li>
-                <li><a href="#">Listar Funcionários</a></li>
-                <li><a href="RelatorioVenda">Listar Vendas</a></li>
+                <li><a href="RelatorioFuncionario">Listar Funcionário</a></li>
+                <li><a href="#">Listar Vendas</a></li>
             </ul>
         </aside>
         <%
-            FuncionarioDAO dao = new FuncionarioDAO();
-            List<Funcionario> userList = dao.findFuncionarioDep();
-            Iterator<Funcionario> itr = userList.iterator();
-            Funcionario utilisateur = null;
+            VendaDAO dao = new VendaDAO();
+            List<Venda> userList = dao.findVendaRelatorio();
+            Iterator<Venda> itr = userList.iterator();
+            Venda utilisateur = null;
         %>
         <form>
             <table id="exTable" class="table">
                 <tr>
-                    <th>CPF</th>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Telefone</th>
-                    <th>Status</th>
-                    <th>Departamento</th>
+                    <th>Razão</th>
+                    <th>Plano</th>
+                    <th>Idioma</th>
+                    <th>Qtde Alunos</th>
+                    <th>Valor</th>
+                    <th>Data</th>
                 </tr>
                 <tr>
                     <%
                         while (itr.hasNext()) {
                             utilisateur = itr.next();
                     %>
-                    <td><%= utilisateur.getCpf()%></td>
-                    <td><%= utilisateur.getNome()%></td>
-                    <td><%= utilisateur.getSobrenome()%></td>
-                    <td><%= utilisateur.getTelefone()%></td>
-                    <td><%= utilisateur.getStatus()%></td>
-                    <td><%= utilisateur.getDepartamento()%></td>
+                    <td><%= utilisateur.getRazao()%></td>
+                    <td><%= utilisateur.getPlano()%></td>
+                    <td><%= utilisateur.getIdioma()%></td>
+                    <td><%= utilisateur.getQuantidadeAluno()%></td>
+                    <td><%= utilisateur.getValorVenda()%></td>
+                    <td><%= utilisateur.getData_venda()%></td>
 
                 </tr>
                 <%

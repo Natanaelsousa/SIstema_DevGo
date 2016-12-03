@@ -77,5 +77,39 @@ public class VendaDAO extends GenericaDAO {
 
         return vendas;
     }
+    
+    
+    public List<Venda> findVendaRelatorio() throws SQLException {
+        List<Venda> vendas = new ArrayList<Venda>();
+
+        String sql = "SELECT c.RAZAO_SOCIAL,p.NM_PLANO,l.TIPO_IDIOMA,a.QTDE_ALUNO,a.VALOR_VENDA,a.DATA_VENDA FROM venda a \n" +
+                     "INNER JOIN plano p ON (a.COD_PLANO =p.COD_PLANO)\n" +
+                     "INNER JOIN cliente c ON (a.COD_CLIENTE =c.COD_CLIENTE)\n" +
+                     "INNER JOIN lv_idioma l ON (a.COD_IDIOMA =l.COD_IDIOMA)";
+
+        PreparedStatement stmt
+                = getConnection().prepareStatement(sql);
+
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Venda venda = new Venda();
+            
+            
+            venda.setRazao(rs.getString("RAZAO_SOCIAL"));
+            venda.setPlano(rs.getString("NM_PLANO"));
+            venda.setIdioma(rs.getString("TIPO_IDIOMA"));
+            venda.setQuantidadeAluno(rs.getInt("QTDE_ALUNO"));
+            venda.setValorVenda(rs.getDouble("VALOR_VENDA"));
+            venda.setData_venda(rs.getTimestamp("DATA_VENDA"));
+
+            vendas.add(venda);
+        }
+
+        rs.close();
+        stmt.close();
+
+        return vendas;
+    }
 
 }
