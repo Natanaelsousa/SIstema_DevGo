@@ -54,6 +54,30 @@ public class PeriodoDAO extends GenericaDAO{
 
         return periodos;
     }
+        public List<Periodo> buscaPeriodosDoPlanoCadastrado(String nmPlano) throws SQLException {
+        List<Periodo> periodos = new ArrayList <Periodo>();
+
+        String sql = "SELECT * FROM PLANO a INNER JOIN PERIODO b ON (a.COD_PERIODO = b.COD_PERIODO) WHERE NM_PLANO= '"+ nmPlano+"'";
+
+        PreparedStatement stmt = 
+			getConnection().prepareStatement(sql);
+			
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Periodo periodo = new Periodo();
+            periodo.setCod_periodo(rs.getLong("COD_PERIODO"));
+            periodo.setNm_periodo(rs.getString("NM_PERIODO"));
+         
+                    
+            periodos.add(periodo);
+        }
+
+        rs.close();
+        stmt.close();
+
+        return periodos;
+    }
     
       public Periodo findByName(String nm_periodo) throws SQLException {
         String sql = "SELECT * FROM periodo WHERE nm_periodo = ?";
