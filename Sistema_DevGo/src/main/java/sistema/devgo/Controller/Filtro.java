@@ -6,16 +6,7 @@
 package sistema.devgo.Controller;
 
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.sql.SQLException;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -24,11 +15,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
 import javax.servlet.http.HttpSession;
-import sistema.devgo.Model.dao.PermissaoDAO;
 import sistema.devgo.java.UsuarioSistema;
 
 /**
@@ -36,7 +24,7 @@ import sistema.devgo.java.UsuarioSistema;
  * @author natanael.ssousa
  */
 @WebFilter(filterName = "filtro",
-        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente",/* "CadastroFuncionario",*/
+        servletNames = {"BuscaPlano,BuscarCliente", "BuscarFuncionario", "CadastroCliente",/* "CadastroFuncionario",*/
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "BuscaProduto","EditaProduto",
             "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas", "ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
@@ -179,6 +167,15 @@ public class Filtro implements Filter {
         } else if (pagina.endsWith("ApresentacaoVenda")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
                 || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+            return true;
+        } else if (pagina.endsWith("BuscaProduto")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
+            return true;
+
+        }else if (pagina.endsWith("BuscaPlano")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
         }
