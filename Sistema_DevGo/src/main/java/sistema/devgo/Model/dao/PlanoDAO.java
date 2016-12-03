@@ -40,7 +40,6 @@ public class PlanoDAO extends GenericaDAO {
             planos = new Plano();
 
             planos.setCod_plano(rs.getLong("cod_plano"));
-
             planos.setNomePlano(rs.getString("nm_plano"));
             planos.setPreco(rs.getDouble("preco"));
             planos.setCod_Periodo(rs.getLong("cod_periodo"));
