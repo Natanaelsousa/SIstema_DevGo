@@ -13,13 +13,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-        <title>Cadastros</title>
+        <title>Edicao de produto</title>
         <link type="text/css" rel="stylesheet" href="Editar Produto.css" />
-        <c:url value="CSS/editarProduto.css" var="EditarProduto"/>
+        <c:url value="CSS/editarProduto.css" var="EditaProduto"/>
 
-        <link type="text/css" rel="stylesheet" href="${EditarProduto}"/>
+        <link type="text/css" rel="stylesheet" href="${EditaProduto}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
-    </head>
+    </head
+    <%
+            LivroDAO dao = new LivroDAO();
+            
+            String opcaoLivro = (String) request.getAttribute("opcaoLivro");
+            
+           
+            Livro livro = dao.findBylivro(opcaoLivro);
+            
+                   
+        %>
+
+    
     <body>
         <header>
             <div class="logo">
@@ -48,7 +60,7 @@
             <ul>
                 <li><a href="CadastroProduto">Cadastrar Produto</a></li>
                 <li><a href="CadastroPlano">Cadastrar Plano</a></li>
-                <li><a href="#">Editar Produto</a></li>
+                <li id="editarProduto"><a href="#">Editar Produto</a></li>
                 <li><a href="EditarPlano">Editar Plano</a></li>
             </ul>
         </aside>
@@ -56,25 +68,17 @@
         <input type="hidden" id="act" value="editado" />
         <input type="hidden" id="req" value="Produto" />
         <div id="mensagem"></div>
-      <c:url value="EditarProduto" var="EditarProduto"/>
-      <form action="${EditarProduto}" method="post" enctype="application/x-www-form-urlencoded">
+      <c:url value="EditaProduto" var="EditaProduto"/>
+      <form action="${EditaProduto}" method="post" enctype="application/x-www-form-urlencoded">
                 <fieldset id="dados">
                     <h4>Serviço</h4>
                     <div id="topo">
-                        <p><select name="opcaoLivro">
-                                <option>Selecione o Livro...</option>
-                                <%
-                                    LivroDAO dao = new LivroDAO();
-                                    List<Livro> livros = dao.findLivro();
-                                    for (Livro livro : livros) {
-                                %>
-                                <option value="<%=livro.getCod_idioma()%>"><%=livro.getIdioma()%></option>
-                                <%}%>
-                            </select></p> 
+                        <p><label for="opcaoIdioma">Nome do produto:</label>
+                            <input required="required" type="text" name="opcaoIdioma" maxlength="35" id="opcaoIdioma" size="52"  value="<%= livro.getIdioma()%>" /></p>
                         <p><label for="Preço">Preço:</label>
-                            <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)"/></p>
+                            <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)" value="<%= livro.getPreco()%>" /></p>
                         <p><label for="Quantidade">Quantidade:</label>
-                            <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)"/></p>
+                            <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)" value="<%= livro.getQuantidade()%>"/></p>
                     </div>
                 </fieldset>
                 <div class="botoes">

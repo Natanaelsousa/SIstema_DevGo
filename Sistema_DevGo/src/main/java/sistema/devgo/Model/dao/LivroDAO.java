@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import sistema.devgo.java.Cliente;
 import sistema.devgo.java.Livro;
 
 /**
@@ -27,9 +28,9 @@ public class LivroDAO extends GenericaDAO {
     public void editar(Livro livro) throws SQLException {
 
         String sql = "UPDATE LV_IDIOMA "
-                + "SET PRECO = ?, QTDE_ATUAL = ?  WHERE COD_IDIOMA = ?";
+                + "SET PRECO = ?, QTDE_ATUAL = ?  WHERE TIPO_IDIOMA = ?";
 
-        update(sql ,livro.getCod_idioma(),livro.getPreco(), livro.getQuantidade());
+        update(sql ,livro.getIdioma(),livro.getPreco(), livro.getQuantidade());
 
     }
 
@@ -91,7 +92,7 @@ public class LivroDAO extends GenericaDAO {
         PreparedStatement stmt
                 = getConnection().prepareStatement(sql);
 
-        stmt.setString(1, xx);// ???
+        stmt.setString(1, xx);
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
@@ -100,6 +101,31 @@ public class LivroDAO extends GenericaDAO {
             livro.setPreco(rs.getDouble("PRECO"));
             livro.setQuantidade(rs.getInt("QTDE_ATUAL"));
 
+        }
+
+        rs.close();
+        stmt.close();
+        return livro;
+    }
+    
+    
+    public Livro findBylivro(String livronome) throws SQLException {
+
+        String sql = "SELECT * FROM LV_IDIOMA WHERE TIPO_IDIOMA = ?";
+
+        Livro livro = new Livro();
+
+        PreparedStatement stmt
+                = getConnection().prepareStatement(sql);
+
+        stmt.setString(1, livronome);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            livro.setCod_idioma(rs.getInt("COD_IDIOMA"));
+            livro.setIdioma(rs.getString("TIPO_IDIOMA"));
+            livro.setPreco(rs.getDouble("PRECO"));
+            livro.setQuantidade(rs.getInt("QTDE_ATUAL"));
         }
 
         rs.close();

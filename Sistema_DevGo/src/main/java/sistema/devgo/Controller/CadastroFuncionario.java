@@ -67,7 +67,7 @@ public class CadastroFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        /*HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         
         HttpSession sessao = httpRequest.getSession(false);
@@ -76,7 +76,7 @@ public class CadastroFuncionario extends HttpServlet {
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
         
-        request.setAttribute("departamento", usuario.getDepartamento());
+        request.setAttribute("departamento", usuario.getDepartamento()); */
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
         dispatcher.forward(request, response);

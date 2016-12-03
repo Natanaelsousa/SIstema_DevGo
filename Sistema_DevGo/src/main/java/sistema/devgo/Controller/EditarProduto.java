@@ -25,7 +25,7 @@ import sistema.devgo.java.UsuarioSistema;
  *
  * @author Natanael
  */
-@WebServlet(name = "EditarProduto", urlPatterns = {"/EditarProduto"})
+@WebServlet(name = "EditaProduto", urlPatterns = {"/EditaProduto"})
 public class EditarProduto extends HttpServlet {
 
     /**
@@ -45,7 +45,7 @@ public class EditarProduto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditarProduto</title>");            
+            out.println("<title>Servlet EditarProduto</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet EditarProduto at " + request.getContextPath() + "</h1>");
@@ -68,13 +68,13 @@ public class EditarProduto extends HttpServlet {
             throws ServletException, IOException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        
+
         HttpSession sessao = httpRequest.getSession(false);
-        
+
         Object objSessao = sessao.getAttribute("user");
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
-        
+
         request.setAttribute("departamento", usuario.getDepartamento());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarProduto.jsp");
         dispatcher.forward(request, response);
@@ -99,26 +99,23 @@ public class EditarProduto extends HttpServlet {
         Object objSessao = sessao.getAttribute("user");
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
-        
+
         String serv = "/WEB-INF/sucesso-produto-editado.jsp";
-       
-        String cod_idioma = request.getParameter("opcaoLivro");
+
         String preco = request.getParameter("Preco");
         String quantidade = request.getParameter("Quantidade");
-        String nome=request.getParameter("opcaoLivro");
+        String opcaoLivro = request.getParameter("opcaoLivro");
         double preco1 = Double.parseDouble(preco);
         int quantidade1 = Integer.parseInt(quantidade);
-        int cod_idioma1 = Integer.parseInt(cod_idioma);
-        
+
         Livro livro = new Livro();
 
-        livro.setCod_idioma(cod_idioma1);
+        livro.setIdioma(opcaoLivro);
         livro.setPreco(preco1);
         livro.setQuantidade(quantidade1);
-        livro.setIdioma(nome);
+
         LivroDAO dao = new LivroDAO();
-        
-  
+
         try {
             dao.editar(livro);
             request.setAttribute("departamento", usuario.getDepartamento());
@@ -127,11 +124,12 @@ public class EditarProduto extends HttpServlet {
             request.setAttribute("departamento", usuario.getDepartamento());
             request.setAttribute("msgm", "erro");
         }
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarProduto.jsp");
         dispatcher.forward(request, response);
-    
+
     }
+
     /**
      * Returns a short description of the servlet.
      *

@@ -36,8 +36,8 @@ import sistema.devgo.java.UsuarioSistema;
  * @author natanael.ssousa
  */
 @WebFilter(filterName = "filtro",
-        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente", "CadastroFuncionario",
-            "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "EditarProduto",
+        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente",/* "CadastroFuncionario",*/
+            "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "BuscaProduto","EditaProduto",
             "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas", "ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
 public class Filtro implements Filter {
@@ -126,10 +126,10 @@ public class Filtro implements Filter {
         } else if (pagina.endsWith("CadastroCliente")
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
-        } else if (pagina.endsWith("CadastroFuncionario")
+        }/* else if (pagina.endsWith("CadastroFuncionario")
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
-        } else if (pagina.endsWith("CadastroPlano")
+        } */else if (pagina.endsWith("CadastroPlano")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
                 || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
@@ -151,6 +151,12 @@ public class Filtro implements Filter {
             return true;
 
         } else if (pagina.endsWith("EditarProduto")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
+            return true;
+
+        } 
+        else if (pagina.endsWith("EditaProduto")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
                 || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
