@@ -77,8 +77,7 @@
                             <input required="required" type="text" name="codigo" maxlength="35" id="codigo" size="52" readonly="true" value="<%= plano.getCod_plano()%>" /></p>
                         <p><label for="nomePlano">Nome do Plano:</label>
                             <input required="required" type="text" name="nomePlano" maxlength="35" id="nomePlano" size="52"  value="<%= plano.getNomePlano()%>" /></p>
-                                <p><select name="opcaoPeriodo">
-                        <option>Selecione o Periodo...</option>
+                                <p><label for="Periodo">Periodo:</label><select name="opcaoPeriodo">
                         <%
                             PeriodoDAO daoPeriodo = new PeriodoDAO();
                             List<Periodo> period = daoPeriodo.buscaPeriodosDoPlanoCadastrado(plano.getNomePlano());
