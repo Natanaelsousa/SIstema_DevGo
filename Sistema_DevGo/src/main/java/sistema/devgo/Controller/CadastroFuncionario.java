@@ -67,7 +67,7 @@ public class CadastroFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*HttpServletRequest httpRequest = (HttpServletRequest) request;
+       HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         
         HttpSession sessao = httpRequest.getSession(false);
@@ -76,7 +76,7 @@ public class CadastroFuncionario extends HttpServlet {
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
         
-        request.setAttribute("departamento", usuario.getDepartamento()); */
+        request.setAttribute("departamento", usuario.getDepartamento());
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
         dispatcher.forward(request, response);
@@ -133,8 +133,7 @@ public class CadastroFuncionario extends HttpServlet {
 
         FuncionarioDAO dao = new FuncionarioDAO();
         try {
-            dao.insert(funcionario);
-            request.setAttribute("msgm", "sucesso");        
+            dao.insert(funcionario);      
             Permissao p = new Permissao();
         try{
       
@@ -145,8 +144,9 @@ public class CadastroFuncionario extends HttpServlet {
               p.setCod_funcionario(id);
            
             dao2.insert(p);
-              request.setAttribute("msgm", "sucesso"); 
-            
+           request.setAttribute("msgm", "sucesso"); 
+           RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
+      dispatcher.forward(request, response);      
         } catch (SQLException ex) {
             request.setAttribute("msgm", "erro");
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,14 +155,12 @@ public class CadastroFuncionario extends HttpServlet {
             request.setAttribute("msgm", "erro");
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-         RequestDispatcher dispatcher = request.getRequestDispatcher("");
-      dispatcher.forward(request, response);
-      
+        
     }else{
             request.setAttribute("msgm", "erro");
-          RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
-      dispatcher.forward(request, response);    
+          response.setContentType("text/html;charset=UTF-8");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
+        dispatcher.forward(request, response);
         }
     }
 
