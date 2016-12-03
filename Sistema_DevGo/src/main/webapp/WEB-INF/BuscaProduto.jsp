@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-        <title>Buscar Cliente</title>
+        <title>Buscar Produto</title>
         <c:url value="CSS/buscaProduto.css" var="EditarProduto"/>
         <link type="text/css" rel="stylesheet" href="${EditarProduto}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
@@ -48,7 +48,7 @@
                 <li><a href="CadastroProduto">Cadastrar Produto</a></li>
                 <li><a href="CadastroPlano">Cadastrar Plano</a></li>
                 <li><a href="#">Editar Produto</a></li>
-                <li><a href="EditarPlano">Editar Plano</a></li>
+                <li><a href="BuscaPlano">Editar Plano</a></li>
             </ul>
         </aside>
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
@@ -57,7 +57,7 @@
         <input type="hidden" id="req" value="Produto" />
         <div id="mensagem"></div>
         <c:url value="BuscaProduto" var="BuscaProduto"/>
-        <form action="${EditarPlano}" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="${BuscaProduto}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
