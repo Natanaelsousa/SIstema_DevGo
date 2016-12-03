@@ -43,8 +43,8 @@
             <ul>
                 <li><a href="#">Cadastrar Produto</a></li>
                 <li><a href="CadastroPlano">Cadastrar Plano</a></li>
-                <li><a href="EditarProduto">Editar Produto</a></li>
-                <li><a href="EditarPlano">Editar Plano</a></li>
+                <li><a href="BuscaProduto">Editar Produto</a></li>
+                <li><a href="BuscaPlano">Editar Plano</a></li>
             </ul>
         </aside>
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
