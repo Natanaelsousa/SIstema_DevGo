@@ -8,8 +8,6 @@ package sistema.devgo.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -100,11 +98,10 @@ public class EditarProduto extends HttpServlet {
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
 
-        String serv = "/WEB-INF/sucesso-produto-editado.jsp";
-
         String preco = request.getParameter("Preco");
         String quantidade = request.getParameter("Quantidade");
-        String opcaoLivro = request.getParameter("opcaoLivro");
+        String opcaoLivro = request.getParameter("opcaoIdioma");
+        int  codigo = Integer.parseInt(request.getParameter("codigo"));
         double preco1 = Double.parseDouble(preco);
         int quantidade1 = Integer.parseInt(quantidade);
 
@@ -113,6 +110,7 @@ public class EditarProduto extends HttpServlet {
         livro.setIdioma(opcaoLivro);
         livro.setPreco(preco1);
         livro.setQuantidade(quantidade1);
+        livro.setCod_idioma(codigo);
 
         LivroDAO dao = new LivroDAO();
 
@@ -125,7 +123,7 @@ public class EditarProduto extends HttpServlet {
             request.setAttribute("msgm", "erro");
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarProduto.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscaProduto.jsp");
         dispatcher.forward(request, response);
 
     }
