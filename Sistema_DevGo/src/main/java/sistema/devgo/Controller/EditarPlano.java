@@ -103,24 +103,22 @@ public class EditarPlano extends HttpServlet {
         
         // Guardando dados vindos da tela nas variaveis
         
-        String nomePlano = request.getParameter("opcaoPlano");
+        String nomePlano = request.getParameter("nomePlano");
         long periodo = Long.parseLong(request.getParameter("opcaoPeriodo"));
-        
         double preco = Double.parseDouble(request.getParameter("Preco")); 
-        String codigoPlano = request.getParameter("opcaoPlano");
+        String codigoPlano = request.getParameter("codigo");
         long codPlano = Long.parseLong(codigoPlano);
         
         Plano plano= new Plano();
         plano.setNomePlano(nomePlano);
         plano.setCod_Periodo(periodo);
-     
         plano.setCod_plano(codPlano);
         plano.setPreco(preco);
        
         
          PlanoDAO dao = new PlanoDAO ();
          try {
-            dao.insert(plano);
+            dao.update(plano);
             request.setAttribute("departamento", usuario.getDepartamento());
             request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {      
@@ -128,7 +126,7 @@ public class EditarPlano extends HttpServlet {
             request.setAttribute("msgm", "erro");
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/EditarPlano.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscaPlano.jsp");
         dispatcher.forward(request, response);
 
    
