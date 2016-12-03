@@ -64,8 +64,8 @@
                 <div id="topo">
                     <p><label for="Plano">Plano:</label>
                         <input required="required" type="text" name="Plano" maxlength="35" id="Plano" size="52"/></p>
-                    <p><select name="opcao">
-                            <option>Selecione o Periodo...</option>
+                    
+                    <p><label for="Periodo">Periodo:</label><select name="opcao">
                             <%
                                 PeriodoDAO dao = new PeriodoDAO();
                                 List<Periodo> period = dao.findPeriodo();
