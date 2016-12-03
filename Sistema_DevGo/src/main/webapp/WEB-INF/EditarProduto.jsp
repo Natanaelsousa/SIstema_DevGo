@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-        <title>Edicao de produto</title>
+        <title>Editar produto</title>
         <link type="text/css" rel="stylesheet" href="Editar Produto.css" />
         <c:url value="CSS/editarProduto.css" var="EditaProduto"/>
 
@@ -24,10 +24,9 @@
             LivroDAO dao = new LivroDAO();
             
             String opcaoLivro = (String) request.getAttribute("opcaoLivro");
-            
-           
-            Livro livro = dao.findBylivro(opcaoLivro);
-            
+            long livroOpcao = Long.parseLong(opcaoLivro);
+            Livro livro = dao.trasLivro(livroOpcao);
+   
                    
         %>
 
@@ -61,18 +60,16 @@
                 <li><a href="CadastroProduto">Cadastrar Produto</a></li>
                 <li><a href="CadastroPlano">Cadastrar Plano</a></li>
                 <li id="editarProduto"><a href="#">Editar Produto</a></li>
-                <li><a href="EditarPlano">Editar Plano</a></li>
+                <li><a href="BuscaPlano">Editar Plano</a></li>
             </ul>
         </aside>
-        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
-        <input type="hidden" id="act" value="editado" />
-        <input type="hidden" id="req" value="Produto" />
-        <div id="mensagem"></div>
       <c:url value="EditaProduto" var="EditaProduto"/>
       <form action="${EditaProduto}" method="post" enctype="application/x-www-form-urlencoded">
                 <fieldset id="dados">
                     <h4>Serviço</h4>
                     <div id="topo">
+                            <p><label for="codigo">Código do produto:</label>
+                            <input required="required" type="text" name="codigo" maxlength="35" id="codigo" size="52" readonly="true" value="<%= livro.getCod_idioma()%>" /></p>
                         <p><label for="opcaoIdioma">Nome do produto:</label>
                             <input required="required" type="text" name="opcaoIdioma" maxlength="35" id="opcaoIdioma" size="52"  value="<%= livro.getIdioma()%>" /></p>
                         <p><label for="Preço">Preço:</label>
