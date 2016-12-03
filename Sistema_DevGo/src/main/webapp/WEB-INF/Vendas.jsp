@@ -46,7 +46,7 @@
                 <h1>Logo</h1>
             </div>
             <div class="logout">
-                <h3><a href="#">Sair</a></h3>
+                <h3><a href="Login">Sair</a></h3>
             </div>
             <div class="bar">
                 <ul id="menu">

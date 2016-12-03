@@ -36,9 +36,9 @@ import sistema.devgo.java.UsuarioSistema;
  * @author natanael.ssousa
  */
 @WebFilter(filterName = "filtro",
-        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente", "CadastroFuncionario", 
+        servletNames = {"BuscarCliente", "BuscarFuncionario", "CadastroCliente", "CadastroFuncionario",
             "CadastroPlano", "CadastroProduto", "EditarCliente", "EditarFuncionario", "EditarPlano", "EditarProduto",
-            "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas","ApresentacaoVenda"},
+            "Relatorio", "RelatorioCliente", "RelatorioFuncionario", "Vendas", "ApresentacaoVenda"},
         urlPatterns = {"/protegido/*"})
 public class Filtro implements Filter {
 
@@ -67,12 +67,13 @@ public class Filtro implements Filter {
             Object objSessao = sessao.getAttribute("user");
             if (objSessao != null) {
                 usuario = (UsuarioSistema) objSessao;
+                
             } else {
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "");
                 return;
             }
         } else {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "Login");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/Login");
             return;
         }
 
@@ -83,12 +84,15 @@ public class Filtro implements Filter {
                 chain.doFilter(request, response);
             } else {
                 // NÃO PODE ACESSAR. APRESENTA TELA DE ERRO
-                httpResponse.sendRedirect(httpRequest.getContextPath()
-                        + "Login");
+                if ("FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento())) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/AcessoFinanceiro");
+                } else if ("SERVICO".equalsIgnoreCase(usuario.getDepartamento())) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/AcessoProdServ");
+                }
             }
 
         } catch (Throwable t) {
-      // If an exception is thrown somewhere down the filter chain,
+            // If an exception is thrown somewhere down the filter chain,
             // we still want to execute our after processing, and then
             // rethrow the problem after that.
             t.printStackTrace();
@@ -104,34 +108,34 @@ public class Filtro implements Filter {
         String paginaCompleta = request.getRequestURI();
         String pagina = paginaCompleta.replace(request.getContextPath(), "");
 
-        if (pagina.endsWith("/BuscarCliente") && 
-             ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
-            return true;   
-        } else if (pagina.endsWith("/BuscarFuncionario")&& 
-               "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())){
+        if (pagina.endsWith("/BuscarCliente")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
-         } else if (pagina.endsWith("/BuscaCNPJvenda")&& 
-               ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
-            return true;    
-        } else if (pagina.endsWith("/Vendas")&& 
-               ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
-            return true;   
+        } else if (pagina.endsWith("/BuscarFuncionario")
+                && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
+            return true;
+        } else if (pagina.endsWith("/BuscaCNPJvenda")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+            return true;
+        } else if (pagina.endsWith("/Vendas")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+            return true;
         } else if (pagina.endsWith("CadastroCliente")
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
         } else if (pagina.endsWith("CadastroFuncionario")
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
-        } else if (pagina.endsWith("CadastroPlano") && 
-                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()) )){
+        } else if (pagina.endsWith("CadastroPlano")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
-        } else if (pagina.endsWith("CadastroProduto")&&
-                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()) )){
+        } else if (pagina.endsWith("CadastroProduto")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
         } else if (pagina.endsWith("EditarCliente")
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
@@ -141,36 +145,36 @@ public class Filtro implements Filter {
                 && "TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())) {
             return true;
 
-        } else if (pagina.endsWith("EditarPlano") && 
-                 ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()) )){
+        } else if (pagina.endsWith("EditarPlano")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
-        } else if (pagina.endsWith("EditarProduto")&& 
-                 ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))){
+        } else if (pagina.endsWith("EditarProduto")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
-        } else if (pagina.endsWith("Relatorio") && 
-                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+        } else if (pagina.endsWith("Relatorio")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
-        } else if (pagina.endsWith("RelatorioCliente")&&
-                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+        } else if (pagina.endsWith("RelatorioCliente")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
-        } else if (pagina.endsWith("RelatorioFuncionario")&& 
-                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+        } else if (pagina.endsWith("RelatorioFuncionario")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
-       
-        }else if (pagina.endsWith("ApresentacaoVenda")&& 
-                ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento()) 
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) )) {
+
+        } else if (pagina.endsWith("ApresentacaoVenda")
+                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
-       
+
         }
 
         return false;

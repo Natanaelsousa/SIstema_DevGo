@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author roberto.slinhares
  */
-@WebServlet(name = "Acesso", urlPatterns = {"/Acesso"})
-public class Acesso extends HttpServlet {
+@WebServlet(name = "AcessoFinanceiro", urlPatterns = {"/AcessoFinanceiro"})
+public class AcessoFinanceiro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +38,10 @@ public class Acesso extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Acesso</title>");            
+            out.println("<title>Servlet AcessoFinanceiro</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Acesso at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AcessoFinanceiro at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,8 +59,7 @@ public class Acesso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Acesso.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/AcessoFinanceiro.jsp");
         dispatcher.forward(request, response);
     }
 
