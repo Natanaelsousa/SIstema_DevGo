@@ -23,6 +23,15 @@
         <link type="text/css" rel="stylesheet" href="${EditarPlano}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
     </head>
+        <%
+            PlanoDAO dao = new PlanoDAO();
+            
+            String opcaoPlano = (String) request.getAttribute("opcaoPlano");
+            long livroOpcao = Long.parseLong(opcaoPlano);
+            Plano plano = dao.trasPlano(livroOpcao);
+   
+                   
+        %>
     <body>
         <header>
             <div class="logo">
@@ -51,8 +60,8 @@
             <ul>
                 <li><a href="CadastroProduto">Cadastrar Produto</a></li>
                 <li><a href="CadastroPlano">Cadastrar Plano</a></li>
-                <li><a href="EditarProduto">Editar Produto</a></li>
-                <li><a href="#">Editar Plano</a></li>
+                <li><a href="BuscaProduto">Editar Produto</a></li>
+                <li><a href="BuscaPlano">Editar Plano</a></li>
                 </ul>
         </aside>
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
@@ -64,16 +73,10 @@
                        <fieldset id="dados">
                             <h4>Serviço</h4>
                             <div id="topo">
-                                <p><select name="opcaoPlano">
-                        <option>Selecione o Plano...</option>
-                        <%
-                            PlanoDAO dao = new PlanoDAO();
-                            List<Plano> planos = dao.findPlano();
-                            for (Plano plano : planos) {
-                        %>
-                        <option value="<%=plano.getCod_plano()%>"><%=plano.getNomePlano()%></option>
-                        <%}%>
-                        </select></p> 
+                        <p><label for="codigo">Código do Plano:</label>
+                            <input required="required" type="text" name="codigo" maxlength="35" id="codigo" size="52" readonly="true" value="<%= plano.getCod_plano()%>" /></p>
+                        <p><label for="nomePlano">Nome do Plano:</label>
+                            <input required="required" type="text" name="nomePlano" maxlength="35" id="nomePlano" size="52"  value="<%= plano.getNomePlano()%>" /></p>
                                 <p><select name="opcaoPeriodo">
                         <option>Selecione o Periodo...</option>
                         <%
@@ -85,8 +88,8 @@
                         <%}%>
                         </select></p> 
                                 
-                                <p><label for="Preço">Preço:</label>
-                                    <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="52" onkeypress="return somenteNumero(event)"/></p>
+                    <p><label for="Preço">Preço:</label>
+                            <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)" value="<%= plano.getPreco()%>" /></p>
                             </div>
                         </fieldset>
                         <div class="botoes">
