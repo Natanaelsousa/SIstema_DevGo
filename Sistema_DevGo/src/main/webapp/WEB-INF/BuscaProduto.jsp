@@ -61,8 +61,7 @@
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
-                    <p><select name="opcaoLivro">
-                                <option>Selecione o Livro...</option>
+                    <p>Selecione o Livro: <select name="opcaoLivro">
                                 <%
                                     LivroDAO dao = new LivroDAO();
                                     List<Livro> livros = dao.findLivro();
