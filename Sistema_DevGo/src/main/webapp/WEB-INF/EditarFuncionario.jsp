@@ -82,8 +82,9 @@
                         <input required="required" type="text" name="Telefone" maxlength="35" id="Telefone" size="35" value="<%= funcionario.getTelefone()%>"/></p>
                     <p><label for="Datanasc">Data de nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc" value="<%= funcionario.getDtNascimento()%>"/></p>
-                    <p><select name="opcao">
-                        <option>Selecione o Departamento...</option>
+                 
+                    <p>  <label for="departamento">Departamento:</label>
+                        <select name="opcao">
                         <%
                             DepartamentoDAO dao = new DepartamentoDAO();
                             List<Departamento> deptos = dao.findDeptos();
@@ -99,7 +100,7 @@
                     <p><label for="Senha2">Confirmar senha:</label>
                         <input required="required" type="password" name="Senha2" maxlength="15" id="Senha2" size="18" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'As senhas não conferem' : '')"/></p>
                     <p><label for="Status">Status:</label>
-                        Ativo<input  type="radio" name="status" id="Status" value="Ativo"/>
+                        Ativo<input  type="radio" name="status" id="Status" CHECKED="Ativo" value="Ativo"/>
                         Inativo<input type="radio" name="status" id="Status" value="Inativo"/></p>        
                 </div>
             </fieldset>
