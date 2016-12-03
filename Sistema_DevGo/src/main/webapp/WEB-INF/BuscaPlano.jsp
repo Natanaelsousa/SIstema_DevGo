@@ -65,8 +65,9 @@
             <fieldset id="dados">
                 <h4>Empresa</h4>
                 <div id="topo">
-                    <p><select name="opcaoPlano">
-                                <option>Selecione o Plano...</option>
+                   
+                    <p> Selecione um Plano: <select name="opcaoPlano">
+                             
                                 <%
                                     PlanoDAO dao = new PlanoDAO (); 
                                     List<Plano> planos = dao.findPlano();
