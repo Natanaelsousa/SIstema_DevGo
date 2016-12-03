@@ -12,12 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import sistema.devgo.Model.dao.ClienteDAO;
 import sistema.devgo.Model.dao.LivroDAO;
-import sistema.devgo.java.Cliente;
 import sistema.devgo.java.Livro;
 import sistema.devgo.java.UsuarioSistema;
 
 /* @author Sibele */
-@WebServlet(name = "BuscaProduto", urlPatterns = {"/EditarProduto"})
+@WebServlet(name = "BuscaProduto", urlPatterns = {"/BuscaProduto"})
 public class BuscaProduto extends HttpServlet {
 
    
