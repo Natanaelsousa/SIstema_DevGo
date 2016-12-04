@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import sistema.devgo.java.Livro;
-import sistema.devgo.java.Venda;
 
 /**
  *
