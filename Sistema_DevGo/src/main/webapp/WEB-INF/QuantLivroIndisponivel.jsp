@@ -61,9 +61,10 @@
         </header>
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <c:url value="QuantLivroIndisponivel" var="QuantLivroIndisponivel" />
+        
         <form action="${QuantLivroIndisponivel}" method="post" enctype="application/x-www-form-urlencoded">
-
-            <h2> Quantidade de livros indisponiveis no momento </h2>
+            <h3>Desculpe! Quantidade de livros indisponivel no momento </h3>
+            
  <%
                 LivroDAO daoLiv = new LivroDAO();
                 List<Livro> livro = daoLiv.findLivro();
@@ -92,7 +93,7 @@
                 %>	
             </table>
             <div class="botoes">
-                <input id="Voltar" title="Voltar" value="Nova consulta" type="submit">
+                <input id="Voltar" title="Voltar" value="Nova Venda" type="submit">
             </div>
         </form>
 
