@@ -79,7 +79,6 @@
                         <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" readonly="readonly"</p>    
 
                     <p><select name="opcaoPlano">
-                            <option>Selecione o Plano...</option>
                             <%
                                 PlanoDAO dao = new PlanoDAO();
                                 List<Plano> planos = dao.findPlano();
@@ -91,7 +90,6 @@
 
 
                     <p><select name="opcaoIdioma">
-                            <option>Selecione o Idioma...</option>
                             <%
                                 LivroDAO daoLivro = new LivroDAO();
                                 List<Livro> livros = daoLivro.findLivro();
