@@ -92,10 +92,11 @@
                     }
                 %>	
             </table>
+            
+        </form>
             <div class="botoes">
                 <input id="Voltar" title="Voltar" value="Nova Venda" type="submit">
             </div>
-        </form>
 
     </body>
 </html>
