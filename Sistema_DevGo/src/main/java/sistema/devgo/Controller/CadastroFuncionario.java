@@ -67,7 +67,7 @@ public class CadastroFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       HttpServletRequest httpRequest = (HttpServletRequest) request;
+        /*HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         
         HttpSession sessao = httpRequest.getSession(false);
@@ -77,7 +77,7 @@ public class CadastroFuncionario extends HttpServlet {
         usuario.getDepartamento();
         
         request.setAttribute("departamento", usuario.getDepartamento());
-        
+         */
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
         dispatcher.forward(request, response);
     }
@@ -103,7 +103,7 @@ public class CadastroFuncionario extends HttpServlet {
         String usuario = request.getParameter("Usuario");
         String senha = request.getParameter("Senha");
         PermissaoDAO dao2 = new PermissaoDAO();
-        UsuarioSistema user = new UsuarioSistema (usuario,senha,departamento);
+        UsuarioSistema user = new UsuarioSistema(usuario, senha, departamento);
         String senhagerada = String.valueOf(user.getHashSenha());
         long cod = 0;
         try {
@@ -111,62 +111,61 @@ public class CadastroFuncionario extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-       
-        if(cod == 0){
-        Date dtNasc;
-        try {
-            dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
-        } catch (ParseException ex) {
-            out.println("Erro de conversão de data");
-            return;
-        }
-     
-        Funcionario funcionario = new Funcionario();
-        funcionario.setNome(nome);
-        funcionario.setSobrenome(sobrenome);
-        funcionario.setTelefone(telefone);
-        funcionario.setCpf(cpf);
-        funcionario.setCodDepartamento(departamento);
-        funcionario.setDtNascimento(dtNasc);
-        funcionario.setStatus("Ativo");
 
-        FuncionarioDAO dao = new FuncionarioDAO();
-        try {
-            dao.insert(funcionario);      
-            Permissao p = new Permissao();
-        try{
-      
-            long id = dao2.buscarId();
-            
-              p.setUsuario(usuario);
-              p.setSenha(senhagerada);
-              p.setCod_funcionario(id);
-           
-            dao2.insert(p);
-           request.setAttribute("msgm", "sucesso"); 
-           RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
-      dispatcher.forward(request, response);      
-        } catch (SQLException ex) {
+        if (cod == 0) {
+            Date dtNasc;
+            try {
+                dtNasc = new SimpleDateFormat("yyyy-MM-dd").parse(dataNasc);
+            } catch (ParseException ex) {
+                out.println("Erro de conversão de data");
+                return;
+            }
+
+            Funcionario funcionario = new Funcionario();
+            funcionario.setNome(nome);
+            funcionario.setSobrenome(sobrenome);
+            funcionario.setTelefone(telefone);
+            funcionario.setCpf(cpf);
+            funcionario.setCodDepartamento(departamento);
+            funcionario.setDtNascimento(dtNasc);
+            funcionario.setStatus("Ativo");
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            try {
+                dao.insert(funcionario);
+                Permissao p = new Permissao();
+                try {
+
+                    long id = dao2.buscarId();
+
+                    p.setUsuario(usuario);
+                    p.setSenha(senhagerada);
+                    p.setCod_funcionario(id);
+
+                    dao2.insert(p);
+                    request.setAttribute("msgm", "sucesso");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
+                    dispatcher.forward(request, response);
+                } catch (SQLException ex) {
+                    request.setAttribute("msgm", "erro");
+                    Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (SQLException ex) {
+                request.setAttribute("msgm", "erro");
+                Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
             request.setAttribute("msgm", "erro");
-            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        } catch (SQLException ex) {
-            request.setAttribute("msgm", "erro");
-            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }else{
-            request.setAttribute("msgm", "erro");
-          response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
-        dispatcher.forward(request, response);
+            response.setContentType("text/html;charset=UTF-8");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarFuncionario.jsp");
+            dispatcher.forward(request, response);
         }
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

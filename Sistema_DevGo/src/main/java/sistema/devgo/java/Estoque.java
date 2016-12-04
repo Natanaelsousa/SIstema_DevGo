@@ -7,10 +7,10 @@ import java.util.ArrayList;
  * @author Sibele
  */
 public class Estoque {
-    private int codIdioma;
+    private long codIdioma;
     private int qtdeEntrada;
 
-    public Estoque(int codIdioma, int qtdeEntrada) {
+    public Estoque(long codIdioma, int qtdeEntrada) {
 
         this.qtdeEntrada = qtdeEntrada;
         this.codIdioma = codIdioma;
@@ -27,14 +27,14 @@ public class Estoque {
     /**
      * @return the codIdioma
      */
-    public int getCodIdioma() {
+    public long getCodIdioma() {
         return codIdioma;
     }
 
     /**
      * @param codIdioma the codIdioma to set
      */
-    public void setCodIdioma(int codIdioma) {
+    public void setCodIdioma(long codIdioma) {
         this.codIdioma = codIdioma;
     }
 

@@ -8,13 +8,13 @@ public class Livro {
     private String idioma;
     private double preco;
     private int quantidade;
-    private int cod_idioma;
+    private Long cod_idioma;
 
     public Livro(){
         
     }
     
-    public Livro(Estoque Estoque, String idioma, double preco, int quantidade, int cod_idioma) {
+    public Livro(Estoque Estoque, String idioma, double preco, int quantidade, long cod_idioma) {
         this.Estoque = Estoque;
         this.idioma = idioma;
         this.preco = preco;
@@ -22,11 +22,11 @@ public class Livro {
         this.cod_idioma = cod_idioma;
     }
 
-    public int getCod_idioma() {
+    public Long getCod_idioma() {
         return cod_idioma;
     }
 
-    public void setCod_idioma(int cod_idioma) {
+    public void setCod_idioma(Long cod_idioma) {
         this.cod_idioma = cod_idioma;
     }
 

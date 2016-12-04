@@ -106,7 +106,7 @@ public class EditarProduto extends HttpServlet {
         int quantidade = Integer.parseInt(request.getParameter("Quantidade"));
         int quantidadeAtual = Integer.parseInt(request.getParameter("QuantidadeAtual"));
         String opcaoLivro = request.getParameter("opcaoIdioma");
-        int  codigo = Integer.parseInt(request.getParameter("codigo"));
+        long  codigo = Long.parseLong(request.getParameter("codigo"));
         double preco1 = Double.parseDouble(preco);
 
         Livro livro = new Livro();

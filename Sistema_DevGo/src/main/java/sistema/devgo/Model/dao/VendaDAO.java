@@ -58,7 +58,7 @@ public class VendaDAO extends GenericaDAO {
                 + "INNER JOIN cliente c ON (a.COD_CLIENTE =c.COD_CLIENTE)\n"
                 + "INNER JOIN lv_idioma l ON (a.COD_IDIOMA =l.COD_IDIOMA)\n"
                 + "ORDER BY cod_venda DESC LIMIT 1";
-       // String sql = "SELECT * FROM venda ORDER BY cod_venda DESC LIMIT 1";
+        // String sql = "SELECT * FROM venda ORDER BY cod_venda DESC LIMIT 1";
 
         PreparedStatement stmt
                 = getConnection().prepareStatement(sql);
@@ -68,7 +68,7 @@ public class VendaDAO extends GenericaDAO {
         while (rs.next()) {
             Venda venda = new Venda();
             venda.setCodVenda(rs.getLong("COD_VENDA"));
-             venda.setRazao(rs.getString("RAZAO_SOCIAL"));
+            venda.setRazao(rs.getString("RAZAO_SOCIAL"));
             venda.setPlano(rs.getString("NM_PLANO"));
             venda.setIdioma(rs.getString("TIPO_IDIOMA"));
             venda.setQuantidadeAluno(rs.getInt("QTDE_ALUNO"));
@@ -80,14 +80,6 @@ public class VendaDAO extends GenericaDAO {
 
         rs.close();
         stmt.close();
-
-        return vendas;
-    }
-
-    public Venda SelectVendaAtual(Venda venda) throws SQLException {
-        Venda vendas = new Venda();
-
-        String sql = "SELECT * FROM VENDA WHERE COD_VENDA = ?";
 
         return vendas;
     }
@@ -123,5 +115,7 @@ public class VendaDAO extends GenericaDAO {
 
         return vendas;
     }
+
+    
 
 }

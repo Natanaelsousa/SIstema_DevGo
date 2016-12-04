@@ -98,8 +98,7 @@ public class Vendas extends HttpServlet {
         PlanoDAO planodao = new PlanoDAO();
         LivroDAO livrodao = new LivroDAO();
 
-        // String dataVenda = request.getParameter("DataVenda");
-        long codCliente = Long.parseLong(request.getParameter("Id"));
+        long codCliente = Long.parseLong(request.getParameter("Id"));//Pega Id do cliente
         long idiomaLivro = Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
         long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
         int quantAluno = Integer.parseInt(request.getParameter("QTDE_ALUNO"));
@@ -131,10 +130,21 @@ public class Vendas extends HttpServlet {
 
         VendaDAO dao = new VendaDAO();
 
+        Livro livroQuant = null;
+
+        try {
+            livroQuant = livrodao.verificaQuantidadeLivros(idiomaLivro);
+
+        } catch (SQLException ex) {
+            if (quantAluno > modelolivro.getQuantidade()) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/QuantLivroIndisponivel.jsp");
+                dispatcher.forward(request, response);
+            }
+
+        }
+
         try {
             dao.insert(venda);
-            //RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/ApresentacaoVenda.jsp");
-            //dispatcher.forward(request, response);
             request.setAttribute("departamento", usuario.getDepartamento());
             response.sendRedirect("ApresentacaoVenda");
         } catch (SQLException ex) {
@@ -142,6 +152,7 @@ public class Vendas extends HttpServlet {
             request.setAttribute("msgm", "erro");
             response.sendRedirect("ApresentacaoVenda");
         }
+
         response.setContentType("text/html;charset=UTF-8");
 
     }
