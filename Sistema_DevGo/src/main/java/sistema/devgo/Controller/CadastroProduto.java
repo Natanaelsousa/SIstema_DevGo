@@ -94,8 +94,6 @@ public class CadastroProduto extends HttpServlet {
         Object objSessao = sessao.getAttribute("user");
         UsuarioSistema usuario = (UsuarioSistema) objSessao;
         usuario.getDepartamento();
-        
-         String serv = "/WEB-INF/sucesso-produto-cadastrado.jsp";
          
         // Guardando dados vindos da tela nas variaveis
         String idioma = request.getParameter("LivroIdioma");
@@ -110,9 +108,14 @@ public class CadastroProduto extends HttpServlet {
         livro.setIdioma(idioma);
         livro.setPreco(preco1);
         livro.setQuantidade(quantidade1);
-
+        long cod =0;
         LivroDAO dao = new LivroDAO();
-        
+        try {
+            cod = dao.verificaProdutoExistente(idioma);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(cod == 0){
         try {
             dao.salvar(livro);
             request.setAttribute("departamento", usuario.getDepartamento());
@@ -124,7 +127,12 @@ public class CadastroProduto extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarProduto.jsp");
         dispatcher.forward(request, response);
-
+        }else{
+             request.setAttribute("departamento", usuario.getDepartamento());
+            request.setAttribute("msgm", "erro");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/CadastrarProduto.jsp");
+        dispatcher.forward(request, response); 
+        }
    
     }
 
