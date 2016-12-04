@@ -27,9 +27,9 @@ public class LivroDAO extends GenericaDAO {
     public void editar(Livro livro) throws SQLException {
      long teste = livro.getCod_idioma();
         String sql = "UPDATE LV_IDIOMA "
-                + "SET PRECO = ?, TIPO_IDIOMA = ?, QTDE_ATUAL = ?  WHERE COD_IDIOMA = ?";
+                + "SET PRECO = ?, TIPO_IDIOMA = ? WHERE COD_IDIOMA = ?";
 
-        update(sql , livro.getCod_idioma(), livro.getPreco(),livro.getIdioma(),livro.getQuantidade());
+        update(sql , livro.getCod_idioma(), livro.getPreco(),livro.getIdioma());
 
     }
 
@@ -130,5 +130,25 @@ public class LivroDAO extends GenericaDAO {
         stmt.close();
         return livro;
     }
+              public long verificaProdutoExistente (String produto) throws SQLException{
+        
+     long codIdioma =0;  
+        
+     String select = "SELECT * FROM LV_IDIOMA WHERE TIPO_IDIOMA = '"+produto+"'";
+         PreparedStatement stmt
+                = getConnection().prepareStatement(select);
+        
+        ResultSet rs = stmt.executeQuery();
+        
+         if (rs.next()) {
+
+         codIdioma = rs.getLong("COD_IDIOMA");
+       }
+        rs.close();
+        stmt.close();
+
+ 
+    return codIdioma ;
+}
 
 }
