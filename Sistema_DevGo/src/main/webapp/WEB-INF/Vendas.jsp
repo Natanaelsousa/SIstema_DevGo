@@ -117,7 +117,7 @@
             </fieldset>
 
             <div class="botoes">
-                <input id="Finalizar" title="Finalizar" value="Finalizar" type="submit">
+                <input id="Concluir" title="Concluir" value="Concluir" type="submit">
                 <input id="Limpar" title="Limpar" value="Limpar" type="reset">
             </div>
 

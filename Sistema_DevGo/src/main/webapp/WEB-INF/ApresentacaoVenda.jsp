@@ -20,6 +20,20 @@
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vendas efetudas</title>
+        <style>
+h1 { 
+    position: absolute;
+    top: 210px;
+    left: 450px;
+    background: green;
+    font-size: 18px;
+    color: white;
+    border: none;
+    width: 700px;
+    text-align: center;
+}
+</style>
+        
     </head>
     <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
     <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
@@ -51,61 +65,45 @@
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <c:url value="ApresentacaoVenda" var="ApresentacaoVenda" />
         <form action="${ApresentacaoVenda}" method="post" enctype="application/x-www-form-urlencoded">
-                    <%
-                        VendaDAO dao = new VendaDAO();
-                        List<Venda> venda = dao.findVenda();
-                        Iterator<Venda> itrVenda = venda.iterator();
+            
+            <h1>Venda finalizada com sucesso</h1>
+            
+            <%
+                VendaDAO dao = new VendaDAO();
+                List<Venda> venda = dao.findVenda();
+                Iterator<Venda> itrVenda = venda.iterator();
+                Venda vendas = null;
 
-                        ClienteDAO daoCliente = new ClienteDAO();
-                        List<Cliente> cliente = daoCliente.findCliente();
-                        Iterator<Cliente> itrCliente = cliente.iterator();
+            %>
+            <table id="exTable" class="table">
+                <tr>
+                    <th>Registro da venda</th>
+                    <th>Cliente</th>
+                    <th>Plano</th>
+                    <th>Idioma</th>
+                    <th>Quantidade de alunos</th>
+                    <th>Valor total</th>
 
-                        PlanoDAO daoPlano = new PlanoDAO();
-                        List<Plano> plano = daoPlano.findPlano();
-                        Iterator<Plano> itrPlano = plano.iterator();
 
-                        LivroDAO daoLivro = new LivroDAO();
-                        List<Livro> livro = daoLivro.findLivro();
-                        Iterator<Livro> itrLivro = livro.iterator();
-
-                        Venda vendas = null;
-                        Cliente clientes = null;
-                        Plano planos = null;
-                        Livro livros = null;
-
+                </tr>
+                <tr>
+                    <%while (itrVenda.hasNext()) {
+                       vendas = itrVenda.next();
                     %>
-                    <table class="table">
-                        <tr>
-                            <th>Registro da venda</th>
-                            <th>Cliente</th>
-                            <th>Plano</th>
-                            <th>Idioma</th>
-                            <th>Quantidade de alunos</th>
-                            <th>Valor total</th>
-
-
-                        </tr>
-                        <tr>
-                            <%while (itrVenda.hasNext()) {
-                                    vendas = itrVenda.next();
-                                    clientes = itrCliente.next();
-                                    planos = itrPlano.next();
-                                    livros = itrLivro.next();
-                            %>
-                            <td><%= vendas.getCodVenda()%></td>
-                            <td><%= clientes.getRazaoSocial()%></td>
-                            <td><%= planos.getNomePlano()%></td>
-                            <td><%= livros.getIdioma()%></td>
-                            <td><%= vendas.getQuantidadeAluno()%></td>
-                            <td><%= vendas.getValorVenda()%></td>
-                        </tr>
-                        <%
-                            }
-                        %>	
-                    </table>
-                <div class="botoes">
-                    <input id="Voltar" title="Voltar" value="Voltar" type="submit">
-                </div>
+                    <td><%= vendas.getCodVenda()%></td>
+                    <td><%= vendas.getRazao()%></td>
+                    <td><%= vendas.getPlano()%></td>
+                    <td><%= vendas.getIdioma()%></td>
+                    <td><%= vendas.getQuantidadeAluno()%></td>
+                    <td><%= vendas.getValorVenda()%></td>
+                </tr>
+                <%
+                    }
+                %>	
+            </table>
+            <div class="botoes">
+                <input id="Voltar" title="Voltar" value="Voltar" type="submit">
+            </div>
         </form>
 
     </body>

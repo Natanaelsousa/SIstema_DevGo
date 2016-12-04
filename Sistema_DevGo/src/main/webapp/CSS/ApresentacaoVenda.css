@@ -8,9 +8,11 @@ and open the template in the editor.
     Author     : Sibele
 */
 
+
 html{
     font-family: helvetica;
 }
+
 header .bar{
     position: absolute;
     background: hsl(0, 0%, 0%);

@@ -53,7 +53,12 @@ public class VendaDAO extends GenericaDAO {
     public List<Venda> findVenda() throws SQLException {
         List<Venda> vendas = new ArrayList<Venda>();
 
-        String sql = "SELECT * FROM venda ORDER BY cod_venda DESC LIMIT 1";
+        String sql = "SELECT  c.RAZAO_SOCIAL,p.NM_PLANO,l.TIPO_IDIOMA,a.COD_VENDA,a.QTDE_ALUNO,a.VALOR_VENDA,a.DATA_VENDA FROM venda a \n"
+                + "INNER JOIN plano p ON (a.COD_PLANO =p.COD_PLANO)\n"
+                + "INNER JOIN cliente c ON (a.COD_CLIENTE =c.COD_CLIENTE)\n"
+                + "INNER JOIN lv_idioma l ON (a.COD_IDIOMA =l.COD_IDIOMA)\n"
+                + "ORDER BY cod_venda DESC LIMIT 1";
+       // String sql = "SELECT * FROM venda ORDER BY cod_venda DESC LIMIT 1";
 
         PreparedStatement stmt
                 = getConnection().prepareStatement(sql);
@@ -63,11 +68,12 @@ public class VendaDAO extends GenericaDAO {
         while (rs.next()) {
             Venda venda = new Venda();
             venda.setCodVenda(rs.getLong("COD_VENDA"));
-            venda.setCodCliente(rs.getLong("COD_CLIENTE"));
-            venda.setCodIdioma(rs.getLong("COD_IDIOMA"));
-            venda.setCodPlano(rs.getLong("COD_PLANO"));
+             venda.setRazao(rs.getString("RAZAO_SOCIAL"));
+            venda.setPlano(rs.getString("NM_PLANO"));
+            venda.setIdioma(rs.getString("TIPO_IDIOMA"));
             venda.setQuantidadeAluno(rs.getInt("QTDE_ALUNO"));
             venda.setValorVenda(rs.getDouble("VALOR_VENDA"));
+            venda.setData_venda(rs.getTimestamp("DATA_VENDA"));
 
             vendas.add(venda);
         }
@@ -77,15 +83,22 @@ public class VendaDAO extends GenericaDAO {
 
         return vendas;
     }
-    
-    
+
+    public Venda SelectVendaAtual(Venda venda) throws SQLException {
+        Venda vendas = new Venda();
+
+        String sql = "SELECT * FROM VENDA WHERE COD_VENDA = ?";
+
+        return vendas;
+    }
+
     public List<Venda> findVendaRelatorio() throws SQLException {
         List<Venda> vendas = new ArrayList<Venda>();
 
-        String sql = "SELECT c.RAZAO_SOCIAL,p.NM_PLANO,l.TIPO_IDIOMA,a.QTDE_ALUNO,a.VALOR_VENDA,a.DATA_VENDA FROM venda a \n" +
-                     "INNER JOIN plano p ON (a.COD_PLANO =p.COD_PLANO)\n" +
-                     "INNER JOIN cliente c ON (a.COD_CLIENTE =c.COD_CLIENTE)\n" +
-                     "INNER JOIN lv_idioma l ON (a.COD_IDIOMA =l.COD_IDIOMA)";
+        String sql = "SELECT c.RAZAO_SOCIAL,p.NM_PLANO,l.TIPO_IDIOMA,a.QTDE_ALUNO,a.VALOR_VENDA,a.DATA_VENDA FROM venda a \n"
+                + "INNER JOIN plano p ON (a.COD_PLANO =p.COD_PLANO)\n"
+                + "INNER JOIN cliente c ON (a.COD_CLIENTE =c.COD_CLIENTE)\n"
+                + "INNER JOIN lv_idioma l ON (a.COD_IDIOMA =l.COD_IDIOMA)";
 
         PreparedStatement stmt
                 = getConnection().prepareStatement(sql);
@@ -94,8 +107,7 @@ public class VendaDAO extends GenericaDAO {
 
         while (rs.next()) {
             Venda venda = new Venda();
-            
-            
+
             venda.setRazao(rs.getString("RAZAO_SOCIAL"));
             venda.setPlano(rs.getString("NM_PLANO"));
             venda.setIdioma(rs.getString("TIPO_IDIOMA"));

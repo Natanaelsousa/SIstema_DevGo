@@ -91,6 +91,10 @@ public class ApresentacaoVenda extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/buscaCNPJvenda.jsp");
         dispatcher.forward(request, response);
+        
+        String serv = "/WEB-INF/sucesso-venda-efetuada.jsp";
+        request.setAttribute("msgm", "sucesso");
+        
     }
 
     /**
