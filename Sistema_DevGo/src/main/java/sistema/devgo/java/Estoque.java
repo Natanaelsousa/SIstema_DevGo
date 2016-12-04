@@ -1,10 +1,8 @@
 package sistema.devgo.java;
 
-import java.util.ArrayList;
-
 /**
  *
- * @author Sibele
+ * @author Natanael
  */
 public class Estoque {
     private long codIdioma;
@@ -14,6 +12,10 @@ public class Estoque {
 
         this.qtdeEntrada = qtdeEntrada;
         this.codIdioma = codIdioma;
+    }
+
+    public Estoque() {
+     
     }
 
     public void setQtdeEntrada(int qtdeEntrada) {
