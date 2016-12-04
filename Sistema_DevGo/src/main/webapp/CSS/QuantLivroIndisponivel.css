@@ -30,6 +30,12 @@ h1 {
     width: 700px;
     text-align: center;
 }
+h3 { 
+    position: relative;
+    left: 20px;
+ 
+   
+}
 
 header .bar{
     position: absolute;
@@ -157,8 +163,8 @@ form{
 }
 #Voltar{
     position: absolute;
-    top: 200px;
-    right: 300px;
+    top: 400px;
+    right: 950px;
     color: white;
     width: 210px;
     height: 35px;
