@@ -20,20 +20,8 @@
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vendas efetudas</title>
-        <style>
-h1 { 
-    position: absolute;
-    top: 210px;
-    left: 450px;
-    background: green;
-    font-size: 18px;
-    color: white;
-    border: none;
-    width: 700px;
-    text-align: center;
-}
-</style>
-        
+
+
     </head>
     <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
     <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
@@ -65,9 +53,9 @@ h1 {
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <c:url value="ApresentacaoVenda" var="ApresentacaoVenda" />
         <form action="${ApresentacaoVenda}" method="post" enctype="application/x-www-form-urlencoded">
-            
+
             <h1>Venda finalizada com sucesso</h1>
-            
+
             <%
                 VendaDAO dao = new VendaDAO();
                 List<Venda> venda = dao.findVenda();
@@ -88,7 +76,7 @@ h1 {
                 </tr>
                 <tr>
                     <%while (itrVenda.hasNext()) {
-                       vendas = itrVenda.next();
+                            vendas = itrVenda.next();
                     %>
                     <td><%= vendas.getCodVenda()%></td>
                     <td><%= vendas.getRazao()%></td>
@@ -102,7 +90,7 @@ h1 {
                 %>	
             </table>
             <div class="botoes">
-                <input id="Voltar" title="Voltar" value="Voltar" type="submit">
+                <input id="Voltar" title="Voltar" value="Nova Venda" type="submit">
             </div>
         </form>
 
