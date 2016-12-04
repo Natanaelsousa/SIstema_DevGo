@@ -1,77 +1,41 @@
 package sistema.devgo.java;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
  * @author Sibele
  */
 public class Estoque {
-
-    private Date dataEntrada;
-    private Date dataSaida;
+    private int codIdioma;
     private int qtdeEntrada;
-    private int qtdeSaida;
-    private ArrayList<Livro> livro;
 
-    public Estoque(Date dataEntrada, Date dataSaida, int qtdeEntrada, int qtdeSaida) {
-        this.dataEntrada = dataEntrada;
-        this.dataSaida = dataSaida;
+    public Estoque(int codIdioma, int qtdeEntrada) {
+
         this.qtdeEntrada = qtdeEntrada;
-        this.qtdeSaida = qtdeSaida;
-        this.livro = new ArrayList<Livro>();
-    }
-
-    public void setDataEntrada(Date dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public void setDataSaida(Date dataSaida) {
-        this.dataSaida = dataSaida;
+        this.codIdioma = codIdioma;
     }
 
     public void setQtdeEntrada(int qtdeEntrada) {
         this.qtdeEntrada = qtdeEntrada;
     }
 
-    public void setQtdeSaida(int qtdeSaida) {
-        this.qtdeSaida = qtdeSaida;
-    }
-
-    /**
-     * @return the dataEntrada
-     */
-    public Date getDataEntrada() {
-        return dataEntrada;
-    }
-
-    /**
-     * @return the dataSaida
-     */
-    public Date getDataSaida() {
-        return dataSaida;
-    }
-
-    /**
-     * @return the qtdeEntrada
-     */
     public int getQtdeEntrada() {
         return qtdeEntrada;
     }
 
     /**
-     * @return the qtdeSaida
+     * @return the codIdioma
      */
-    public int getQtdeSaida() {
-        return qtdeSaida;
+    public int getCodIdioma() {
+        return codIdioma;
     }
 
-    public void setLivro(ArrayList<Livro> livro) {
-        this.livro = livro;
+    /**
+     * @param codIdioma the codIdioma to set
+     */
+    public void setCodIdioma(int codIdioma) {
+        this.codIdioma = codIdioma;
     }
 
-    public ArrayList<Livro> getLivro() {
-        return livro;
-    }
 }
