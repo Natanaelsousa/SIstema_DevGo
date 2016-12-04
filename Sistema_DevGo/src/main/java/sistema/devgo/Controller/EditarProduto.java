@@ -8,6 +8,8 @@ package sistema.devgo.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +17,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import sistema.devgo.Model.dao.EstoqueDAO;
 import sistema.devgo.Model.dao.LivroDAO;
+import sistema.devgo.java.Estoque;
 import sistema.devgo.java.Livro;
 import sistema.devgo.java.UsuarioSistema;
 
@@ -99,23 +103,26 @@ public class EditarProduto extends HttpServlet {
         usuario.getDepartamento();
 
         String preco = request.getParameter("Preco");
-        String quantidade = request.getParameter("Quantidade");
+        int quantidade = Integer.parseInt(request.getParameter("Quantidade"));
+        int quantidadeAtual = Integer.parseInt(request.getParameter("QuantidadeAtual"));
         String opcaoLivro = request.getParameter("opcaoIdioma");
         int  codigo = Integer.parseInt(request.getParameter("codigo"));
         double preco1 = Double.parseDouble(preco);
-        int quantidade1 = Integer.parseInt(quantidade);
 
         Livro livro = new Livro();
-
+        if(quantidade == 0){
+        quantidade = quantidadeAtual;
+        }
+        Estoque estoque = new Estoque(codigo,quantidade);
         livro.setIdioma(opcaoLivro);
         livro.setPreco(preco1);
-        livro.setQuantidade(quantidade1);
         livro.setCod_idioma(codigo);
-
         LivroDAO dao = new LivroDAO();
-
+        EstoqueDAO dao1 = new EstoqueDAO();
+        
         try {
             dao.editar(livro);
+            dao1.insert(estoque);
             request.setAttribute("departamento", usuario.getDepartamento());
             request.setAttribute("msgm", "sucesso");
         } catch (SQLException ex) {
@@ -125,7 +132,7 @@ public class EditarProduto extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscaProduto.jsp");
         dispatcher.forward(request, response);
-
+      
     }
 
     /**
