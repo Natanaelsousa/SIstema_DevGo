@@ -74,8 +74,10 @@
                             <input required="required" type="text" name="opcaoIdioma" maxlength="35" id="opcaoIdioma" size="52"  value="<%= livro.getIdioma()%>" /></p>
                         <p><label for="Preço">Preço:</label>
                             <input required="required" type="text" name="Preco" maxlength="35" id="Preço" size="52"  onkeypress="return somenteNumero(event)" value="<%= livro.getPreco()%>" /></p>
-                        <p><label for="Quantidade">Quantidade:</label>
-                            <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)" value="<%= livro.getQuantidade()%>"/></p>
+                        <p><label for="QuantidadeAtual">Quantidade Atual:</label>
+                            <input required="required" type="text" name="QuantidadeAtual" maxlength="35" id="Quantidade" size="52" readonly="true" onkeypress="return somenteNumero(event)" value="<%= livro.getQuantidade()%>"/></p>
+                    <p><label for="Quantidade">Nova Quantidade:</label>
+                            <input required="required" type="text" name="Quantidade" maxlength="35" id="Quantidade" size="52" onkeypress="return somenteNumero(event)"/></p>
                     </div>
                 </fieldset>
                 <div class="botoes">
