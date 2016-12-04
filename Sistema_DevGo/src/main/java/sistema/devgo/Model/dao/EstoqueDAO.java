@@ -13,8 +13,10 @@ import sistema.devgo.java.Estoque;
  * @author natan
  */
 public class EstoqueDAO extends GenericaDAO {
+    
+    
     public void insert (Estoque estoque) throws SQLException {
-        String sql = "INSERT INTO ENTRADA(COD_IDIOMA,QTDE_ATUAL) "
+        String sql = "INSERT INTO ENTRADA(COD_IDIOMA,QTDE_ENTRADA) "
                 + "VALUES(?,?)";
         insert(sql, estoque.getCodIdioma(), estoque.getQtdeEntrada());
     } 
