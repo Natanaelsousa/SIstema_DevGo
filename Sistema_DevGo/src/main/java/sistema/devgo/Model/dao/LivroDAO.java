@@ -131,6 +131,30 @@ public class LivroDAO extends GenericaDAO {
         stmt.close();
         return livro;
     }
+    
+     public Livro findById() throws SQLException {
+
+        String sql = "SELECT * FROM LV_IDIOMA WHERE COD_IDIOMA = ?";
+
+        Livro livro = new Livro();
+
+        PreparedStatement stmt
+                = getConnection().prepareStatement(sql);
+
+        
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            livro.setCod_idioma(rs.getLong("COD_IDIOMA"));
+            livro.setIdioma(rs.getString("TIPO_IDIOMA"));
+            livro.setPreco(rs.getDouble("PRECO"));
+            livro.setQuantidade(rs.getInt("QTDE_ATUAL"));
+        }
+
+        rs.close();
+        stmt.close();
+        return livro;
+    }
 
     public long verificaProdutoExistente(String produto) throws SQLException {
 

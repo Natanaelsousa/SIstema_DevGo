@@ -142,19 +142,19 @@ public class Vendas extends HttpServlet {
             }
 
         }
+        if (quantAluno < modelolivro.getQuantidade()) {
+            try {
+                dao.insert(venda);
+                request.setAttribute("departamento", usuario.getDepartamento());
+                response.sendRedirect("ApresentacaoVenda");
+            } catch (SQLException ex) {
+                request.setAttribute("departamento", usuario.getDepartamento());
+                request.setAttribute("msgm", "erro");
+                response.sendRedirect("ApresentacaoVenda");
+            }
 
-        try {
-            dao.insert(venda);
-            request.setAttribute("departamento", usuario.getDepartamento());
-            response.sendRedirect("ApresentacaoVenda");
-        } catch (SQLException ex) {
-            request.setAttribute("departamento", usuario.getDepartamento());
-            request.setAttribute("msgm", "erro");
-            response.sendRedirect("ApresentacaoVenda");
+            response.setContentType("text/html;charset=UTF-8");
         }
-
-        response.setContentType("text/html;charset=UTF-8");
-
     }
 
     @Override

@@ -21,11 +21,11 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="CSS/ApresentacaoVenda.css" type="text/css" />
-        <c:url value="CSS/ApresentacaoVenda.css" var="ApresentacaoVenda."/>
+        <c:url value="CSS/QuantLivroIndisponivel.css" var="QuantLivroIndisponivel."/>
         <link type="text/css" rel="stylesheet" href="${Vendas}"/>
         <script type="text/javascript" src="SCRIPT/funcoes.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vendas efetudas</title>
+        <title>Quantidade indisponivel</title>
 
 
     </head>
@@ -33,8 +33,8 @@
     <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
     <input type="hidden" id="act" value="" />
     <input type="hidden" id="req" value="" />
-
-
+    
+   
 
     <body>
         <header>
@@ -60,14 +60,39 @@
             </div>
         </header>
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
-        <c:url value="ApresentacaoVenda" var="ApresentacaoVenda" />
-        <form action="${ApresentacaoVenda}" method="post" enctype="application/x-www-form-urlencoded">
+        <c:url value="QuantLivroIndisponivel" var="QuantLivroIndisponivel" />
+        <form action="${QuantLivroIndisponivel}" method="post" enctype="application/x-www-form-urlencoded">
 
             <h2> Quantidade de livros indisponiveis no momento </h2>
-           
+ <%
+                LivroDAO daoLiv = new LivroDAO();
+                List<Livro> livro = daoLiv.findLivro();
+                Iterator<Livro> itrLivro = livro.iterator();
+                Livro livros = null;
+
+            %>
+            <table id="exTable" class="table">
+                <tr>
+                    <th>Codigo </th>
+                    <th>Nome</th>
+                    <th>Quantidade disponivel</th>
+                    
+                </tr>
+                <tr>
+                    <%while (itrLivro.hasNext()) {
+                            livros = itrLivro.next();
+                    %>
+                    <td><%= livros.getCod_idioma()%></td>
+                    <td><%= livros.getIdioma()%></td>
+                    <td><%= livros.getQuantidade()%></td>
+                    
+                </tr>
+                <%
+                    }
+                %>	
             </table>
             <div class="botoes">
-                <input id="Voltar" title="Voltar" value="Sair" type="submit">
+                <input id="Voltar" title="Voltar" value="Nova consulta" type="submit">
             </div>
         </form>
 
