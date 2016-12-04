@@ -11,6 +11,13 @@ and open the template in the editor.
 html{
 	font-family: helvetica;
 }
+select{
+    padding: 4px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0 5px;
+}
 header .bar{
 	position: absolute;
 	background: hsl(0, 0%, 0%) ;
