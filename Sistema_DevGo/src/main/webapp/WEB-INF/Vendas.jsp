@@ -36,14 +36,14 @@
     %>
 
 
-        <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
-        <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
-        <input type="hidden" id="act" value="" />
-        <input type="hidden" id="req" value="" />
+    <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
+    <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
+    <input type="hidden" id="act" value="" />
+    <input type="hidden" id="req" value="" />
     <body>
         <header>
             <div class="logo">
-                 <img src="<c:url value="/IMG/DevGo.png"/>" />
+                <img src="<c:url value="/IMG/DevGo.png"/>" />
             </div>
             <div class="logout">
                 <h3><a href="Login">Sair</a></h3>
@@ -78,7 +78,8 @@
                     <p><label for="Razao">Razao Social:</label>
                         <input required="required" type="text" name="Razao" maxlength="35" id="Razao" size="64" value="<%= cliente.getRazaoSocial()%>" readonly="readonly"</p>    
 
-                    <p><select name="opcaoPlano">
+                    <p><label for="plano">Selecione o plano:</label>
+                    <select name="opcaoPlano">
                             <%
                                 PlanoDAO dao = new PlanoDAO();
                                 List<Plano> planos = dao.findPlano();
@@ -89,7 +90,8 @@
                         </select></p>
 
 
-                    <p><select name="opcaoIdioma">
+                        <p><label for="idioma">Selecione o idioma:</label>
+                    <select name="opcaoIdioma">
                             <%
                                 LivroDAO daoLivro = new LivroDAO();
                                 List<Livro> livros = daoLivro.findLivro();
@@ -107,10 +109,10 @@
                         <%
                             String resultadoFinal = request.getParameter("resultadoFinal");
                         %> 
-                       
+
                     </p>
 
-                    
+
                 </div>
             </fieldset>
 
