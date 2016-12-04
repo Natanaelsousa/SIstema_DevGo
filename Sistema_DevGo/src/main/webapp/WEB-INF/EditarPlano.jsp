@@ -80,11 +80,11 @@
                                 <p><label for="Periodo">Periodo:</label><select name="opcaoPeriodo">
                         <%
                             PeriodoDAO daoPeriodo = new PeriodoDAO();
-                            List<Periodo> period = daoPeriodo.buscaPeriodosDoPlanoCadastrado(plano.getNomePlano());
-                            for (Periodo periodos : period) {
-                        %>
-                        <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
-                        <%}%>
+                             List<Periodo> period = daoPeriodo.findPeriodo();
+                                for (Periodo periodos : period) {
+                            %>
+                            <option value="<%=periodos.getCod_periodo()%>"><%=periodos.getNm_periodo()%></option>
+                            <%}%>
                         </select></p> 
                                 
                     <p><label for="Preço">Preço:</label>
