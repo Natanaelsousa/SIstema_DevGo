@@ -8,8 +8,6 @@ package sistema.devgo.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -110,10 +108,9 @@ public class EditarProduto extends HttpServlet {
         double preco1 = Double.parseDouble(preco);
 
         Livro livro = new Livro();
-        if(quantidade == 0){
-        quantidade = quantidadeAtual;
-        }
-        Estoque estoque = new Estoque(codigo,quantidade);
+        Estoque estoque = new Estoque();
+        estoque.setCodIdioma(codigo);
+        estoque.setQtdeEntrada(quantidade);
         livro.setIdioma(opcaoLivro);
         livro.setPreco(preco1);
         livro.setCod_idioma(codigo);
