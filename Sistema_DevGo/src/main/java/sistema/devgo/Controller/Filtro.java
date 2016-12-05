@@ -151,24 +151,27 @@ public class Filtro implements Filter {
 
         } else if (pagina.endsWith("Relatorio")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) ||
+                "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
         } else if (pagina.endsWith("RelatorioCliente")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) ||
+                "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
 
         } else if (pagina.endsWith("RelatorioFuncionario")
-                && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
+               && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) ||
+                "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
             
             } else if (pagina.endsWith("RelatorioVenda")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
-                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) || "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))){
+                || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()) ||
+                "SERVICO".equalsIgnoreCase(usuario.getDepartamento()))) {
             return true;
-
         } else if (pagina.endsWith("ApresentacaoVenda")
                 && ("TECNOLOGIA DA INFORMACAO".equalsIgnoreCase(usuario.getDepartamento())
                 || "FINANCEIRO".equalsIgnoreCase(usuario.getDepartamento()))) {
