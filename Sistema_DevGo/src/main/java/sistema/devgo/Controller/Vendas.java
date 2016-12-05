@@ -142,7 +142,7 @@ public class Vendas extends HttpServlet {
             }
 
         }
-        if (quantAluno < modelolivro.getQuantidade()) {
+        if (quantAluno <= modelolivro.getQuantidade()) {
             try {
                 dao.insert(venda);
                 request.setAttribute("departamento", usuario.getDepartamento());
