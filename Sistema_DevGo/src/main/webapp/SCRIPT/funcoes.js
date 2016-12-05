@@ -40,7 +40,7 @@ window.onload = function(){
     }
     else if(departamento === "SERVICO"){
         menu.removeChild(menu.childNodes[1]);
-        menu.removeChild(menu.childNodes[3]);
+        menu.removeChild(menu.childNodes[5]);
         menu.removeChild(menu.childNodes[3]);
         menu.removeChild(menu.childNodes[4]);
     }
