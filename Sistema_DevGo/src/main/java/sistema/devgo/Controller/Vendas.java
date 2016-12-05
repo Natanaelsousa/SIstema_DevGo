@@ -99,20 +99,20 @@ public class Vendas extends HttpServlet {
         LivroDAO livrodao = new LivroDAO();
 
         long codCliente = Long.parseLong(request.getParameter("Id"));//Pega Id do cliente
-        long idiomaLivro = Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
-        long codplano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
+        long codIdioma = Long.parseLong(request.getParameter("opcaoIdioma")); // pega ID
+        long codPlano = Long.parseLong(request.getParameter("opcaoPlano"));// pega ID
         int quantAluno = Integer.parseInt(request.getParameter("QTDE_ALUNO"));
 
         Plano modeloPlano = null;
         try {
-            modeloPlano = planodao.trasPlano(codplano);
+            modeloPlano = planodao.trasPlano(codPlano);
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Livro modelolivro = null;
         try {
-            modelolivro = livrodao.trasLivro(idiomaLivro);
+            modelolivro = livrodao.trasLivro(codIdioma);
         } catch (SQLException ex) {
             Logger.getLogger(Vendas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -122,9 +122,9 @@ public class Vendas extends HttpServlet {
         double valor_venda = resultado2;
 
         Venda venda = new Venda();
-        venda.setCodPlano(codplano);
+        venda.setCodPlano(codPlano);
         venda.setCodCliente(codCliente);
-        venda.setCodIdioma(idiomaLivro);
+        venda.setCodIdioma(codIdioma);
         venda.setQuantidadeAluno(quantAluno);
         venda.setValorVenda(valor_venda);
 
@@ -133,16 +133,16 @@ public class Vendas extends HttpServlet {
         Livro livroQuant = null;
 
         try {
-            livroQuant = livrodao.verificaQuantidadeLivros(idiomaLivro);
+            livroQuant = livrodao.verificaQuantidadeLivros(codIdioma);
 
         } catch (SQLException ex) {
-            if (quantAluno > modelolivro.getQuantidade()) {
+            if (quantAluno > modelolivro.getQuantidade() || quantAluno == 0 ) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/QuantLivroIndisponivel.jsp");
                 dispatcher.forward(request, response);
             }
 
         }
-        if (quantAluno <= modelolivro.getQuantidade()) {
+        if (quantAluno <= modelolivro.getQuantidade() && quantAluno > 0 ) {
             try {
                 dao.insert(venda);
                 request.setAttribute("departamento", usuario.getDepartamento());
