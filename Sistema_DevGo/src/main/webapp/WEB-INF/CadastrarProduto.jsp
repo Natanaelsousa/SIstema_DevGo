@@ -61,7 +61,7 @@
                     <p><label title="Preço dos produtos." for="Preco">Preço:</label>
                         <input required="required" type="text" name="Preco" maxlength="10" id="Preco" size="35" onkeypress="return somenteNumero(event)"/></p>
                     <p><label title="Quantidade de produtos." for="Quantidade">Quantidade:</label>
-                        <input required="required" type="text" name="Quantidade" maxlength="10" id="Quantidade" size="35" onkeypress="return somenteNumero(event)"/></p>
+                        <input required="required" pattern="[0-9]+" type="text" name="Quantidade" maxlength="10" id="Quantidade" size="35" onkeypress="return somenteNumero(event)"/></p>
                 </div>
             </fieldset>
             <div class="botoes">
