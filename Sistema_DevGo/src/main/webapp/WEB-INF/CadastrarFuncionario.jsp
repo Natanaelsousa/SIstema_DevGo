@@ -69,8 +69,8 @@
                         <input required="required" type="text" name="Telefone" maxlength="11" id="Telefone" size="35" onkeypress="return somenteNumero(event)"/></p>
                     <p><label for="Datanasc">Data de Nascimento:</label>
                         <input required="required" type="date" name="Datanasc" id="Datanasc"/></p>
-                    <p><select name="opcao">
-                            <option>Selecione o Departamento...</option>
+                   
+                            <p><label for="departamento">Departamento:</label><select name="opcao">
                             <%
                                 DepartamentoDAO dao = new DepartamentoDAO();
                                 List<Departamento> deptos = dao.findDeptos();
@@ -78,6 +78,7 @@
                             %>
                             <option value="<%=departamentos.getCodDepartamento()%>"><%=departamentos.getSetor()%></option>
                             <%}%>
+                            </select></p> 
                         </select></p>      
                     <p><label title="Letras de A a Z." for="Usuario">Usuario:</label>
                         <input required="required" type="text" name="Usuario" maxlength="35" id="Usuario" size="35"/></p>
