@@ -60,9 +60,10 @@
         <form>
         <table id="exTable" class="table">
             <tr>
-                <th>Id</th>
+               
                 <th>CNPJ</th>
                 <th>Razao Social</th>
+                <th>Estado</th>
                 <th>Cidade</th>
                 <th>Telefone</th>
                 <th>E-mail</th>
@@ -73,9 +74,10 @@
                     while (itr.hasNext()) {
                         utilisateur = itr.next();
                 %>
-                <td><%= utilisateur.getCodCliente()%></td>
+              
                 <td><%= utilisateur.getCNPJ()%></td>
                 <td><%= utilisateur.getRazaoSocial()%></td>
+                <td><%= utilisateur.getEstado()%></td>
                 <td><%= utilisateur.getCidade()%></td>
                 <td><%= utilisateur.getTelefone1()%></td>
                 <td><%= utilisateur.getEmail()%></td>
