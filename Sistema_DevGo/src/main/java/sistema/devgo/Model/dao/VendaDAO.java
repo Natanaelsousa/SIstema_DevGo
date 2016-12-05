@@ -5,13 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import sistema.devgo.java.Cliente;
 import sistema.devgo.java.Venda;
 
-/**
- *
- * @author Erik
- */
 public class VendaDAO extends GenericaDAO {
 
     public void insert(Venda venda) throws SQLException {
@@ -20,7 +15,7 @@ public class VendaDAO extends GenericaDAO {
         insert(insert, venda.getCodPlano(), venda.getCodCliente(), venda.getCodIdioma(), venda.getQuantidadeAluno(), venda.getValorVenda());
     }
 
-    //Select te toda os registros da tabela venda
+    //Select de todos os registros da tabela venda
     public List<Venda> findVendaLista() throws SQLException {
         List<Venda> vendas = new ArrayList<Venda>();
 
@@ -58,7 +53,6 @@ public class VendaDAO extends GenericaDAO {
                 + "INNER JOIN cliente c ON (a.COD_CLIENTE =c.COD_CLIENTE)\n"
                 + "INNER JOIN lv_idioma l ON (a.COD_IDIOMA =l.COD_IDIOMA)\n"
                 + "ORDER BY cod_venda DESC LIMIT 1";
-        // String sql = "SELECT * FROM venda ORDER BY cod_venda DESC LIMIT 1";
 
         PreparedStatement stmt
                 = getConnection().prepareStatement(sql);
@@ -115,7 +109,5 @@ public class VendaDAO extends GenericaDAO {
 
         return vendas;
     }
-
-    
 
 }
