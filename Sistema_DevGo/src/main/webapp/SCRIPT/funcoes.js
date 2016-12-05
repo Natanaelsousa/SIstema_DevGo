@@ -269,6 +269,7 @@ function exportToExcel(tableID){
     var tab_text="<table border='2px'><tr bgcolor='#87AFC6' style='height: 75px; text-align: center; width: 250px'>";
     var textRange; var j=0;
     tab = document.getElementById(tableID); // id of table
+    
 
     for(j = 0 ; j < tab.rows.length ; j++)
     {
@@ -278,12 +279,23 @@ function exportToExcel(tableID){
         tab_text=tab_text+tab.rows[j].innerHTML.toUpperCase()+"</tr>";
         //tab_text=tab_text+"</tr>";
     }
+    
 
     tab_text= tab_text+"</table>";
     tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
     tab_text= tab_text.replace(/<img[^>]*>/gi,""); //remove if u want images in your table
     tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
     tab_text= retira_acentos(tab_text);
+    
+     for(j = 0 ; j <  tab.rows.length *2 ; j++)
+    {
+   
+    tab_text = tab_text.replace(/a0/,"");
+    tab_text = tab_text.replace(/aCOM/,".COM");
+  
+    
+    }
+    
 
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf("MSIE ");
@@ -300,7 +312,7 @@ function exportToExcel(tableID){
     }
 
     else {
-       sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+          sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text, "UTF-8"));
     }
     
     return (sa);

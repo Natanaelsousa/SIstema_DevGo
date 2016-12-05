@@ -44,7 +44,7 @@
         <aside>
             <ul>
                 <li><a href="RelatorioCliente">Listar Clientes</a></li>
-                <li><a href="RelatorioFuncionario">Listar Funcionário</a></li>
+                <li><a href="RelatorioFuncionario">Listar Funcionários</a></li>
                 <li><a href="#">Listar Vendas</a></li>
             </ul>
         </aside>
