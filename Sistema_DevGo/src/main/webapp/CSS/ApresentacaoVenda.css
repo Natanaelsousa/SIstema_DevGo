@@ -12,6 +12,9 @@ and open the template in the editor.
 html{
     font-family: helvetica;
 }
+h3{
+  text-align: center  
+}
 
 h1 { 
     position: relative;
@@ -151,8 +154,8 @@ form{
 }
 #Voltar{
     position: absolute;
-    top: 200px;
-    left: 900px;
+    top: 350px;
+    left: 400px;
     color: white;
     width: 210px;
     height: 35px;
@@ -178,6 +181,28 @@ input#Voltar{
     cursor: pointer;
 }
 #Voltar:active{
+    box-shadow: 0 5px 10px black;
+    border: none;
+}
+
+#VoltarPesquisa{
+    position: absolute;
+    top: 200px;
+    right: 100px;
+    color: white;
+    width: 210px;
+    height: 35px;
+    border: none;
+}
+
+input#VoltarPesquisa{
+    color: white;
+    background: hsl(200, 100%, 50%);
+    box-shadow: 0 2px 4px grey;
+    border: none;
+    cursor: pointer;
+}
+#VoltarPesquisa:active{
     box-shadow: 0 5px 10px black;
     border: none;
 }

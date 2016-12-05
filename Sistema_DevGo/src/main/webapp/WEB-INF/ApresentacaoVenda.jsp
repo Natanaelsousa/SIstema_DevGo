@@ -90,7 +90,7 @@
                 %>	
             </table>
             <div class="botoes">
-                <input id="Voltar" title="Voltar" value="Nova Venda" type="submit">
+                <input id="VoltarPesquisa" title="VoltarPesquisa" value="Nova Venda" type="submit">
             </div>
         </form>
 
