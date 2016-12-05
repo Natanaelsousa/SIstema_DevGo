@@ -20,6 +20,8 @@
         <ul>
             <li><a href="CadastroProduto"><i class="material-icons">shop</i><i class="material-icons">poll</i>Produtos e Serviços</a> 
                 - Cadastros e edições de Produtos e Serviços.</li>
+            <li><a href="RelatorioCliente"><i class="material-icons">description</i>Relatório</a> 
+                - Exportar e gerar relatórios.</li>
         </ul>
     </body>
 </html>
