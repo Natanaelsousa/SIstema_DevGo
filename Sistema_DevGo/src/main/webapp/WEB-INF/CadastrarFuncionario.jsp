@@ -54,6 +54,7 @@
         <input type="hidden" id="act" value="cadastrado" />
         <input type="hidden" id="req" value="Funcionario" />
         <c:url value="CadastroFuncionario" var="CadastroFuncionario"/>
+         <div id="mensagem"></div>
         <form action="${CadastroFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
                 <h4>Empresa</h4>

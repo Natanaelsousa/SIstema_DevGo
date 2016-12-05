@@ -147,6 +147,8 @@ public class EditarFuncionario extends HttpServlet {
 
                 dao2.update(p);
                 request.setAttribute("msgm", "sucesso");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscarFuncionario.jsp");
+                dispatcher.forward(request, response);
             } catch (SQLException ex) {
 
             }

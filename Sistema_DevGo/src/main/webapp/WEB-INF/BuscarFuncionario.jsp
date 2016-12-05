@@ -47,7 +47,7 @@
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
         <input type="hidden" id="act" value="editado" />
         <input type="hidden" id="req" value="Funcionario" />
-        <div id="mensagem"></div>
+       <div id="mensagem"></div>
         <c:url value="BuscarFuncionario" var="BuscarFuncionario"/>
         <form action="${BuscarFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">

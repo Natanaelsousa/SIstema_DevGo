@@ -58,14 +58,14 @@
         <aside>
             <ul>
                 <li><a href="CadastroFuncionario">Cadastrar Funcionario</a></li>
-                <li><a href="BuscarCliente">Editar Funcionario</a></li>
+                <li><a href="#">Editar Funcionario</a></li>
             </ul>
     </aside>
         <input type="hidden" id="departamento" value="<c:out value="${departamento}"/>" />
         <input type="hidden" id="mens" value="<c:out value="${msgm}"/>" />
         <input type="hidden" id="act" value="editado" />
         <input type="hidden" id="req" value="Funcionario" />
-        <div id="mensagem"></div>
+       <div id="mensagem"></div>
         <c:url value="EditarFuncionario" var="EditarFuncionario"/>
         <form action="${EditarFuncionario}" method="post" enctype="application/x-www-form-urlencoded">
             <fieldset id="dados">
