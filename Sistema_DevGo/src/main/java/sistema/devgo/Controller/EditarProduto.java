@@ -104,7 +104,7 @@ public class EditarProduto extends HttpServlet {
         int quantidade = Integer.parseInt(request.getParameter("Quantidade"));
         int quantidadeAtual = Integer.parseInt(request.getParameter("QuantidadeAtual"));
         String opcaoLivro = request.getParameter("opcaoIdioma");
-        long  codigo = Long.parseLong(request.getParameter("codigo"));
+        long codigo = Long.parseLong(request.getParameter("codigo"));
         double preco1 = Double.parseDouble(preco);
 
         Livro livro = new Livro();
@@ -116,20 +116,32 @@ public class EditarProduto extends HttpServlet {
         livro.setCod_idioma(codigo);
         LivroDAO dao = new LivroDAO();
         EstoqueDAO dao1 = new EstoqueDAO();
-        
-        try {
-            dao.editar(livro);
-            dao1.insert(estoque);
-            request.setAttribute("departamento", usuario.getDepartamento());
-            request.setAttribute("msgm", "sucesso");
-        } catch (SQLException ex) {
-            request.setAttribute("departamento", usuario.getDepartamento());
-            request.setAttribute("msgm", "erro");
-        }
+        if (estoque.getQtdeEntrada() == 0) {
+            try {
+                dao.editar(livro);
+                request.setAttribute("departamento", usuario.getDepartamento());
+                request.setAttribute("msgm", "sucesso");
+            } catch (SQLException ex) {
+                request.setAttribute("departamento", usuario.getDepartamento());
+                request.setAttribute("msgm", "erro");
+            }
+        } else {
+            try {
+                dao.editar(livro);
+                dao1.insert(estoque);
+                request.setAttribute("departamento", usuario.getDepartamento());
+                request.setAttribute("msgm", "sucesso");
+            } catch (SQLException ex) {
+                request.setAttribute("departamento", usuario.getDepartamento());
+                request.setAttribute("msgm", "erro");
+            }
 
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscaProduto.jsp");
+            dispatcher.forward(request, response);
+
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/BuscaProduto.jsp");
-        dispatcher.forward(request, response);
-      
+            dispatcher.forward(request, response);
     }
 
     /**
